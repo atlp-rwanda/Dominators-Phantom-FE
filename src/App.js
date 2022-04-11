@@ -1,10 +1,12 @@
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import PageNotFound from "./pages/PageNotFound";
 function App() {
   return (
-    <div>
-      <h1>Hello wolrd</h1>
-      <h3>Dominators frontend</h3>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} exact={true} />
+      <Route path="/*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 export default App;
