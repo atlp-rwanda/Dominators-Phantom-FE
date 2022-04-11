@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
+const dontenv = require("dotenv");
+dontenv.config();
+const port = process.env.PORT;
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,6 +13,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    port: port || 8080,
   },
 
   plugins: [
