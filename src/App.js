@@ -5,8 +5,6 @@ import PageNotFound from "./pages/PageNotFound";
 import Landing from "./pages/Landing";
 import "react-toastify/dist/ReactToastify.css";
 
-import CrudRoute from "./pages/crud-routes/CrudRoute";
-import UserRoute from "./pages/user-route/UserRoutes";
 function App() {
   return (
     <Routes>

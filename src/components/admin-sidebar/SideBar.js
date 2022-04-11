@@ -38,6 +38,7 @@ const Sidebar = () => {
           <Link to="#">
             <IoIcons.IoIosLock /> <span> Permissions </span>
           </Link>
+<<<<<<< HEAD
           <NavLink to="#">
             <IoIcons.IoMdAnalytics /> <span> Actions </span>
           </NavLink>
@@ -46,6 +47,16 @@ const Sidebar = () => {
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
         </NavLink>
+=======
+          <Link to="#">
+            <IoIcons.IoMdAnalytics /> <span> Actions </span>
+          </Link>
+        </div>
+        <Link to="#">
+          <AiIcons.AiOutlineReload />
+          <span> Routes </span>
+        </Link>
+>>>>>>> 97ffb2f ( This is a combination of 2 commits.)
         <Link to="#">
           <IoIcons.IoMdBus />
           <span> Buses </span>

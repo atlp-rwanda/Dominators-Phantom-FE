@@ -1,5 +1,5 @@
 import React from "react";
-import { increment, decrement } from "../module/actions";
+import { increment, decrement } from "../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 function Landing() {

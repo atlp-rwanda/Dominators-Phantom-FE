@@ -30,9 +30,12 @@
   padding-top: 2px;
   color: rgba(255, 255, 255, 0.719);
 }
+<<<<<<< HEAD
 .footer .footer-content .footer-quick-links ul li a.active {
       border-bottom: none;
 }
+=======
+>>>>>>> 97ffb2f ( This is a combination of 2 commits.)
 .footer .footer-content .footer-quick-links ul li a:hover {
   color: rgba(255, 255, 255);
 }
@@ -85,6 +88,10 @@
 .footer-limit .designer p.p2 {
   float: right;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97ffb2f ( This is a combination of 2 commits.)
 @media only screen and (max-width: 620px) {
   .footer .footer-content {
     display: grid;
@@ -120,7 +127,10 @@
   text-decoration: none;
   padding-top: 2px;
   color: rgba(255, 255, 255, 0.719);
+<<<<<<< HEAD
   word-wrap: break-word;
+=======
+>>>>>>> 97ffb2f ( This is a combination of 2 commits.)
 }
 .footer .footer-content .footer-contact-us {
   width: 100%;
@@ -170,4 +180,8 @@ flex-direction: column;
     width: 100%;
   
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 97ffb2f ( This is a combination of 2 commits.)
