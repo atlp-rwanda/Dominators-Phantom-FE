@@ -36,12 +36,11 @@ function UserNavbar() {
                 </ul>
               </div>
           {toggleMenu ? (
-
             <ImCross
               className="close"
-              onClick={ () => {
-                setToggleMenu( !toggleMenu );
-              } }
+              onClick={() => {
+                setToggleMenu(!toggleMenu);
+              }}
             />
           ) : (
             <GiHamburgerMenu
@@ -54,5 +53,7 @@ function UserNavbar() {
         </nav>
       </div>
     </>)
+  
 }
+
 export default UserNavbar;

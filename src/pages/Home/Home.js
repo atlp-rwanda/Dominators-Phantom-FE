@@ -7,6 +7,7 @@ import "./home.css";
 import Footer from "../../components/Footer/Footer";
 import HomeSkeleton from "./HomeSkeleton";
 import { useState, useEffect } from "react";
+
 function Home() {
   const [skeleton, setSkeleton] = useState(false);
   useEffect(() => {

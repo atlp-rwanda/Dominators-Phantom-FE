@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
 * {
-
   box-sizing: border-box;
   margin: auto;
   padding: 0;
@@ -47,3 +46,76 @@ body {
 color: var(--green);
 }
 
+body {
+  background-color: #ffffff;
+}
+nav {
+  background-color: var(--white);
+  margin-left: 10px;
+  margin-right: 10px;
+  z-index: 1;
+
+  /* box-shadow: 0px 3px 6px 0px rgb(17, 17, 17); */
+}
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  top: 0px;
+}
+
+.navItem ul {
+  list-style: none;
+}
+.nav ul li {
+  display: inline-block;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.navItem ul li a.login {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 1rem 1rem;
+  border-radius: 20px;
+}
+.navItem ul li a {
+  text-decoration: none;
+  padding: 1rem 1rem;
+  color: var(--black);
+  font-weight: 200;
+}
+.navItem ul li a.active {
+  color: var(--green);
+  border-bottom: 3px solid var(--green);
+  padding: 1rem 1rem;
+}
+.navItem ul li a:hover {
+  padding: 1rem 1rem;
+  background-color: var(--green);
+  color: var(--white);
+  border-bottom: 3px solid gray;
+}
+.intro_header {
+  margin-top: 70px;
+  position: absolute;
+  height: 400px;
+  width: 100%;
+}
+.header {
+  background: url("./assets/images/background.svg");
+  background-size: 94%;
+  background-repeat: no-repeat;
+  height: 550px;
+}
+.header .header-content {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  height: inherit;
+}

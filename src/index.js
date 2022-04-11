@@ -12,11 +12,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
-    </BrowserRouter>{" "}
+    </BrowserRouter>
   </Provider>
 );
-
-
-
-
 

@@ -1,4 +1,3 @@
-
 import "./customButton.css";
 
 function HomeButton({ children }) {
@@ -8,4 +7,5 @@ function HomeButton({ children }) {
     </div>
   );
 }
+
 export default HomeButton;
