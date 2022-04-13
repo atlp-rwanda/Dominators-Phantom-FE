@@ -135,6 +135,36 @@ nav {
 /* Home Content style */
 .home-content{
 margin-top: 15px;
+display: flex;
+flex-direction: column;
 align-items: center;
+background-color: #F6F6F6;
+padding-bottom: 2rem;
+padding-top: 2rem;
 
+}
+.home-content .row{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 4rem;
+}
+.home-content .row .col-3{
+  padding: 2rem 3rem;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.icons{
+  color: var(--green);
+  height: 60px;
+  width: 60px;
+}
+.home-circle{
+  height: 90px;
+  width: 90px;
+  background-color: var(--green);
+  color: var(--white);
+
+  align-content: center;
 }
