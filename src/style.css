@@ -1,3 +1,50 @@
-.pagenotfound {
-  color: red;
+* {
+  box-sizing: border-box;
+  margin: auto;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #ffffff;
+}
+nav {
+  height: 70px;
+
+  background-color: rgb(255, 255, 255);
+  /* box-shadow: 0px 3px 6px 0px rgb(17, 17, 17); */
+}
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  top: 0px;
+}
+
+.navItem ul {
+  list-style: none;
+}
+.nav ul li {
+  display: inline-block;
+  padding: 1rem 1rem;
+  color: gray;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.navItem ul li a {
+  text-decoration: none;
+}
+.navItem ul li a.active {
+  color: hsl(166deg 100% 16% / 66%);
+  border-bottom: 3px solid hsl(166deg 100% 16% / 66%);
+  padding: 1rem 1rem;
+}
+.navItem ul li a:hover {
+  padding: 1rem 1rem;
+  background-color: hsl(166deg 100% 16% / 66%);
+  color: white;
+  border-bottom: 3px solid gray;
 }
