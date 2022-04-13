@@ -1,9 +1,10 @@
 import UserNavbar from "../components/Navbars/UserNavbar";
+import UserHeader from "../components/Headers/UserHeader";
 function Home() {
   return (
     <div>
       <UserNavbar />
-      Welcome to our app <h3>Dream Phantom</h3>
+      <UserHeader />
     </div>
   );
 }
