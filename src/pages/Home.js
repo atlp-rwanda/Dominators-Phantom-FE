@@ -5,7 +5,16 @@ function Home() {
     <div>
       <UserNavbar />
       <UserHeader />
-      <div className=""></div>
+      <div className="home-content">
+        <h3>
+          HOW DOES IT WORKER
+        </h3>
+        <div>
+          <div className="col-3">Register</div>
+          <div className="col-3"></div>
+          <div className="col-3"></div>
+        </div>
+      </div>
     </div>
   );
 }
