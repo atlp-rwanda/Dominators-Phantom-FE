@@ -1,0 +1,24 @@
+{
+  "name": "dominators-phantom-fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlp-rwanda/Dominators-Phantom-FE.git"
+  },
+  "keywords": [],
+  "author": "Angelus123",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atlp-rwanda/Dominators-Phantom-FE/issues"
+  },
+  "homepage": "https://github.com/atlp-rwanda/Dominators-Phantom-FE#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
+  }
+}
