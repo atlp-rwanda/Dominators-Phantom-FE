@@ -6,12 +6,18 @@
   scroll-behavior: smooth;
   --green: hsl(166deg 100% 16% / 66%);
   --white: rgb(255, 255, 255);
+  --gray:gray
   --black: rgb(0, 0, 0);
   font-family: "Inter";
 }
 body {
   background-color: #ffffff;
 }
+
+
+/* Nav bar css and all related styles */
+
+
 nav {
   background-color: var(--white);
   margin-left: 10px;
@@ -40,11 +46,17 @@ nav {
   margin-right: 12px;
   cursor: pointer;
 }
-.navItem ul li a.login {
+.navItem ul li a.login  {
   background-color: var(--green);
   color: var(--white);
-  padding: 1rem 1rem;
-  border-radius: 20px;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+.navItem ul li a.login:hover  {
+   color: var(--white);
+  border-bottom: 3px solid var(--green);
+  padding: 1rem 2rem;
+  border-radius: 15px;
 }
 .navItem ul li a {
   text-decoration: none;
@@ -63,6 +75,11 @@ nav {
   color: var(--white);
   border-bottom: 3px solid gray;
 }
+
+
+/* Header Css that  */
+
+
 .intro_header {
   margin-top: 70px;
   position: absolute;
@@ -76,9 +93,55 @@ nav {
   height: 550px;
 }
 .header .header-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
   flex-wrap: wrap;
   height: inherit;
+  grid-column-gap: 2px;
+}
+.header-content .content {
+  align-items: center;
+  justify-items: center;
+  margin: auto;
+  display: inline-block;
+  width: 50%;
+}
+.content h4 {
+  font-weight: 600;
+}
+.content .ft-tracking {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--green);
+  padding: 0.5rem;
+}
+.content p {
+  margin-top: 10px;
+  color: var(--gray);
+}
+.content .ft-header-btn{
+  margin-top: 30px;
+}
+.header-content .bus-image {
+  margin: auto;
+}
+
+/* button style css */
+.btn{
+  padding: 0.5rem;
+  border-radius: 1px;
+  border: none;
+}
+.btn-green{
+  background-color: var(--green);
+  color: var(--white);
+  font-weight: 800;
+}
+.btn-green:hover{
+  font-weight: 800;
+  color: var(--green);
+  background-color: var(--gray);
 }

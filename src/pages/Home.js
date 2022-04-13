@@ -5,6 +5,7 @@ function Home() {
     <div>
       <UserNavbar />
       <UserHeader />
+      <div className=""></div>
     </div>
   );
 }
