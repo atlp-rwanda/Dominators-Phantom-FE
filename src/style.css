@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
-@import "./css/Logout.css"; 
-/* Style for Logout page */
+
 * {
   box-sizing: border-box;
   margin: auto;
@@ -10,10 +9,8 @@
   --white: rgb(255, 255, 255);
   --gray:gray
   --black: rgb(0, 0, 0);
-  font-family: "Inter";}
-
-
-
+  font-family: "Inter";
+}
 body {
   background-color: #ffffff;
 }
@@ -69,106 +66,4 @@ nav {
   background-color: var(--green);
   color: var(--white);
   border-bottom: 3px solid gray;
-}
-
-
-/* Header Css that  */
-
-
-.intro_header {
-  background: url("./assets/images/background.svg");
-  background-size: 94%;
-  height: 450px;
-  width: 100%;
-   background-repeat: no-repeat;
-}
-
-.intro_header .header-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  flex-wrap: wrap;
-  height: inherit;
-  grid-column-gap: 2px;
-}
-.header-content .content {
-  align-items: center;
-  justify-items: center;
-  margin: auto;
-  display: inline-block;
-  width: 50%;
-}
-.content h4 {
-  font-weight: 600;
-}
-.content .ft-tracking {
-  margin-top: 10px;
-  font-weight: 600;
-  color: var(--white);
-  background-color: var(--green);
-  padding: 0.5rem;
-}
-.content p {
-  margin-top: 10px;
-  color: var(--gray);
-}
-.content .ft-header-btn{
-  margin-top: 30px;
-}
-.header-content .bus-image {
-  margin: auto;
-}
-
-/* button style css */
-.btn{
-  padding: 0.5rem;
-  border-radius: 1px;
-  border: none;
-}
-.btn-green{
-  background-color: var(--green);
-  color: var(--white);
-  font-weight: 800;
-}
-.btn-green:hover{
-  font-weight: 800;
-  color: var(--green);
-  background-color: var(--gray);
-}
-/* Home Content style */
-.home-content{
-margin-top: 15px;
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: #F6F6F6;
-padding-bottom: 2rem;
-padding-top: 2rem;
-
-}
-.home-content .row{
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 4rem;
-}
-.home-content .row .col-3{
-  padding: 2rem 3rem;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-}
-.icons{
-  color: var(--green);
-  height: 60px;
-  width: 60px;
-}
-.home-circle{
-  height: 90px;
-  width: 90px;
-  background-color: var(--green);
-  color: var(--white);
-
-  align-content: center;
 }

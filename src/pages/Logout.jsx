@@ -8,6 +8,7 @@ import notify from '../images/notify.png'
 import logout from '../images/logout.png'
 import * as FaIcons from "react-icons/fa"
 
+
 class Logout extends Component {
  
   constructor(props) {

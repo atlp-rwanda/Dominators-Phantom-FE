@@ -1,5 +1,6 @@
 import bus from "../../assets/images/bus.svg";
 import HomeButton from "../Buttons/HomeButton";
+import "./header.css";
 function UserHeader() {
   return (
     <div className="intro_header">
