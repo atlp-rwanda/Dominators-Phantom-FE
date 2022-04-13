@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
-import groupIcon from '../images/phantom.png'
-import dash from '../images/images.png'
-import user from '../images/user.png'
-import driver from '../images/driver1.png'
-import setting from '../images/setting.png'
-import notify from '../images/notify.png'
-import logout from '../images/logout.png'
 import * as FaIcons from "react-icons/fa"
 import { Link } from 'react-router-dom'
+
 
 class Logout extends Component {
  

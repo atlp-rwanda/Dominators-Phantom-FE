@@ -100,9 +100,6 @@
 .skeleton-descr{
 width: 50%;
 }
-.skeleton-bus{
-
-}
 @media only screen and (max-width: 620px) {
   .skeleton-userheader{
   display: flex;
