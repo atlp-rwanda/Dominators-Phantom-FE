@@ -12,7 +12,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
+<<<<<<< HEAD
     hot: true,
+=======
+    hot: false,
+>>>>>>> factorization of folders
     historyApiFallback: true,
     port: port || 8080,
   },

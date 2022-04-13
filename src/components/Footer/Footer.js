@@ -1,4 +1,5 @@
 import "./footer.css";
+<<<<<<< HEAD
 
 import { NavLink } from "react-router-dom";
 import {
@@ -66,5 +67,9 @@ function Footer() {
     </div>
   );
 
+=======
+function Footer() {
+  return <div>Footer</div>;
+>>>>>>> factorization of folders
 }
 export default Footer;

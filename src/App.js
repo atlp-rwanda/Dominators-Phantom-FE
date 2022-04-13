@@ -2,8 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import UpdateProfile from "./components/update-profile/UpdateProfile";
 import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
-import Logout from "./pages/Logout";
-import Login from "./pages/Login";
+import Login from "./components/login/Login";
 
 
 function App() {

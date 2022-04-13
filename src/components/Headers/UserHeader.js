@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import bus from "../../assets/images/bus.svg";
 import HomeButton from "../Buttons/HomeButton";
 import "./header.css";
+<<<<<<< HEAD
 import UserHeaderSkeleton from "./UserHeaderSkeleton";
+=======
+>>>>>>> factorization of folders
 function UserHeader() {
 
   const [Skeleton, setSkeleton] = useState(false);
