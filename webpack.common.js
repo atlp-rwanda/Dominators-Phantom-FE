@@ -22,6 +22,7 @@ module.exports = {
     open: true,
     hot: true,
     compress: true,
+    hot: true,
     historyApiFallback: true,
   },
 
@@ -33,7 +34,7 @@ module.exports = {
       React: "react",
     }),
     new webpack.DefinePlugin({
-      'process.env': {
+      "process.env": {
         BACKEND_URL: JSON.stringify(process.env.BACKEND_URL),
       },
     }),

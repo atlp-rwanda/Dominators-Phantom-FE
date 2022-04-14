@@ -1,176 +1,322 @@
-.container {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 60px;
-}
-
-.form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 40px;
-  margin-top: 50px;
-  width: 350px;
-  height: 430px;
-  box-shadow: 3px 3px 10px 10px #777676;
-}
-
-.form > input {
-  text-indent: 1ch;
-  display: block;
-  height: 40px;
-  width: 90%;
-  border: 1px solid rgb(77, 77, 77);
-  border-radius: 5px;
-  background-color: rgb(232, 232, 232);
-  margin-top: 30px;
-}
-
-.form > button {
-  display: block;
-  margin: auto;
-  margin-top: 5px;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  width: 90%;
-  height: 40px;
-  font-size: large;
-  box-shadow: 2px 3px #cfcfcf;
-  background-color: var(--green);
-  cursor: pointer;
-}
-.input-feedback {
-  font-size: smaller;
-  color: red;
-}
-.form > button:hover {
-  background-color: rgba(22, 100, 83, 0.64) !important;
-}
-
-.form > button:active {
-  box-shadow: 2px 3px 2px 3px rgb(72, 72, 72);
-  font-size: larger;
-}
-
-.icon {
-  display: block;
-  margin: auto;
-}
-
-#userIcon {
-  display: block;
-  margin: auto;
-  color: rgba(17, 103, 83, 0.64);
-  width: 50px;
-  height: auto;
-  margin: auto;
-  margin-bottom: 30px;
-}
-
-#eyeTwo {
-  color: #373737;
-  margin-top: 12px;
-  margin-left: 220px;
-  position: absolute;
-}
-
-#eyeOne {
-  color: #373737;
-  margin-top: 12px;
-  margin-left: 220px;
-  position: absolute;
-}
-
-.checkbox {
-  padding-left: 10px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-.checkbox input {
+* {
+  margin: 0;
   padding: 0;
-  width: 30px;
-  font-size: small;
-  size: 40px;
-  cursor: pointer;
+  box-sizing: border-box;
 }
+.login-form {
+  position: relative;
+  width: 655px;
+  height: 500px;
 
-.checkbox label {
-  font-size: smaller;
-  margin-left: 0px;
+  background: #fffffc;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-left: 50vh;
+  margin-top: 20vh;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  z-index: 9px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
+.form {
+  margin-top: 40px;
+
+  margin-left: 70px;
+  /* margin-right:50px; */
+}
+
+#pasword-field,
+#email-field {
+  /* position: absolute; */
+  width: 500px;
+  height: 50px;
+
+  background: #eff2f3;
+  border: 2px solid #c5c4c4;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#pasword-field {
+  margin-top: 4vh;
+}
+
 .forgot-password a {
-  font-size: small;
-  color: #292929;
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  float: right;
+  margin-right: 12vh;
+  margin-top: 0px;
+  /* identical to box height */
+
+  color: #1976d2;
 }
 
-.forgot-password a:hover {
-  color: blue;
+.forgot-password,
+.check-label,
+.check-box {
+  padding: 1px;
 }
 
-#reset {
+#btn {
   position: absolute;
-  margin-left: 45px;
-  margin-top: 80px;
-  margin-bottom: 30px;
-  right: 50px;
-  color: rgb(72, 72, 72);
-  bottom: 0;
-}
-#reset:hover {
-  color: blue;
-}
+  width: 500px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
 
-.skeleton-container {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 60px;
-}
-
-.login-skeleton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  height: 430px;
-}
-.skeleton-inputs:first-child {
-  border-radius: 50%;
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-
-.skeleton-inputs {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  height: 430px;
-}
-.skeleton-inputs > * {
-  display: block;
-  height: 40px;
-  width: 90%;
+  background: rgba(23, 121, 98, 0.64);
   border-radius: 5px;
-  background-color: rgb(202, 202, 202);
-  margin-top: 30px;
+  margin-top: 2vh;
+  font-weight: 400;
+  font-size: 32px;
 }
 
-@media (max-width: 700px) {
-  .form {
+.icon {
+  width: 200px;
+  height: 50px;
+  position: relative;
+  margin-left: 30vh;
+  margin-top: 6vh;
+  color: rgba(23, 121, 98, 0.64);
+}
+
+.check-box {
+  /* position: absolute; */
+  width: 15px;
+  height: 15px;
+  background: #c4c4c4;
+  margin-top: 0px;
+}
+.check-label {
+  position: absolute;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  padding-left: 5px;
+  color: #1976d2;
+}
+
+.input-feedback {
+  color: red;
+}
+
+::placeholder {
+  margin-left: 0.5vh;
+}
+
+@media (max-width: 844px) {
+  .login-form {
+    position: relative;
     width: 300px;
-    min-width: 200px;
     height: 400px;
-    padding: 1rem;
+    left: -45vh;
+    /* top: 50px; */
+
+    margin-bottom: 50px;
+    background: #fffffc;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 2;
+  }
+  .form {
+    margin-top: 30px;
+
+    margin-left: 26px;
+    /* margin-right:50px; */
+  }
+
+  #pasword-field,
+  #email-field {
+    /* position: absolute; */
+
+    width: 250px;
+    height: 40px;
+    left: 17px;
+    top: 261.89px;
+
+    background: #eff2f3;
+    border: 2px solid #c5c4c4;
+    box-sizing: border-box;
+    scroll-behavior: auto;
+  }
+  .forgot-password a {
+    width: 119px;
+    height: 17px;
+    text-decoration: none;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    float: right;
+    margin-right: 3px;
+    margin-top: 2px;
+
+    color: #1976d2;
+  }
+  .forgot-password,
+  .check-label,
+  .check-box {
+    padding: 1px;
+  }
+
+  #btn {
+    position: absolute;
+    width: 250px;
+    height: 40px;
+    top: 310px;
+    background: rgba(23, 121, 98, 0.64);
+    border-radius: 5px;
+    border: white solid;
+  }
+
+  .icon {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    margin-left: 7vh;
+    margin-top: 3vh;
+    color: rgba(23, 121, 98, 0.64);
+  }
+
+  .check-box {
+    width: 15.88px;
+    height: 15.29px;
+    margin-top: 2px;
+    background: #c4c4c4;
+  }
+  .check-label {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #1976d2;
+    margin-left: 5px;
+  }
+
+  .input-feedback {
+    color: red;
+  }
+
+  ::placeholder {
+    margin-left: 1vh;
+  }
+}
+@media (min-width: 845px) and (max-width: 1180px) {
+  .login-form {
+    position: relative;
+    width: 360px;
+    height: 450px;
+    left: 5vh;
+    margin-bottom: 50px;
+
+    background: #fffffc;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  .form {
+    margin-top: 50px;
+
+    margin-left: 49px;
+    margin-right: 50px;
+  }
+
+  #pasword-field,
+  #email-field {
+    width: 300px;
+    height: 50px;
+    margin-left: -20px;
+    top: 261.89px;
+
+    background: #eff2f3;
+    border: 2px solid #c5c4c4;
+    box-sizing: border-box;
+  }
+  .forgot-password a {
+    width: 119px;
+    height: 17px;
+    text-decoration: none;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    float: right;
+    margin-right: -35px;
+    margin-top: -5px;
+    color: #1976d2;
+  }
+
+  #btn {
+    /* position:relative; */
+    width: 300px;
+    height: 50px;
+    top: 340px;
+    background: rgba(23, 121, 98, 0.64);
+    border-radius: 5px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    margin-left: -20px;
+  }
+
+  .icon {
+    width: 200px;
+    height: 50px;
+
+    margin-left: 11vh;
+    margin-top: 6vh;
+    color: rgba(23, 121, 98, 0.64);
+  }
+
+  .check-box {
+    position: relative;
+    width: 15.88px;
+    height: 18.29px;
+    left: -21px;
+    top: -5px;
+
+    background: #c4c4c4;
+  }
+  .check-label {
+    position: absolute;
+    width: 160.15px;
+    height: 36.59px;
+    margin-left: -20px;
+    margin-bottom: -300px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: -5px;
+    color: #1976d2;
+  }
+
+  .input-feedback {
+    color: red;
+  }
+
+  ::placeholder {
+    margin-left: 0.5vh;
   }
 }

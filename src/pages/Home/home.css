@@ -1,5 +1,4 @@
 /* Home Content style */
-
 .home-content {
   margin-top: 15px;
   display: flex;
@@ -7,6 +6,9 @@
   align-items: center;
   background-color: #f6f6f6;
 
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+  overflow: hidden;
   padding-bottom: 5rem;
   padding-top: 2rem;
   overflow: hidden;
@@ -69,7 +71,7 @@
 .home-content .row .col-3:hover > .home-circle {
   background-color: var(--white);
 }
-.home-content .row .col-3:hover > .home-circle span{
+.home-content .row .col-3:hover > .home-circle span {
   color: var(--green);
 }
 
@@ -99,7 +101,7 @@
   margin-bottom: 20px;
 }
 @media only screen and (max-width: 620px) {
-  .home-content{
+  .home-content {
     padding-bottom: 1px;
   }
   .home-content .row {
