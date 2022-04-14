@@ -5,6 +5,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 
+import Logout from "./components/Logout/Logout";
 
 function App() {
   return (
