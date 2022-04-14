@@ -1,5 +1,4 @@
 /* Home Content style */
-
 .home-content {
   margin-top: 15px;
   display: flex;
@@ -7,6 +6,9 @@
   align-items: center;
   background-color: #f6f6f6;
 
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+  overflow: hidden;
   padding-bottom: 5rem;
   padding-top: 2rem;
   overflow: hidden;
