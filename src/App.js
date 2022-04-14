@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import PageNotFound from "./pages/PageNotFound";
-import Logout from "./pages/Logout";
+import Logout from "./components/Logout/Logout";
 
 function App() {
   return (
