@@ -1,0 +1,4 @@
+
+{"user":[{"email":"admin@gmail.com","password":"abcd123456","role":"admin","id":"1"},
+{"email":"drivers@gmail.com","password":"drivers123456","role":"driver","id":"2"}, 
+{"email":"operators@gmail.com", "password":"operators123456","role":"operator","id":"3"}]}
