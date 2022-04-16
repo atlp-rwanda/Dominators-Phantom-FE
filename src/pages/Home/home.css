@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #f6f6f6;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
   padding-top: 2rem;
 }
 .home-content .row {
@@ -18,8 +18,33 @@
   padding: 2rem 3rem;
   background-color: var(--white);
   display: flex;
+  width: 100%;
   flex-direction: column;
+  cursor: pointer;
+  box-shadow: 10px -1px 29px var(--green);
+  border-radius: 16px;
 }
+.home-content .row .col-3:hover {
+  padding: 2rem 3rem;
+  background-color: var(--green);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 10px -1px 29px var(--white);
+  border-radius: 16px;
+  color: var(--white);
+}
+.home-content .row .col-3:hover > .icons {
+  color: var(--white);
+}
+.home-content .row .col-3:hover > .home-circle {
+  background-color: var(--white);
+}
+.home-content .row .col-3:hover > .home-circle span{
+  color: var(--green);
+}
+
 .icons {
   color: var(--green);
   height: 60px;
