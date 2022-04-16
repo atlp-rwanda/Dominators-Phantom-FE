@@ -56,9 +56,6 @@
   margin-left: 20px;
 }
 
-.leftNavBar{
-  display: flex;
-}
 
 #menuBars{
   display: none;
@@ -73,36 +70,48 @@
   margin-top: 10px;
 }
 
-.sideBar{
+.leftBar{
+  display: block;
   margin-top: 4px;
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
   width: 20%;
   min-height: 90vh;
 }
-.sideBar img{ 
-  width: 40px;
-  height: auto;
-  margin: 0px 20px;
-}
-
-#dash{
+#dashBoard{
   display: inline-flex;
   margin-bottom: 20px;
 }
 /* #dash img{
   margin-bottom: 20px;
 } */
-#dash p{
-  margin: auto;
+#dashBicon{
+  font-size: 25px;
+  margin-left: 20px;
 }
-#driver{
+#dashBoard p{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+#driverB{
   display: inline-flex;
 }
-#driver p{
+#driverB img{
+  width: 23px;
+  height: 25px;
+  margin-left: 20px;
+}
+#driverB p{
   color: #31937c;
   border-bottom: 3px solid #31937c;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+
+.sideBar{
+  display: none;
 }
 
 .mainContent{
@@ -130,6 +139,7 @@
   height: fit-content;
   display: block;
   margin: auto;
+  cursor: pointer;
 }
 .icons{
   
@@ -140,6 +150,21 @@
 .icons p{
   margin-left: 10px;
 }
+.icons:hover p{
+  background-color: #31937c;
+  color: aliceblue;
+  padding: 0 5px;
+  max-width: 40vmin;
+  width: 1fr;
+}
+
+.icons:hover .icons-sub{
+  background-color: #31937c;
+  color: aliceblue;
+  padding: 0 5px;
+  max-width: 40vmin;
+  width: 1fr;
+}
 
 .icons-sub{
   font-size: 20px;
@@ -147,31 +172,102 @@
 }
 
 
-#anchor{
-  padding: 5px;
+#logout{
+  padding: 0 5px;
   background-color: #000000;
   border-radius: 4px;
   color: rgb(255, 255, 255);
+  cursor: pointer;
 }
-#anchor a{
-  text-decoration: none;
-  list-style: none;
+#logout:hover {
+  background: hsl(0, 100%, 50%);
 }
 
-@media(max-width: 700px){
+.footer{
+  bottom: 0;
+  width: 100vw;
+  background-color: #31937c;
+  padding: 5px;
+}
+
+.footer p{
+  font-size: small;
+  color: aliceblue;
+  text-align: center;
+}
+
+
+
+@media(max-width: 850px){
+  .leftBar{
+    display: none;
+  }
+  .leftNavBar{
+    display: inline-flex;
+  }
   #menuBars{
     display:block;
+    margin-top: 25px;
   }
-
   #busIcon{
     display: none;
   }
 
+  #downArrow{
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+
   .sideBar{
+    position: absolute;
+    display: inline-block;
     margin-top: 4px;
     padding-top: 20px;
     background-color: rgb(255, 255, 255);
     width: 70%;
+    max-width: 400px;
     min-height: 90vh;
   }
+
+  .sideBar img{ 
+    width: 40px;
+    height: auto;
+  }
+  
+  #dash{
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
+  /* #dash img{
+    margin-bottom: 20px;
+  } */
+  #dashIcon{
+    font-size: 25px;
+    margin-left: 20px;
+  }
+  #dash p{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+  }
+  #driver{
+    display: inline-flex;
+  }
+  #driver img{
+    width: 23px;
+    height: 25px;
+    margin-left: 20px;
+  }
+  #driver p{
+    color: #31937c;
+    border-bottom: 3px solid #31937c;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+  }
+
+  .mobileMainContent{
+    min-height: 86vh;
+  }
+
 }
