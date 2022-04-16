@@ -15,7 +15,7 @@ function Logout() {
     const [noun] = useState('Onesphore');
 
     const [rightBar, setRightBar] = useState(false);
-    const [sideBar, setSideBar] = useState(true);
+    const [sideBar, setSideBar] = useState(false);
 
   return (
     <div className='body'>
@@ -26,26 +26,38 @@ function Logout() {
           <img src={groupIcon} alt="" id='busIcon' /> 
         </div> 
         <div className='rightNavBar'>
-            <p className='circleWord'>{noun.charAt(0)}</p>
+            <p className='circleWord' onClick={() => setRightBar(!rightBar)}>{noun.charAt(0)}</p>
             <p id='noun'>{noun}</p> 
             <FaIcons.FaChevronDown id='downArrow' onClick={() => setRightBar(!rightBar)} />
         </div>
     </nav> 
     <section>
+        <div className='leftBar'>
+            <div id='dashBoard'>
+                {/* <img src={dash} alt="" /> */}
+                <AiIcons.AiFillDashboard id='dashBicon'/> 
+                <p>Dashboard</p>
+            </div>
+            <div id='driverB'>
+                <img src={driver} alt="" />
+                <p>Driver & Operator</p>
+            </div>
+        </div> 
     
         {
             sideBar ? 
 
-            <div className='sideBar'>
+          <div className='sideBar'>
             <div id='dash'>
-                <img src={dash} alt="" />
+                {/* <img src={dash} alt="" /> */}
+                <AiIcons.AiFillDashboard id='dashIcon'/> 
                 <p>Dashboard</p>
             </div>
             <div id='driver'>
                 <img src={driver} alt="" />
                 <p>Driver & Operator</p>
             </div>
-        </div> 
+          </div> 
 
         : null
 
@@ -87,6 +99,10 @@ function Logout() {
         }
 
         </div>
+    </section>
+    <section className='mobileMainContent'></section>
+    <section className='footer'>
+      <p>phantom dominators Copyright <AiIcons.AiOutlineCopyright className='copyright' /> 2022 </p>
     </section>
   </div>
   )
