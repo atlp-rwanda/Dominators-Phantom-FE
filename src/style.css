@@ -34,3 +34,9 @@ body {
   background: var(--green);
   box-shadow: inset 0 0 5px var(--white);
 }
+.pagenotfound{
+  margin-top: 70px;
+  height: 50vh;
+  display: flex;
+color: var(--green);
+}

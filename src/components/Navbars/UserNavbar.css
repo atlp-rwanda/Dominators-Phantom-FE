@@ -57,6 +57,18 @@ nav {
   padding: 1rem 2rem;
   border-radius: 15px;
 }
+ul li a.login.active {
+    color: var(--white);
+    border-bottom: 3px solid var(--green);
+    padding: 1rem 1rem;
+    border-radius: 15px;
+  }
+ul li a.login.active:hover {
+    color: var(--white);
+    border-bottom: 3px solid var(--green);
+    padding: 1rem 1rem;
+    border-radius: 15px;
+  }
 .navItem ul li a {
   text-decoration: none;
   padding: 1rem 1rem;
@@ -130,6 +142,18 @@ nav {
     border-radius: 15px;
   }
   ul li a.login:hover {
+    color: var(--white);
+    border-bottom: 3px solid var(--green);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+  }
+ul li a.login.active {
+    color: var(--white);
+    border-bottom: 3px solid var(--green);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+  }
+ul li a.login.active:hover {
     color: var(--white);
     border-bottom: 3px solid var(--green);
     padding: 1rem 2rem;
