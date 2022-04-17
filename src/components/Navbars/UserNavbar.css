@@ -1,26 +1,36 @@
 nav {
   background-color: var(--white);
-  z-index: 1;
+  z-index: 5;
+  overflow: hidden;
+}
+.navBar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+  
 }
 .nav {
-  position: sticky;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .hamburger {
-  height: 40px;
-  width: 40px;
+  height:30px;
+  width: 30px;
   color: var(--green);
   cursor: pointer;
   display: none;
 }
 .hamburger:hover {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   color: var(--white);
   background-color: var(--green);
+}
+.hamburger:active {
+  opacity: 0;
 }
 
 .logo {
@@ -67,27 +77,42 @@ nav {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 620px) {
   .navItem {
-    display: none;
-  }
-  .hamburger {
     display: block;
+    right: -120%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    position: absolute;
+    padding: 1rem;
+    margin-top: 70px;
+    top: 0px;
+    height: 100vh;
   }
-  .responsiveNavItem {
+  .navItem.active {
+    height: 100vh;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
     display: block;
+    background-color: var(--dark-green);
+    color: var(--white);
     right: 0px;
     top: 0px;
     float: right;
     position: absolute;
-    background-color: var(--green);
-    color: var(--white);
-    padding: 4rem;
+    padding: 1rem;
+    margin-top: 70px;
+    overflow: visible;
+   
   }
+  .hamburger {
+    display: block;
+  }
+
   .close {
-    top: 0px;
-    float: right;
-    right: 0px;
+    height: 30px;
+    width: 30px;
+    color: var(--green);
     cursor: pointer;
-    margin-top: -50px;
   }
 
   .nav ul li {
@@ -95,8 +120,8 @@ nav {
     margin-right: 12px;
     cursor: pointer;
     align-items: baseline;
-
     color: white;
+    padding-top: 1rem;
   }
   ul li a.login {
     background-color: var(--green);
@@ -113,7 +138,7 @@ nav {
   ul li a {
     text-decoration: none;
     padding: 1rem 1rem;
-    color: var(--black);
+    color: var(--white) !important;
     font-weight: 200;
   }
   ul li a.active {
@@ -145,6 +170,7 @@ nav {
     margin-right: 6px;
     cursor: pointer;
   }
+
   .navItem ul li a.login {
     background-color: var(--green);
     color: var(--white);

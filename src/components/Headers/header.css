@@ -6,7 +6,7 @@
   height: 450px;
   width: 100%;
   background-repeat: no-repeat;
-}
+  margin-top: 70px;}
 
 .intro_header .header-content {
   display: grid;
@@ -43,4 +43,52 @@
 }
 .header-content .bus-image {
   margin: auto;
+}
+@media only screen and (max-width: 620px) {
+  .intro_header {
+    background: url("../../assets//images/background.svg");
+    background-position: inherit;
+    background-size: cover;
+    height: max-content;
+    width: 100%;
+    margin-top: 7rem;
+    background-repeat: repeat-x;
+  }
+  .intro_header .header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    height: inherit;
+    grid-column-gap: 2px;
+  }
+  .header-content  .content {
+  align-items: center;
+  margin: auto;
+  display:block;
+  width: 70%;
+  margin-bottom:5px
+}
+.content .ft-header-btn {
+  margin-top: 10px;
+}
+.header-content .bus-image {
+  align-items: center;
+  display: flex;
+}
+
+}
+/* SKeleton UI Design */
+.skeleton-wrapper{
+  margin: 20px auto;
+  padding: 10px 15px;
+}
+.skeleton-ui-text{
+  display: block;
+  background-color: antiquewhite;
+  
+}
+.skeleton-userheader{
+  display: flex;
 }

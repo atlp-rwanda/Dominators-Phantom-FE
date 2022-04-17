@@ -41,7 +41,7 @@
 .home-content .row .col-3:hover > .home-circle {
   background-color: var(--white);
 }
-.home-content .row .col-3:hover > .home-circle span{
+.home-content .row .col-3:hover > .home-circle span {
   color: var(--green);
 }
 
@@ -69,4 +69,23 @@
 .col-3 p {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 620px) {
+  .home-content{
+    padding-bottom: 1px;
+  }
+  .home-content .row {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    grid-column-gap: 4rem;
+    padding-bottom:1px;
+  }
+  .home-content .row .col-3 {
+    margin-bottom: 2rem;
+  }
+  .home-content h3 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }
