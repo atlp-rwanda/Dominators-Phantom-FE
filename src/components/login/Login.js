@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import react,{useRef,useState,useEffect} from'react';
 import * as FaIcons from "react-icons/fa";
 // import * as yup from 'yup';
@@ -6,6 +5,7 @@ import * as EmailValidator from 'email-validator';
 import {Formik} from 'formik'; 
 import { Link } from 'react-router-dom';
 // import PersonIcon from '@mui/icons-material/Person';
+import "./Login.css";
 
 const Login = () => (
   <Formik
@@ -81,11 +81,3 @@ const Login = () => (
 
 export default Login;
  
-=======
-import LoginComponent from "../components/login/Login";
-const Login = () => {
-    return ( <LoginComponent/> );
-}
- 
-export default Login;
->>>>>>> resolving issues in login page
