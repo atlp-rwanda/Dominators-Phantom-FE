@@ -12,7 +12,6 @@ function App() {
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
-      <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
     </Routes>
   );
