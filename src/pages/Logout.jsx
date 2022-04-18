@@ -7,6 +7,7 @@ import setting from '../images/setting.png'
 import notify from '../images/notify.png'
 import logout from '../images/logout.png'
 import * as FaIcons from "react-icons/fa"
+import { Link } from 'react-router-dom'
 
 class Logout extends Component {
  
@@ -101,7 +102,7 @@ logout = () => {
         
                             <div className='icons'>
                               <img src={logout} alt="" id='logout' />
-                              <p id='anchor'><a href="#" onClickCapture={logout}>Logout</a></p>
+                              <p id='anchor'>< Link to="/Login" onClickCapture={logout}>Logout</Link></p>
                             </div>
         
                         </div>
