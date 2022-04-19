@@ -5,17 +5,27 @@
     box-sizing: border-box;
   } 
   .login-form{
-    position: absolute;
+position:relative;
 width: 655px;
+<<<<<<< HEAD
 height: 500px;
 
+=======
+height: 450px;
+>>>>>>> adding footer and nav-bar components
 background: #FFFFFC;
 border: 1px solid rgba(0, 0, 0, 0.14);
 box-sizing: border-box;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 margin-left:50vh;
+<<<<<<< HEAD
 margin-top:20vh;
+=======
+margin-top: 100px;
+margin-bottom:50px;
+z-index: 9px;
+>>>>>>> adding footer and nav-bar components
     
       
   }
@@ -118,18 +128,19 @@ font-size: 32px;
   @media(max-width: 844px){
 
     .login-form{
-      
+  position: relative;    
 width: 300px;
 height: 400px;
 left: -40vh;
-top: 50px;
+/* top: 50px; */
 
+margin-bottom:50px;
 background: #FFFFFC;
 border: 1px solid rgba(0, 0, 0, 0.14);
 box-sizing: border-box;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
-
+z-index: 2;
 
       
         
@@ -230,11 +241,11 @@ margin-left:5px;
   }
   @media (min-width:845px) and (max-width:1180px){
     .login-form{
-   position: absolute;
+   position:relative;
    width: 360px;
    height: 450px;
    left: 5vh;
-   margin-bottom:-20px;
+   margin-bottom:50px;
    
    background: #FFFFFC;
    border: 1px solid rgba(0, 0, 0, 0.14);
@@ -278,7 +289,7 @@ margin-left:5px;
        }
       
        #btn{
-         position: absolute;
+         /* position:relative; */
        width: 300px;
       height: 50px;
       top: 340px;

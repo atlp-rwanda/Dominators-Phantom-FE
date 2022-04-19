@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import react,{useRef,useState,useEffect} from'react';
 import * as FaIcons from "react-icons/fa";
 // import * as yup from 'yup';
@@ -85,6 +86,18 @@ export default Login;
 import LoginComponent from "../components/login/Login";
 const Login = () => {
     return ( <LoginComponent/> );
+=======
+import LoginComponent from "../components/login/LoginComponent";
+import UserNavbar from "../components/Navbars/UserNavbar";
+import Footer from "../components/Footer/Footer";
+const Login = () => {
+    return (<div><div>
+    <UserNavbar/></div> 
+  <div> <LoginComponent/></div> 
+  <div> <Footer/></div> 
+  </div>
+     );
+>>>>>>> adding footer and nav-bar components
 }
  
 export default Login;

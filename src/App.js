@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import UpdateProfile from "./components/update-profile/UpdateProfile";
 import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
-import Login from "./components/login/Login";
+import Logout from "./pages/Logout";
+import Login from "./pages/Login";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
+      <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
     </Routes>
   );
