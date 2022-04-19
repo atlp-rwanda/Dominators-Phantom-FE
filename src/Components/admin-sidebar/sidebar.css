@@ -1,0 +1,69 @@
+:root {
+    --theme-sidebar-white: rgb(255, 255, 255);
+    --theme-sidebar-grey: #9c8b8b;
+    --theme-green: hsl(166deg 100% 16% / 66%);
+}
+
+.sidebar {
+    background-color: var(--theme-sidebar-white);
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    overflow: hidden;
+}
+
+.sidebar nav a,
+.sidebar nav button {
+    color: var(--theme-sidebar-grey);
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    padding: 12px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: none;
+    border-bottom: 0.1px solid lightgrey;
+    width: 100%;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.sidebar nav a span,
+.sidebar nav button span {
+    margin-left: 10px;
+}
+
+.sidebar nav .subMenu {
+    display: none;
+    margin-left: 15px;
+}
+
+.sidebar nav button span .icon-dropDown {
+    float: right;
+    margin: 3px 0px 3px 10px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav button:hover {
+    background-color: var(--theme-green);
+    color: var(--theme-sidebar-white);
+}
+
+.sidebar nav a.active {
+    color: var(--theme-green);
+}
+
+.sidebar nav a.active:hover {
+    color: var(--theme-sidebar-white);
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar {
+        display: none;
+        width: 60%;
+    }
+}

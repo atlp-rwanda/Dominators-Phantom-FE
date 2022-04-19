@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@100&family=Sora&display=swap");
+* {
+    font-family: "Inter", sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --theme-green: hsl(166deg 100% 16% / 66%);
+    --theme-lightgrey: #eaeceb;
+    --theme-white: rgb(255, 255, 255);
+}
+
+body {
+    background-color: var(--theme-lightgrey);
+    overflow-x: hidden;
+}
+
+.update-profile {
+    width: 80%;
+    margin: 10px auto;
+    box-shadow: 2px 2px 4px rgba(22, 12, 12, 0.308);
+    padding: 10px;
+    background-color: white;
+}
+
+.update-profile h1.title {
+    background-color: var(--theme-green);
+    color: var(--theme-white);
+    text-align: center;
+    padding: 8px;
+    font-size: 25px;
+    margin: -10px -10px 0 -10px;
+}
+
+.update-profile .avatarClass {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.update-profile form {
+    margin: 32px;
+}
+
+.update-profile form h3 {
+    font-weight: bolder;
+    margin: 25px 20px 20px 0px;
+}
+
+.update-profile .input {
+    display: inline-block;
+    width: 45%;
+}
+
+.update-profile .input label {
+    font-size: 13px;
+}
+
+.update-profile .input input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightgray;
+    margin: 5px 5px 8px 0px;
+}
+
+.update-profile .input input:hover {
+    box-shadow: 1px 1px 1px lightgray;
+}
+
+.update-profile .input input:focus {
+    box-shadow: -1px -1px 1px lightgrey, 1px 1px 1px lightgrey;
+}
+
+.update-profile .input.select {
+    width: 30%;
+}
+
+.update-profile .input.textarea,
+.update-profile .input.textarea textarea {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.update-profile .input.textarea textarea {
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightgray;
+    resize: none;
+}
+
+.update-profile .input.textarea textarea:hover {
+    box-shadow: 1px 1px 1px lightgray;
+}
+
+.update-profile .input.textarea textarea:focus {
+    box-shadow: -1px -1px 1px lightgrey, 1px 1px 1px lightgrey;
+}
+
+.update-profile .input.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+.update-profile .input.toright {
+    float: right;
+}
+
+.update-profile .input.button input {
+    padding: 12px;
+    margin: 5px;
+    margin-right: 30px;
+    width: 180px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-profile .input.button input:hover {
+    background-color: var(--theme-green);
+    color: white;
+}
+
+.update-profile .input.button input[type="submit"] {
+    color: var(--theme-white);
+    background-color: var(--theme-green);
+}
+
+.update-profile .input.button input[type="submit"]:hover {
+    background-color: white;
+    color: var(--theme-green);
+    box-shadow: inset 1.3px 1.3px 0px lightgray, inset -1.3px -1.3px 0px lightgray;
+}
+
+.update-profile .select-field-container {
+    display: flex;
+    justify-content: end;
+    margin: 15px;
+}
+
+.update-profile .select-field-container select {
+    padding: 8px;
+    margin: 3px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: var(--theme-lightgrey);
+    /* -webkit-appearance: none; */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 10px;
+    margin-top: 80px;
+}
+
+.content .sidebar-profile {
+    background-color: white;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    left: 0px;
+    top: 73px;
+    text-align: center;
+    padding-top: 6%;
+}
+
+.content .sidebar-profile .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 0.5px solid black;
+    margin: 15px auto;
+}
+
+.content .sidebar-profile h2 {
+    color: var(--theme-green);
+    text-transform: uppercase;
+}
+
+.content .sidebar-profile .line {
+    width: 30%;
+    height: 4px;
+    background-color: var(--theme-green);
+    margin: 5px auto;
+    margin-top: 0px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.footer {
+    text-align: center;
+    margin: 40px;
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar-profile {
+        display: none;
+    }
+    .content {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .update-profile .input {
+        width: 100%;
+    }
+    .update-profile .input.select {
+        width: 100%;
+    }
+    .update-profile .select-field-container {
+        display: inline-block;
+        justify-content: none;
+        margin: 15px;
+    }
+}
