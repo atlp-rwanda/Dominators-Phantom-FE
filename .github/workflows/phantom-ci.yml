@@ -12,12 +12,7 @@ on:
 jobs:
   build:
     name: running unit tests
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
