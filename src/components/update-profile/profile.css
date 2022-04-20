@@ -5,20 +5,15 @@
     --theme-white: rgb(255, 255, 255);
 }
 
-<<<<<<< HEAD
 * {
     font-family: "Inter", sans-serif;
 }
 
 body {
     background-color: var(--theme-lightgrey);
-=======
-body {
-    background-color: var(--theme-lightgrey);
     font-family: "Inter", sans-serif;
     margin: 0px !important;
     padding: 0px !important;
->>>>>>> f48a737 (commit)
 }
 
 .update-profile {
@@ -70,14 +65,11 @@ body {
     margin: 5px 5px 8px 0px;
 }
 
-<<<<<<< HEAD
 .input label::after {
     content: "*";
     color: red;
 }
 
-=======
->>>>>>> f48a737 (commit)
 .update-profile .input input:hover {
     box-shadow: 1px 1px 1px lightgray;
 }
@@ -114,14 +106,8 @@ body {
 
 .update-profile .input.button {
     width: 100%;
-<<<<<<< HEAD
     margin: 40px 0px;
     text-align: center;
-=======
-    display: flex;
-    justify-content: center;
-    margin: 40px auto;
->>>>>>> f48a737 (commit)
 }
 
 .update-profile .input.toright {
@@ -136,10 +122,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-<<<<<<< HEAD
     display: inline-block;
-=======
->>>>>>> f48a737 (commit)
 }
 
 .update-profile .input.button input:hover {
@@ -159,14 +142,12 @@ body {
 }
 
 .update-profile .select-field-container {
-<<<<<<< HEAD
     text-align: center;
     margin: 20px;
 }
 
 .update-profile .select-field-container select {
     padding: 8px 12px;
-=======
     display: flex;
     justify-content: end;
     margin: 15px;
@@ -174,7 +155,6 @@ body {
 
 .update-profile .select-field-container select {
     padding: 8px;
->>>>>>> f48a737 (commit)
     margin: 3px;
     border: 1px solid lightgray;
     border-radius: 5px;

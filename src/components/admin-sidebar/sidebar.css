@@ -14,8 +14,8 @@
     left: 0;
     overflow: hidden;
     margin-top: 70px;
-    <<<<<<< HEAD margin-left: 0px !important;
-    =======>>>>>>>f48a737 (commit) text-align: left;
+    margin-left: 0px !important;
+    text-align: left;
 }
 
 .sidebar nav a,

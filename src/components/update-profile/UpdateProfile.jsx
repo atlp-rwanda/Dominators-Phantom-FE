@@ -3,10 +3,14 @@ import "./profile.css";
 import { useState } from "react";
 import avatar from "./Ellipse 2.png";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
 =======
 >>>>>>> f48a737 (commit)
+=======
+import Header from "../admin-header/Header";
+>>>>>>> bfaa272 (commit)
 
 const UpdateProfile = () => {
   let localUser;
@@ -117,9 +121,13 @@ const UpdateProfile = () => {
   return (
     <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Header />
 =======
 >>>>>>> f48a737 (commit)
+=======
+      <Header />
+>>>>>>> bfaa272 (commit)
       <div className="content">
         <div>
           <SideBarProfile />
