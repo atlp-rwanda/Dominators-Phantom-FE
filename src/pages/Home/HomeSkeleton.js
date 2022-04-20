@@ -1,4 +1,4 @@
-import SkeletonElement from "../../skeletons/skeletonElement";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 function HomeSkeleton() {
   return (
     <>
@@ -11,7 +11,6 @@ function HomeSkeleton() {
             <SkeletonElement type="text" height={270} width={270} />
 
             <SkeletonElement height={270} width={200} />
-
             <SkeletonElement height={270} width={200} />
           </div>
         </div>

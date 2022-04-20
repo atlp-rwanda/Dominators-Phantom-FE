@@ -1,4 +1,4 @@
-import SkeletonElement from "../../skeletons/skeletonElement";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 function UserHeaderSkeleton() {
   return (
     <>
@@ -12,11 +12,9 @@ function UserHeaderSkeleton() {
             <SkeletonElement type="text" />
             <SkeletonElement type="text" />
             <SkeletonElement type="title" />
-            <SkeletonElement type="title" height={20} width={120} />
           </div>
-          <div className="skeleton-bus">
-            <SkeletonElement type="thumbnail" height={300} width={300} />
-          </div>
+
+          <SkeletonElement type="thumbnail" />
         </div>
       </div>
     </>

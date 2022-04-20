@@ -28,20 +28,20 @@ const Sidebar = () => {
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
         </NavLink>
-        {(role === "admin" && (
-          <NavLink to="/users">
-            <IoIcons.IoIosBus /> <span> Users </span>
-          </NavLink>
-        )) && (
-          <NavLink to="/roles">
-            <IoIcons.IoIosPeople />
-            <span>Roles & Permissions</span>
-          </NavLink>
-        )}
-        {role==='admin'&&(
-        <Link to="#">
-          <IoIcons.IoIosBus /> <span> Driver & Operator </span>
-        </Link>
+        {role === "admin" && (
+            <NavLink to="/users">
+              <IoIcons.IoIosBus /> <span> Users </span>
+            </NavLink>
+          ) && (
+            <NavLink to="/roles">
+              <IoIcons.IoIosPeople />
+              <span>Roles & Permissions</span>
+            </NavLink>
+          )}
+        {role === "admin" && (
+          <Link to="#">
+            <IoIcons.IoIosBus /> <span> Driver & Operator </span>
+          </Link>
         )}
 
         {role === "admin" && (

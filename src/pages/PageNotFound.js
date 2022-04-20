@@ -1,5 +1,6 @@
 import UserNavbar from "../components/Navbars/UserNavbar";
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
+
 function PageNotFound() {
   return (
     <>
@@ -9,7 +10,10 @@ function PageNotFound() {
       <h1>
         <div className="">404 Page Not Found 🤷‍♀️</div>
       </h1>
-      </div>
+
+    </div>
+
+     
       <Footer/>
     </>
   );

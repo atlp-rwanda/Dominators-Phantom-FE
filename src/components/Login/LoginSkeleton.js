@@ -1,4 +1,4 @@
-import SkeletonElement from "../../skeletons/skeletonElement";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 function LoginSkeleton() {
   return (
     <>

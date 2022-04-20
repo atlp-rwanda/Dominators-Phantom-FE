@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/atlp-rwanda/Dominators-Phantom-FE/static/css/main.15c97dbb.css",
+    "main.js": "/atlp-rwanda/Dominators-Phantom-FE/static/js/main.382059cd.js",
+    "static/media/phantomIcon.png": "/atlp-rwanda/Dominators-Phantom-FE/static/media/phantomIcon.a3b37f7595da2a54cd0e.png",
+    "static/media/bus.svg": "/atlp-rwanda/Dominators-Phantom-FE/static/media/bus.9c876dd6fd6e403559988c5776c2e7e1.svg",
+    "static/media/background.svg": "/atlp-rwanda/Dominators-Phantom-FE/static/media/background.2d2180d1236c29341093.svg",
+    "index.html": "/atlp-rwanda/Dominators-Phantom-FE/index.html",
+    "main.15c97dbb.css.map": "/atlp-rwanda/Dominators-Phantom-FE/static/css/main.15c97dbb.css.map",
+    "main.382059cd.js.map": "/atlp-rwanda/Dominators-Phantom-FE/static/js/main.382059cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15c97dbb.css",
+    "static/js/main.382059cd.js"
+  ]
+}
