@@ -2,6 +2,7 @@ import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
 import { useState } from "react";
 import avatar from "./Ellipse 2.png";
+import Header from "../admin-header/Header";
 
 const UpdateProfile = () => {
   let localUser;
@@ -81,6 +82,7 @@ const UpdateProfile = () => {
 
   return (
     <div>
+      <Header />
       <div className="content">
         <div>
           <SideBarProfile />
