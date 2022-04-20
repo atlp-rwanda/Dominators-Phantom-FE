@@ -2,8 +2,11 @@ import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
 import { useState } from "react";
 import avatar from "./Ellipse 2.png";
+<<<<<<< HEAD
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
+=======
+>>>>>>> f48a737 (commit)
 
 const UpdateProfile = () => {
   let localUser;
@@ -58,9 +61,12 @@ const UpdateProfile = () => {
         address,
       });
       localStorage.setItem("user", JSON.stringify(user));
+<<<<<<< HEAD
       toast.info("Profile Updated", {
         theme: "colored",
       });
+=======
+>>>>>>> f48a737 (commit)
     }
   };
   const HandleReset = () => {
@@ -78,6 +84,7 @@ const UpdateProfile = () => {
   };
 
   function validate() {
+<<<<<<< HEAD
     if (
       firstName === "" ||
       lastName === "" ||
@@ -99,6 +106,9 @@ const UpdateProfile = () => {
         pauseOnHover: true,
         theme: "colored",
       });
+=======
+    if (firstName === "") {
+>>>>>>> f48a737 (commit)
       return false;
     }
     return true;
@@ -106,7 +116,10 @@ const UpdateProfile = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <Header />
+=======
+>>>>>>> f48a737 (commit)
       <div className="content">
         <div>
           <SideBarProfile />
@@ -120,11 +133,19 @@ const UpdateProfile = () => {
                 <p>kamana356@gmail.com</p>
               </div>
             )}
+<<<<<<< HEAD
             <form onSubmit={handleSubmit}>
               <h3>Personal Info</h3>
 
               <div className="input">
                 <label htmlFor="firstName">First name </label>
+=======
+            <form onSubmit={handleSubmit} autoComplete="off">
+              <h3>Personal Info</h3>
+
+              <div className="input">
+                <label htmlFor="firstName">First name: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="text"
@@ -132,11 +153,18 @@ const UpdateProfile = () => {
                   value={firstName}
                   id="firstName"
                   onChange={(e) => setFirstName(e.target.value)}
+<<<<<<< HEAD
                   minLength={5}
                 />
               </div>
               <div className="input toright">
                 <label htmlFor="lastName">Last name </label>
+=======
+                />
+              </div>
+              <div className="input toright">
+                <label htmlFor="lastName">Last name: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="text"
@@ -144,11 +172,18 @@ const UpdateProfile = () => {
                   id="lastName"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+<<<<<<< HEAD
                   minLength={5}
                 />
               </div>
               <div className="input">
                 <label htmlFor="nationalId">National ID </label>
+=======
+                />
+              </div>
+              <div className="input">
+                <label htmlFor="nationalId">National ID: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="number"
@@ -160,7 +195,11 @@ const UpdateProfile = () => {
                 />
               </div>
               <div className="input toright">
+<<<<<<< HEAD
                 <label htmlFor="phone">Phone Number </label>
+=======
+                <label htmlFor="phone">Phone Number: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="number"
@@ -168,13 +207,20 @@ const UpdateProfile = () => {
                   id="phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+<<<<<<< HEAD
                   minLength={10}
                   maxLength={12}
+=======
+>>>>>>> f48a737 (commit)
                 />
               </div>
               <div className="select-field-container">
                 <div className="input select">
+<<<<<<< HEAD
                   <label htmlFor="role">Job/Role </label>
+=======
+                  <label htmlFor="role">Job/Role: </label>
+>>>>>>> f48a737 (commit)
                   <br />
                   <select
                     id="role"
@@ -187,7 +233,11 @@ const UpdateProfile = () => {
                   </select>
                 </div>
                 <div className="input select">
+<<<<<<< HEAD
                   <label htmlFor="gender">Gender </label>
+=======
+                  <label htmlFor="gender">Gender: </label>
+>>>>>>> f48a737 (commit)
                   <br />
                   <select
                     id="gender"
@@ -200,7 +250,11 @@ const UpdateProfile = () => {
                   </select>
                 </div>
                 <div className="input select">
+<<<<<<< HEAD
                   <label htmlFor="category">Category </label>
+=======
+                  <label htmlFor="category">Category: </label>
+>>>>>>> f48a737 (commit)
                   <br />
                   <select
                     id="category"
@@ -214,7 +268,11 @@ const UpdateProfile = () => {
                 </div>
               </div>
               <div className="input textarea">
+<<<<<<< HEAD
                 <label htmlFor="bio">Experience/bio </label>
+=======
+                <label htmlFor="bio">Experience/bio: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <textarea
                   rows={5}
@@ -225,7 +283,11 @@ const UpdateProfile = () => {
               </div>
               <h3>Address</h3>
               <div className="input">
+<<<<<<< HEAD
                 <label htmlFor="country">Country </label>
+=======
+                <label htmlFor="country">Country: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="text"
@@ -236,7 +298,11 @@ const UpdateProfile = () => {
                 />
               </div>
               <div className="input toright">
+<<<<<<< HEAD
                 <label htmlFor="city">City </label>
+=======
+                <label htmlFor="city">City: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="text"
@@ -247,7 +313,11 @@ const UpdateProfile = () => {
                 />
               </div>
               <div className="input">
+<<<<<<< HEAD
                 <label htmlFor="address">Address line </label>
+=======
+                <label htmlFor="address">Address line: </label>
+>>>>>>> f48a737 (commit)
                 <br />
                 <input
                   type="text"
@@ -260,7 +330,10 @@ const UpdateProfile = () => {
               <div className="input button">
                 <input type="button" value="Reset" onClick={HandleReset} />
                 <input type="submit" value="Save" />
+<<<<<<< HEAD
                 <ToastContainer />
+=======
+>>>>>>> f48a737 (commit)
               </div>
             </form>
           </div>
