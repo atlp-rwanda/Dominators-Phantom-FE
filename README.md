@@ -8,3 +8,5 @@
 ### running commands
 
 - npm start or yarn start
+
+![CI](https://github.com/atlp-rwanda/Dominators-Phantom-FE/actions/workflows/phantom-ci.yml/badge.svg)
