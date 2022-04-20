@@ -41,6 +41,7 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
   }
+<<<<<<< HEAD
 =======
     "name": "dominators-phantom-fe",
     "version": "1.0.0",
@@ -88,3 +89,6 @@
 >>>>>>> 811718ce6604b6077be18b08accc04c4dfa61bb6
 }
 
+=======
+}
+>>>>>>> correcting spellings

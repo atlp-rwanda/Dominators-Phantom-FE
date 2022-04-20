@@ -7,15 +7,28 @@ import { Link } from 'react-router-dom';
 // import PersonIcon from '@mui/icons-material/Person';
 import "./Login.css";
 
+<<<<<<< HEAD:src/components/login/Login.js
 const Login = () => (
+=======
+
+
+const LoginComponent = () => (
+  
+  
+>>>>>>> correcting spellings:src/components/login/LoginComponent.js
   <Formik
+  
     initialValues={{ email: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
         console.log("Logging in", values);
         setSubmitting(false);
       }, 500);
+     
+     
+      
     }}
+   
     validate={values => {
       let errors = {};
       if (!values.email) {
@@ -34,9 +47,10 @@ const Login = () => (
       }
      return errors;
     }}>
+      
    {props => {  const {  values, touched,  errors,   isSubmitting,  handleChange,  handleBlur,handleSubmit
       } = props;
-
+      
       return (
   <div className="login-form">  
    <FaIcons.FaUserCircle className="icon"/> 
@@ -61,8 +75,8 @@ const Login = () => (
 )}<br/>
           
 <h2 className="forgot-password"> <Link to="./">Forgot Password?</Link></h2> 
-<input className="check-box"  type="checkbox"/> <label className="check-label" htmlFor="Stay loged in" >Stay loged in </label><br/>
-   <Link to="/Logout">   <button type="submit" disabled={isSubmitting} className="login-button" id="btn">Login</button></Link>  
+<input className="check-box"  type="checkbox"/> <label className="check-label" htmlFor="Stay logged in" >Stay loged in </label><br/>
+   <Link to="/">   <button type="submit" disabled={isSubmitting} className="login-button" id="btn">Login</button></Link>  
        
      </form>
      </div>

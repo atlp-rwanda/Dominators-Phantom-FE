@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:src/pages/Home/Home.js
->>>>>>> factorization of folders
+
 import UserNavbar from "../../components/Navbars/UserNavbar";
 import UserHeader from "../../components/Headers/UserHeader";
 import { IoLocationSharp } from "react-icons/io5";
@@ -9,7 +6,6 @@ import { HiClock } from "react-icons/hi";
 import { BsKeyboardFill } from "react-icons/bs";
 import "./home.css";
 import Footer from "../../components/Footer/Footer";
-<<<<<<< HEAD
 
 import HomeSkeleton from "./HomeSkeleton";
 import { useState ,useEffect} from "react";
@@ -22,18 +18,13 @@ function Home() {
     return () => clearTimeout(timer);
   });
 
-=======
-========
-import UserNavbar from "../components/Navbars/UserNavbar";
-import UserHeader from "../components/Headers/UserHeader";
->>>>>>>> factorization of folders:src/pages/Home.js
 function Home() {
->>>>>>> factorization of folders
+
   return (
     <div>
       <UserNavbar />
       <UserHeader />
-<<<<<<< HEAD
+
 
       {skeleton ? (
         <div className="home">
@@ -68,9 +59,9 @@ function Home() {
         <HomeSkeleton />
       )}
 
-=======
+
       <div className="home-content">
-<<<<<<<< HEAD:src/pages/Home/Home.js
+
         <h3>HOW DOES IT WORKER</h3>
         <div className="row">
           <div className="col-3">
@@ -94,7 +85,7 @@ function Home() {
               <span>3</span>
             </div>
           </div>
-========
+
         <h3>
           HOW DOES IT WORKER
         </h3>
@@ -102,12 +93,13 @@ function Home() {
           <div className="col-3">Register</div>
           <div className="col-3"></div>
           <div className="col-3"></div>
->>>>>>>> factorization of folders:src/pages/Home.js
+
         </div>
       </div>
->>>>>>> factorization of folders
+     
       <Footer Aime="aime" />
     </div>
+    </div>
   );
-}
+}}
 export default Home;
