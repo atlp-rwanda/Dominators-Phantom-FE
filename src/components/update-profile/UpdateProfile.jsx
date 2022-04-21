@@ -96,11 +96,11 @@ const UpdateProfile = () => {
                 <p>kamana356@gmail.com</p>
               </div>
             )}
-            <form onSubmit={handleSubmit} autoComplete="off">
+            <form onSubmit={handleSubmit}>
               <h3>Personal Info</h3>
 
               <div className="input">
-                <label htmlFor="firstName">First name: </label>
+                <label htmlFor="firstName">First name </label>
                 <br />
                 <input
                   type="text"
@@ -108,10 +108,12 @@ const UpdateProfile = () => {
                   value={firstName}
                   id="firstName"
                   onChange={(e) => setFirstName(e.target.value)}
+                  minLength={5}
+                  required
                 />
               </div>
               <div className="input toright">
-                <label htmlFor="lastName">Last name: </label>
+                <label htmlFor="lastName">Last name </label>
                 <br />
                 <input
                   type="text"
@@ -119,10 +121,12 @@ const UpdateProfile = () => {
                   id="lastName"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  minLength={5}
+                  required
                 />
               </div>
               <div className="input">
-                <label htmlFor="nationalId">National ID: </label>
+                <label htmlFor="nationalId">National ID </label>
                 <br />
                 <input
                   type="number"
@@ -131,10 +135,11 @@ const UpdateProfile = () => {
                   maxLength={16}
                   value={nationId}
                   onChange={(e) => setNationId(e.target.value)}
+                  required
                 />
               </div>
               <div className="input toright">
-                <label htmlFor="phone">Phone Number: </label>
+                <label htmlFor="phone">Phone Number </label>
                 <br />
                 <input
                   type="number"
@@ -142,16 +147,20 @@ const UpdateProfile = () => {
                   id="phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  minLength={10}
+                  maxLength={12}
+                  required
                 />
               </div>
               <div className="select-field-container">
                 <div className="input select">
-                  <label htmlFor="role">Job/Role: </label>
+                  <label htmlFor="role">Job/Role </label>
                   <br />
                   <select
                     id="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
+                    required
                   >
                     <option value="">Select</option>
                     <option value="driver">Driver</option>
@@ -159,12 +168,13 @@ const UpdateProfile = () => {
                   </select>
                 </div>
                 <div className="input select">
-                  <label htmlFor="gender">Gender: </label>
+                  <label htmlFor="gender">Gender </label>
                   <br />
                   <select
                     id="gender"
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
+                    required
                   >
                     <option value="">Select</option>
                     <option value="male">Male</option>
@@ -172,12 +182,13 @@ const UpdateProfile = () => {
                   </select>
                 </div>
                 <div className="input select">
-                  <label htmlFor="category">Category: </label>
+                  <label htmlFor="category">Category </label>
                   <br />
                   <select
                     id="category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
+                    required
                   >
                     <option value="">Select</option>
                     <option value="driver">Driver</option>
@@ -186,18 +197,19 @@ const UpdateProfile = () => {
                 </div>
               </div>
               <div className="input textarea">
-                <label htmlFor="bio">Experience/bio: </label>
+                <label htmlFor="bio">Experience/bio </label>
                 <br />
                 <textarea
                   rows={5}
                   placeholder="Enter your experience or bio..."
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
+                  required
                 ></textarea>
               </div>
               <h3>Address</h3>
               <div className="input">
-                <label htmlFor="country">Country: </label>
+                <label htmlFor="country">Country </label>
                 <br />
                 <input
                   type="text"
@@ -205,10 +217,11 @@ const UpdateProfile = () => {
                   id="country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
+                  required
                 />
               </div>
               <div className="input toright">
-                <label htmlFor="city">City: </label>
+                <label htmlFor="city">City </label>
                 <br />
                 <input
                   type="text"
@@ -216,10 +229,11 @@ const UpdateProfile = () => {
                   id="city"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
+                  required
                 />
               </div>
               <div className="input">
-                <label htmlFor="address">Address line: </label>
+                <label htmlFor="address">Address line </label>
                 <br />
                 <input
                   type="text"
@@ -227,6 +241,7 @@ const UpdateProfile = () => {
                   id="address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
+                  required
                 />
               </div>
               <div className="input button">
