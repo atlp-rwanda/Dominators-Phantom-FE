@@ -3,6 +3,7 @@ import "./profile.css";
 import { useState } from "react";
 import avatar from "./Ellipse 2.png";
 import Header from "../admin-header/Header";
+import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProfile = () => {
   let localUser;
@@ -57,6 +58,7 @@ const UpdateProfile = () => {
         address,
       });
       localStorage.setItem("user", JSON.stringify(user));
+      toast.success("Profile Updated");
     }
   };
   const HandleReset = () => {
@@ -74,7 +76,28 @@ const UpdateProfile = () => {
   };
 
   function validate() {
-    if (firstName === "") {
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      nationId === "" ||
+      phone === "" ||
+      role === "" ||
+      gender === "" ||
+      category === "" ||
+      bio === "" ||
+      country === "" ||
+      city === "" ||
+      address === ""
+    ) {
+      toast.error("All inputs are required please! ", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        style: { backgroundColor: "red", color: "white" },
+      });
       return false;
     }
     return true;
@@ -109,7 +132,6 @@ const UpdateProfile = () => {
                   id="firstName"
                   onChange={(e) => setFirstName(e.target.value)}
                   minLength={5}
-                  required
                 />
               </div>
               <div className="input toright">
@@ -122,7 +144,6 @@ const UpdateProfile = () => {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   minLength={5}
-                  required
                 />
               </div>
               <div className="input">
@@ -135,7 +156,6 @@ const UpdateProfile = () => {
                   maxLength={16}
                   value={nationId}
                   onChange={(e) => setNationId(e.target.value)}
-                  required
                 />
               </div>
               <div className="input toright">
@@ -149,7 +169,6 @@ const UpdateProfile = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   minLength={10}
                   maxLength={12}
-                  required
                 />
               </div>
               <div className="select-field-container">
@@ -160,7 +179,6 @@ const UpdateProfile = () => {
                     id="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    required
                   >
                     <option value="">Select</option>
                     <option value="driver">Driver</option>
@@ -174,7 +192,6 @@ const UpdateProfile = () => {
                     id="gender"
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
-                    required
                   >
                     <option value="">Select</option>
                     <option value="male">Male</option>
@@ -188,7 +205,6 @@ const UpdateProfile = () => {
                     id="category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    required
                   >
                     <option value="">Select</option>
                     <option value="driver">Driver</option>
@@ -204,7 +220,6 @@ const UpdateProfile = () => {
                   placeholder="Enter your experience or bio..."
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
-                  required
                 ></textarea>
               </div>
               <h3>Address</h3>
@@ -217,7 +232,6 @@ const UpdateProfile = () => {
                   id="country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  required
                 />
               </div>
               <div className="input toright">
@@ -229,7 +243,6 @@ const UpdateProfile = () => {
                   id="city"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  required
                 />
               </div>
               <div className="input">
@@ -241,12 +254,12 @@ const UpdateProfile = () => {
                   id="address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  required
                 />
               </div>
               <div className="input button">
                 <input type="button" value="Reset" onClick={HandleReset} />
                 <input type="submit" value="Save" />
+                <ToastContainer />
               </div>
             </form>
           </div>
