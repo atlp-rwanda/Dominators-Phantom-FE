@@ -2,16 +2,9 @@ import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
 import { useState } from "react";
 import avatar from "./Ellipse 2.png";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
-=======
->>>>>>> f48a737 (commit)
-=======
 import Header from "../admin-header/Header";
->>>>>>> bfaa272 (commit)
-
 const UpdateProfile = () => {
   let localUser;
   if (localStorage.getItem("user")) {
@@ -65,12 +58,10 @@ const UpdateProfile = () => {
         address,
       });
       localStorage.setItem("user", JSON.stringify(user));
-<<<<<<< HEAD
       toast.info("Profile Updated", {
         theme: "colored",
       });
-=======
->>>>>>> f48a737 (commit)
+      toast.success("Profile Updated");
     }
   };
   const HandleReset = () => {
@@ -89,6 +80,9 @@ const UpdateProfile = () => {
 
   function validate() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6c60be4 (appropriate error messages using tostify)
     if (
       firstName === "" ||
       lastName === "" ||
@@ -108,11 +102,17 @@ const UpdateProfile = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
+<<<<<<< HEAD
         theme: "colored",
       });
 =======
     if (firstName === "") {
 >>>>>>> f48a737 (commit)
+=======
+        draggable: true,
+        style: { backgroundColor: "red", color: "white" },
+      });
+>>>>>>> 6c60be4 (appropriate error messages using tostify)
       return false;
     }
     return true;
@@ -218,8 +218,11 @@ const UpdateProfile = () => {
 <<<<<<< HEAD
                   minLength={10}
                   maxLength={12}
+<<<<<<< HEAD
 =======
 >>>>>>> f48a737 (commit)
+=======
+>>>>>>> 6c60be4 (appropriate error messages using tostify)
                 />
               </div>
               <div className="select-field-container">
@@ -339,9 +342,13 @@ const UpdateProfile = () => {
                 <input type="button" value="Reset" onClick={HandleReset} />
                 <input type="submit" value="Save" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <ToastContainer />
 =======
 >>>>>>> f48a737 (commit)
+=======
+                <ToastContainer />
+>>>>>>> 6c60be4 (appropriate error messages using tostify)
               </div>
             </form>
           </div>
