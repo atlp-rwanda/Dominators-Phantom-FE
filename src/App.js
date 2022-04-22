@@ -4,6 +4,8 @@ import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
+import ResetPasswordLink from "../src/components/ResetPassword/ResetPasswordLink";
+import ResetPassword from "../src/components/ResetPassword/ResetPassword";
 
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/Reset-link" element={<ResetPasswordLink/>} />
+      <Route path="/Reset-pwd" element={<ResetPassword/>} />
+      
     </Routes>
   );
 }

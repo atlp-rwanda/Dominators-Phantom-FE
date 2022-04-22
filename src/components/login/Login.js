@@ -74,9 +74,9 @@ const LoginComponent = () => (
   <div className="input-feedback">{errors.password}</div>
 )}<br/>
           
-<h2 className="forgot-password"> <Link to="./">Forgot Password?</Link></h2> 
+<h2 className="forgot-password"> <Link to="/reset-link">Forgot Password?</Link></h2> 
 <input className="check-box"  type="checkbox"/> <label className="check-label" htmlFor="Stay logged in" >Stay loged in </label><br/>
-   <Link to="/">   <button type="submit" disabled={isSubmitting} className="login-button" id="btn">Login</button></Link>  
+   <Link to="/">   <button type="submit" disabled={isSubmitting} className="login-button" id="btn">Loggin</button></Link>  
        
      </form>
      </div>
