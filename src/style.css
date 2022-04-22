@@ -40,3 +40,23 @@ body {
   display: flex;
 color: var(--green);
 }
+
+button{
+  margin-left: 15px;
+  padding: 5px 10px;
+}
+span{
+  color: green;
+  font-weight: bold;
+  padding-left: 5px;
+}
+button{
+  margin-left: 15px;
+  padding: 5px 10px;
+}
+span{
+  color: green;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
