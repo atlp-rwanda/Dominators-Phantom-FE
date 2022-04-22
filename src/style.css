@@ -9,6 +9,8 @@
   --gray: gray;
   --dark-green: rgb(0, 58, 48, 1);
   --black: rgb(0, 0, 0);
+  --light-gray: rgba(240, 240, 240, 0.795);
+  /* --green: #31937c; */
   font-family: "Inter";
 }
 body {
