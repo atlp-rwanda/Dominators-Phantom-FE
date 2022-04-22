@@ -5,6 +5,7 @@ import { HiClock } from "react-icons/hi";
 import { BsKeyboardFill } from "react-icons/bs";
 import "./home.css";
 import Footer from "../../components/Footer/Footer";
+
 import HomeSkeleton from "./HomeSkeleton";
 import { useState ,useEffect} from "react";
 function Home() {
@@ -15,10 +16,12 @@ function Home() {
     }, 5000);
     return () => clearTimeout(timer);
   });
+
   return (
     <div>
       <UserNavbar />
       <UserHeader />
+
       {skeleton ? (
         <div className="home">
           <div className="home-content">
@@ -51,6 +54,7 @@ function Home() {
       ) : (
         <HomeSkeleton />
       )}
+
       <Footer Aime="aime" />
     </div>
   );

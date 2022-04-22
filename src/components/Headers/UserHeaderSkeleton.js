@@ -4,6 +4,7 @@ function UserHeaderSkeleton() {
     <>
       <div className="skeleton-wrapper">
         <div className="skeleton-userheader">
+
           <div className="skeleton-descr">
             <SkeletonElement type="title" height={ 20 } width={ 200 } />
             <SkeletonElement type="title" height={ 50 } width={ 120}/>
@@ -18,6 +19,7 @@ function UserHeaderSkeleton() {
             <SkeletonElement type="thumbnail" height={300} width={300} />
           </div>
         </div>
+
 
       </div>
     </>

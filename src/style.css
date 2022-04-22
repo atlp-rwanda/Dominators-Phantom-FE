@@ -11,6 +11,7 @@
   --black: rgb(0, 0, 0);
   --light-gray: rgba(240, 240, 240, 0.795);
   /* --green: #31937c; */
+
   font-family: "Inter";
 }
 body {
@@ -41,3 +42,4 @@ body {
   display: flex;
 color: var(--green);
 }
+
