@@ -9,16 +9,13 @@ import "./Header.css";
 
 const Header = () => {
   const [noun] = useState("Anesphore");
-
   const [rightBar, setRightBar] = useState(false);
-  const [sideBar, setSideBar] = useState(false);
-  const [subMenu, setSubMenu] = useState(false);
 
   return (
     <div>
       <nav className="navbar">
         <div className="leftNavBar">
-          <FaIcons.FaBars id="menuBars" onClick={() => setSideBar(!sideBar)} />
+          <FaIcons.FaBars id="menuBars" />
           <img src={groupIcon} alt="" id="busIcon" />
         </div>
         <div className="rightNavBar">
@@ -32,63 +29,22 @@ const Header = () => {
           />
         </div>
       </nav>
-      {sideBar ? (
-        <div div className="sideBar">
-          <nav>
-            <Link to="#">
-              <AiIcons.AiFillDashboard />
-              <span> Dashboard </span>
-            </Link>
-            <Link to="#">
-              <IoIcons.IoIosBus /> <span> Driver & Operator </span>
-            </Link>
-            <button onClick={() => setSubMenu(!subMenu)}>
-              <IoIcons.IoIosPeople />
-              <span>
-                User Roles
-                <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
-              </span>
-            </button>
-            {subMenu ? (
-              <div className="subMenu1">
-                <NavLink to="#">
-                  <IoIcons.IoMdAdd /> <span> New role </span>
-                </NavLink>
-                <Link to="#">
-                  <IoIcons.IoIosLock /> <span> Permissions </span>
-                </Link>
-                <Link to="#">
-                  <IoIcons.IoMdAnalytics /> <span> Actions </span>
-                </Link>
-              </div>
-            ) : null}
-            <Link to="#">
-              <AiIcons.AiOutlineReload />
-              <span> Routes </span>
-            </Link>
-            <Link to="#">
-              <IoIcons.IoMdBus />
-              <span> Buses </span>
-            </Link>
-          </nav>
-        </div>
-      ) : null}
       <div className="mainContent">
         {rightBar ? (
           <div className="rightBar">
-            <div className="icons">
+            <div className="d-icons">
               <FaIcons.FaUserCircle className="icons-sub" />
               <p> My profile </p>
             </div>
-            <div className="icons">
+            <div className="d-icons">
               <AiIcons.AiFillSetting className="icons-sub" />
               <p> Settings </p>
             </div>
-            <div className="icons">
+            <div className="d-icons">
               <BsIcons.BsBellFill className="icons-sub" />
               <p> Notifications </p>
             </div>
-            <div className="icons">
+            <div className="d-icons">
               <IoIcons.IoMdLogOut className="icons-sub" />
               <p id="logout"> Logout </p>
             </div>

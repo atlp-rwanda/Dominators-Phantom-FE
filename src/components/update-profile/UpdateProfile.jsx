@@ -58,7 +58,9 @@ const UpdateProfile = () => {
         address,
       });
       localStorage.setItem("user", JSON.stringify(user));
-      toast.success("Profile Updated");
+      toast.info("Profile Updated", {
+        theme: "colored",
+      });
     }
   };
   const HandleReset = () => {
@@ -95,8 +97,7 @@ const UpdateProfile = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
-        style: { backgroundColor: "red", color: "white" },
+        theme: "colored",
       });
       return false;
     }
