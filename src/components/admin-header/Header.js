@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 import groupIcon from "./phantom.png";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
@@ -44,9 +43,9 @@ const Header = () => {
               <BsIcons.BsBellFill className="icons-sub" />
               <p> Notifications </p>
             </div>
-            <div className="d-icons">
+            <div className="d-icons" id="logout">
               <IoIcons.IoMdLogOut className="icons-sub" />
-              <p id="logout"> Logout </p>
+              <p> Logout </p>
             </div>
           </div>
         ) : null}

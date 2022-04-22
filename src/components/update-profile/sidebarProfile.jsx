@@ -8,7 +8,7 @@ const SideBarProfile = () => {
         <div className="sidebar-profile">
           <h2> Driver </h2> <div className="line"> </div>
           <img src={avatar} alt="avatar" className="avatar" />
-          <p> kamansa356 @gmail.com </p>{" "}
+          <p> kamana356@gmail.com </p>{" "}
         </div>
       ) : (
         <div>

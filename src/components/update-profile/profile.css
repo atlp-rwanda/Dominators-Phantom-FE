@@ -103,9 +103,8 @@ body {
 
 .update-profile .input.button {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 40px auto;
+    margin: 40px 0px;
+    text-align: center;
 }
 
 .update-profile .input.toright {
@@ -120,6 +119,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
 }
 
 .update-profile .input.button input:hover {
@@ -139,13 +139,12 @@ body {
 }
 
 .update-profile .select-field-container {
-    display: flex;
-    justify-content: end;
-    margin: 15px;
+    text-align: center;
+    margin: 20px;
 }
 
 .update-profile .select-field-container select {
-    padding: 8px;
+    padding: 8px 12px;
     margin: 3px;
     border: 1px solid lightgray;
     border-radius: 5px;
