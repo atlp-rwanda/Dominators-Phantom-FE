@@ -5,6 +5,7 @@ import avatar from "./Ellipse 2.png";
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import Header from "../admin-header/Header";
+
 const UpdateProfile = () => {
   let localUser;
   if (localStorage.getItem("user")) {
@@ -61,306 +62,203 @@ const UpdateProfile = () => {
       toast.info("Profile Updated", {
         theme: "colored",
       });
-      toast.success("Profile Updated");
     }
-  };
-  const HandleReset = () => {
-    setAddress("");
-    setBio("");
-    setCategory("");
-    setCity("");
-    setCountry("");
-    setFirstName("");
-    setGender("");
-    setLastName("");
-    setNationId("");
-    setPhone("");
-    setRole("");
-  };
+    const HandleReset = () => {
+      setAddress("");
+      setBio("");
+      setCategory("");
+      setCity("");
+      setCountry("");
+      setFirstName("");
+      setGender("");
+      setLastName("");
+      setNationId("");
+      setPhone("");
+      setRole("");
+    };
 
-  function validate() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6c60be4 (appropriate error messages using tostify)
-    if (
-      firstName === "" ||
-      lastName === "" ||
-      nationId === "" ||
-      phone === "" ||
-      role === "" ||
-      gender === "" ||
-      category === "" ||
-      bio === "" ||
-      country === "" ||
-      city === "" ||
-      address === ""
-    ) {
-      toast.error("All inputs are required please! ", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-<<<<<<< HEAD
-        theme: "colored",
-      });
-=======
-    if (firstName === "") {
->>>>>>> f48a737 (commit)
-=======
-        draggable: true,
-        style: { backgroundColor: "red", color: "white" },
-      });
->>>>>>> 6c60be4 (appropriate error messages using tostify)
-      return false;
+    function validate() {
+      if (
+        firstName === "" ||
+        lastName === "" ||
+        nationId === "" ||
+        phone === "" ||
+        role === "" ||
+        gender === "" ||
+        category === "" ||
+        bio === "" ||
+        country === "" ||
+        city === "" ||
+        address === ""
+      ) {
+        toast.error("All inputs are required please! ", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+        });
+      }
+      if (firstName === "") {
+        return false;
+      }
+      return true;
     }
-    return true;
-  }
 
-  return (
-    <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <Header />
-=======
->>>>>>> f48a737 (commit)
-=======
-      <Header />
->>>>>>> bfaa272 (commit)
-      <div className="content">
-        <div>
-          <SideBarProfile />
-        </div>
-        <div className="update-profile">
-          <h1 className="title">Update Profile</h1>
-          <div>
-            {localStorage.getItem("user") && (
-              <div className="avatarClass">
-                <img src={avatar} alt="Update Profile Avatar" width={100} />
-                <p>kamana356@gmail.com</p>
-              </div>
-            )}
-<<<<<<< HEAD
-            <form onSubmit={handleSubmit}>
-              <h3>Personal Info</h3>
+    return (
+      <div>
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <h3>Personal Info</h3>
 
-              <div className="input">
-                <label htmlFor="firstName">First name </label>
-=======
-            <form onSubmit={handleSubmit} autoComplete="off">
-              <h3>Personal Info</h3>
+          <div className="input">
+            <label htmlFor="firstName">First name: </label>
 
-              <div className="input">
-                <label htmlFor="firstName">First name: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="text"
-                  placeholder="Your first name"
-                  value={firstName}
-                  id="firstName"
-                  onChange={(e) => setFirstName(e.target.value)}
-<<<<<<< HEAD
-                  minLength={5}
-                />
-              </div>
-              <div className="input toright">
-                <label htmlFor="lastName">Last name </label>
-=======
-                />
-              </div>
-              <div className="input toright">
-                <label htmlFor="lastName">Last name: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="text"
-                  placeholder="Your last name"
-                  id="lastName"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-<<<<<<< HEAD
-                  minLength={5}
-                />
-              </div>
-              <div className="input">
-                <label htmlFor="nationalId">National ID </label>
-=======
-                />
-              </div>
-              <div className="input">
-                <label htmlFor="nationalId">National ID: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="number"
-                  placeholder="Your National ID"
-                  id="nationalId"
-                  maxLength={16}
-                  value={nationId}
-                  onChange={(e) => setNationId(e.target.value)}
-                />
-              </div>
-              <div className="input toright">
-<<<<<<< HEAD
-                <label htmlFor="phone">Phone Number </label>
-=======
-                <label htmlFor="phone">Phone Number: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="number"
-                  placeholder="Your phone"
-                  id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-<<<<<<< HEAD
-                  minLength={10}
-                  maxLength={12}
-<<<<<<< HEAD
-=======
->>>>>>> f48a737 (commit)
-=======
->>>>>>> 6c60be4 (appropriate error messages using tostify)
-                />
-              </div>
-              <div className="select-field-container">
-                <div className="input select">
-<<<<<<< HEAD
-                  <label htmlFor="role">Job/Role </label>
-=======
-                  <label htmlFor="role">Job/Role: </label>
->>>>>>> f48a737 (commit)
-                  <br />
-                  <select
-                    id="role"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option value="">Select</option>
-                    <option value="driver">Driver</option>
-                    <option value="operator">Operator</option>
-                  </select>
-                </div>
-                <div className="input select">
-<<<<<<< HEAD
-                  <label htmlFor="gender">Gender </label>
-=======
-                  <label htmlFor="gender">Gender: </label>
->>>>>>> f48a737 (commit)
-                  <br />
-                  <select
-                    id="gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    <option value="">Select</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-                <div className="input select">
-<<<<<<< HEAD
-                  <label htmlFor="category">Category </label>
-=======
-                  <label htmlFor="category">Category: </label>
->>>>>>> f48a737 (commit)
-                  <br />
-                  <select
-                    id="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
-                    <option value="">Select</option>
-                    <option value="driver">Driver</option>
-                    <option value="operator">Operator</option>
-                  </select>
-                </div>
-              </div>
-              <div className="input textarea">
-<<<<<<< HEAD
-                <label htmlFor="bio">Experience/bio </label>
-=======
-                <label htmlFor="bio">Experience/bio: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <textarea
-                  rows={5}
-                  placeholder="Enter your experience or bio..."
-                  value={bio}
-                  onChange={(e) => setBio(e.target.value)}
-                ></textarea>
-              </div>
-              <h3>Address</h3>
-              <div className="input">
-<<<<<<< HEAD
-                <label htmlFor="country">Country </label>
-=======
-                <label htmlFor="country">Country: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="text"
-                  placeholder="Your city"
-                  id="country"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                />
-              </div>
-              <div className="input toright">
-<<<<<<< HEAD
-                <label htmlFor="city">City </label>
-=======
-                <label htmlFor="city">City: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="text"
-                  placeholder="Your city"
-                  id="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-              <div className="input">
-<<<<<<< HEAD
-                <label htmlFor="address">Address line </label>
-=======
-                <label htmlFor="address">Address line: </label>
->>>>>>> f48a737 (commit)
-                <br />
-                <input
-                  type="text"
-                  placeholder="Your address line"
-                  id="address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-              </div>
-              <div className="input button">
-                <input type="button" value="Reset" onClick={HandleReset} />
-                <input type="submit" value="Save" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <ToastContainer />
-=======
->>>>>>> f48a737 (commit)
-=======
-                <ToastContainer />
->>>>>>> 6c60be4 (appropriate error messages using tostify)
-              </div>
-            </form>
+            <br />
+            <input
+              type="text"
+              placeholder="Your first name"
+              value={firstName}
+              id="firstName"
+              onChange={(e) => setFirstName(e.target.value)}
+              minLength={5}
+            />
           </div>
+          <div className="input toright">
+            <label htmlFor="lastName">Last name </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Your last name"
+              id="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              minLength={5}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="nationalId">National ID </label>
+            <br />
+            <input
+              type="number"
+              placeholder="Your National ID"
+              id="nationalId"
+              maxLength={16}
+              value={nationId}
+              onChange={(e) => setNationId(e.target.value)}
+            />
+          </div>
+          <div className="input toright">
+            <label htmlFor="phone">Phone Number </label>
+            <br />
+            <input
+              type="number"
+              placeholder="Your phone"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div className="select-field-container">
+            <div className="input select">
+              <label htmlFor="role">Job/Role </label>
+              <br />
+              <select
+                id="role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="driver">Driver</option>
+                <option value="operator">Operator</option>
+              </select>
+            </div>
+            <div className="input select">
+              <label htmlFor="gender">Gender </label>
+              <br />
+              <select
+                id="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div className="input select">
+              <label htmlFor="category">Category </label>
+              <br />
+              <select
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="driver">Driver</option>
+                <option value="operator">Operator</option>
+              </select>
+            </div>
+          </div>
+          <div className="input textarea">
+            <label htmlFor="bio">Experience/bio </label>
+            <br />
+            <textarea
+              rows={5}
+              placeholder="Enter your experience or bio..."
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+            ></textarea>
+          </div>
+          <h3>Address</h3>
+          <div className="input">
+            <label htmlFor="country">Country </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Your city"
+              id="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            />
+          </div>
+          <div className="input toright">
+            <label htmlFor="city">City </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Your city"
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="address">Address line </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Your address line"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          <div className="input button">
+            <input type="button" value="Reset" onClick={HandleReset} />
+            <input type="submit" value="Save" />
+
+            <ToastContainer />
+          </div>
+        </form>
+
+        <div className="admin-footer">
+          &copy; Copyright 2022,
+          <span style={{ color: "#10B7FF" }}> Phantom Dominators</span>
         </div>
       </div>
-
-      <div className="admin-footer">
-        &copy; Copyright 2022,
-        <span style={{ color: "#10B7FF" }}> Phantom Dominators</span>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 // {"firstName":"KAMANA","lastName":"Deo","nationId":"1198030056576288","phone":"250788088909","role":"driver","gender":"male","category":"","bio":"My name is KAMANA Deo, I am 42 years old and I live in Kigali. I was a driver for 10 years and worked for many travel agencies. I now work at the Phantom travel agency...","country":"Rwanda","city":"Kigali City","address":"KG 726 st, Kigali"}
 export default UpdateProfile;

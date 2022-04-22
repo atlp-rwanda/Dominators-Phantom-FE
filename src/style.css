@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: auto;
     padding: 0;
+    margin: auto;
     scroll-behavior: smooth;
     --green: hsl(166deg 100% 16% / 66%);
     --white: rgb(255, 255, 255);
