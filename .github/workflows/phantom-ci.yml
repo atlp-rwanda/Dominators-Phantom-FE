@@ -5,7 +5,7 @@ name: Phantom CI
 
 on:
   push:
-    branches: [develop]
+    branches: [ch-ci-and-cd]
   pull_request:
     branches: [develop]
 
