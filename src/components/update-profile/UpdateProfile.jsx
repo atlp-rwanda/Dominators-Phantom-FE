@@ -1,6 +1,6 @@
 import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import avatar from "./Ellipse 2.png";
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
@@ -24,7 +24,7 @@ const UpdateProfile = () => {
           category: "",
           bio: "",
           country: "",
-          city: "",
+          province: "",
           address: "",
         }
   );
@@ -39,7 +39,7 @@ const UpdateProfile = () => {
   const [category, setCategory] = useState(user ? user.category : "");
   const [bio, setBio] = useState(user ? user.bio : "");
   const [country, setCountry] = useState(user ? user.country : "");
-  const [city, setCity] = useState(user ? user.city : "");
+  const [province, setprovince] = useState(user ? user.province : "");
   const [address, setAddress] = useState(user ? user.address : "");
 
   const handleSubmit = (e) => {
@@ -55,7 +55,7 @@ const UpdateProfile = () => {
         category,
         bio,
         country,
-        city,
+        province,
         address,
       });
       localStorage.setItem("user", JSON.stringify(user));
@@ -260,5 +260,5 @@ const UpdateProfile = () => {
     );
   };
 };
-// {"firstName":"KAMANA","lastName":"Deo","nationId":"1198030056576288","phone":"250788088909","role":"driver","gender":"male","category":"","bio":"My name is KAMANA Deo, I am 42 years old and I live in Kigali. I was a driver for 10 years and worked for many travel agencies. I now work at the Phantom travel agency...","country":"Rwanda","city":"Kigali City","address":"KG 726 st, Kigali"}
+// {"firstName":"KAMANA","lastName":"Deo","nationId":"1198030056576288","phone":"250788088909","role":"driver","gender":"male","category":"","bio":"My name is KAMANA Deo, I am 42 years old and I live in Kigali. I was a driver for 10 years and worked for many travel agencies. I now work at the Phantom travel agency...","country":"Rwanda","province":"Kigali province","address":"KG 726 st, Kigali"}
 export default UpdateProfile;
