@@ -96,6 +96,7 @@ border-radius: 5px;
 margin-top:2vh;
 font-weight: 400;
 font-size: 32px;
+border:white solid;
   }
   
   .icon{
@@ -208,8 +209,8 @@ z-index: 2;
    top: 310px;
    background: rgba(23, 121, 98, 0.64);
   border-radius: 5px;
-  border:white solid;
-  border:white solid;
+   /* margin-left:30px; */
+   border:white solid;
     }
     
     
@@ -252,32 +253,34 @@ margin-left:5px;
     }
   
   }
-  @media (min-width:845px) and (max-width:1180px){
+  @media only screen and (min-width:768px) and (max-width:1180px){
     .login-form{
    position:relative;
-   width: 360px;
+   width: 400px;
    height: 450px;
-   left: 5vh;
-   margin-bottom:50px;
+   margin-top:30vh;
+   margin-bottom:10vh;
+   margin-left:62vh;
    
    background: #FFFFFC;
    border: 1px solid rgba(0, 0, 0, 0.14);
    box-sizing: border-box;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    border-radius: 10px;
+   
      
            
        }
        .form{
        margin-top:50px;
        
-       margin-left:49px;
+       margin-left:60px;
        margin-right:50px; }
      
        
        #pasword-field, #email-field{ 
       width: 300px;
-      height: 50px;
+      height: 40px;
       margin-left:-20px;
       top: 261.89px; 
       
@@ -303,17 +306,19 @@ margin-left:5px;
       
        #btn{
          /* position:relative; */
-       width: 300px;
-      height: 50px;
+      width: 300px;
+      height: 40px;
       top: 340px;
       background: rgba(23, 121, 98, 0.64);
-     border-radius: 5px;
-       font-family: 'Inter';
-   font-style: normal;
-   font-weight: 400;
-   font-size: 32px;
-   line-height: 39px;
-   margin-left: -20px;
+      border-radius: 5px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 39px;
+      margin-left: -20px;
+      padding-bottom: 1px;
+      border:white solid;
        }
      
        .icon{
@@ -321,7 +326,7 @@ margin-left:5px;
          width:200px;
          height: 50px;
          
-        margin-left:11vh;
+        margin-left:7.5vh;
         margin-top:6vh;
          color:rgba(23, 121, 98, 0.64);
        }
@@ -335,12 +340,12 @@ margin-left:5px;
          
          background: #C4C4C4;
        }
-       .check-label{ 
+  .check-label{ 
          position:absolute;
    width: 160.15px;
    height: 36.59px;
-   margin-left:-20px;
-   margin-bottom: -300px; 
+   margin-left:-15px;
+   margin-bottom: -290px; 
    
    font-family: 'Inter';
    font-style: normal;
