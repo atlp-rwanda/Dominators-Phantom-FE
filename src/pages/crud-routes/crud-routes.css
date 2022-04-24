@@ -151,7 +151,7 @@ table .tbody tr:hover {
   display: flex;
   width: 100%;
 }
-.beforetbl .PageSize {
+/* .beforetbl .PageSize {
   float: left;
   left: 0;
   margin-left: 0;
@@ -170,7 +170,7 @@ table .tbody tr:hover {
   background-clip: padding-box;
   border: 1px solid lightgray;
   border-radius: 0.25rem;
-}
+} */
 .beforetbl .search {
   float: right;
   display: flex;

@@ -16,8 +16,10 @@ import PermissionContext from "../../store/permission-context/permission-context
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
 import { headers, backendUrl } from "../../utils/db";
+import ReactPaginate from "react-paginate";
 
 const Roles = () => {
+  const [size, setSize] = useState(5);
   const roleCtx = useContext(RoleContext);
   // const roles = roleCtx.roles;
   const [roles, setRoles] = useState([]);
@@ -48,7 +50,7 @@ const Roles = () => {
   const fetchPermissionsHandler = useCallback(async () => {
     try {
       const response = await fetch(
-        `${backendUrl}/permissions/?page=0&size=100`,
+        `${backendUrl}/permissions/?page=0&size=${size}`,
         {
           headers,
         }
@@ -59,12 +61,12 @@ const Roles = () => {
     } catch (error) {
       toast.error(error.message);
     }
-  }, []);
+  }, [size]);
 
   useEffect(() => {
     fetchRolesHandler();
     fetchPermissionsHandler();
-  }, []);
+  }, [size]);
 
   const showNewRoleHandler = () => {
     setNewRoleIsShown(true);
@@ -127,6 +129,11 @@ const Roles = () => {
 
   const handleCloseEdit = () => {
     setEditRoleIsShown(false);
+  };
+
+  const handleSelectData = (e) => {
+    console.log(e.target.value);
+    setSize(e.target.value);
   };
 
   return (
@@ -195,6 +202,17 @@ const Roles = () => {
               />
             )}
             <Card className={classes.permissions}>
+              <div className="PageSize">
+                <label>Show:</label>
+                <select onChange={(e) => handleSelectData(e)}>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="75">75</option>
+                  <option value="100">100</option>
+                </select>{" "}
+                <label>Entries</label>
+              </div>
               <h4 className={classes.title}>Available Permissions</h4>
               <ul className={classes.roles}>
                 {permissions?.result.map((permission) => (
@@ -216,6 +234,15 @@ const Roles = () => {
                   </div>
                 ))}
               </ul>
+              <div className="table-paginate">
+                <ReactPaginate
+                  renderOnZeroPageCount={null}
+                  pageRangeDisplayed={1}
+                  pageCount={2}
+                  breakLabel="..."
+                  activeClassName="active"
+                />
+              </div>
             </Card>
           </div>
         </div>

@@ -36,6 +36,29 @@ body {
   margin-top: 10px;
 }
 
+.update-profile .avatarClass .flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.update-profile .avatarClass .flex-container img {
+  border: 3px solid var(--theme-green);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  padding: 5px;
+}
+.update-profile .avatarClass .flex-container input[type="button"] {
+  background-color: var(--theme-green);
+  color: var(--theme-white);
+  padding: 12px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .update-profile form {
   margin: 32px;
 }
@@ -48,6 +71,7 @@ body {
 .update-profile .input {
   display: inline-block;
   width: 45%;
+  margin-bottom: 8px;
 }
 
 .update-profile .input label {
@@ -60,7 +84,7 @@ body {
   border-radius: 5px;
   outline: none;
   border: 1px solid lightgray;
-  margin: 5px 5px 8px 0px;
+  margin: 5px 5px 0px 0px;
 }
 
 .input label::after {
@@ -112,6 +136,11 @@ body {
   float: right;
 }
 
+.update-profile .errorText {
+  color: red;
+  font-size: 12px;
+}
+
 .update-profile .input.button input {
   padding: 12px;
   margin: 5px;
@@ -142,6 +171,9 @@ body {
 .update-profile .select-field-container {
   text-align: center;
   margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .update-profile .select-field-container select {
@@ -151,6 +183,15 @@ body {
   border-radius: 5px;
   background-color: var(--theme-lightgrey);
   /* -webkit-appearance: none; */
+}
+
+.update-profile .select-field-address select {
+  padding: 8px 10px;
+  margin: 3px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+  background-color: var(--theme-lightgrey);
 }
 
 .content {

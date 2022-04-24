@@ -15,12 +15,13 @@ import Assigned from "./pages/AssignDriver/Assigned";
 import UnAssigned from "./pages/AssignDriver/UnAssigned";
 import Dashboard from "./pages/dashboard";
 import Notification from "./pages/notification/";
+import LogoutFunction from "./components/Logout/LogoutFunction";
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} />
-      <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
       <Route path="/route" element={<CrudRoute itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
@@ -34,6 +35,13 @@ function App() {
       <Route path="/Reset-link" element={<ResetLink />} />
       <Route path="/Reset-pwd" element={<ResetPwd />} />
       <Route path="/notification" element={<Notification />} />
+      <Route path="/logout" element={<LogoutFunction />} />
+      <Route path="/*" element={<PageNotFound />} />
+      <Route path="/Reset-link" element={<ResetLink />} />
+      <Route path="/Reset-pwd" element={<ResetPwd />} />
+      <Route path="/notification" element={<Notification />} />
+      <Route path="/logout" element={<LogoutFunction />} />
+      <Route path="/*" element={<PageNotFound />} />
     </Routes>
   );
 }

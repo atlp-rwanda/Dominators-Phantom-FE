@@ -55,6 +55,12 @@ const LoginComponent = () => {
           localStorage.setItem("role", result.data.user.role);
           localStorage.setItem("userName", result.data.user.firstName);
           localStorage.setItem("userEmail", result.data.user.email);
+          localStorage.setItem("userId", result.data.user.id);
+          result.data.user.profiles.profilePic &&
+            localStorage.setItem(
+              "profilePic",
+              result.data.user.profiles.profilePic
+            );
           if (
             result.data.user.role == "admin" ||
             result.data.user.role == "operator" ||

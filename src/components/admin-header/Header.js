@@ -36,6 +36,7 @@ const Header = (props) => {
     localStorage.removeItem("userId");
     localStorage.removeItem("email");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("profilePic");
     return nav("/login");
   };
   return (
@@ -52,7 +53,15 @@ const Header = (props) => {
             ""
           )}
           <p className="circleWord" onClick={() => setRightBar(!rightBar)}>
-            {noun?.charAt(0)}
+            {localStorage.getItem("profilePic") ? (
+              <img
+                src={localStorage.getItem("profilePic")}
+                alt={noun?.charAt(0)}
+                id="profilePic"
+              />
+            ) : (
+              <span id="nounAvatar">{noun?.charAt(0)}</span>
+            )}
           </p>
           <p id="noun"> {noun} </p>
           {rightBar ? (

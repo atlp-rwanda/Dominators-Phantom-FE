@@ -58,7 +58,6 @@ function CrudRoute(props) {
   };
   const handleShowDetails = () => {
     setDetail(!detail);
-    console.log(">>>>>>>> double click");
   };
   const handleSearch = (e) => {};
 
@@ -73,15 +72,6 @@ function CrudRoute(props) {
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-  // useEffect(() => {
-  //   Object.entries(isChecked).map((values) => {
-  //     if (values[1])
-  //       return selectedRoutes.push({
-  //         value: values[0],
-  //         label: values[0],
-  //       });
-  //   });
-  // }, [isChecked]);
   return (
     <>
       <ToastContainer theme="colored" />
