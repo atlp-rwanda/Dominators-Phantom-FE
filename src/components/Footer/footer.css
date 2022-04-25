@@ -1,7 +1,9 @@
 .footer {
-  height: 300px;
+  height: 310px;
   background-color: var(--green);
   color: var(--white);
+  
+  
 }
 .footer .footer-limit {
   width: 80%;
