@@ -1,46 +1,24 @@
 import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
-import { useState, useMemo } from "react";
-import avatar from "./Ellipse 2.png";
+import { useState, useEffect } from "react";
 import Header from "../admin-header/Header";
+import UpdateProfileForm from "./UpdateForm";
 import { ToastContainer, toast } from "react-toastify";
-import Header from "../admin-header/Header";
 
 const UpdateProfile = () => {
-  let localUser;
-  if (localStorage.getItem("user")) {
-    localUser = JSON.parse(localStorage.getItem("user"));
-  }
-  const [user, setUser] = useState(
-    localUser
-      ? localUser
-      : {
-          firstName: "",
-          lastName: "",
-          nationId: "",
-          phone: "",
-          role: "",
-          gender: "",
-          category: "",
-          bio: "",
-          country: "",
-          province: "",
-          address: "",
-        }
-  );
+  const [user, setUser] = useState(null);
 
-  //variables for input fields
-  const [firstName, setFirstName] = useState(user ? user.firstName : "");
-  const [lastName, setLastName] = useState(user ? user.lastName : "");
-  const [nationId, setNationId] = useState(user ? user.nationId : "");
-  const [phone, setPhone] = useState(user ? user.phone : "");
-  const [role, setRole] = useState(user ? user.role : "");
-  const [gender, setGender] = useState(user ? user.gender : "");
-  const [category, setCategory] = useState(user ? user.category : "");
-  const [bio, setBio] = useState(user ? user.bio : "");
-  const [country, setCountry] = useState(user ? user.country : "");
-  const [province, setprovince] = useState(user ? user.province : "");
-  const [address, setAddress] = useState(user ? user.address : "");
+  useEffect(() => {
+    setTimeout(() => {
+      fetch("http://localhost:3000/user")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setUser(data);
+        });
+    }, [1000]);
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -260,5 +238,4 @@ const UpdateProfile = () => {
     );
   };
 };
-// {"firstName":"KAMANA","lastName":"Deo","nationId":"1198030056576288","phone":"250788088909","role":"driver","gender":"male","category":"","bio":"My name is KAMANA Deo, I am 42 years old and I live in Kigali. I was a driver for 10 years and worked for many travel agencies. I now work at the Phantom travel agency...","country":"Rwanda","province":"Kigali province","address":"KG 726 st, Kigali"}
 export default UpdateProfile;

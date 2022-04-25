@@ -50,6 +50,7 @@ body {
 .update-profile .input {
     display: inline-block;
     width: 45%;
+    margin-bottom: 8px;
 }
 
 .update-profile .input label {
@@ -62,7 +63,7 @@ body {
     border-radius: 5px;
     outline: none;
     border: 1px solid lightgray;
-    margin: 5px 5px 8px 0px;
+    margin: 5px 5px 0px 0px;
 }
 
 .input label::after {
@@ -114,6 +115,11 @@ body {
     float: right;
 }
 
+.update-profile .errorText {
+    color: red;
+    font-size: 12px;
+}
+
 .update-profile .input.button input {
     padding: 12px;
     margin: 5px;
@@ -146,7 +152,7 @@ body {
     margin: 20px;
 }
 
-.update-profile .select-field-container select {
+.select-field-container select {
     padding: 8px 12px;
     display: flex;
     justify-content: end;
@@ -160,6 +166,15 @@ body {
     border-radius: 5px;
     background-color: var(--theme-lightgrey);
     /* -webkit-appearance: none; */
+}
+
+.update-profile .select-field-address select {
+    padding: 8px 10px;
+    margin: 3px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 100%;
+    background-color: var(--theme-lightgrey);
 }
 
 .content {
