@@ -54,7 +54,7 @@ const LoginComponent = () => (
       return (
   <div className="login-form">  
    <FaIcons.FaUserCircle className="icon"/> 
-{/* <PersonIcon/> */}
+
        <div>
          <form onSubmit={handleSubmit} className="form">
         

@@ -1,5 +1,7 @@
+import react from "react";
 import { Link } from "react-router-dom";
 import "./ResetPasswordLink.css";
+import * as FaIcons from "react-icons/fa";
 
 const ResetPasswordLink = () => {
 
@@ -13,6 +15,9 @@ const ResetPasswordLink = () => {
          <form className="reset-form">
         
           <input id="pwd-reset-field" type="email" name="email" placeholder="Email address"/><br/>
+          {/* <span>  
+          <FaIcons.FaEnvelope className="envilope"/> 
+          </span> */}
           <Link to="/reset-pwd">   <button type="submit"className="submit-button" id="submit-btn">Send link</button></Link>  
           </form>
           </div>

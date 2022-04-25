@@ -36,9 +36,8 @@ margin-bottom:50px;
  
 >>>>>>> correcting spellings
   }
-  .login-form{
-/* z-index:9; */
-  }
+  
+  
 
   .form{
   margin-top:40px;
@@ -211,6 +210,8 @@ z-index: 2;
   border-radius: 5px;
    /* margin-left:30px; */
    border:white solid;
+   font-size: 25px;
+   border-color: white solid;
     }
     
     
