@@ -3353,6 +3353,13 @@
   "resolved" "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   "version" "1.2.2"
 
+"cjson@*":
+  "integrity" "sha1-oPSGAeAWFk37LG2JHjgMlsramDk="
+  "resolved" "https://registry.npmjs.org/cjson/-/cjson-0.5.0.tgz"
+  "version" "0.5.0"
+  dependencies:
+    "json-parse-helpfulerror" "^1.0.3"
+
 "class-utils@^0.3.5":
   "integrity" "sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg=="
   "resolved" "https://registry.npmjs.org/class-utils/-/class-utils-0.3.6.tgz"
@@ -5529,6 +5536,13 @@
   "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   "version" "1.2.0"
 
+"helper@^0.0.13":
+  "integrity" "sha1-9K4I2iCoSTf6mfJLB9A8ieh0csA="
+  "resolved" "https://registry.npmjs.org/helper/-/helper-0.0.13.tgz"
+  "version" "0.0.13"
+  dependencies:
+    "cjson" "*"
+
 "history@^5.2.0":
   "integrity" "sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ=="
   "resolved" "https://registry.npmjs.org/history/-/history-5.3.0.tgz"
@@ -6641,6 +6655,11 @@
     "import-local" "^3.0.2"
     "jest-cli" "^27.5.1"
 
+"jju@^1.1.0":
+  "integrity" "sha1-o6vicYryQaKykE+EpiWXDzia4yo="
+  "resolved" "https://registry.npmjs.org/jju/-/jju-1.4.0.tgz"
+  "version" "1.4.0"
+
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -6713,6 +6732,13 @@
   "integrity" "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w=="
   "resolved" "https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz"
   "version" "2.3.1"
+
+"json-parse-helpfulerror@^1.0.3":
+  "integrity" "sha1-E/FM4C7tTpgSl7ZOueO5MuLdE9w="
+  "resolved" "https://registry.npmjs.org/json-parse-helpfulerror/-/json-parse-helpfulerror-1.0.3.tgz"
+  "version" "1.0.3"
+  dependencies:
+    "jju" "^1.1.0"
 
 "json-schema-traverse@^0.4.1":
   "integrity" "sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg=="
