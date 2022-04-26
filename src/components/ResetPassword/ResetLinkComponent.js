@@ -18,7 +18,7 @@ const ResetPasswordLink = () => {
           {/* <span>  
           <FaIcons.FaEnvelope className="envilope"/> 
           </span> */}
-          <Link to="/reset-pwd">   <button type="submit"className="submit-button" id="submit-btn">Send link</button></Link>  
+           <button type="submit"className="submit-button" id="submit-btn">Send link</button> 
           </form>
           </div>
           

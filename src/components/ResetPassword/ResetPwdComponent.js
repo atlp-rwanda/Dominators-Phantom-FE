@@ -14,7 +14,7 @@ const ResetPassword = () => {
           <input className="pwd-reset-fields" type="email" name="email" placeholder="Email address"/><br/>
           <input className="pwd-reset-fields" type="password" name="password" placeholder="Enter new password"/><br/>
           <input className="pwd-reset-fields" type="password" name="password" placeholder="Confirm your password"/><br/>
-          <Link to="/">   <button type="submit"className="rest-pwd">Change password</button></Link>  
+     <button type="submit"className="rest-pwd">Change password</button>
           </form>
           </div>
           
