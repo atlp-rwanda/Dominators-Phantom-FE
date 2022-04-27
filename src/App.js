@@ -15,6 +15,8 @@ import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
 import Dashboard from "./pages/dashboard";
 
+import LogoutFunction from "./components/Logout/LogoutFunction";
+
 function App() {
   return (
     <Routes>
@@ -30,6 +32,7 @@ function App() {
       <Route path="/Reset-link" element={<ResetLink />} />
       <Route path="/Reset-pwd" element={<ResetPwd />} />
       <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/logout" element={<LogoutFunction />} />
     </Routes>
   );
 }
