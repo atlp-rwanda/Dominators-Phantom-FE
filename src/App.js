@@ -5,7 +5,7 @@ import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 
-import Logout from "./components/Logout/Logout";
+import LogoutFunction from "./components/Logout/LogoutFunction";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/logout" element={<LogoutFunction />} />
     </Routes>
   );
 }
