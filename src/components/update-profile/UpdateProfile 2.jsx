@@ -20,8 +20,8 @@ const UpdateProfile = () => {
     }, [1000]);
   }, [user]);
 
-  const handleUpdate = (updatedInfo) => {
-    fetch("http://localhost:3000/user", {
+  const handleUpdate = async (updatedInfo) => {
+    const resp = await fetch("http://localhost:3000/user", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
