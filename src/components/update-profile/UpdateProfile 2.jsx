@@ -6,45 +6,37 @@ import UpdateProfileForm from "./UpdateForm";
 import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProfile = () => {
-  const [user, setUser] = useState();
-  const [data, setData] = useState();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/user")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setUser(data);
-      });
+    setTimeout(() => {
+      fetch("http://localhost:3000/user")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setUser(data);
+        });
+    }, [1000]);
   }, [user]);
-  //console.log(user);
-  const handleUpdate = (updatedInfo) => {
-    try {
-      fetch("http://localhost:3000/user", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedInfo),
-      }).then((response) => {
+
+  const handleUpdate = async (updatedInfo) => {
+    const resp = await fetch("http://localhost:3000/user", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedInfo),
+    }).then((response) => {
+      if (response.ok) {
         toast.info("Profile is being updated now!", {
           theme: "colored",
         });
-      });
-    } catch (error) {
-      toast.error("Failed to update your profile", { theme: "colored" });
-    }
+      } else {
+        toast.error("Failed to update your profile", { theme: "colored" });
+      }
+    });
   };
-
-  const nav = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      nav("/");
-    }
-  });
 
   return (
     <div>
