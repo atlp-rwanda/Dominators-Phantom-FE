@@ -1,7 +1,10 @@
 import "./ResetPassword.css";
 import { Link } from "react-router-dom";
-
+import {ToastContainer,toast} from "react-toastify";
 const ResetPassword = () => {
+  const handleSubmit = (e)=>{
+e.preventDefault();
+  }
     return ( 
         <div className="reset-password">  
         <div>
@@ -14,7 +17,8 @@ const ResetPassword = () => {
           <input className="pwd-reset-fields" type="email" name="email" placeholder="Email address"/><br/>
           <input className="pwd-reset-fields" type="password" name="password" placeholder="Enter new password"/><br/>
           <input className="pwd-reset-fields" type="password" name="password" placeholder="Confirm your password"/><br/>
-     <button type="submit"className="rest-pwd">Change password</button>
+     <button onClick={handleSubmit} type="submit"className="rest-pwd">Change password</button>
+     <ToastContainer/>
           </form>
           </div>
           
