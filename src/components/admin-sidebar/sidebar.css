@@ -39,12 +39,8 @@
 
 .sidebar nav a span,
 .sidebar nav button span {
-<<<<<<< HEAD
   margin-left: 10px;
   color: var(--theme-sidebar-grey);
-=======
-    margin-left: 10px;
->>>>>>> 87563e5 (hi)
 }
 
 .sidebar nav .subMenu {
@@ -53,7 +49,6 @@
 }
 
 .sidebar nav button span .icon-dropDown {
-<<<<<<< HEAD
   float: right;
 }
 
@@ -63,16 +58,6 @@
 }
 .sidebar nav a:hover > span {
   color: var(--theme-sidebar-white);
-=======
-    float: right;
-    margin: 3px 0px 3px 10px;
-}
-
-.sidebar nav a:hover,
-.sidebar nav button:hover {
-    background-color: var(--theme-green);
-    color: var(--theme-sidebar-white);
->>>>>>> 87563e5 (hi)
 }
 
 .sidebar nav a.active {

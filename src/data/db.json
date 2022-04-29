@@ -1,7 +1,18 @@
 {
   "user": {
-    "firstName": "weqwfe",
-    "lastName": "qewfasfdsd",
-    "phone": "0893728654"
+    "firstName": "Aime",
+    "lastName": "NDAYAMBAJE",
+    "email": "kamanadeo23@gmail.com",
+    "phone": "2134567890899",
+    "bio": "MY BIOGRAPHY\n",
+    "province": "Kigali",
+    "district": "Kicukiro",
+    "nationalId": "67836468736757878999",
+    "role": "2134567890899",
+    "gender": "male",
+    "category": "B",
+    "sector": "Mareba",
+    "cell": "Kagomasi",
+    "village": "Kagarama"
   }
 }

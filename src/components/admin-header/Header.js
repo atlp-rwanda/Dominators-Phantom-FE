@@ -6,31 +6,23 @@ import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import * as IoIcons from "react-icons/io";
 import "./Header.css";
-import { useNavigate } from "react-router-dom";
+import LogoutModal from "../Logout/logout-modal";
+import { ToastContainer } from "react-toastify";
 
 const Header = () => {
   const [noun, setNoun] = useState("");
   const [rightBar, setRightBar] = useState(false);
 
-  const userName = localStorage.getItem("userName");
-
-  useEffect(() => {
-    setNoun(userName);
-  });
-
-  const nav = useNavigate();
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    localStorage.removeItem("userName");
-    return nav("/login");
+  //declaring logout variabls
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
     <div>
+      {showModal && <LogoutModal closeModal={closeModal} />}
+      <ToastContainer />
       <nav className="navbar">
         <div className="leftNavBar">
           <FaIcons.FaBars id="menuBars" />
@@ -65,7 +57,11 @@ const Header = () => {
               <BsIcons.BsBellFill className="icons-sub" />
               <span> Notifications</span>
             </div>
-            <div className="d-icons" id="logout">
+            <div
+              className="d-icons"
+              id="logout"
+              onClick={() => setShowModal(true)}
+            >
               <IoIcons.IoMdLogOut className="icons-sub" />
               <span onClick={(e) => handleLogout(e)}> Logout </span>
             </div>

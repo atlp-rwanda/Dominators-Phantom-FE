@@ -7,34 +7,29 @@ import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProfile = () => {
   const [user, setUser] = useState();
-  const [data, setData] = useState();
+  fetch("http://localhost:3000/user")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      setUser(data);
+    });
 
-  useEffect(() => {
-    fetch("http://localhost:3000/user")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setUser(data);
-      });
-  }, [user]);
-  //console.log(user);
   const handleUpdate = (updatedInfo) => {
-    try {
-      fetch("http://localhost:3000/user", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedInfo),
-      }).then((response) => {
-        toast.info("Profile is being updated now!", {
-          theme: "colored",
-        });
-      });
-    } catch (error) {
-      toast.error("Failed to update your profile", { theme: "colored" });
-    }
+    fetch("http://localhost:3000/user", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedInfo),
+    }).then((res) => {
+      if (res.ok) {
+        toast.info("Profile updated successfully!");
+        localStorage.setItem("user", JSON.stringify(updatedInfo));
+      } else {
+        toast.error("Failed to update!");
+      }
+    });
   };
 
   const nav = useNavigate();
@@ -64,7 +59,7 @@ const UpdateProfile = () => {
           )}
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer theme="colored" />
       <div className="admin-footer">
         &copy; Copyright 2022,
         <span style={{ color: "#10B7FF" }}> Phantom Dominators</span>

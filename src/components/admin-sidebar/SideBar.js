@@ -21,7 +21,6 @@ const Sidebar = () => {
       <nav>
         <NavLink to="dashboard">
           <AiIcons.AiFillDashboard />
-<<<<<<< HEAD
           <span> Dashboard </span>
         </NavLink>
         <NavLink to="/users">
@@ -31,14 +30,9 @@ const Sidebar = () => {
           <IoIcons.IoIosPeople />
           <span>Roles & Permissions</span>
         </NavLink>
-=======
-          <span> Dashboard</span>
-        </Link>
->>>>>>> 87563e5 (hi)
         <Link to="#">
-          <IoIcons.IoIosBus /> <span> Driver & Operator</span>
+          <IoIcons.IoIosBus /> <span> Driver & Operator </span>
         </Link>
-<<<<<<< HEAD
         {(role === "admin" || role === "operator") && (
           <Link to="#" onClick={showSubMenu}>
             <IoIcons.IoIosPeople />
@@ -47,43 +41,25 @@ const Sidebar = () => {
             </span>
           </Link>
         )}
-=======
-        <button onClick={showSubMenu}>
-          <IoIcons.IoIosPeople />
-          <span>
-            User Roles
-            <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
-          </span>
-        </button>
->>>>>>> 87563e5 (hi)
         <div className="subMenu">
           <NavLink to="#">
-            <IoIcons.IoMdAdd /> <span> New role</span>
+            <IoIcons.IoMdAdd /> <span> New role </span>
           </NavLink>
           <Link to="#">
-            <IoIcons.IoIosLock /> <span> Permissions</span>
+            <IoIcons.IoIosLock /> <span> Permissions </span>
           </Link>
           <Link to="#">
-            <IoIcons.IoMdAnalytics /> <span> Actions</span>
+            <IoIcons.IoMdAnalytics /> <span> Actions </span>
           </Link>
         </div>
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
-<<<<<<< HEAD
           <span> Routes </span>
         </NavLink>
         <NavLink to="/buses">
           <IoIcons.IoMdBus />
           <span> Buses </span>
         </NavLink>
-=======
-          <span> Routes</span>
-        </Link>
-        <Link to="#">
-          <IoIcons.IoMdBus />
-          <span> Buses</span>
-        </Link>
->>>>>>> 87563e5 (hi)
       </nav>
     </div>
   );
