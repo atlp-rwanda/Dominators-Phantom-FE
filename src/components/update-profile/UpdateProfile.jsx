@@ -6,34 +6,28 @@ import UpdateProfileForm from "./UpdateForm";
 import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProfile = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:3000/user")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setUser(data);
-        });
-    }, [1000]);
-  }, [user]);
+  const [user, setUser] = useState();
+  fetch("http://localhost:3000/user")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      setUser(data);
+    });
 
   const handleUpdate = (updatedInfo) => {
     fetch("http://localhost:3000/user", {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedInfo),
-    }).then((response) => {
-      if (response.ok) {
-        toast.info("Profile is being updated now!", {
-          theme: "colored",
-        });
+    }).then((res) => {
+      if (res.ok) {
+        toast.info("Profile updated successfully!");
+        localStorage.setItem("user", JSON.stringify(updatedInfo));
       } else {
-        toast.error("Failed to update your profile", { theme: "colored" });
+        toast.error("Failed to update!");
       }
     });
   };
@@ -56,7 +50,7 @@ const UpdateProfile = () => {
           )}
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer theme="colored" />
       <div className="admin-footer">
         &copy; Copyright 2022,
         <span style={{ color: "#10B7FF" }}> Phantom Dominators</span>

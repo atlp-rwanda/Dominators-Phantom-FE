@@ -40,6 +40,7 @@
 .sidebar nav a span,
 .sidebar nav button span {
     margin-left: 10px;
+    color: var(--theme-sidebar-grey);
 }
 
 .sidebar nav .subMenu {
@@ -49,11 +50,9 @@
 
 .sidebar nav button span .icon-dropDown {
     float: right;
-    margin: 3px 0px 3px 10px;
 }
 
-.sidebar nav a:hover,
-.sidebar nav button:hover {
+.sidebar nav a:hover {
     background-color: var(--theme-green);
     color: var(--theme-sidebar-white);
 }

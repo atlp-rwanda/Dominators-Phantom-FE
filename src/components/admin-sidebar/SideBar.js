@@ -20,36 +20,35 @@ const Sidebar = () => {
       <nav>
         <Link to="#">
           <AiIcons.AiFillDashboard />
-          <span> Dashboard</span>
+          <span> Dashboard </span>
         </Link>
         <Link to="#">
-          <IoIcons.IoIosBus /> <span> Driver & Operator</span>
+          <IoIcons.IoIosBus /> <span> Driver & Operator </span>
         </Link>
-        <button onClick={showSubMenu}>
+        <Link to="#" onClick={showSubMenu}>
           <IoIcons.IoIosPeople />
           <span>
-            User Roles
-            <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
+            User Roles <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
           </span>
-        </button>
+        </Link>
         <div className="subMenu">
           <NavLink to="#">
-            <IoIcons.IoMdAdd /> <span> New role</span>
+            <IoIcons.IoMdAdd /> <span> New role </span>
           </NavLink>
           <Link to="#">
-            <IoIcons.IoIosLock /> <span> Permissions</span>
+            <IoIcons.IoIosLock /> <span> Permissions </span>
           </Link>
           <Link to="#">
-            <IoIcons.IoMdAnalytics /> <span> Actions</span>
+            <IoIcons.IoMdAnalytics /> <span> Actions </span>
           </Link>
         </div>
         <Link to="#">
           <AiIcons.AiOutlineReload />
-          <span> Routes</span>
+          <span> Routes </span>
         </Link>
         <Link to="#">
           <IoIcons.IoMdBus />
-          <span> Buses</span>
+          <span> Buses </span>
         </Link>
       </nav>
     </div>

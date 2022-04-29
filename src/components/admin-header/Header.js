@@ -5,13 +5,23 @@ import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import * as IoIcons from "react-icons/io";
 import "./Header.css";
+import LogoutModal from "../Logout/logout-modal";
+import { ToastContainer } from "react-toastify";
 
 const Header = () => {
   const [noun] = useState("Anesphore");
   const [rightBar, setRightBar] = useState(false);
 
+  //declaring logout variabls
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
+      {showModal && <LogoutModal closeModal={closeModal} />}
+      <ToastContainer />
       <nav className="navbar">
         <div className="leftNavBar">
           <FaIcons.FaBars id="menuBars" />
@@ -43,7 +53,11 @@ const Header = () => {
               <BsIcons.BsBellFill className="icons-sub" />
               <p> Notifications </p>
             </div>
-            <div className="d-icons" id="logout">
+            <div
+              className="d-icons"
+              id="logout"
+              onClick={() => setShowModal(true)}
+            >
               <IoIcons.IoMdLogOut className="icons-sub" />
               <p> Logout </p>
             </div>
