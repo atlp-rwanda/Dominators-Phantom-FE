@@ -12,11 +12,12 @@ const ResetPassword = () => {
   e.preventDefault();
   if(validatePassword()){
     if(password===confirmPassword){
-      toast.info("password reseted success full")
+      toast.info("password reset successfull!")
     }
   
+  
     else{
-      toast.error("password mismatch")
+      toast.error("password mismatches!")
     }
 
   }
@@ -25,9 +26,10 @@ const ResetPassword = () => {
 }
 const validatePassword = ()=>{
   if(password ==""|| confirmPassword ==""){
-    toast.error("fields can not be empty")
+    toast.error("input fields can not be empty!")
     return false
   }
+  
   return true
 }
     return ( 

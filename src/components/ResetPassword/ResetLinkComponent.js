@@ -11,7 +11,7 @@ const ResetPasswordLink = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
       if(validateEmail()){
-        toast.info("check your email!");
+        toast.info("check your email, we just sent password reset link!");
       }
         
           }
