@@ -6,11 +6,7 @@
   height: 450px;
   width: 100%;
   background-repeat: no-repeat;
-<<<<<<< HEAD
-  margin-top: 70px;}
-=======
 }
->>>>>>> factorization of folders
 
 .intro_header .header-content {
   display: grid;
@@ -48,7 +44,6 @@
 .header-content .bus-image {
   margin: auto;
 }
-<<<<<<< HEAD
 @media only screen and (max-width: 620px) {
   .intro_header {
     background: url("../../assets//images/background.svg");
@@ -118,5 +113,3 @@ width: 50%;
 }
 }
 
-=======
->>>>>>> factorization of folders

@@ -1,23 +1,16 @@
 /* Home Content style */
-<<<<<<< HEAD
 
-=======
->>>>>>> factorization of folders
 .home-content {
   margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f6f6f6;
-<<<<<<< HEAD
+
   padding-bottom: 5rem;
   padding-top: 2rem;
   overflow: hidden;
 
-=======
-  padding-bottom: 2rem;
-  padding-top: 2rem;
->>>>>>> factorization of folders
 }
 .home-content .row {
   margin-top: 1rem;
@@ -29,7 +22,6 @@
   padding: 2rem 3rem;
   background-color: var(--white);
   display: flex;
-<<<<<<< HEAD
   width: 100%;
   flex-direction: column;
   cursor: pointer;
@@ -83,10 +75,6 @@
   color: var(--green);
 }
 
-=======
-  flex-direction: column;
-}
->>>>>>> factorization of folders
 .icons {
   color: var(--green);
   height: 60px;
@@ -112,7 +100,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-<<<<<<< HEAD
 @media only screen and (max-width: 620px) {
 
   .home-content {
@@ -169,5 +156,3 @@
   }
 }
 
-=======
->>>>>>> factorization of folders

@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
-<<<<<<< HEAD
-=======
-
->>>>>>> factorization of folders
 * {
 
   box-sizing: border-box;
@@ -35,7 +31,6 @@ body {
     box-shadow: inset 0 0 5px var(--green);
     border-radius: 8px;
 }
-<<<<<<< HEAD
 
 ::-webkit-scrollbar-thumb {
     background: var(--green);
@@ -55,34 +50,3 @@ body {
 }
 
 
-=======
-.navItem ul li a.login  {
-  background-color: var(--green);
-  color: var(--white);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-}
-.navItem ul li a.login:hover  {
-   color: var(--white);
-  border-bottom: 3px solid var(--green);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-}
-.navItem ul li a {
-  text-decoration: none;
-  padding: 1rem 1rem;
-  color: var(--black);
-  font-weight: 200;
-}
-.navItem ul li a.active {
-  color: var(--green);
-  border-bottom: 3px solid var(--green);
-  padding: 1rem 1rem;
-}
-.navItem ul li a:hover {
-  padding: 1rem 1rem;
-  background-color: var(--green);
-  color: var(--white);
-  border-bottom: 3px solid gray;
-}
->>>>>>> factorization of folders
