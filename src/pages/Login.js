@@ -1,6 +1,6 @@
 
  
-import LoginComponent from "../components/login/Login";  
+ 
 import LoginComponent from "../components/login/LoginComponent";
 import UserNavbar from "../components/Navbars/UserNavbar";
 import Footer from "../components/Footer/Footer";

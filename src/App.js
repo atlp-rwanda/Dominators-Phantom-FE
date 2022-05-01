@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
+
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
 function App() {
@@ -12,8 +13,7 @@ function App() {
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
-      <Route path="/logout" element={<Logout />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/Reset-link" element={<ResetLink/>} />
       <Route path="/Reset-pwd" element={<ResetPwd/>} />
       
