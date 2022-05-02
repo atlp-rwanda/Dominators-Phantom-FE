@@ -1,0 +1,15 @@
+.breadcrumb {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  position: absolute;
+  color: var(--green);
+display: flex;
+font-size: 20px;
+}
+
+.breadcrumb span {
+  color: var(--green);
+ }
+.breadcrumb p {
+  color: var(--green);
+}

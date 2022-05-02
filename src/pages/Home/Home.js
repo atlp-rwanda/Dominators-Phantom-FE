@@ -5,11 +5,8 @@ import { HiClock } from "react-icons/hi";
 import { BsKeyboardFill } from "react-icons/bs";
 import "./home.css";
 import Footer from "../../components/Footer/Footer";
-<<<<<<< HEAD
-function Home() {
-=======
 import HomeSkeleton from "./HomeSkeleton";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 function Home() {
   const [skeleton, setSkeleton] = useState(false);
   useEffect(() => {
@@ -18,39 +15,10 @@ function Home() {
     }, 5000);
     return () => clearTimeout(timer);
   });
->>>>>>> df90b2a (setup react project add npm init)
   return (
     <div>
       <UserNavbar />
       <UserHeader />
-<<<<<<< HEAD
-      <div className="home-content">
-        <h3>HOW DOES IT WORKER</h3>
-        <div className="row">
-          <div className="col-3">
-            <BsKeyboardFill className="icons" />
-            <p> REGISTER</p>
-            <div className="home-circle">
-              <span>1</span>
-            </div>
-          </div>
-          <div className="col-3">
-            <IoLocationSharp className="icons" />
-            <p>TRACK YOU BUS</p>
-            <div className="home-circle">
-              <span>2</span>
-            </div>
-          </div>
-          <div className="col-3">
-            <HiClock className="icons" />
-            <p>TRAVEL ON TIME</p>
-            <div className="home-circle">
-              <span>3</span>
-            </div>
-          </div>
-        </div>
-      </div>
-=======
       {skeleton ? (
         <div className="home">
           <div className="home-content">
@@ -83,7 +51,6 @@ function Home() {
       ) : (
         <HomeSkeleton />
       )}
->>>>>>> df90b2a (setup react project add npm init)
       <Footer Aime="aime" />
     </div>
   );
