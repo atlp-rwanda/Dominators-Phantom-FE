@@ -1,1 +1,1 @@
-web: webpack src/index.js
+web: npm start
