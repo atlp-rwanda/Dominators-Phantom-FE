@@ -16,11 +16,10 @@ function Footer() {
             QUICK LINKS
             <ul>
               <li>
-<<<<<<< HEAD
                 <NavLink to="/routes">&gt;ROUTES</NavLink>
-=======
-                <NavLink to="/ticket">&gt;TICKET</NavLink>
->>>>>>> 97ffb2f ( This is a combination of 2 commits.)
+
+                <NavLink to="/routes">&gt;ROUTES</NavLink>
+
               </li>
               <li>
                 <NavLink to="/live-tracking">&gt;LIVE TRACKING</NavLink>

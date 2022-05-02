@@ -1,26 +1,8 @@
 :root {
-<<<<<<< HEAD
+
   --theme-sidebar-white: rgb(255, 255, 255);
   --theme-sidebar-grey: #9c8b8b;
   --theme-green: hsl(166deg 100% 16% / 66%);
-}
-
-.sidebar {
-  background-color: var(--theme-sidebar-white);
-  width: 20%;
-  height: 100%;
-  position: fixed;
-  top: 0px;
-  z-index: 1;
-  left: 0;
-  overflow: hidden;
-  margin-top: 70px;
-  margin-left: 0px !important;
-  text-align: left;
-=======
-    --theme-sidebar-white: rgb(255, 255, 255);
-    --theme-sidebar-grey: #9c8b8b;
-    --theme-green: hsl(166deg 100% 16% / 66%);
 }
 
 .sidebar {
@@ -35,12 +17,12 @@
     margin-top: 70px;
     margin-left: 0px !important;
     text-align: left;
->>>>>>> 97ffb2f ( This is a combination of 2 commits.)
+
 }
 
 .sidebar nav a,
 .sidebar nav button {
-<<<<<<< HEAD
+
   color: var(--theme-sidebar-grey);
   text-decoration: none;
   display: block;
@@ -52,11 +34,6 @@
   background: none;
   outline: none;
   cursor: pointer;
-}
-
-.sidebar nav button {
-  margin-left: -20px;
-=======
     color: var(--theme-sidebar-grey);
     text-decoration: none;
     display: block;
@@ -72,12 +49,13 @@
 
 .sidebar nav button {
     margin-left: -20px;
->>>>>>> 97ffb2f ( This is a combination of 2 commits.)
+
 }
+
 
 .sidebar nav a span,
 .sidebar nav button span {
-<<<<<<< HEAD
+
   margin-left: 10px;
   color: var(--theme-sidebar-grey);
 }
@@ -117,39 +95,48 @@
   .sidebar {
     display: none;
     width: 60%;
-  }
-}
-=======
-    margin-left: 10px;
-    color: var(--theme-sidebar-grey);
+
+  margin-left: 10px;
+  color: var(--theme-sidebar-grey);
 }
 
 .sidebar nav .subMenu {
-    display: none;
-    margin-left: 15px;
+  display: none;
+  margin-left: 15px;
 }
 
 .sidebar nav button span .icon-dropDown {
-    float: right;
+  float: right;
 }
 
 .sidebar nav a:hover {
-    background-color: var(--theme-green);
-    color: var(--theme-sidebar-white);
+  background-color: var(--theme-green);
+  color: var(--theme-sidebar-white);
+}
+.sidebar nav a:hover > span {
+  color: var(--theme-sidebar-white);
 }
 
 .sidebar nav a.active {
-    color: var(--theme-green);
+  color: var(--theme-green);
+}
+.sidebar nav a.active > span {
+  color: var(--theme-green);
 }
 
 .sidebar nav a.active:hover {
-    color: var(--theme-sidebar-white);
+  color: var(--theme-sidebar-white);
+}
+.sidebar nav a.active:hover > span {
+  color: var(--theme-sidebar-white);
 }
 
 @media screen and (max-width: 800px) {
+
     .sidebar {
         display: none;
         width: 60%;
     }
 }
->>>>>>> 97ffb2f ( This is a combination of 2 commits.)
+
+}
