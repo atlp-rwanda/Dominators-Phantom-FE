@@ -4,6 +4,12 @@ import logo from "../../assets/images/phantom.png";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  IoIosAdd,
+  IoIosClose,
+  IoIosCloseCircle,
+  IoIosCloseCircleOutline,
+} from "react-icons/io";
 
 const LogoutModal = ({ closeModal }) => {
   let token = localStorage.getItem("token");
@@ -21,10 +27,11 @@ const LogoutModal = ({ closeModal }) => {
   return (
     <div className="logout-modal-container" onClick={closeModal}>
       <div className="logout-modal">
+        <IoIosClose className="close" />
         <img src={logo} alt="Phantom Logo" className="logo" />
-        <h2>Are you sure do you want to log out? </h2>
+        <h2> Are you sure do you want to log out ? </h2>
         <div className="buttons-container">
-          <button className="cancel">Cancel</button>
+          <button className="cancel"> Cancel </button>
           <button className="logout" onClick={handleLogout}>
             Logout
           </button>
