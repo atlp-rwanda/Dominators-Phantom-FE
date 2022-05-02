@@ -1,6 +1,6 @@
 import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../admin-header/Header";
 import UpdateProfileForm from "./UpdateForm";
 import { ToastContainer, toast } from "react-toastify";

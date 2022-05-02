@@ -41,7 +41,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
   const [errorVillage, setErrorVillage] = useState();
 
   //declaring variable object hook state which will keep updated user info.
-  const [updatedInfo, setUpdateInfo] = useState({});
+  const [updatedInfo, setUpdateInfo] = useState(null);
 
   //handling submit form event
   const handleSubmit = (e) => {
@@ -77,9 +77,13 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
         cell,
         village,
       });
-      handleUpdate(updatedInfo);
     }
   };
+  useEffect(() => {
+    if (updatedInfo) {
+      handleUpdate(updatedInfo);
+    }
+  }, [updatedInfo]);
 
   //handling error function
   const validate = () => {
@@ -200,10 +204,13 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
 
   return (
     <div>
-      <div className="avatarClass">
-        <img src={avatar} alt="Update Profile Avatar" width={100} />
-        <p> {user.email} </p>
-      </div>
+      {localStorage.getItem("user") ? (
+        <div className="avatarClass">
+          <img src={avatar} alt="Update Profile Avatar" width={100} />
+          <p> {user.email} </p>
+        </div>
+      ) : null}
+
       <form onSubmit={handleSubmit}>
         <h3> Personal Info </h3>
         <div className="input">

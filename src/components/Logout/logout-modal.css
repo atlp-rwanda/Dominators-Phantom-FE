@@ -14,7 +14,16 @@
     border-radius: 5px;
     padding: 12px;
     text-align: center;
-    overflow: hidden;
+    position: relative;
+}
+
+.logout-modal .close {
+    color: red;
+    font-size: 40px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    cursor: pointer;
 }
 
 .logout-modal .logo {
