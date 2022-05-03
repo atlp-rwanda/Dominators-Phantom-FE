@@ -13,9 +13,9 @@
   --green2: #31937c;
   font-family: "Inter";
 }
-body {
-  background-color: #ffffff;
-}
+/* body {
+  background-color: #8f8484;
+} */
 
 ::-webkit-scrollbar {
   width: 11px;
