@@ -85,6 +85,10 @@
 .footer-limit .designer p.p2 {
   float: right;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 976c648406787a297b50c864a35c7b8bb2ad84c6
 @media only screen and (max-width: 620px) {
   .footer .footer-content {
     display: grid;

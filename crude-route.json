@@ -4,7 +4,7 @@
       "id": 1,
       "from": "NYABUGOGO",
       "to": "DOWNTOWN",
-      "code": "301",
+      "code": "305",
       "distance": "3km"
     },
     {
@@ -34,13 +34,6 @@
       "to": "KABUGA",
       "code": "300",
       "distance": "4km"
-    },
-    {
-      "id": 6,
-      "from": "KABUGA",
-      "to": "REMERA",
-      "code": "303",
-      "distance": "12KM"
     }
   ]
 }
