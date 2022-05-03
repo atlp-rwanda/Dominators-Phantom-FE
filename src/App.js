@@ -5,8 +5,6 @@ import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 
-
-
 function App() {
   return (
     <Routes>

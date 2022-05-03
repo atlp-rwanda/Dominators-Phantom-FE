@@ -83,6 +83,11 @@
 .skeleton-wrapper{
   margin: 20px auto;
   padding: 10px 15px;
+  background-color: var(--light-gray);
+    margin-top: 70px;
+    overflow: hidden;
+    position: relative;
+
 }
 .skeleton-ui-text{
   display: block;
@@ -91,4 +96,20 @@
 }
 .skeleton-userheader{
   display: flex;
+
+  margin-top:70px ;
 }
+.skeleton-descr{
+width: 50%;
+}
+.skeleton-bus{
+
+}
+@media only screen and (max-width: 620px) {
+  .skeleton-userheader{
+  display: flex;
+  flex-direction: column;
+  margin-top:70px ;
+}
+}
+

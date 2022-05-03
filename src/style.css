@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: auto;
-    scroll-behavior: smooth;
-    --green: hsl(166deg 100% 16% / 66%);
-    --white: rgb(255, 255, 255);
-    --gray: gray;
-    --dark-green: rgb(0, 58, 48, 1);
-    --black: rgb(0, 0, 0);
-    font-family: "Inter";
+
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0;
+  scroll-behavior: smooth;
+  --green: hsl(166deg 100% 16% / 66%);
+  --white: rgb(255, 255, 255);
+  --gray: gray;
+  --dark-green: rgb(0, 58, 48, 1);
+  --black: rgb(0, 0, 0);
+  --light-gray: rgba(240, 240, 240, 0.795);
+  /* --green: #31937c; */
+
+  font-family: "Inter";
 }
 
 
@@ -45,24 +49,4 @@ body {
     color: var(--green);
 }
 
-button {
-    margin-left: 15px;
-    padding: 5px 10px;
-}
 
-span {
-    color: green;
-    font-weight: bold;
-    padding-left: 5px;
-}
-
-button {
-    margin-left: 15px;
-    padding: 5px 10px;
-}
-
-span {
-    color: green;
-    font-weight: bold;
-    padding-left: 5px;
-}
