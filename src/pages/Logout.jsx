@@ -9,6 +9,7 @@ import logout from '../images/logout.png'
 import * as FaIcons from "react-icons/fa"
 import { Link } from 'react-router-dom'
 
+
 class Logout extends Component {
  
   constructor(props) {
