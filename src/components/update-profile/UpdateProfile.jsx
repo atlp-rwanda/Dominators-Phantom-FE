@@ -4,6 +4,7 @@ import { useState } from "react";
 import Header from "../admin-header/Header";
 import UpdateProfileForm from "./UpdateForm";
 import { ToastContainer, toast } from "react-toastify";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 
 const UpdateProfile = () => {
   const [user, setUser] = useState();
@@ -45,7 +46,12 @@ const UpdateProfile = () => {
             <UpdateProfileForm user={user} handleUpdate={handleUpdate} />
           ) : (
             <div>
-              <h2>Data Loading...</h2>
+              <div className="skeletonContainer">
+                <SkeletonElement type="title" height={30} width={400} />
+                <SkeletonElement type="title" height={30} width={400} />
+                <SkeletonElement type="title" height={30} width={400} />
+                <SkeletonElement type="title" height={30} width={400} />
+              </div>
             </div>
           )}
         </div>
