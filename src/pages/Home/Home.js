@@ -1,4 +1,3 @@
-
 import UserNavbar from "../../components/Navbars/UserNavbar";
 import UserHeader from "../../components/Headers/UserHeader";
 import { IoLocationSharp } from "react-icons/io5";
@@ -18,13 +17,10 @@ function Home() {
     return () => clearTimeout(timer);
   });
 
-function Home() {
-
   return (
     <div>
       <UserNavbar />
       <UserHeader />
-
 
       {skeleton ? (
         <div className="home">
@@ -59,47 +55,8 @@ function Home() {
         <HomeSkeleton />
       )}
 
-
-      <div className="home-content">
-
-        <h3>HOW DOES IT WORKER</h3>
-        <div className="row">
-          <div className="col-3">
-            <BsKeyboardFill className="icons" />
-            <p> REGISTER</p>
-            <div className="home-circle">
-              <span>1</span>
-            </div>
-          </div>
-          <div className="col-3">
-            <IoLocationSharp className="icons" />
-            <p>TRACK YOU BUS</p>
-            <div className="home-circle">
-              <span>2</span>
-            </div>
-          </div>
-          <div className="col-3">
-            <HiClock className="icons" />
-            <p>TRAVEL ON TIME</p>
-            <div className="home-circle">
-              <span>3</span>
-            </div>
-          </div>
-
-        <h3>
-          HOW DOES IT WORKER
-        </h3>
-        <div>
-          <div className="col-3">Register</div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-
-        </div>
-      </div>
-     
       <Footer Aime="aime" />
     </div>
-    </div>
   );
-}}
+}
 export default Home;
