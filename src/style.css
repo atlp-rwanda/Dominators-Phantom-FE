@@ -14,8 +14,11 @@
   --green2: #31937c;
   font-family: "Inter";
 }
-/* body {
-  background-color: #8f8484;
+
+
+/* 
+body {
+    background-color: #ffffff;
 } */
 
 ::-webkit-scrollbar {
@@ -34,7 +37,13 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--green);
-    box-shadow: inset 0 0 5px var(--white);
+  background: var(--green);
+  box-shadow: inset 0 0 5px var(--white);
+}
+.pagenotfound{
+  margin-top: 70px;
+  height: 50vh;
+  display: flex;
+color: var(--green);
 }
 
