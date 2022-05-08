@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import UpdateProfile from "./components/update-profile/UpdateProfile";
 import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
+import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 import "react-toastify/dist/ReactToastify.css";
 
