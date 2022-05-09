@@ -9,6 +9,11 @@ import { Link,useNavigate } from 'react-router-dom';
 import "./Login.css";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {db }from "../../utils/db";
+
+
+
+
 
 
 const LoginComponent = () => {
@@ -16,7 +21,8 @@ const LoginComponent = () => {
   const [loading,setIsLoading] = useState(false);
   const redirect = useNavigate();
   useEffect(()=>{
-    fetch("http://localhost:3003/user")
+    
+    fetch(`${db}/user`)
     .then((res)=>{
       return res.json();
     })
@@ -35,7 +41,7 @@ const LoginComponent = () => {
  if((user.email === values.email) && (user.password === values.password)){
    toast.info("User logiged in successfully ")
    
-   localStorage.setItem("token","toke33nphantddomfaketokensdgdgss")
+   localStorage.setItem("token",users.token)
    redirect("/dashboard")
    
  }
@@ -50,10 +56,8 @@ const LoginComponent = () => {
 
 
   
-
   return ( 
     
-
   <Formik
   initialValues={{ email: "", password: "" }}
   onSubmit={values => handleLogin(values)}
