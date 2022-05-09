@@ -1,0 +1,58 @@
+.simulate-container {
+    top: 70px;
+    background-image: url("./image\ 1.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.leaflet-map {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.simulate-buttons-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.simulate-buttons-container button {
+    background-color: #648d80;
+    outline: none;
+    border: none;
+    padding: 12px;
+    margin: 12px;
+    width: 150px;
+    border-radius: 25px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btnRight {
+    margin-left: 60%;
+}
+
+.simulate-buttons-container button:hover {
+    background-color: var(--gray);
+}
+
+
+/* Press Break Pedal */
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}

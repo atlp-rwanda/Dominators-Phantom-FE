@@ -6,12 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 
 import LogoutFunction from "./components/Logout/LogoutFunction";
+import BusSimulation from "./components/bus-simulate/BusSimulation";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
+      <Route path="/bus-simulate" element={<BusSimulation />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
     </Routes>
