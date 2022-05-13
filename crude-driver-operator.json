@@ -24,11 +24,6 @@
       "id": 5,
       "email": "example5@gmail.com",
       "role": "Operator"
-    },
-    {
-      "id": 6,
-      "email": "jessie@gmail.com",
-      "role": "Driver"
     }
   ]
 }

@@ -22,7 +22,7 @@ const Sidebar = () => {
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
         </Link>
-        <Link to="#">
+        <Link to="/driver-operator">
           <IoIcons.IoIosBus /> <span> Driver & Operator </span>
         </Link>
         <Link to="#" onClick={showSubMenu}>
