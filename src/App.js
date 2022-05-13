@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 import "react-toastify/dist/ReactToastify.css";
 
-import CrudRoute from "./pages/crud-routes/CrudRoute";
+import CrudBus from "./pages/crud-routes/CrudBus";
 import UserRoute from "./pages/user-route/UserRoutes";
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Route path="/update-profile" element={<UpdateProfile />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
-      <Route path="/crud-route" element={<CrudRoute itemsPerPage={2} />} />
+      <Route path="/crud-buses" element={<CrudBus itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
     </Routes>
   );

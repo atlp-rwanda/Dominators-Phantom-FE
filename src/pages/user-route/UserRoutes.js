@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import UserNavbar from "../../components/Navbars/UserNavbar";
-import { getAllRouteForUser } from "../../module/actions/routeAction";
+import { getAllBusesForUser } from "../../module/actions/busAction";
 import Footer from "../../components/Footer/Footer";
 import ReactPaginate from "react-paginate";
-import RouteSkeleton from "./RouteSkeleton";
+import BusSkeleton from "./RouteSkeleton";
 import { FaSearch } from "react-icons/fa";
 import "./UserRoute.css";
 function UserRoute(props) {
@@ -12,7 +12,7 @@ function UserRoute(props) {
   let NoRows = 1;
   const [search, setSearch] = useState("");
   useEffect(() => {
-    props.getAllRouteForUser(search);
+    props.getAllBusesForUser(search);
   }, [search]);
 
   const HandleSearch = (e) => {
@@ -101,5 +101,5 @@ const mapState = ({ route }) => ({
   isLoaded: route.isLoaded,
 });
 export default connect(mapState, {
-  getAllRouteForUser: getAllRouteForUser,
+  getAllBusesForUser: getAllBusesForUser,
 })(UserRoute);

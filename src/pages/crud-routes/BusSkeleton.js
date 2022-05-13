@@ -1,5 +1,5 @@
 import SkeletonElement from "../../skeletons/skeletonElement";
-function RouteSkeleton() {
+function BusSkeleton() {
   const rows = [1, 2, 3, 4, 5, 6, 7];
   return (
     <tbody className="">
@@ -27,4 +27,4 @@ function RouteSkeleton() {
     </tbody>
   );
 }
-export default RouteSkeleton;
+export default BusSkeleton;

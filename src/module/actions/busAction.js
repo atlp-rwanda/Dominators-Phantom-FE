@@ -1,28 +1,28 @@
 import {
-  POST_ROUTES,
-  GET_ALL_ROUTE,
-  GET_ONE_ROUTE,
-  UPDATE_ONE_ROUTE,
-  DELETE_ROUTE,
+  POST_BUSES,
+  GET_ALL_BUSES,
+  GET_ONE_BUS,
+  UPDATE_ONE_BUS,
+  DELETE_BUS,
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
 import { db } from "../../utils/db";
 
-export const getAllRoute = () => async (dispatch) => {
+export const getAllBuses = () => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes`);
+    const dt = await fetch(`${db}/buses`);
     const datas = await dt.json();
-    dispatch(creator(GET_ALL_ROUTE, datas));
+    dispatch(creator(GET_ALL_BUSES, datas));
   } catch (e) {
     if (e.message) {
       return toast.error(e.message);
     }
   }
 };
-export const getAllRouteForUser = (searchfilter) => async (dispatch) => {
+export const getAllBusesForUser = (searchfilter) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes`);
+    const dt = await fetch(`${db}/buses`);
     const datas = await dt.json();
     const searchData = datas.filter((value) => {
       return (
@@ -31,27 +31,27 @@ export const getAllRouteForUser = (searchfilter) => async (dispatch) => {
         value.code.includes(searchfilter)
       );
     });
-    dispatch(creator(GET_ALL_ROUTE, searchData));
+    dispatch(creator(GET_ALL_BUSES, searchData));
   } catch (e) {
     if (e.message) {
       return toast.error(e.message);
     }
   }
 };
-export const getOneRoute = (routeId) => async (dispatch) => {
+export const getOneBus = (busid) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes/` + routeId);
+    const dt = await fetch(`${db}/buses/` + busid);
     const data = await dt.json();
-    dispatch(creator(GET_ONE_ROUTE, data));
+    dispatch(creator(GET_ONE_BUS, data));
   } catch (e) {
     if (e.response && e.response.data) {
       return toast.error(e.response.data.error);
     }
   }
 };
-export const postRoute = (data) => async (dispatch) => {
+export const postBus = (data) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes`, {
+    const dt = await fetch(`${db}/buses`, {
       method: "POST",
       body: JSON.stringify(data),
       mode: "cors",
@@ -60,14 +60,14 @@ export const postRoute = (data) => async (dispatch) => {
       },
     });
     const response = await dt.json();
-    dispatch(creator(POST_ROUTES, response));
+    dispatch(creator(POST_BUSES, response));
   } catch (error) {
     if (error.message) return toast.error(error.message);
   }
 };
-export const updateRoute = (data, id) => async (dispatch) => {
+export const updateBus = (data, id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes/` + id, {
+    const dt = await fetch(`${db}/buses/` + id, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
@@ -75,9 +75,9 @@ export const updateRoute = (data, id) => async (dispatch) => {
       },
       mode: "cors",
     });
-    const updatedSelect = await fetch(`${db}/routes`);
+    const updatedSelect = await fetch(`${db}/buses`);
     const updateData = await updatedSelect.json();
-    dispatch(creator(UPDATE_ONE_ROUTE, updateData));
+    dispatch(creator(UPDATE_ONE_BUS, updateData));
   } catch (e) {
     if (e.response && e.response.data) {
       return toast.error(e.response.data.error);
@@ -85,12 +85,12 @@ export const updateRoute = (data, id) => async (dispatch) => {
   }
 };
 
-export const deleteRoute = (id) => async (dispatch) => {
+export const deleteBus = (id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes/` + id, {
+    const dt = await fetch(`${db}/buses/` + id, {
       method: "DELETE",
     });
-    dispatch(creator(DELETE_ROUTE, id));
+    dispatch(creator(DELETE_BUS, id));
   } catch (error) {
     if (error.message) return toast.error(error.message);
   }

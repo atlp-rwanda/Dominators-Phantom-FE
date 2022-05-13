@@ -1,10 +1,10 @@
 import counterReducer from "./counterreducer";
-import routeReducer from "./routeReducer";
+import busReducer from "./busReducer";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
   counter: counterReducer,
-  route: routeReducer,
+  bus: busReducer,
 });
 
 export default allReducers;

@@ -48,15 +48,10 @@ const Sidebar = () => {
           <span> Routes </span>
         </NavLink>
 
-        <NavLink to="/crud-route">
-          <AiIcons.AiOutlineReload />
-          <span> Routes </span>
-        </NavLink>
-
-        <Link to="#">
+        <NavLink to="/crud-buses">
           <IoIcons.IoMdBus />
           <span> Buses </span>
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );

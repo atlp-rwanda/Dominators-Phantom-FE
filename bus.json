@@ -1,0 +1,25 @@
+{
+  "buses": [
+    {
+      "id": 1,
+      "from": "NYABUGOGO",
+      "to": "DOWNTOWN",
+      "bus": "RAB3033",
+      "busType": "RStar"
+    },
+    {
+      "id": 2,
+      "from": "NYABUGOGO",
+      "to": "DOWNTOWN",
+      "bus": "RAB051",
+      "busType": "Ritco"
+    },
+    {
+      "id": 3,
+      "from": "NYABUGOGO",
+      "to": "DOWNTOWN",
+      "bus": "RAB051",
+      "busType": "Ritco"
+    }
+  ]
+}

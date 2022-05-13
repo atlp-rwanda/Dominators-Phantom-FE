@@ -1,9 +1,9 @@
 import {
-  DELETE_ROUTE,
-  GET_ALL_ROUTE,
-  GET_ONE_ROUTE,
-  POST_ROUTES,
-  UPDATE_ONE_ROUTE,
+  DELETE_BUS,
+  GET_ALL_BUSES,
+  GET_ONE_BUS,
+  POST_BUSES,
+  UPDATE_ONE_BUS,
 } from "../index";
 const initialState = {
   isLoading: false,
@@ -14,34 +14,34 @@ const initialState = {
 };
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case GET_ALL_ROUTE:
+    case GET_ALL_BUSES:
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
         data: payload,
       };
-    case GET_ONE_ROUTE:
+    case GET_ONE_BUS:
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
         values: payload,
       };
-    case POST_ROUTES:
+    case POST_BUSES:
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
         data: [...state.data, payload],
       };
-    case UPDATE_ONE_ROUTE:
+    case UPDATE_ONE_BUS:
       return {
         isLoaded: false,
         isLoading: true,
         data: payload,
       };
-    case DELETE_ROUTE:
+    case DELETE_BUS:
       const remain = state.data.filter(({ id }) => id !== payload);
       return {
         isLoaded: false,
@@ -52,3 +52,4 @@ export default (state = initialState, { type, payload }) => {
       return state;
   }
 };
+

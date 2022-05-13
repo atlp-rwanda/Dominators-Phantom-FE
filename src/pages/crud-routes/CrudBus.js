@@ -2,9 +2,9 @@ import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
 import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import CustomButton from "../../components/Buttons/CustomeButton";
-import RouteComponent from "../../modals/RouteModal/RouteModal";
-import RouteSkeleton from "./RouteSkeleton";
-import { getAllRoute, deleteRoute } from "../../module/actions/routeAction";
+import BusComponent from "../../modals/BusModal/BusModal";
+import BusSkeleton from "./BusSkeleton";
+import { getAllBuses, deleteBus } from "../../module/actions/busAction";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -13,20 +13,20 @@ import "./crud-routes.css";
 import { FaRoute } from "react-icons/fa";
 import { HiPencil, HiTrash } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import UpdateRoute from "../../modals/RouteModal/UpdateRoute";
+import UpdateBus from "../../modals/BusModal/UpdateBus";
 import swal from "sweetalert";
 
-function CrudRoute(props) {
+function CrudBus(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isUpdateModal, setUpdateModal] = useState(false);
   const { isData, isLoaded } = props;
-  const [routeData, setRouteData] = useState([]);
+  const [busData, setBusData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
 
   useEffect(() => {
-    props.getAllRoute();
+    props.getAllBuses();
   }, []);
-  const handleDelete = (routeId) => {
+  const handleDelete = (busId) => {
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this ",
@@ -35,8 +35,8 @@ function CrudRoute(props) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        props.deleteRoute(routeId);
-        toast.success("Route Delete Successfully");
+        props.deleteBus(busId);
+        toast.success("Bus Delete Successfully");
       } else {
       }
     });
@@ -45,12 +45,12 @@ function CrudRoute(props) {
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-  let selectedRoutes = [];
-  console.log(selectedRoutes);
+  let selectedBuses = [];
+  console.log(selectedBuses);
   useEffect(() => {
     Object.entries(isChecked).map((values) => {
       if (values[1])
-        return selectedRoutes.push({
+        return selectedBuses.push({
           value: values[0],
           label: values[0],
         });
@@ -62,7 +62,7 @@ function CrudRoute(props) {
       <Header />
       <Sidebar />
       <div className="main">
-        <BreadCrumb icon={<FaRoute />} title="LIST OF ROUTE" />
+        <BreadCrumb icon={<FaRoute />} title="LIST OF BUSES" />
         <div className="content">
           <div
             className="btn-add-route"
@@ -71,7 +71,7 @@ function CrudRoute(props) {
             }}
           >
             <CustomButton classes="btn btn-green btn-radius">
-              Add Route
+              Add Bus
             </CustomButton>{" "}
           </div>
           <div className="route-table">
@@ -82,8 +82,8 @@ function CrudRoute(props) {
                     No
                   </th>
                   <th scope="col">Route</th>
-                  <th scope="col">Code</th>
-                  <th scope="col">Distance</th>
+                  <th scope="col">Bus</th>
+                  <th scope="col">Bus TYpe</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -103,20 +103,20 @@ function CrudRoute(props) {
                           {value.id}
                         </td>
                         <td scope="row">{value.from + "-" + value.to}</td>
-                        <td scope="row">{value.code}</td>
-                        <td scope="row">{value.distance}</td>
+                        <td scope="row">{value.bus}</td>
+                        <td scope="row">{value.busType}</td>
                         <td scope="row">
                           <Link
                             to="#"
                             className="edit-icon"
                             onClick={() => {
                               setUpdateModal(true);
-                              setRouteData({
+                              setBusData({
                                 id: value.id,
-                                distance: value.distance,
+                                plateNumber: value.plateNumber,
                                 from: value.from,
                                 to: value.to,
-                                code: value.code,
+                                busType: value.busType,
                               });
                             }}
                           >
@@ -136,7 +136,7 @@ function CrudRoute(props) {
                   })}
                 </tbody>
               ) : (
-                <RouteSkeleton />
+                <BusSkeleton />
               )}
               {isLoaded ? (
                 <tfoot>
@@ -159,11 +159,11 @@ function CrudRoute(props) {
               )}
             </table>
           </div>
-          {isOpen && <RouteComponent setIsOpen={setIsOpen} />}
+          {isOpen && <BusComponent setIsOpen={setIsOpen} />}
           {isUpdateModal && (
-            <UpdateRoute
+            <UpdateBus
               setUpdateModal={setUpdateModal}
-              routeData={routeData}
+              busData={busData}
             />
           )}
         </div>
@@ -171,11 +171,11 @@ function CrudRoute(props) {
     </>
   );
 }
-const mapState = ({ route }) => ({
-  isData: route.data,
-  isLoaded: route.isLoaded,
+const mapState = ({ bus }) => ({
+  isData: bus.data,
+  isLoaded: bus.isLoaded,
 });
 export default connect(mapState, {
-  getAllRoute: getAllRoute,
-  deleteRoute: deleteRoute,
-})(CrudRoute);
+  getAllBuses: getAllBuses,
+  deleteBus: deleteBus,
+})(CrudBus);
