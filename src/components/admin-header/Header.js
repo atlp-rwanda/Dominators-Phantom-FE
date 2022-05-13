@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import groupIcon from "./phantom.png";
+import { Link } from "react-router-dom";
+import groupIcon from "../../assets/images/logos/phantomIcon.png";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
@@ -33,10 +34,11 @@ const Header = () => {
       <div className="mainContent">
         {rightBar ? (
           <div className="rightBar">
-            <div className="d-icons">
+            <Link to="/update-profile" className="d-icons">
               <FaIcons.FaUserCircle className="icons-sub" />
               <p> My profile </p>
-            </div>
+            
+            </Link>
             <div className="d-icons">
               <AiIcons.AiFillSetting className="icons-sub" />
               <p> Settings </p>

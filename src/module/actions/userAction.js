@@ -1,0 +1,79 @@
+import {
+  POST_USERS,
+  GET_ALL_USER,
+  GET_ONE_USER,
+  UPDATE_ONE_USER,
+  DELETE_USER,
+} from "../index";
+import creator from "./creator";
+import { toast } from "react-toastify";
+import { db } from "../../utils/db";
+
+export const getAllUser = () => async (dispatch) => {
+  try {
+    const dt = await fetch(`${db}/AllUsers`);
+    const datas = await dt.json();
+    dispatch(creator(GET_ALL_USER, datas));
+  } catch (e) {
+    if (e.message) {
+      return toast.error(e.message);
+    }
+  }
+};
+export const getOneUser = (userId) => async (dispatch) => {
+  try {
+    const dt = await fetch(`${db}/AllUsers/` + userId);
+    const data = await dt.json();
+    dispatch(creator(GET_ONE_USER, data));
+  } catch (e) {
+    if (e.response && e.response.data) {
+      return toast.error(e.response.data.error);
+    }
+  }
+};
+export const postUser = (data) => async (dispatch) => {
+  try {
+    const dt = await fetch(`${db}/AllUsers`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const response = await dt.json();
+    dispatch(creator(POST_USERS, response));
+  } catch (error) {
+    if (error.message) return toast.error(error.message);
+  }
+};
+export const updateUser = (data, id) => async (dispatch) => {
+  try {
+    const dt = await fetch(`${db}/AllUsers/` + id, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+    });
+    const updatedSelect = await fetch(`${db}/AllUsers`);
+    const updateData = await updatedSelect.json();
+    dispatch(creator(UPDATE_ONE_USER, updateData));
+  } catch (e) {
+    if (e.response && e.response.data) {
+      return toast.error(e.response.data.error);
+    }
+  }
+};
+
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+    const dt = await fetch(`${db}/AllUsers/` + id, {
+      method: "DELETE",
+    });
+    dispatch(creator(DELETE_USER, id));
+  } catch (error) { 
+    if (error.message) return toast.error(error.message);
+  }
+};

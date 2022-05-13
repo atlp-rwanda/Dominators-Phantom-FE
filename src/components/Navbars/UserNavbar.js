@@ -38,9 +38,9 @@ function UserNavbar() {
           {toggleMenu ? (
             <ImCross
               className="close"
-              onClick={() => {
-                setToggleMenu(!toggleMenu);
-              }}
+              onClick={ () => {
+                setToggleMenu( !toggleMenu );
+              } }
             />
           ) : (
             <GiHamburgerMenu
