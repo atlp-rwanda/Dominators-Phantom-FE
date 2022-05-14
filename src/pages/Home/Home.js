@@ -92,7 +92,6 @@ function Home() {
 
       <Footer Aime="aime" />
     </div>
-    </div>
   );
 }
 export default Home;
