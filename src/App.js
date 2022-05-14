@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import UpdateProfile from "./components/update-profile/UpdateProfile";
+import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
