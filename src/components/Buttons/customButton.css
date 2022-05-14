@@ -12,8 +12,5 @@
 .btn-green:hover {
   font-weight: 800;
   color: var(--green);
-  background-color: var(--white);
-}
-@media only screen and (max-width: 620px) {
-
+  background-color: var(--gray);
 }

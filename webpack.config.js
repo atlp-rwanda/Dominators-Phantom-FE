@@ -12,7 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    hot: true,
+    hot: false,
     historyApiFallback: true,
     port: port || 8080,
   },
