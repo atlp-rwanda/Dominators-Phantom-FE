@@ -5,5 +5,5 @@ function HomeButton({ children }) {
       <button className="btn btn-green">{children}</button>
     </div>
   );
-} 
+}
 export default HomeButton;
