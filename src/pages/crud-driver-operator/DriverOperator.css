@@ -128,6 +128,10 @@ a.delete-icon {
   padding: 4px 10px;
   border-radius: 100%;
 }
+.table-paginate ul li:hover {
+  color: #ffff;
+  background-color: rgba(61, 92, 85, 0.336);
+}
 .table-paginate ul li.active {
   color: #ffff;
   background-color: rgba(23, 121, 98, 0.64);
