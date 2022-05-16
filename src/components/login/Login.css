@@ -1,0 +1,349 @@
+
+
+  .login-form{
+    position:relative;
+    width: 655px;
+    height: 450px;
+    background: #FFFFFC;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-left:50vh;
+    
+    margin-top: 100px;
+    margin-bottom:50px;
+     
+      }
+      .login-form{
+    /* z-index:9; */
+      }
+    
+      .form{
+      margin-top:40px;
+      
+      margin-left:70px;
+      /* margin-right:50px; */
+      
+      }
+    
+      
+      #pasword-field, #email-field{
+     /* position: absolute; */
+    width: 500px;
+    height: 40px;
+    
+    background: #EFF2F3;
+    border: 2px solid #C5C4C4;
+    box-sizing: border-box;    
+    padding:20px;
+      }
+      #pasword-field{
+        margin-top:4vh;
+      }
+      
+      .forgot-password a{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    float:right;
+    margin-right:12vh;
+    margin-top:0px;
+    /* identical to box height */
+    
+    
+    color: #1976D2;
+    
+      }
+      
+      .forgot-password, .check-label, .check-box{
+        padding:1px;
+      }
+     
+      #btn{
+        position: absolute;
+    width: 500px;
+    height: 50px;
+    color:white;
+    font-weight: bold;
+    
+    background:rgba(23, 121, 98, 0.64);
+    border-radius: 5px;
+    margin-top:2vh;
+    font-weight: 400;
+    font-size: 32px;
+    border:white solid;
+      }
+      
+      .icon{
+       
+        width:200px;
+        height: 50px;
+        position: relative;
+       margin-left:30vh;
+       margin-top:6vh;
+        color:rgba(23, 121, 98, 0.64);
+      }
+      
+     
+      .check-box{
+        /* position: absolute; */
+        width: 15px;
+        height: 15px;
+         background: #C4C4C4;
+         margin-top:0px;
+      }
+      .check-label{
+        
+        position: absolute;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        padding-left:5px;
+        color: #1976D2;
+         
+      }
+      
+      .input-feedback {
+        color: red;
+      }
+     
+      ::placeholder {
+        margin-left:0.5vh;
+      }
+    
+      @media(max-width: 844px){
+    
+        .login-form{
+      position: relative;    
+    width: 300px;
+    height: 400px;
+    left: -45vh;
+    /* top: 50px; */
+    
+    margin-bottom:50px;
+    background: #FFFFFC;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 2;
+    
+          
+            
+        }
+        .form{
+        margin-top:30px;
+        
+        margin-left:26px;
+        /* margin-right:50px; */
+        }
+      
+        
+        #pasword-field, #email-field{
+       /* position: absolute; */
+       
+       width: 250px;
+       height: 40px;
+       left: 17px;
+       top: 261.89px;
+       
+       background: #EFF2F3;
+       border: 2px solid #C5C4C4;
+       box-sizing: border-box;
+       scroll-behavior: auto;
+        }
+        .forgot-password a{
+          
+           
+      width: 119px;
+      height: 17px;
+      text-decoration: none;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      float:right;
+      margin-right:19px;
+      margin-top:2px;
+      
+      
+      color: #1976D2;
+      
+        }
+        .forgot-password, .check-label, .check-box{
+          padding:1px;
+        }
+        
+        #btn{
+          position: absolute;
+          width: 250px;
+       height: 40px;
+       top: 310px;
+       background: rgba(23, 121, 98, 0.64);
+      border-radius: 5px;
+       /* margin-left:30px; */
+       border:white solid;
+        }
+        
+        
+        .icon{
+         
+          width:200px;
+          height: 50px;
+          position: relative;
+         margin-left:7vh;
+         margin-top:3vh;
+          color:rgba(23, 121, 98, 0.64);
+      
+        }
+        
+       
+        .check-box{
+          
+          width: 15.88px;
+          height: 15.29px;
+          margin-top:2px;
+           background: #C4C4C4;
+        }
+        .check-label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    
+    color: #1976D2; 
+    margin-left:5px;   
+        }
+        
+        .input-feedback {
+          color: red;
+        }
+       
+        ::placeholder {
+          margin-left: 1vh;
+        }
+      
+      }
+      @media only screen and (min-width:768px) and (max-width:1180px){
+        .login-form{
+       position:relative;
+       width: 400px;
+       height: 450px;
+       margin-top:30vh;
+       margin-bottom:10vh;
+       margin-left:62vh;
+       
+       background: #FFFFFC;
+       border: 1px solid rgba(0, 0, 0, 0.14);
+       box-sizing: border-box;
+       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+       border-radius: 10px;
+       
+         
+               
+           }
+           .form{
+           margin-top:50px;
+           
+           margin-left:60px;
+           margin-right:50px; }
+         
+           
+           #pasword-field, #email-field{ 
+          width: 300px;
+          height: 40px;
+          margin-left:-20px;
+          top: 261.89px; 
+          
+          background: #EFF2F3;
+          border: 2px solid #C5C4C4;
+          box-sizing: border-box;
+           }
+           .forgot-password a{
+         width: 119px;
+         height: 17px;
+         text-decoration: none;
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 14px;
+         line-height: 17px;
+         float:right;
+         margin-right:-19px;
+         margin-top:-5px; 
+         color: #1976D2;
+         
+           }
+          
+           #btn{
+             /* position:relative; */
+          width: 300px;
+          height: 40px;
+          top: 340px;
+          background: rgba(23, 121, 98, 0.64);
+          border-radius: 5px;
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 39px;
+          margin-left: -20px;
+          padding-bottom: 1px;
+          border:white solid;
+           }
+         
+           .icon{
+            
+             width:200px;
+             height: 50px;
+             
+            margin-left:7.5vh;
+            margin-top:6vh;
+             color:rgba(23, 121, 98, 0.64);
+           }
+           
+           .check-box{
+             position:relative;
+             width: 15.88px;
+             height: 18.29px;
+             left: -21px;
+             top: -5px;
+             
+             background: #C4C4C4;
+           }
+      .check-label{ 
+             position:absolute;
+       width: 160.15px;
+       height: 36.59px;
+       margin-left:-15px;
+       margin-bottom: -290px; 
+       
+       font-family: 'Inter';
+       font-style: normal;
+       font-weight: 400;
+       font-size: 14px;
+       line-height: 17px;
+       margin-top:-5px;
+       color: #1976D2;
+       
+             
+           } 
+           
+           .input-feedback {
+             color: red;
+           }
+          
+           ::placeholder {
+             margin-left: 0.5vh;
+           }
+         
+         } 
+         

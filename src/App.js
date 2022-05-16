@@ -11,7 +11,10 @@ function App() {
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} exact={true} />
       <Route path="/*" element={<PageNotFound />} />
-      <Route path="/home" element={<Landing />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/Reset-link" element={<ResetLink/>} />
+      <Route path="/Reset-pwd" element={<ResetPwd/>} />
+      
     </Routes>
   );
 }
