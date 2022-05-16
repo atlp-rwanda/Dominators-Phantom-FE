@@ -49,7 +49,7 @@ export const getOneBus = (busid) => async (dispatch) => {
     }
   }
 };
-export const postBus = (data) => async (dispatch) => {
+export const postBuses = (data) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/buses`, {
       method: "POST",

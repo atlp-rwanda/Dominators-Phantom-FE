@@ -2,40 +2,36 @@ import "./BusModal.css";
 import { ImCross } from "react-icons/im";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { postBus } from "../../module/actions/busAction";
+import { postBuses } from "../../module/actions/busAction";
 import CustomeButton from "../../components/Buttons/CustomeButton";
-import { toast } from "react-toastify";
+import { toast,ToastContainer } from "react-toastify";
+
+  import 'react-toastify/dist/ReactToastify.css';
 function BusComponent(props) {
-  const [isFrom, setIsFrom] = useState("");
-  const [isTo, setIsTo] = useState("");
+  const [isRoute, setIsRoute] = useState("");
+  
   const [isBusType, setIsBusType] = useState("");
   const [isBus, setIsBus] = useState("");
   const [error, setError] = useState({});
   const FormValidation = () => {
     
-    if (isFrom == "") {
-      setError({ from: "Origin is required" });
+    if (isRoute == "") {
+      setError({ route: "Route is required" });
       return true;
     }
-    if (isTo == "") {
-      setError({ to: "Destination is required" });
-      return true;
-    }
+    
     if (isBus == "") {
       setError({ bus: "plate number is required" });
       return true;
     }
 
-    // if (isBusType == "") {
-    //   setError({ busType: "Code is required" });
-    //   return true;
-    // }
-    // if (isNaN(isBusType)) {
-    //   setError({ codeNumber: "Code of Route should be Number" });
-    //   return true;
-    // }
+    if (isBusType == "") {
+      setError({ busType: "bus type is required" });
+      return true;
+    }
+   
     if (isBusType==""){
-      setError({ busType: "Bus type is requaredr" });
+      setError({ busType: "Bus type is requared" });
       return true;
     }
   };
@@ -44,13 +40,16 @@ function BusComponent(props) {
     if (!FormValidation()) {
       const data = {
         id: 5,
-        from: isFrom,
-        to: isTo,
+        route: isRoute,
+        
         busType: isBusType,
         bus: isBus,
+        
       };
-      props.postbuses(data);
+      
+      props.postBuses(data);
       toast.success("bus Have been added Successfully");
+     
       props.setIsOpen(false);
     } else {
       toast.error("Some Filied are Empty");
@@ -72,40 +71,25 @@ function BusComponent(props) {
               <div className="col-md-10">
                 
                 <div className="form-group row-card2">
-                  <label htmlFor="new route">From:</label>
+                  <label htmlFor="new route">Route</label>
                   <div className="col-sm-10">
                     <span className="error">
-                      {error.from ? error.from : ""}
+                      {error.route ? error.route : ""}
                     </span>
                     <input
+                    
                       type="text"
                       className="form-control"
-                      placeholder="From"
-                      value={isFrom}
+                      placeholder="Route"
+                      value={isRoute}
                       onChange={(e) => {
-                        setIsFrom(e.target.value);
-                        setError({ from: "" });
+                        setIsRoute(e.target.value);
+                        setError({ route: "" });
                       }}
                     ></input>
                   </div>
                 </div>
-                <div className="form-group row-card2">
-                  <label htmlFor="new route">To:</label>
-                  <span className="error"></span>
-                  <div className="col-sm-10">
-                    <span className="error">{error.to ? error.to : ""}</span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="To"
-                      value={isTo}
-                      onChange={(e) => {
-                        setIsTo(e.target.value);
-                        setError({ to: "" });
-                      }}
-                    ></input>
-                  </div>
-                </div>
+                
                 <div className="form-group row-card2">
                   <label htmlFor="new route">Bus:</label>
                   <div className="col-sm-10">
@@ -130,8 +114,7 @@ function BusComponent(props) {
                     <span className="error">
                       {error.busType
                         ? error.busType
-                        // : "" || error.codeNumber
-                        // ? error.codeNumber
+                        
                         : ""}
                     </span>
                     <input
@@ -142,7 +125,7 @@ function BusComponent(props) {
                       onChange={(e) => {
                         setIsBusType(e.target.value);
                         setError({ busType: "" });
-                        // setError({ codeNumber: "" });
+                        
                       }}
                     ></input>
                   </div>
@@ -159,5 +142,5 @@ function BusComponent(props) {
   );
 }
 export default connect(null, {
-  postBus: postBus,
+  postBuses: postBuses,
 })(BusComponent);

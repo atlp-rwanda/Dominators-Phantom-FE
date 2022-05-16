@@ -7,24 +7,25 @@ import CustomeButton from "../../components/Buttons/CustomeButton";
 import { toast, ToastContainer } from "react-toastify";
 function UpdateBus(props) {
   const bus = props.busData;
-  const [isBus, setIsBus] = useState(bus ? bus.bus : "");
-  const [isFrom, setIsFrom] = useState(bus ? bus.from : "");
-  const [isTo, setIsTo] = useState(bus ? bus.to : "");
+  
+  const [isBus, setIsBus] = useState(bus ? bus.plateNumber : "");
+  const [isRoute, setIsRoute] = useState(bus ? bus.route : "");
+  // const [isTo, setIsTo] = useState(bus ? bus.to : "");
   const [isBusType, setIsBusType] = useState(bus ? bus.busType : "");
 
   const FormValidation = () => {
     if (isBusType == "") return true;
-    if (isTo == "") return true;
+    // if (isTo == "") return true;
     if (isBus == "") return true;
-    if (isFrom == "") return true;
+    if (isRoute == "") return true;
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
     FormValidation();
     if (!FormValidation()) {
       const Data = {
-        from: isFrom,
-        to: isTo,
+        route: isRoute,
+        // to: isTo,
         busType: isBusType,
         bus: isBus,
       };
@@ -51,31 +52,19 @@ function UpdateBus(props) {
               <div className="col-md-10">
                 
                 <div className="form-group row-card2">
-                  <label htmlFor="new bus">From:</label>
+                  <label htmlFor="new bus">Route:</label>
                   <div className="col-sm-10">
                     <input
                       className="form-control"
                       type="text"
                       required
-                      placeholder="From"
-                      value={isFrom}
-                      onChange={(e) => setIsFrom(e.target.value)}
+                      placeholder="Route"
+                      value={isRoute}
+                      onChange={(e) => setIsRoute(e.target.value)}
                     ></input>
                   </div>
                 </div>
-                <div className="form-group row-card2">
-                  <label htmlFor="new bus">To:</label>
-                  <div className="col-sm-10">
-                    <input
-                      className="form-control"
-                      type="text"
-                      required
-                      placeholder="To"
-                      value={isTo}
-                      onChange={(e) => setIsTo(e.target.value)}
-                    ></input>
-                  </div>
-                </div>
+                
                 <div className="form-group row-card2">
                   <label htmlFor="new bus">Bus:</label>
                   <div className="col-sm-10">

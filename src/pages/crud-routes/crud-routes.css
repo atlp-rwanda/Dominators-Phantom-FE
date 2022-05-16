@@ -28,7 +28,7 @@
   width: 100%;
   background-color: var(--white);
   border-collapse: collapse;
-  border-radius: 1rem;
+  border-radius:5px;
   overflow: hidden;
       margin-bottom: 3rem;
 }
@@ -51,6 +51,9 @@
   padding-top: 7px;
   padding-left: 7px;
   padding-bottom: 7px;
+}
+.route-table table tbody tr:hover{
+  background-color: rgba(102, 104, 102, 0.11)
 }
 .route-table table .tbody {
   padding-bottom: 3rem;
@@ -90,7 +93,7 @@ a.delete-icon {
     margin-left: 0%;
   }
 }
-.table-paginate {
+/* .table-paginate {
   margin-left: 2rem;
   padding-top: 1rem;
   padding-bottom: 2rem;
@@ -101,4 +104,39 @@ a.delete-icon {
 .table-paginate ul li {
   list-style: none;
   cursor: pointer;
+} */
+
+.table-paginate {
+  margin-left: 15rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+
+}
+.table-paginate ul {
+  display: flex;
+}
+.table-paginate ul li {
+  list-style: none;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 100%;
+  margin-left: 4em;
+}
+.table-paginate ul li:hover {
+  color: #ffff;
+  background-color: rgba(61, 92, 85, 0.336);
+}
+.table-paginate ul li.active {
+  color: #ffff;
+  background-color: rgba(23, 121, 98, 0.64);
+}
+
+.table-paginate ul li.previous, .table-paginate ul li.next 
+.table-paginate ul li.previous, .table-paginate ul li.next {
+  display: none;
+}
+
+.route-col {
+  width: 35%
 }

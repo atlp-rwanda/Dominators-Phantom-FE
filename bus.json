@@ -1,18 +1,12 @@
 {
   "buses": [
     {
-      "id": 1,
-      "from": "NYABUGOGO",
-      "to": "DOWNTOWN",
-      "bus": "RAB3033",
-      "busType": "RStar"
-    },
-    {
       "id": 2,
       "from": "NYABUGOGO",
       "to": "DOWNTOWN",
       "bus": "RAB051",
-      "busType": "Ritco"
+      "busType": "Star",
+      "route": "zzz"
     },
     {
       "id": 3,
@@ -20,6 +14,13 @@
       "to": "DOWNTOWN",
       "bus": "RAB051",
       "busType": "Ritco"
+    },
+    {
+      "id": 5,
+      "from": "nyabugogo",
+      "to": "Remera",
+      "busType": "Star",
+      "bus": "RAB202"
     }
   ]
 }

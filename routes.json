@@ -1,0 +1,19 @@
+{
+    "routes": [
+      {
+        "id": 2,
+        "route": "NYABUGOGO-downtime"
+      
+      },
+      {
+        "id": 2,
+        "route": "NYABUGOGO-remera"
+      
+      },
+      {
+        "id": 2,
+        "route": "NYABUGOGO-NYANZA"
+      
+      }
+    ]
+  }

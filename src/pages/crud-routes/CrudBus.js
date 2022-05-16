@@ -92,17 +92,17 @@ function CrudBus(props) {
                   {isData.map((value, idx) => {
                     return (
                       <tr key={idx}>
-                        <td key={value.id} scope="row">
+                        <td key={idx} scope="row">
                           <input
                             type="checkbox"
                             className="checkbox"
-                            id={idx}
-                            name={value.id}
+                            id={idx+1}
+                            name={idx+1}
                             onChange={HandleIsChecked}
                           />
-                          {value.id}
+                          {idx+1}
                         </td>
-                        <td scope="row">{value.from + "-" + value.to}</td>
+                        <td className="route-col" scope="row">{value.from + "-" + value.to}</td>
                         <td scope="row">{value.bus}</td>
                         <td scope="row">{value.busType}</td>
                         <td scope="row">
@@ -113,7 +113,7 @@ function CrudBus(props) {
                               setUpdateModal(true);
                               setBusData({
                                 id: value.id,
-                                plateNumber: value.plateNumber,
+                                plateNumber: value.bus,
                                 from: value.from,
                                 to: value.to,
                                 busType: value.busType,
@@ -141,16 +141,19 @@ function CrudBus(props) {
               {isLoaded ? (
                 <tfoot>
                   <tr>
-                    <td colSpan={5}>
+                    <td colSpan={4}>
                       <div className="table-paginate">
                         <ReactPaginate
                           renderOnZeroPageCount={null}
                           pageRangeDisplayed={1}
-                          pageCount={2}
+                          pageCount={3}
                           breakLabel="..."
                           activeClassName="active"
                         />
                       </div>
+                    </td>
+                    <td>
+
                     </td>
                   </tr>
                 </tfoot>
