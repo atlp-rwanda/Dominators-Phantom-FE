@@ -1,1 +1,1 @@
-export const db="http://localhost:3003"
+export const db="https://dominators-phantom-api.herokuapp.com"
