@@ -4,6 +4,9 @@ import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import ResetLink from "./pages/ResetLink";
+import ResetPwd from "./pages/ResetPwd";
 
 function App() {
   return (
