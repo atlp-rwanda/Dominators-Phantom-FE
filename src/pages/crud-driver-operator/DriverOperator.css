@@ -69,9 +69,6 @@
   margin-left: 3px;
   margin-right: 10px;
 }
-.email-col {
-  width: 40%
-}
 a.edit-icon {
   text-decoration: none;
   color: rgba(40, 40, 44, 0.877);
@@ -113,7 +110,7 @@ a.delete-icon {
   }
 }
 .table-paginate {
-  margin-left: 15rem;
+  margin-left: -2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;

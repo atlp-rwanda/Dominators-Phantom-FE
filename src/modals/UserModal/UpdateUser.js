@@ -7,10 +7,15 @@ import CustomeButton from "../../components/Buttons/CustomeButton";
 import { toast, ToastContainer } from "react-toastify";
 function UpdateUser(props) {
   const user = props.userData;
+  const [isFirstName, setIsFirstName] = useState(user ? user.firstName : "");
+  const [isLastName, setIsLastName] = useState(user ? user.lastName : "");
   const [isEmail, setIsEmail] = useState(user ? user.email : "");
-  const [isRole, setIsRole] = useState(user ? user.from : "");
+  const [isRole, setIsRole] = useState(user ? user.role : "");
 
+  console.log(user)
   const FormValidation = () => {
+    if (isFirstName == "") return true;
+    if (isLastName == "") return true;
     if (isEmail == "") return true;
     if (isRole == "") return true;
   };
@@ -19,6 +24,8 @@ function UpdateUser(props) {
     FormValidation();
     if (!FormValidation()) {
       const Data = {
+        firstName: isFirstName,
+        lastName: isLastName,
         email: isEmail,
         role: isRole,
       };
@@ -43,6 +50,22 @@ function UpdateUser(props) {
             <h3 className="create-title">Update User</h3>
             <div>
               <br />
+              <input
+                  className="input-fname"
+                  placeholder="First Name"
+                  id="firstName"
+                  name="firstName"
+                  value={isFirstName}
+                  onChange={(e) => setIsFirstName(e.target.value)}
+                />
+                <input
+                  className="input-lname"
+                  placeholder="Last Name"
+                  id="lastName"
+                  name="lastName"
+                  value={isLastName}
+                  onChange={(e) => setIsLastName(e.target.value)}
+                />
               <input
                 className="input-email"
                 placeholder="Email"

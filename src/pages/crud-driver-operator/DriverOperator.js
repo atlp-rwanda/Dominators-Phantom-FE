@@ -46,7 +46,7 @@ function DriverOperator(props) {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
   let selectedUsers = [];
-  console.log(selectedUsers);
+  // console.log(selectedUsers);
   useEffect(() => {
     Object.entries(isChecked).map((values) => {
       if (values[1])
@@ -81,6 +81,7 @@ function DriverOperator(props) {
                   <th width="10%" scope="col">
                     No
                   </th>
+                  <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Role</th>
                   <th scope="col">Action</th>
@@ -101,7 +102,8 @@ function DriverOperator(props) {
                           />
                           {idx + 1}.
                         </td>
-                        <td scope="row" className="email-col">{value.email}</td>
+                        <td scope="row" className="email-col">{value.firstName}  {value.lastName}</td>
+                        <td scope="row">{value.email}</td>
                         <td scope="row">{value.role}</td>
                         <td scope="row">
                           <Link
@@ -111,6 +113,8 @@ function DriverOperator(props) {
                               setUpdateUser(true);
                               setUserData({
                                 id: value.id,
+                                firstName: value.firstName,
+                                lastName: value.lastName,
                                 email: value.email,
                                 role: value.role,
                               });
@@ -137,7 +141,9 @@ function DriverOperator(props) {
               {isLoaded ? (
                 <tfoot>
                   <tr>
-                    <td colSpan={2}>
+                    <td></td>
+                    <td></td>
+                    <td colSpan={1}>
                       <div className="table-paginate">
                         <ReactPaginate
                           renderOnZeroPageCount={null}
@@ -148,6 +154,7 @@ function DriverOperator(props) {
                         />
                       </div>
                     </td>
+                    <td></td>
                     <td></td>
                   </tr>
                 </tfoot>

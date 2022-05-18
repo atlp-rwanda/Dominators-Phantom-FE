@@ -8,8 +8,18 @@ import { toast } from "react-toastify";
 function UserComponent(props) {
   const [isEmail, setIsEmail] = useState("");
   const [isRole, setIsRole] = useState("");
+  const [isFirstName, setIsFirstName] = useState("");
+  const [isLastName, setIsLastName] = useState("");
   const [error, setError] = useState({});
   const FormValidation = () => {
+    if (isFirstName == "") {
+      setError({ firstName: "First Name is required" });
+      return true;
+    }
+    if (isLastName == "") {
+      setError({ lastName: "Last Name is required" });
+      return true;
+    }
     if (isEmail == "") {
       setError({ email: "Email is required" });
       return true;
@@ -24,6 +34,8 @@ function UserComponent(props) {
     if (!FormValidation()) {
       const data = {
         id: "",
+        firstName: isFirstName,
+        lastName: isLastName,
         email: isEmail,
         role: isRole,
       };
@@ -48,6 +60,22 @@ function UserComponent(props) {
               <h3 className="create-title">Create Driver or Operator</h3>
               <div>
                 <br />
+                <input
+                  className="input-fname"
+                  placeholder="First Name"
+                  id="firstName"
+                  name="firstName"
+                  value={isFirstName}
+                  onChange={(e) => setIsFirstName(e.target.value)}
+                />
+                <input
+                  className="input-lname"
+                  placeholder="Last Name"
+                  id="lastName"
+                  name="lastName"
+                  value={isLastName}
+                  onChange={(e) => setIsLastName(e.target.value)}
+                />
                 <input
                   className="input-email"
                   placeholder="Email"

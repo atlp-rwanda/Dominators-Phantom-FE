@@ -2,26 +2,36 @@
   "AllUsers": [
     {
       "id": 1,
+      "firstName": "Example1",
+      "lastName": "Onexample",
       "email": "example1@gmail.com",
       "role": "Operator"
     },
     {
       "id": 2,
+      "firstName": "Example2",
+      "lastName": "Twoxample",
       "email": "example2@gmail.com",
       "role": "Driver"
     },
     {
       "id": 3,
+      "firstName": "Example3",
+      "lastName": "Threexample1",
       "email": "example3@gmail.com",
       "role": "Operator"
     },
     {
       "id": 4,
+      "firstName": "Example4",
+      "lastName": "Fourexample",
       "email": "example4@gmail.com",
       "role": "Driver"
     },
     {
       "id": 5,
+      "firstName": "Example5",
+      "lastName": "Fivexample",
       "email": "example5@gmail.com",
       "role": "Operator"
     }

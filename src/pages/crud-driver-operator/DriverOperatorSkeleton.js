@@ -18,6 +18,9 @@ function DriverOperatorSkeleton() {
             <td>
               <SkeletonElement type="title" width={120} height={9} />
             </td>
+            <td>
+              <SkeletonElement type="title" width={120} height={9} />
+            </td>
           </tr>
         );
       })}

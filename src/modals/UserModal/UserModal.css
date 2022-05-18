@@ -39,6 +39,8 @@
   line-height: 24px;
   color: rgba(73, 73, 73, 0.72);
 }
+.input-fname,
+.input-lname,
 .input-email,
 .select-driver {
   margin-left: 3.5em;
@@ -55,6 +57,7 @@
 }
 .envelope-icon {
   padding: 5px 9.8px;
+  margin-top: 0.5em;
   margin-left: -48px;
   color: #807d7d;
   font-size: 28px;
@@ -62,8 +65,10 @@
   border-radius: 0px 12px 12px 0px;
   cursor: pointer;
 }
+.input-lname,
+.input-email,
 .select-driver {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .btn-save {
   border-radius: 5px;
