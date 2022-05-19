@@ -1,0 +1,69 @@
+.tracking-moves-container {
+    margin: 20px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.map-container {
+    width: 80%;
+}
+
+.map-container h1,
+.bus-movements-info h1 {
+    text-align: center;
+    margin: 10px;
+    color: var(--green);
+}
+
+.bus-movements-info h1 {
+    text-align: left;
+}
+
+.bus-movements-info {
+    background-color: var(--white);
+    padding: 12px;
+    border: 1px solid grey;
+    margin-left: 20px;
+}
+
+.bus-movements-info p span {
+    color: red;
+    font-weight: 900;
+}
+
+.bus-movements-info p {
+    font-weight: 600;
+    /* letter-spacing: 1px; */
+    line-height: 2;
+}
+
+.bus-movements-info p::before {
+    content: " 🔹 ";
+}
+
+.book-ticket {
+    text-align: center;
+}
+
+.book-ticket button {
+    color: var(--white);
+    background-color: var(--green);
+    outline: none;
+    border: none;
+    padding: 15px 20px;
+    margin: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 800px) {
+    .tracking-moves-container {
+        display: block;
+    }
+    .map-container {
+        width: 100%;
+    }
+}
