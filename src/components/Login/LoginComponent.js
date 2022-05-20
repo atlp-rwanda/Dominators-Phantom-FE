@@ -9,6 +9,8 @@ import { Link,useNavigate } from 'react-router-dom';
 import "./Login.css";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { db } from '../../utils/db';
+
 
 
 const LoginComponent = () => {
@@ -16,35 +18,60 @@ const LoginComponent = () => {
   const [loading,setIsLoading] = useState(false);
   const redirect = useNavigate();
   useEffect(()=>{
-    fetch("http://localhost:3003/user")
-    .then((res)=>{
-      return res.json();
-    })
-    .then ((data)=>{
-  setUsers(data)
-  setIsLoading(false)
-    })
+    
   })
 
   const handleLogin = (values)=>{
+    console.log(db)
    setIsLoading(true)
+   let headersList = {
+    "Accept": "*/*",
+    "Content-Type": "application/json"
+   }
    
-
-    users.map((user)=>{
-      
- if((user.email === values.email) && (user.password === values.password)){
-   toast.info("User logiged in successfully ")
+   let bodyContent = JSON.stringify({
+       "email":values.email,
+       "password":values.password
+   });
    
-   localStorage.setItem("token","toke33nphantddomfaketokensdgdgss")
-   redirect("/dashboard")
-   
- }
- else {
-   toast.error("Invalid email or password",{theme:"colored"});
- }
-
-
+   fetch(`${db}/api/v1/users/login`, { 
+     method: "POST",
+     body: bodyContent,
+     headers: headersList
+   })
+    .then((res)=>{
+      return res.json();
     })
+    .then ((result)=>{
+      console.log(result)
+      if(result.status=="success"){
+           toast.info("User logiged in successfully ")
+           
+           localStorage.setItem("token",result.token)
+           if(result.data.user.role=="admin"){
+            redirect("/Dashboard")
+             
+           }
+           else
+           {
+
+           }
+           
+         }
+         else {
+           toast.error("Invalid email or password",{theme:"colored"});
+         }
+  setIsLoading(false)
+    })
+    .catch((error)=>{
+      
+      toast.error("Internal sever erroe!",{theme:"colored"});
+      setIsLoading(false)
+      console.log(error)
+    })
+
+
+
   }
         
 

@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/Login" element={<Login />} />
       <Route path="/Reset-link" element={<ResetLink/>} />
       <Route path="/Reset-pwd" element={<ResetPwd/>} />
+      <Route path="/Dashboard" element={<Dashboard/>} />
       
     </Routes>
   );
