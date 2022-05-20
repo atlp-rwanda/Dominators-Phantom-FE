@@ -34,6 +34,20 @@
       "lastName": "Fivexample",
       "email": "example5@gmail.com",
       "role": "Operator"
+    },
+    {
+      "id": 6,
+      "firstName": "Jessie ",
+      "lastName": "Umuhire",
+      "email": "umuhireumutesijessie@gmail.com",
+      "role": "Operator"
+    },
+    {
+      "id": 7,
+      "firstName": "Furebo",
+      "lastName": "Me",
+      "email": "me@gmail.com",
+      "role": "Operator"
     }
   ]
 }

@@ -60,6 +60,9 @@
 .user-table table tbody tr:hover{
   background-color: rgba(102, 104, 102, 0.11)
 }
+.user-table table tbody tr:nth-child(even){
+  background-color: rgba(102, 104, 102, 0.151)
+}
 .user-table table .tbody {
   padding-bottom: 3rem;
 }
