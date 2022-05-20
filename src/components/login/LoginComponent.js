@@ -70,22 +70,6 @@ const LoginComponent = () => {
       console.log(error)
     })
 
-//     users.map((user)=>{
-      
-//  if((user.email === values.email) && (user.password === values.password)){
-//    toast.info("User logiged in successfully ")
-   
-//    localStorage.setItem("token","toke33nphantddomfaketokensdgdgss")
-//    redirect("/dashboard")
-   
-//  }
-//  else {
-//    toast.error("Invalid email or password",{theme:"colored"});
-//  }
-
-
-//     })
-
 
 
   }
