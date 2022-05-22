@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { updateBus } from "../../module/actions/busAction";
 import CustomeButton from "../../components/Buttons/CustomeButton";
 import { toast, ToastContainer } from "react-toastify";
+import Select from "react-select";
+
 function UpdateBus(props) {
   const bus = props.busData;
   
@@ -54,7 +56,7 @@ function UpdateBus(props) {
                 <div className="form-group row-card2">
                   <label htmlFor="new bus">Route:</label>
                   <div className="col-sm-10">
-                    <input
+                  <input
                       className="form-control"
                       type="text"
                       required
