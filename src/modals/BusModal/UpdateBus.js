@@ -1,8 +1,8 @@
-import "./BusModal.css";
+import "./BusModel.css";
 import { ImCross } from "react-icons/im";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { updateBus } from "../../module/actions/busAction";
+import { updateBus } from "../../module/actions/busActions";
 import CustomeButton from "../../components/Buttons/CustomeButton";
 import { toast, ToastContainer } from "react-toastify";
 import Select from "react-select";
