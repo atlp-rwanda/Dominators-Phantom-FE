@@ -20,6 +20,7 @@
     "homepage": "https://github.com/atlp-rwanda/Dominators-Phantom-FE#readme",
     "dependencies": {
         "leaflet": "^1.8.0",
+        "leaflet-routing-machine": "^3.2.12",
         "react": "^18.0.0",
         "react-dom": "^18.1.0",
         "react-google-maps": "^9.4.5",

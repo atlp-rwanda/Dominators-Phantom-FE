@@ -5,25 +5,28 @@ import "./tracking-moves.css";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 const BusMovements = () => {
+  const position = [51.505, -0.09];
   return (
     <div>
       <UserNavbar />
       <div className="tracking-moves-container">
         <div className="map-container">
-          <h1> Bus Movements - Live Tracking </h1>
-          <div style={{ height: "100px", width: "100px" }}>
-            <Map center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={[51.505, -0.09]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-              </Marker>
-            </Map>
-          </div>
+          <Map
+            center={position}
+            zoom={13}
+            scrollWheelZoom={false}
+            style={{ height: "100%" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </Map>
         </div>
         <div className="bus-movements-info">
           <h1> Selected Bus Info. </h1> <br />
