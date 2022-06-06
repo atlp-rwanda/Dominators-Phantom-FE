@@ -24,7 +24,7 @@ const Roles = () => {
     setNewRoleIsShown(false);
   };
 
-  const [roleItemIsShown, setRoleItemIsShown] = useState(true);
+  const [roleItemIsShown, setRoleItemIsShown] = useState(false);
 
   const showRoleItemHandler = () => {
     setRoleItemIsShown(true);

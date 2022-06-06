@@ -83,26 +83,10 @@ const RoleItem = (props) => {
 
               <FaTrashAlt
                 className={classes["ellipsis-icon"]}
-                style={{ cursor: "pointer", color: "red" }}
+                style={{ cursor: "pointer" }}
               />
             </li>
           ))}
-
-          {/* <li>View the bus movement</li>
-          <li>Manage (create, update, delete) routes</li>
-          <li>Manage (create, update, delete) buses</li>
-          <li>Manage (create, update, delete) bus to route assignment</li>
-          <li>Manage (create, update, delete) driver to bus assignment</li>
-          <li>View the bus movement</li>
-          <li>
-            The Administrator should be able to create, update, and delete
-            roles.
-          </li>
-          <li>
-            The administrator should be able to set and update role's
-            permissions.
-          </li>
-          <li>Register and remove both drivers & operators</li> */}
         </ul>
       </div>
     </Modal>

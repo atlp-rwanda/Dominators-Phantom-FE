@@ -27,3 +27,8 @@ h4 {
   position: absolute;
   left: 95%;
 }
+
+.ellipsis-icon:hover,
+.ellipsis-icon:active {
+  color: red;
+}
