@@ -25,12 +25,11 @@ const Sidebar = () => {
         <Link to="/driver-operator">
           <IoIcons.IoIosBus /> <span> Driver & Operator </span>
         </Link>
-        <Link to="#" onClick={showSubMenu}>
+        <Link to="/roles">
           <IoIcons.IoIosPeople />
-          <span>
-            User Roles <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
-          </span>
+          <span>Roles & Permissions</span>
         </Link>
+<<<<<<< HEAD
         <div className="subMenu">
           <NavLink to="#">
             <IoIcons.IoMdAdd /> <span> New role </span>
@@ -43,6 +42,8 @@ const Sidebar = () => {
             <IoIcons.IoMdAnalytics /> <span> Actions </span>
           </NavLink>
         </div>
+=======
+>>>>>>> Added roles and permissions
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>

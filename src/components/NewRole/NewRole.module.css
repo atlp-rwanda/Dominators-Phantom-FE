@@ -1,0 +1,25 @@
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9px;
+  margin-right: 10px;
+}
+
+.btn-close {
+  background-color: #fff;
+  color: var(--green);
+  padding: 0.5rem 1rem;
+  border-radius: 9px;
+  margin-right: 10px;
+  margin-left: 110px;
+}
+
+.btn-close:hover,
+.btn-close:active {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.error {
+  text-align: center;
+  color: red;
+}

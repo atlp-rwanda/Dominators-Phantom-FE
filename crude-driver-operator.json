@@ -48,6 +48,13 @@
       "lastName": "Me",
       "email": "me@gmail.com",
       "role": "Operator"
+    },
+    {
+      "id": 8,
+      "firstName": "Jean",
+      "lastName": "TUYISHIMIRE",
+      "email": "ericjohn415@gmail.com",
+      "role": "Driver"
     }
   ]
 }

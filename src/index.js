@@ -4,19 +4,17 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./style.css";
 import { Provider } from "react-redux";
-import store from "./module/store/store"; //
+import store from "./module/store/store";
+import RoleProvider from "./store/role-context/RoleProvider";
 
 const root = reactDom.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>{" "}
+    <RoleProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>{" "}
+    </RoleProvider>
   </Provider>
 );
-
-
-
-
-

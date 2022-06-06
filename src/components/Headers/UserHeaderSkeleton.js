@@ -18,7 +18,6 @@ function UserHeaderSkeleton() {
             <SkeletonElement type="thumbnail" height={300} width={300} />
           </div>
         </div>
-
       </div>
     </>
   );

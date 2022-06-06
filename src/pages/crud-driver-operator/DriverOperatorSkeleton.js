@@ -1,4 +1,4 @@
-import SkeletonElement from "../../skeletons/skeletonElement";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 function DriverOperatorSkeleton() {
   const rows = [1, 2, 3, 4, 5];
   return (

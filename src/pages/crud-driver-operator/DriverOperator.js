@@ -45,6 +45,7 @@ function DriverOperator(props) {
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
+
   let selectedUsers = [];
   // console.log(selectedUsers);
   useEffect(() => {
@@ -56,6 +57,7 @@ function DriverOperator(props) {
         });
     });
   }, [isChecked]);
+
   return (
     <div>
       <ToastContainer theme="colored" />
@@ -72,7 +74,7 @@ function DriverOperator(props) {
           >
             <CustomButton classes="btn btn-green btn-radius new-user-btn">
               Add New User
-            </CustomButton>{" "}
+            </CustomButton>
           </div>
           <div className="user-table">
             <table>
@@ -102,7 +104,9 @@ function DriverOperator(props) {
                           />
                           {idx + 1}.
                         </td>
-                        <td scope="row" className="email-col">{value.firstName}  {value.lastName}</td>
+                        <td scope="row" className="email-col">
+                          {value.firstName} {value.lastName}
+                        </td>
                         <td scope="row">{value.email}</td>
                         <td scope="row">{value.role}</td>
                         <td scope="row">

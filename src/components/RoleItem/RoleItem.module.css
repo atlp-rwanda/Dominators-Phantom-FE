@@ -1,0 +1,29 @@
+.modal {
+  width: 45rem;
+}
+
+h4 {
+  border-bottom: 1px solid #c5c2c2;
+}
+
+.permissions {
+  margin-left: 2rem;
+}
+
+.permissions li::marker {
+  font-size: 1.5rem;
+  color: var(--theme-green);
+}
+
+.options {
+  width: 13%;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 85%;
+  z-index: 50;
+}
+
+.ellipsis-icon {
+  position: absolute;
+  left: 95%;
+}

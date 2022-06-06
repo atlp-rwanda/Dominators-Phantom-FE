@@ -6,7 +6,6 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 0 3px rgb(164, 164, 164);
   height: 70px;
-  margin-bottom: 3px;
 }
 
 .rightNavBar {
@@ -83,13 +82,13 @@
 a.d-icons {
   text-align: left;
   padding: 12px 10px;
-      text-align: left;
-    padding: 12px 10px;
-    text-decoration: none;
-    display: flex;
-    color: var(--green);
+  text-align: left;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: flex;
+  color: var(--green);
 }
-a.d-icons p{
+a.d-icons p {
   float: left;
 }
 .d-icons {

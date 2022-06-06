@@ -11,6 +11,7 @@ import UserRoute from "./pages/user-route/UserRoutes";
 import Logout from "./components/Logout/Logout";
 import "react-toastify/dist/ReactToastify.css";
 import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
+import Roles from "./pages/roles & permissions/Roles";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/crud-route" element={<CrudRoute itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
       <Route path="/driver-operator" element={<DriverOperator />} />
+      <Route path="/roles" element={<Roles />} />
     </Routes>
   );
 }
