@@ -47,20 +47,6 @@ const permissions = [
   },
 ];
 
-// const BtnOptions = () => {
-//   return (
-//     <Card className={classes.options}>
-//       <small>
-//         Edit
-//         <FaEdit style={{ marginLeft: "23px" }} />
-//       </small>
-//       <small>
-//         Delete <FaTrashAlt style={{ color: "red" }} />
-//       </small>
-//     </Card>
-//   );
-// };
-
 const RoleItem = (props) => {
   const [showOptions, setShowOptions] = useState(false);
 
@@ -75,10 +61,11 @@ const RoleItem = (props) => {
   return (
     <Modal className={classes.modal} onClose={props.onClose}>
       <div>
-        <h4>role name</h4>
+        <h4>{props.roleName}</h4>
         <ul className={classes.permissions}>
           {permissions.map((permission) => (
             <li>
+              <input type="checkbox"></input>
               {permission.name}
 
               <FaTrashAlt

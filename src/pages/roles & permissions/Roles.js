@@ -16,6 +16,10 @@ const Roles = () => {
 
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
 
+  const [roleItemIsShown, setRoleItemIsShown] = useState(false);
+
+  const [roleName, setRoleName] = useState("");
+
   const showNewRoleHandler = () => {
     setNewRoleIsShown(true);
   };
@@ -24,9 +28,8 @@ const Roles = () => {
     setNewRoleIsShown(false);
   };
 
-  const [roleItemIsShown, setRoleItemIsShown] = useState(false);
-
-  const showRoleItemHandler = () => {
+  const showRoleItemHandler = (role) => {
+    setRoleName(role);
     setRoleItemIsShown(true);
   };
 
@@ -49,10 +52,15 @@ const Roles = () => {
         <div className={classes["roles-permissions"]}>
           <Card className={classes.driver}>
             <h4 className={classes.title}>Available Roles</h4>
-            {roleItemIsShown && <RoleItem onClose={hideRoleItemHandler} />}
+            {roleItemIsShown && (
+              <RoleItem roleName={roleName} onClose={hideRoleItemHandler} />
+            )}
             <ul className={classes.roles}>
               {roles.map((role) => (
-                <li key={role.id} onClick={showRoleItemHandler}>
+                <li
+                  key={role.id}
+                  onClick={() => showRoleItemHandler(role.name)}
+                >
                   {role.name}
                 </li>
               ))}
