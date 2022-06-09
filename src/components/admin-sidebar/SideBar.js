@@ -18,16 +18,17 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <nav>
-        <Link to="#">
+        <NavLink to="dashboard">
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
-        </Link>
-        <Link to="/driver-operator">
+        </NavLink>
+        <NavLink to="/driver-operator">
           <IoIcons.IoIosBus /> <span> Driver & Operator </span>
-        </Link>
-        <Link to="/roles">
+        </NavLink>
+        <NavLink to="/roles">
           <IoIcons.IoIosPeople />
           <span>Roles & Permissions</span>
+<<<<<<< HEAD
         </Link>
 <<<<<<< HEAD
         <div className="subMenu">
@@ -44,10 +45,14 @@ const Sidebar = () => {
         </div>
 =======
 >>>>>>> Added roles and permissions
+=======
+        </NavLink>
+>>>>>>> worked on issue #26
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
         </NavLink>
+<<<<<<< HEAD
 
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
@@ -55,9 +60,12 @@ const Sidebar = () => {
         </NavLink>
 
         <Link to="#">
+=======
+        <NavLink to="/buses">
+>>>>>>> worked on issue #26
           <IoIcons.IoMdBus />
           <span> Buses </span>
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );

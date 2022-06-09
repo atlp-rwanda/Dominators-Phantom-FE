@@ -6,7 +6,8 @@
   height: 450px;
   width: 100%;
   background-repeat: no-repeat;
-  margin-top: 70px;}
+  margin-top: 70px;
+}
 
 .intro_header .header-content {
   display: grid;
@@ -63,47 +64,45 @@
     height: inherit;
     grid-column-gap: 2px;
   }
-  .header-content  .content {
-  align-items: center;
-  margin: auto;
-  display:block;
-  width: 70%;
-  margin-bottom:5px
-}
-.content .ft-header-btn {
-  margin-top: 10px;
-}
-.header-content .bus-image {
-  align-items: center;
-  display: flex;
-}
-
+  .header-content .content {
+    align-items: center;
+    margin: auto;
+    display: block;
+    width: 70%;
+    margin-bottom: 5px;
+  }
+  .content .ft-header-btn {
+    margin-top: 10px;
+  }
+  .header-content .bus-image {
+    display: flex;
+    align-items: center;
+  }
 }
 /* SKeleton UI Design */
-.skeleton-wrapper{
+.skeleton-wrapper {
   margin: 20px auto;
   padding: 10px 15px;
   background-color: var(--light-gray);
-    margin-top: 70px;
-    overflow: hidden;
-    position: relative;
+  margin-top: 70px;
+  overflow: hidden;
+  position: relative;
 }
-.skeleton-ui-text{
+.skeleton-ui-text {
   display: block;
   background-color: antiquewhite;
-  
 }
-.skeleton-userheader{
+.skeleton-userheader {
   display: flex;
-  margin-top:70px ;
+  margin-top: 70px;
 }
-.skeleton-descr{
-width: 50%;
+.skeleton-descr {
+  width: 50%;
 }
 @media only screen and (max-width: 620px) {
-  .skeleton-userheader{
-  display: flex;
-  flex-direction: column;
-  margin-top:70px ;
-}
+  .skeleton-userheader {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+  }
 }

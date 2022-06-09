@@ -1,12 +1,16 @@
 const { merge } = require("webpack-merge");
+<<<<<<< HEAD
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+=======
+>>>>>>> worked on issue #26
 const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "production",
   devtool: "source-map",
+<<<<<<< HEAD
   module: {
     rules: [
       {
@@ -24,4 +28,6 @@ module.exports = merge(common, {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
+=======
+>>>>>>> worked on issue #26
 });

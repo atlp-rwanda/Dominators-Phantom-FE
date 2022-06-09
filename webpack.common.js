@@ -18,7 +18,11 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
+<<<<<<< HEAD
     port: port || 3000,
+=======
+    port: 3000,
+>>>>>>> worked on issue #26
     open: true,
     hot: true,
     compress: true,
@@ -45,6 +49,13 @@ module.exports = {
         loader: require.resolve("babel-loader"),
       },
       {
+<<<<<<< HEAD
+=======
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+>>>>>>> worked on issue #26
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },

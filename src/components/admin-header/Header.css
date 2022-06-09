@@ -117,6 +117,7 @@ a.d-icons p {
 } */
 
 @media (max-width: 850px) {
+<<<<<<< HEAD
     .navbar {
         margin-bottom: 0px;
     }
@@ -184,4 +185,73 @@ a.d-icons p {
     .mobileMainContent {
         min-height: 86vh;
     }
+=======
+  .navbar {
+    margin-bottom: 0px;
+  }
+  #menuBars {
+    display: block;
+    margin-top: 25px;
+  }
+  #busIcon {
+    display: none;
+  }
+  #downArrow {
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+  .sideBar {
+    position: absolute;
+    display: inline-block;
+    margin-top: 4px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+    width: 70%;
+    max-width: 400px;
+    min-height: 90vh;
+  }
+  .sideBar nav a,
+  .sideBar nav button {
+    color: #312d2d;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    padding: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    border-bottom: 0.1px solid lightgrey;
+    width: 100%;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .sideBar nav a span,
+  .sideBar nav button span {
+    margin-left: 10px;
+  }
+  .sideBar nav .subMenu1 {
+    margin-left: 20px;
+  }
+  .sideBar nav button span .icon-dropDown {
+    float: right;
+    margin: 3px 0px 3px 10px;
+  }
+  .sideBar nav a:hover,
+  .sideBar nav button:hover {
+    background-color: var(--theme-green);
+    color: var(--theme-sideBar-white);
+  }
+  .sideBar nav a.active {
+    color: var(--theme-green);
+  }
+  .sideBar nav a.active:hover {
+    color: var(--theme-sideBar-white);
+  }
+  .mobileMainContent {
+    min-height: 86vh;
+  }
+>>>>>>> worked on issue #26
 }
