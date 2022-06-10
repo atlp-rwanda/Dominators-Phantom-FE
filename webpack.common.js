@@ -18,7 +18,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
-    port: 3000,
+    port: port || 3000,
     open: true,
     hot: true,
     compress: true,
@@ -43,10 +43,6 @@ module.exports = {
         test: /\.jsx|js?$/,
         exclude: /node_modules/,
         loader: require.resolve("babel-loader"),
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
