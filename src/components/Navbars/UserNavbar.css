@@ -8,7 +8,8 @@ nav {
   top: 0;
   width: 100%;
   z-index: 3;
-
+  
+  
 }
 .nav {
   width: 100%;
@@ -60,13 +61,15 @@ nav {
 ul li a.login.active {
     color: var(--white);
     border-bottom: 3px solid var(--green);
-    padding: 1rem 1rem;
+    padding: 1rem 2rem !important;
+
     border-radius: 15px;
   }
 ul li a.login.active:hover {
     color: var(--white);
     border-bottom: 3px solid var(--green);
-    padding: 1rem 1rem;
+
+    padding: 1rem 2rem;
     border-radius: 15px;
   }
 .navItem ul li a {

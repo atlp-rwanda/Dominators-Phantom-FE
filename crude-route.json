@@ -1,0 +1,39 @@
+{
+  "routes": [
+    {
+      "id": 1,
+      "from": "NYABUGOGO",
+      "to": "DOWNTOWN",
+      "code": "305",
+      "distance": "3km"
+    },
+    {
+      "id": 2,
+      "from": "KICUKIRO",
+      "to": "REMERA",
+      "code": "209",
+      "distance": "8km"
+    },
+    {
+      "id": 3,
+      "from": "NYABUGOGO",
+      "to": "GATENGA",
+      "code": "206",
+      "distance": "9km"
+    },
+    {
+      "id": 4,
+      "from": "REMERA",
+      "to": "NYABUGOGO",
+      "code": "201",
+      "distance": "9km"
+    },
+    {
+      "id": 5,
+      "from": "KIMIRONKO",
+      "to": "KABUGA",
+      "code": "300",
+      "distance": "4km"
+    }
+  ]
+}

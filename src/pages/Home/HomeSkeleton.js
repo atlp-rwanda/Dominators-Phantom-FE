@@ -8,7 +8,7 @@ function HomeSkeleton() {
             <SkeletonElement type="text" height={20} width={200} />
           </div>
           <div className="row">
-            <SkeletonElement type="text" height={270} width={200} />
+            <SkeletonElement type="text" height={270} width={270} />
 
             <SkeletonElement height={270} width={200} />
 

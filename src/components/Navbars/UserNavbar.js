@@ -10,7 +10,7 @@ function UserNavbar() {
     <>
       <div className="navBar">
         <nav className="nav">
-    
+
               <div className="logo">
                 <img alt="" src={phantom} width="120px" height="65px" />
               </div>
@@ -20,7 +20,7 @@ function UserNavbar() {
                     <NavLink to="/">HOME</NavLink>
                   </li>
                   <li>
-                    <NavLink to="ticket">TICKET</NavLink>
+                    <NavLink to="/routes">ROUTES</NavLink>
                   </li>
                   <li>
                     <NavLink to="tracking">LIVE TRACKING</NavLink>
@@ -36,23 +36,23 @@ function UserNavbar() {
                 </ul>
               </div>
           {toggleMenu ? (
+
             <ImCross
               className="close"
-              onClick={() => {
-                setToggleMenu(!toggleMenu);
-              }}
+              onClick={ () => {
+                setToggleMenu( !toggleMenu );
+              } }
             />
           ) : (
             <GiHamburgerMenu
               className="hamburger"
-              onClick={() => {
-                setToggleMenu(!toggleMenu);
-              }}
+              onClick={ () => {
+                setToggleMenu( !toggleMenu );
+              } }
             />
-          )}
+          ) }
         </nav>
       </div>
-    </>
-  );
+    </>)
 }
 export default UserNavbar;

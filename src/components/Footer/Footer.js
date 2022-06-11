@@ -16,7 +16,10 @@ function Footer() {
             QUICK LINKS
             <ul>
               <li>
-                <NavLink to="/ticket">&gt;TICKET</NavLink>
+                <NavLink to="/routes">&gt;ROUTES</NavLink>
+
+                <NavLink to="/routes">&gt;ROUTES</NavLink>
+
               </li>
               <li>
                 <NavLink to="/live-tracking">&gt;LIVE TRACKING</NavLink>

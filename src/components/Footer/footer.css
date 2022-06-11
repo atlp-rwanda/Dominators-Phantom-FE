@@ -30,6 +30,11 @@
   padding-top: 2px;
   color: rgba(255, 255, 255, 0.719);
 }
+
+.footer .footer-content .footer-quick-links ul li a.active {
+      border-bottom: none;
+}
+
 .footer .footer-content .footer-quick-links ul li a:hover {
   color: rgba(255, 255, 255);
 }
@@ -82,7 +87,6 @@
 .footer-limit .designer p.p2 {
   float: right;
 }
-
 @media only screen and (max-width: 620px) {
   .footer .footer-content {
     display: grid;
@@ -118,6 +122,7 @@
   text-decoration: none;
   padding-top: 2px;
   color: rgba(255, 255, 255, 0.719);
+  word-wrap: break-word;
 }
 .footer .footer-content .footer-contact-us {
   width: 100%;

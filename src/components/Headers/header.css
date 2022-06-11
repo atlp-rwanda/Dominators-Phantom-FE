@@ -87,7 +87,6 @@
     margin-top: 70px;
     overflow: hidden;
     position: relative;
-
 }
 .skeleton-ui-text{
   display: block;
@@ -96,7 +95,6 @@
 }
 .skeleton-userheader{
   display: flex;
-
   margin-top:70px ;
 }
 .skeleton-descr{
@@ -112,4 +110,3 @@ width: 50%;
   margin-top:70px ;
 }
 }
-

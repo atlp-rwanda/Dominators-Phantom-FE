@@ -1,11 +1,9 @@
-
 import { useEffect, useState } from "react";
 import bus from "../../assets/images/bus.svg";
 import HomeButton from "../Buttons/HomeButton";
 import "./header.css";
 import UserHeaderSkeleton from "./UserHeaderSkeleton";
 function UserHeader() {
-
   const [Skeleton, setSkeleton] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,7 +38,6 @@ function UserHeader() {
         <UserHeaderSkeleton />
       )}
     </>
-
   );
 }
 export default UserHeader;

@@ -38,14 +38,21 @@ const Sidebar = () => {
           <Link to="#">
             <IoIcons.IoIosLock /> <span> Permissions </span>
           </Link>
-          <Link to="#">
+
+          <NavLink to="#">
             <IoIcons.IoMdAnalytics /> <span> Actions </span>
-          </Link>
+          </NavLink>
         </div>
-        <Link to="#">
+        <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
-        </Link>
+        </NavLink>
+
+        <NavLink to="/crud-route">
+          <AiIcons.AiOutlineReload />
+          <span> Routes </span>
+        </NavLink>
+
         <Link to="#">
           <IoIcons.IoMdBus />
           <span> Buses </span>

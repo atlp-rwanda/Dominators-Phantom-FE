@@ -1,99 +1,213 @@
 .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 3px rgb(164, 164, 164);
-    height: 70px;
-    margin-bottom: 3px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 3px rgb(164, 164, 164);
+  height: 70px;
+  margin-bottom: 3px;
 }
 
 .rightNavBar {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 20px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  cursor: pointer;
 }
 
 .leftNavBar {
-    position: absolute;
-    top: 10px;
+  position: absolute;
 }
 
 .circleWord {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: hsl(166deg 100% 16% / 66%);
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    padding-top: 2.5px;
-    padding-left: 1.5px;
-    margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsl(166deg 100% 16% / 66%);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 2.5px;
+  padding-left: 1.5px;
+  margin: auto;
 }
 
 #noun {
-    margin: auto;
-    margin-left: 5px;
+  margin: auto;
+  margin-left: 5px;
 }
 
 #downArrow {
-    color: #00372a;
-    margin: auto;
-    margin-right: 30px;
-    margin-left: 20px;
+  color: var(--theme-green);
+  margin: auto;
+  margin-right: 30px;
+  margin-left: 20px;
 }
 
 #menuBars {
-    display: none;
-    margin: auto;
-    margin-left: 20px;
+  display: none;
+  margin: auto;
+  margin-left: 20px;
 }
 
 #busIcon {
-    width: 70px;
-    height: auto;
-    margin-left: 20px;
-    margin-top: 10px;
+  width: 70px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .sideBar {
-    display: none;
+  display: none;
 }
 
 .mainContent {
-    width: 80%;
+  width: 80%;
 }
 
 .rightBar {
-    position: fixed;
-    right: 2px;
-    top: 73px;
-    background-color: rgb(255, 255, 255);
-    color: hsl(166deg 100% 16% / 66%);
-    width: 180px;
-    display: block;
-    box-shadow: 1px 1px 3px lightgray;
+  position: fixed;
+  right: 2px;
+  top: 73px;
+  background-color: rgb(255, 255, 255);
+  color: var(--green);
+  width: 180px;
+  display: block;
+  box-shadow: 1px 1px 3px lightgray;
+  z-index: 4;
 }
-
-.d-icons {
-    text-align: left;
+a.d-icons {
+  text-align: left;
+  padding: 12px 10px;
+      text-align: left;
     padding: 12px 10px;
-    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    color: var(--green);
+}
+a.d-icons p{
+  float: left;
+}
+.d-icons {
+  text-align: left;
+  padding: 12px 10px;
+  cursor: pointer;
 }
 
 .d-icons .icons-sub {
-    float: left;
-    margin: 1px 20px 0px 12px;
+  float: left;
+  margin: 1px 20px 0px 12px;
 }
 
 .d-icons:hover {
-    background-color: hsl(166deg 100% 16% / 66%);
-    color: white;
+  background-color: var(--green);
+  color: white;
+}
+
+
+
+.rightNavBar {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  cursor: pointer;
+}
+
+.leftNavBar {
+  position: absolute;
+}
+
+.circleWord {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsl(166deg 100% 16% / 66%);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 2.5px;
+  padding-left: 1.5px;
+  margin: auto;
+}
+
+#noun {
+  margin: auto;
+  margin-left: 5px;
+}
+
+#downArrow {
+  color: var(--theme-green);
+  margin: auto;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+#menuBars {
+  display: none;
+  margin: auto;
+  margin-left: 20px;
+}
+
+#busIcon {
+  width: 70px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.sideBar {
+  display: none;
+}
+
+.mainContent {
+  width: 80%;
+}
+
+.rightBar {
+  position: fixed;
+  right: 2px;
+  top: 73px;
+  background-color: rgb(255, 255, 255);
+  color: var(--green);
+  width: 180px;
+  display: block;
+  box-shadow: 1px 1px 3px lightgray;
+  z-index: 4;
+}
+a.d-icons {
+  text-align: left;
+  padding: 12px 10px;
+      text-align: left;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: flex;
+    color: var(--green);
+}
+a.d-icons p{
+  float: left;
+}
+.d-icons {
+  text-align: left;
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+.d-icons .icons-sub {
+  float: left;
+  margin: 1px 20px 0px 12px;
+}
+
+.d-icons:hover {
+  background-color: var(--green);
+  color: white;
 }
 
 
@@ -107,71 +221,72 @@
 } */
 
 @media (max-width: 850px) {
-    .navbar {
-        margin-bottom: 0px;
-    }
-    #menuBars {
-        display: block;
-        margin-top: 25px;
-    }
-    #busIcon {
-        display: none;
-    }
-    #downArrow {
-        margin-right: 20px;
-        margin-left: 10px;
-    }
-    .sideBar {
-        position: absolute;
-        display: inline-block;
-        margin-top: 4px;
-        padding-top: 20px;
-        background-color: rgb(255, 255, 255);
-        color: #ffffff;
-        width: 70%;
-        max-width: 400px;
-        min-height: 90vh;
-    }
-    .sideBar nav a,
-    .sideBar nav button {
-        color: #312d2d;
-        text-decoration: none;
-        display: block;
-        font-size: 16px;
-        padding: 12px;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        border: none;
-        border-bottom: 0.1px solid lightgrey;
-        width: 100%;
-        background: none;
-        outline: none;
-        cursor: pointer;
-    }
-    .sideBar nav a span,
-    .sideBar nav button span {
-        margin-left: 10px;
-    }
-    .sideBar nav .subMenu1 {
-        margin-left: 20px;
-    }
-    .sideBar nav button span .icon-dropDown {
-        float: right;
-        margin: 3px 0px 3px 10px;
-    }
-    .sideBar nav a:hover,
-    .sideBar nav button:hover {
-        background-color: var(--theme-green);
-        color: var(--theme-sideBar-white);
-    }
-    .sideBar nav a.active {
-        color: var(--theme-green);
-    }
-    .sideBar nav a.active:hover {
-        color: var(--theme-sideBar-white);
-    }
-    .mobileMainContent {
-        min-height: 86vh;
-    }
+
+  .navbar {
+    margin-bottom: 0px;
+  }
+  #menuBars {
+    display: block;
+    margin-top: 25px;
+  }
+  #busIcon {
+    display: none;
+  }
+  #downArrow {
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+  .sideBar {
+    position: absolute;
+    display: inline-block;
+    margin-top: 4px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+    width: 70%;
+    max-width: 400px;
+    min-height: 90vh;
+  }
+  .sideBar nav a,
+  .sideBar nav button {
+    color: #312d2d;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    padding: 12px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: none;
+    border-bottom: 0.1px solid lightgrey;
+    width: 100%;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .sideBar nav a span,
+  .sideBar nav button span {
+    margin-left: 10px;
+  }
+  .sideBar nav .subMenu1 {
+    margin-left: 20px;
+  }
+  .sideBar nav button span .icon-dropDown {
+    float: right;
+    margin: 3px 0px 3px 10px;
+  }
+  .sideBar nav a:hover,
+  .sideBar nav button:hover {
+    background-color: var(--theme-green);
+    color: var(--theme-sideBar-white);
+  }
+  .sideBar nav a.active {
+    color: var(--theme-green);
+  }
+  .sideBar nav a.active:hover {
+    color: var(--theme-sideBar-white);
+  }
+  .mobileMainContent {
+    min-height: 86vh;
+  }
 }
