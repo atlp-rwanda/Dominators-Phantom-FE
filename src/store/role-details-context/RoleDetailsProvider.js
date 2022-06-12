@@ -5,7 +5,7 @@ import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: "Bearer " + token,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 

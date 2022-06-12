@@ -16,6 +16,7 @@ function UserComponent(props) {
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [error, setError] = useState({});
+
   const FormValidation = () => {
     if (isFirstName == "") {
       setError({ firstName: "First Name is required" });
@@ -38,14 +39,12 @@ function UserComponent(props) {
     e.preventDefault();
     if (!FormValidation()) {
       const data = {
-        id: "",
         firstName: isFirstName,
         lastName: isLastName,
         email: isEmail,
         role: isRole,
       };
       props.postUser(data);
-      toast.success("User added Successfully");
       props.setIsOpen(false);
     } else {
       toast.error("All fields are required");
@@ -103,8 +102,8 @@ function UserComponent(props) {
                 <option name="" value="">
                   Select
                 </option>
-                {roles.map((role) => (
-                  <option value="Driver" key={role.id}>
+                {roles?.map((role, key) => (
+                  <option value={role.name} key={key}>
                     {role.name}
                   </option>
                 ))}

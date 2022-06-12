@@ -32,7 +32,7 @@ const Roles = () => {
   const [editRoleIsShown, setEditRoleIsShown] = useState(false);
 
   useEffect(() => {
-    if (roles.length > 0 && permissions.length > 0) {
+    if (roles?.length >= 0 && permissions?.result.length >= 0) {
       setIsLoading(false);
     }
   }, [roles]);
@@ -138,7 +138,7 @@ const Roles = () => {
                 <RoleItem role={roleName} onClose={hideRoleItemHandler} />
               )}
               <ul className={classes.roles}>
-                {roles.map((role) => (
+                {roles?.map((role) => (
                   <div key={role.role_id}>
                     <li onClick={() => showRoleItemHandler(role.role_id)}>
                       {role.name}
@@ -168,7 +168,7 @@ const Roles = () => {
             <Card className={classes.permissions}>
               <h4 className={classes.title}>Available Permissions</h4>
               <ul className={classes.roles}>
-                {permissions.map((permission) => (
+                {permissions.result.map((permission) => (
                   <div key={permission.permission_id}>
                     <li>{permission.name}</li>
                     <span>
