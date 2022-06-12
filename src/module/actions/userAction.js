@@ -11,7 +11,7 @@ import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: "Bearer " + token,
+  Authorization: token,
   "Content-Type": "application/json",
 };
 
@@ -21,6 +21,7 @@ export const getAllUser = () => async (dispatch) => {
       headers,
     });
     const datas = await dt.json();
+    console.log(datas);
     dispatch(creator(GET_ALL_USER, datas.data));
   } catch (e) {
     if (e.message) {

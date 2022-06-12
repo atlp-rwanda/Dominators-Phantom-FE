@@ -18,7 +18,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        isLoaded: false,
+        isLoaded: true,
         data: payload,
       };
     case GET_ONE_USER:

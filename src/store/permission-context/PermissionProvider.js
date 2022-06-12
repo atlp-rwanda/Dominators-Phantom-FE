@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: "Bearer " + token,
+  Authorization: token,
   "Content-Type": "application/json",
 };
 
@@ -55,15 +55,18 @@ const PermissionProvider = (props) => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      const response = await fetch(`${db}/permissions`, {
-        headers,
-      });
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+      if (location.pathname != "/") {
+        const response = await fetch(`${db}/permissions/0/10`, {
+          headers,
+        });
+        if (!response.ok) {
+          throw new Error("Something went wrong!");
+        }
 
-      const data = await response.json();
-      setPermissions(data.record.allPermissions);
+        const data = await response.json();
+        console.log(data);
+        setPermissions(data.record.allPermissions);
+      }
     } catch (error) {
       console.log(error.message);
     }

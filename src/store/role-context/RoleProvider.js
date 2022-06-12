@@ -5,7 +5,7 @@ import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: "Bearer " + token,
+  Authorization: token,
   "Content-Type": "application/json",
 };
 
@@ -69,16 +69,19 @@ const RoleProvider = (props) => {
 
   const fetchRolesHandler = useCallback(async () => {
     try {
-      const response = await fetch(`${db}/roles`, {
-        headers,
-      });
+      console.log(location.pathname);
+      if (location.pathname != "/") {
+        const response = await fetch(`${db}/roles`, {
+          headers,
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (data.status === "fail") {
-        toast.error(data.record.message);
+        if (data.status === "fail") {
+          toast.error(data.record.message);
+        }
+        setRoles(data.record.allRoles);
       }
-      setRoles(data.record.allRoles);
     } catch (error) {
       toast.error(error.message);
     }
