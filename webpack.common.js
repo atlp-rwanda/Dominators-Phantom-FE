@@ -8,15 +8,22 @@ const port = process.env.PORT;
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "bundle.[hash].js",
+    filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
+    assetModuleFilename: "[name][ext]",
   },
+
   devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    port: port || 3000,
+    open: true,
     hot: true,
+    compress: true,
     historyApiFallback: true,
-    port: port || 8080,
   },
-  mode: "development",
 
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,12 +45,8 @@ module.exports = {
         loader: require.resolve("babel-loader"),
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.png|svg|jpg|gif$/,
-        use: ["file-loader"],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
