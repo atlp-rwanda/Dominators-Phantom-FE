@@ -2,9 +2,39 @@
   width: 45rem;
 }
 
-h4 {
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #c5c2c2;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+h4 {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.add-btn {
+  color: var(--theme-green);
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  display: inline;
+  border: 1px solid lightgray;
+}
+
+.btn {
+  background-color: #f01e1e;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #c02929;
+  color: #fff;
 }
 
 .permissions {

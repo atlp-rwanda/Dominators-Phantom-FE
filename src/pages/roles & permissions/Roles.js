@@ -6,7 +6,7 @@ import RoleItem from "../../components/RoleItem/RoleItem";
 import Card from "../../components/UI/Card/Card";
 import Button from "../../components/UI/Button/Button";
 import { IconContext } from "react-icons";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTrashAlt, FaEdit } from "react-icons/fa";
 import classes from "./Roles.module.css";
 import RoleContext from "../../store/role-context/role-context";
 
@@ -57,35 +57,44 @@ const Roles = () => {
             )}
             <ul className={classes.roles}>
               {roles.map((role) => (
-                <li
-                  key={role.id}
-                  onClick={() => showRoleItemHandler(role.name)}
-                >
-                  {role.name}
-                </li>
+                <div>
+                  <li
+                    key={role.id}
+                    onClick={() => showRoleItemHandler(role.name)}
+                  >
+                    {role.name}
+                  </li>
+                  <span>
+                    <FaEdit
+                      style={{ cursor: "pointer", marginRight: "10px" }}
+                    />
+                    <FaTrashAlt style={{ cursor: "pointer" }} />
+                  </span>
+                </div>
               ))}
             </ul>
           </Card>
           <Card className={classes.permissions}>
             <h4 className={classes.title}>Available Permissions</h4>
             <ul className={classes.roles}>
-              <li>
-                Control the bus movement i.e. start, stop, and change bus speed.
-              </li>
+              <li>Control the bus movement</li>
               <li>View the bus movement</li>
-              <li>Manage (create, update, delete) routes</li>
-              <li>Manage (create, update, delete) buses</li>
-              <li>Manage (create, update, delete) bus to route assignment</li>
-              <li>Manage (create, update, delete) driver to bus assignment</li>
-              <li>View the bus movement</li>
-              <li>
-                The Administrator should be able to create, update, and delete
-                roles.
-              </li>
-              <li>
-                The administrator should be able to set and update role's
-                permissions.
-              </li>
+              <li>Create routes</li>
+              <li>Update routes</li>
+              <li>Delete routes</li>
+              <li>Create buses</li>
+              <li>Update buses</li>
+              <li>Delete buses</li>
+              <li>Create bus to route assignment</li>
+              <li>Update bus to route assignment</li>
+              <li>Delete bus to route assignment</li>
+              <li>Create driver to bus assignment</li>
+              <li>Update driver to bus assignment</li>
+              <li>Delete driver to bus assignment</li>
+              <li>Create roles</li>
+              <li>Update roles</li>
+              <li>Delete roles</li>
+              <li>Set and Update role's permissions</li>
               <li>Register and remove both drivers & operators</li>
             </ul>
           </Card>

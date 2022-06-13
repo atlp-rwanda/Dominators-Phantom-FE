@@ -30,6 +30,12 @@
   color: var(--theme-green);
 }
 
+.roles div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .roles li {
   cursor: pointer;
 }
