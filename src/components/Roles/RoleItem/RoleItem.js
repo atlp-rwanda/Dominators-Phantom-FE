@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Modal from "../UI/Modal/Modal";
+import Modal from "../../UI/Modal/Modal";
 import { FaEllipsisV, FaPlus, FaTrashAlt } from "react-icons/fa";
 import classes from "./RoleItem.module.css";
-import Button from "../UI/Button/Button";
+import Button from "../../UI/Button/Button";
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
 

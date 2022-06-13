@@ -1,8 +1,8 @@
 import { useRef, useState, useContext } from "react";
-import Modal from "../UI/Modal/Modal";
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
-import RoleContext from "../../store/role-context/role-context";
+import Modal from "../../UI/Modal/Modal";
+import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
+import RoleContext from "../../../store/role-context/role-context";
 import classes from "./NewRole.module.css";
 
 const NewRole = (props) => {

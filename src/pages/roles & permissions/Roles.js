@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
-import NewRole from "../../components/NewRole/NewRole";
-import RoleItem from "../../components/RoleItem/RoleItem";
+import NewRole from "../../components/Roles/NewRole/NewRole";
+import RoleItem from "../../components/Roles/RoleItem/RoleItem";
 import Card from "../../components/UI/Card/Card";
 import Button from "../../components/UI/Button/Button";
 import { IconContext } from "react-icons";
