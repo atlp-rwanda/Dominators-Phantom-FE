@@ -4,7 +4,6 @@ const common = require("./webpack.common.js");
 module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
-<<<<<<< HEAD
   module: {
     rules: [
       {
@@ -13,6 +12,4 @@ module.exports = merge(common, {
       },
     ],
   },
-=======
->>>>>>> worked on issue #26
 });

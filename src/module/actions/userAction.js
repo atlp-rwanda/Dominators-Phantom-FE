@@ -73,7 +73,7 @@ export const deleteUser = (id) => async (dispatch) => {
       method: "DELETE",
     });
     dispatch(creator(DELETE_USER, id));
-  } catch (error) { 
+  } catch (error) {
     if (error.message) return toast.error(error.message);
   }
 };

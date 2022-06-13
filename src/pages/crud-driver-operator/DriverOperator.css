@@ -3,6 +3,10 @@
   margin-left: 20%;
   position: relative;
 }
+
+h6 {
+  margin-top: 7px;
+}
 .breadcrumbRoute {
   height: 20px;
   width: 20px;
@@ -15,7 +19,6 @@
   margin-left: 10%;
   width: inherit;
   position: absolute;
-  
 }
 .main .content .user-table {
   position: absolute;
@@ -57,11 +60,11 @@
   padding-bottom: 7px;
   padding-right: 2rem;
 }
-.user-table table tbody tr:hover{
-  background-color: rgba(102, 104, 102, 0.11)
+.user-table table tbody tr:hover {
+  background-color: rgba(102, 104, 102, 0.11);
 }
-.user-table table tbody tr:nth-child(even){
-  background-color: rgba(102, 104, 102, 0.151)
+.user-table table tbody tr:nth-child(even) {
+  background-color: rgba(102, 104, 102, 0.151);
 }
 .user-table table .tbody {
   padding-bottom: 3rem;
@@ -79,7 +82,7 @@ a.edit-icon {
   font-size: 22px;
 }
 a.delete-icon {
-  color:rgba(227, 27, 109, 1);
+  color: rgba(227, 27, 109, 1);
   margin-left: 7px;
   font-size: 22px;
 }
@@ -117,7 +120,6 @@ a.delete-icon {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;
-
 }
 .table-paginate ul {
   display: flex;
@@ -137,6 +139,7 @@ a.delete-icon {
   background-color: rgba(23, 121, 98, 0.64);
 }
 
-.table-paginate ul li.previous, .table-paginate ul li.next {
+.table-paginate ul li.previous,
+.table-paginate ul li.next {
   display: none;
 }

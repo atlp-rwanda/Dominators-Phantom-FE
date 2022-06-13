@@ -26,6 +26,7 @@ function DriverOperator(props) {
   useEffect(() => {
     props.getAllUser();
   }, []);
+
   const handleDelete = (userId) => {
     swal({
       title: "Are you sure?",
@@ -45,7 +46,6 @@ function DriverOperator(props) {
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-
   let selectedUsers = [];
   // console.log(selectedUsers);
   useEffect(() => {
@@ -64,7 +64,7 @@ function DriverOperator(props) {
       <Header />
       <Sidebar />
       <div className="main">
-        <AdminPageTitle icon={icon} title="Driver & Operator/Create" />
+        <AdminPageTitle icon={icon} title="Users" />
         <div className="content">
           <div
             className="btn-add-user"
@@ -176,10 +176,12 @@ function DriverOperator(props) {
     </div>
   );
 }
+
 const mapState = ({ user }) => ({
   isData: user.data,
   isLoaded: user.isLoaded,
 });
+
 export default connect(mapState, {
   getAllUser: getAllUser,
   deleteUser: deleteUser,

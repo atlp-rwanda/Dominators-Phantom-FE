@@ -1,11 +1,16 @@
 import "./UserModal.css";
 import { ImCross } from "react-icons/im";
 import { connect } from "react-redux";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postUser } from "../../module/actions/userAction";
 import { FaEnvelope } from "react-icons/fa";
 import { toast } from "react-toastify";
+import RoleContext from "../../store/role-context/role-context";
+
 function UserComponent(props) {
+  const roleCtx = useContext(RoleContext);
+  const roles = roleCtx.roles;
+
   const [isEmail, setIsEmail] = useState("");
   const [isRole, setIsRole] = useState("");
   const [isFirstName, setIsFirstName] = useState("");
@@ -55,60 +60,61 @@ function UserComponent(props) {
             props.setIsOpen(false);
           }}
         />
-          <div className="card">
-            <form onSubmit={(e) => HandleSubmit(e)}>
-              <h3 className="create-title">Create Driver or Operator</h3>
+        <div className="card">
+          <form onSubmit={(e) => HandleSubmit(e)}>
+            <h3 className="create-title">Create Driver or Operator</h3>
+            <div>
+              <br />
+              <input
+                className="input-fname"
+                placeholder="First Name"
+                id="firstName"
+                name="firstName"
+                value={isFirstName}
+                onChange={(e) => setIsFirstName(e.target.value)}
+              />
+              <input
+                className="input-lname"
+                placeholder="Last Name"
+                id="lastName"
+                name="lastName"
+                value={isLastName}
+                onChange={(e) => setIsLastName(e.target.value)}
+              />
+              <input
+                className="input-email"
+                placeholder="Email"
+                id="email"
+                name="email"
+                value={isEmail}
+                onChange={(e) => setIsEmail(e.target.value)}
+              />
+              <span className="envelope-icon">
+                <FaEnvelope />
+              </span>
+              <br />
+              <select
+                className="select-driver"
+                id="role"
+                name="role"
+                value={isRole}
+                onChange={(e) => setIsRole(e.target.value)}
+              >
+                <option name="" value="">
+                  Select
+                </option>
+                {roles.map((role) => (
+                  <option value="Driver">{role.name}</option>
+                ))}
+              </select>
               <div>
-                <br />
-                <input
-                  className="input-fname"
-                  placeholder="First Name"
-                  id="firstName"
-                  name="firstName"
-                  value={isFirstName}
-                  onChange={(e) => setIsFirstName(e.target.value)}
-                />
-                <input
-                  className="input-lname"
-                  placeholder="Last Name"
-                  id="lastName"
-                  name="lastName"
-                  value={isLastName}
-                  onChange={(e) => setIsLastName(e.target.value)}
-                />
-                <input
-                  className="input-email"
-                  placeholder="Email"
-                  id="email"
-                  name="email"
-                  value={isEmail}
-                  onChange={(e) => setIsEmail(e.target.value)}
-                />
-                <span className="envelope-icon">
-                  <FaEnvelope />
-                </span>
-                <br />
-                <select
-                  className="select-driver"
-                  id="role"
-                  name="role"
-                  value={isRole}
-                  onChange={(e) => setIsRole(e.target.value)}
-                >
-                  <option name="" value="">
-                    Select
-                  </option>
-                  <option value="Driver">Driver</option>
-                  <option value="Operator">Operator</option>
-                </select>
-                <div>
-                  <button className="btn-save" type="submit">
-                    Save
-                  </button>
-                </div>
+                <button className="btn-save" type="submit">
+                  Save
+                </button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

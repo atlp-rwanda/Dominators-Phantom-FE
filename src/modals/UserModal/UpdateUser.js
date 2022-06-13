@@ -12,7 +12,7 @@ function UpdateUser(props) {
   const [isEmail, setIsEmail] = useState(user ? user.email : "");
   const [isRole, setIsRole] = useState(user ? user.role : "");
 
-  console.log(user)
+  console.log(user);
   const FormValidation = () => {
     if (isFirstName == "") return true;
     if (isLastName == "") return true;
@@ -51,21 +51,21 @@ function UpdateUser(props) {
             <div>
               <br />
               <input
-                  className="input-fname"
-                  placeholder="First Name"
-                  id="firstName"
-                  name="firstName"
-                  value={isFirstName}
-                  onChange={(e) => setIsFirstName(e.target.value)}
-                />
-                <input
-                  className="input-lname"
-                  placeholder="Last Name"
-                  id="lastName"
-                  name="lastName"
-                  value={isLastName}
-                  onChange={(e) => setIsLastName(e.target.value)}
-                />
+                className="input-fname"
+                placeholder="First Name"
+                id="firstName"
+                name="firstName"
+                value={isFirstName}
+                onChange={(e) => setIsFirstName(e.target.value)}
+              />
+              <input
+                className="input-lname"
+                placeholder="Last Name"
+                id="lastName"
+                name="lastName"
+                value={isLastName}
+                onChange={(e) => setIsLastName(e.target.value)}
+              />
               <input
                 className="input-email"
                 placeholder="Email"
@@ -90,7 +90,9 @@ function UpdateUser(props) {
               </select>
               <div>
                 <div className="card-btn">
-                  <CustomeButton classes="btn btn-green btn-update">UPDATE</CustomeButton>
+                  <CustomeButton classes="btn btn-green btn-update">
+                    UPDATE
+                  </CustomeButton>
                 </div>
               </div>
             </div>
@@ -100,6 +102,7 @@ function UpdateUser(props) {
     </>
   );
 }
+
 export default connect(null, {
   updateUser: updateUser,
 })(UpdateUser);

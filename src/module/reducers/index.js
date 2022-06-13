@@ -6,6 +6,7 @@ import { combineReducers } from "redux";
 const allReducers = combineReducers({
   counter: counterReducer,
   route: routeReducer,
+  user: userReducer,
 });
 
 export default allReducers;
