@@ -81,7 +81,7 @@
   top: 73px;
   background-color: rgb(255, 255, 255);
   color: hsl(166deg 100% 16% / 66%);
-  width: 10vw;
+  width: fit-content;
   display: block;
   align-items: left;
 }
@@ -136,9 +136,6 @@
 
 @media (max-width: 850px) {
 
-.rightBar {
-  width: 150px;
-}
   .navbar {
     margin-bottom: 0px;
   }

@@ -20,6 +20,7 @@
 }
 
 .form > input {
+  text-indent: 1ch;
   display: block;
   height: 40px;
   width: 90%;

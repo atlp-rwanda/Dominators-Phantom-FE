@@ -128,7 +128,7 @@ const LoginComponent = () => {
                       id="email-field"
                       type="email"
                       name="email"
-                      placeholder="  Email"
+                      placeholder="Email"
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -156,7 +156,7 @@ const LoginComponent = () => {
                       id="pasword-field"
                       type={showPassword ? "password" : "text"}
                       name="password"
-                      placeholder="  Password"
+                      placeholder="Password"
                       value={values.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
