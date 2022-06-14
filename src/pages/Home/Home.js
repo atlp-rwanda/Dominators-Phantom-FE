@@ -7,14 +7,17 @@ import "./home.css";
 import Footer from "../../components/Footer/Footer";
 import HomeSkeleton from "./HomeSkeleton";
 import { useState, useEffect } from "react";
+
 function Home() {
   const [skeleton, setSkeleton] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setSkeleton(true);
     }, 5000);
     return () => clearTimeout(timer);
   });
+
   return (
     <div>
       <UserNavbar />

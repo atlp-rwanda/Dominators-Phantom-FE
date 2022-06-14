@@ -1,0 +1,18 @@
+.admin-page-title {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  position: absolute;
+  color: var(--green);
+  display: flex;
+  font-size: 20px;
+}
+
+.admin-page-title span {
+  color: var(--green);
+}
+.admin-page-title h6 {
+  font-size: 15px;
+}
+.admin-page-title p {
+  color: var(--green);
+}

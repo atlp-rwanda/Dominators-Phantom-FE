@@ -36,7 +36,6 @@ function UserNavbar() {
                 </ul>
               </div>
           {toggleMenu ? (
-
             <ImCross
               className="close"
               onClick={ () => {
@@ -54,5 +53,7 @@ function UserNavbar() {
         </nav>
       </div>
     </>)
+  
 }
+
 export default UserNavbar;

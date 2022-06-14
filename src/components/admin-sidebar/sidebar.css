@@ -6,17 +6,17 @@
 }
 
 .sidebar {
-    background-color: var(--theme-sidebar-white);
-    width: 20%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    z-index: 1;
-    left: 0;
-    overflow: hidden;
-    margin-top: 70px;
-    margin-left: 0px !important;
-    text-align: left;
+  background-color: var(--theme-sidebar-white);
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  left: 0;
+  overflow: hidden;
+  margin-top: 70px;
+  margin-left: 0px !important;
+  text-align: left;
 }
 
 .sidebar nav a,
@@ -33,67 +33,15 @@
   background: none;
   outline: none;
   cursor: pointer;
-    color: var(--theme-sidebar-grey);
-    text-decoration: none;
-    display: block;
-    font-size: 20px;
-    padding: 12px;
-    border: none;
-    border-bottom: 0.1px solid lightgrey;
-    width: 100%;
-    background: none;
-    outline: none;
-    cursor: pointer;
 }
 
 .sidebar nav button {
-    margin-left: -20px;
-
+  margin-left: -20px;
 }
 
 
 .sidebar nav a span,
 .sidebar nav button span {
-
-  margin-left: 10px;
-  color: var(--theme-sidebar-grey);
-}
-
-.sidebar nav .subMenu {
-  display: none;
-  margin-left: 15px;
-}
-
-.sidebar nav button span .icon-dropDown {
-  float: right;
-}
-
-.sidebar nav a:hover {
-  background-color: var(--theme-green);
-  color: var(--theme-sidebar-white);
-}
-.sidebar nav a:hover > span {
-  color: var(--theme-sidebar-white);
-}
-
-.sidebar nav a.active {
-  color: var(--theme-green);
-}
-.sidebar nav a.active > span {
-  color: var(--theme-green);
-}
-
-.sidebar nav a.active:hover {
-  color: var(--theme-sidebar-white);
-}
-.sidebar nav a.active:hover > span {
-  color: var(--theme-sidebar-white);
-}
-
-@media screen and (max-width: 800px) {
-  .sidebar {
-    display: none;
-    width: 60%;
 
   margin-left: 10px;
   color: var(--theme-sidebar-grey);
@@ -138,4 +86,4 @@
     }
 }
 
-}
+

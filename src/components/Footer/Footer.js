@@ -1,5 +1,4 @@
 import "./footer.css";
-
 import { NavLink } from "react-router-dom";
 import {
   AiFillFacebook,
@@ -17,9 +16,6 @@ function Footer() {
             <ul>
               <li>
                 <NavLink to="/routes">&gt;ROUTES</NavLink>
-
-                <NavLink to="/routes">&gt;ROUTES</NavLink>
-
               </li>
               <li>
                 <NavLink to="/live-tracking">&gt;LIVE TRACKING</NavLink>
@@ -68,6 +64,5 @@ function Footer() {
       </div>
     </div>
   );
-
 }
 export default Footer;

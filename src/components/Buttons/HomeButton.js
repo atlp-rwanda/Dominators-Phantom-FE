@@ -8,4 +8,5 @@ function HomeButton({ children }) {
     </div>
   );
 }
+
 export default HomeButton;

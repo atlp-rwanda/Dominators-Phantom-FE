@@ -39,7 +39,6 @@ const Header = () => {
               <p> My profile </p>
             
             </Link>
-
             <div className="d-icons">
               <AiIcons.AiFillSetting className="icons-sub" />
               <p> Settings </p>
