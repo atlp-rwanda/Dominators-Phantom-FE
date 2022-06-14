@@ -1,9 +1,10 @@
 import SideBarProfile from "./sidebarProfile";
 import "./profile.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import avatar from "./Ellipse 2.png";
 import Header from "../admin-header/Header";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
   let localUser;
@@ -103,6 +104,15 @@ const UpdateProfile = () => {
     }
     return true;
   }
+
+  const nav = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      nav("/");
+    }
+  });
 
   return (
     <div>

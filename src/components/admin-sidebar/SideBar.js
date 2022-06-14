@@ -5,6 +5,17 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
 const Sidebar = () => {
+  const showSubMenu = () => {
+    const subMenuRoles = document.querySelector(".subMenu");
+    if (subMenuRoles.style.display === "block") {
+      subMenuRoles.style.display = "none";
+    } else {
+      subMenuRoles.style.display = "block";
+    }
+  };
+
+  const role = localStorage.getItem("role");
+
   return (
     <div className="sidebar">
       <nav>
@@ -19,6 +30,28 @@ const Sidebar = () => {
           <IoIcons.IoIosPeople />
           <span>Roles & Permissions</span>
         </NavLink>
+        <Link to="#">
+          <IoIcons.IoIosBus /> <span> Driver & Operator </span>
+        </Link>
+        {(role === "admin" || role === "operator") && (
+          <Link to="#" onClick={showSubMenu}>
+            <IoIcons.IoIosPeople />
+            <span>
+              User Roles <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
+            </span>
+          </Link>
+        )}
+        <div className="subMenu">
+          <NavLink to="#">
+            <IoIcons.IoMdAdd /> <span> New role </span>
+          </NavLink>
+          <Link to="#">
+            <IoIcons.IoIosLock /> <span> Permissions </span>
+          </Link>
+          <Link to="#">
+            <IoIcons.IoMdAnalytics /> <span> Actions </span>
+          </Link>
+        </div>
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
