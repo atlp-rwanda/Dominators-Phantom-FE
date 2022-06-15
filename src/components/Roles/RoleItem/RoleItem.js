@@ -151,7 +151,11 @@ const RoleItem = (props) => {
               className={classes["add-btn"]}
               onClick={() => showAssignPermissionHandler()}
             />
-            {showAssignPermissions && <AssignPermission />}
+            {showAssignPermissions && (
+              <AssignPermission
+                hideAssignPermissionHandler={hideAssignPermissionHandler}
+              />
+            )}
           </div>
           {total ? (
             <Button className={classes.btn} onClick={handleDelete}>

@@ -10,7 +10,7 @@ const NewRole = (props) => {
   const roles = roleCtx.roles;
 
   const [roleIsValid, setRoleIsValid] = useState(true);
-
+  const [duplicate, setDuplicate] = useState(false);
   const roleInputRef = useRef();
 
   const SubmitHandler = (e) => {
@@ -18,9 +18,17 @@ const NewRole = (props) => {
 
     const enteredRole = roleInputRef.current.value;
     if (enteredRole.trim().length === 0) {
-      setRoleIsValid(false);
-      return;
+      return setRoleIsValid(false);
     }
+
+    const existingRole = roles.some((role) => {
+      console.log(enteredRole, role.name);
+      role.name === enteredRole;
+    });
+
+    console.log(existingRole);
+
+    if (existingRole) return setDuplicate(true);
 
     roleCtx.addRole({
       id: Math.random().toString(),
@@ -28,6 +36,11 @@ const NewRole = (props) => {
     });
 
     props.onClose();
+  };
+
+  const message = () => {
+    if (!roleIsValid) return "Please add a role!";
+    if (duplicate) return "Role already exists";
   };
 
   return (
@@ -48,8 +61,7 @@ const NewRole = (props) => {
         <Button type="submit" className={classes.btn}>
           Save
         </Button>
-
-        {!roleIsValid && <p className={classes.error}>Please add a role!</p>}
+        {<p className={classes.error}>{message()}</p>}
       </form>
     </Modal>
   );

@@ -15,9 +15,7 @@ const Roles = () => {
   const roles = roleCtx.roles;
 
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
-
   const [roleItemIsShown, setRoleItemIsShown] = useState(false);
-
   const [roleName, setRoleName] = useState("");
 
   const showNewRoleHandler = () => {
