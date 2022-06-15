@@ -32,6 +32,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        BACKEND_URL: JSON.stringify(process.env.BACKEND_URL),
+      },
+    }),
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],

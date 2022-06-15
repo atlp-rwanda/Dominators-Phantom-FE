@@ -11,7 +11,7 @@ import { db } from "../../utils/db";
 
 export const getAllUser = () => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers`);
+    const dt = await fetch(`${db}/users`);
     const datas = await dt.json();
     dispatch(creator(GET_ALL_USER, datas));
   } catch (e) {
@@ -22,7 +22,7 @@ export const getAllUser = () => async (dispatch) => {
 };
 export const getOneUser = (userId) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers/` + userId);
+    const dt = await fetch(`${db}/users/` + userId);
     const data = await dt.json();
     dispatch(creator(GET_ONE_USER, data));
   } catch (e) {
@@ -33,7 +33,7 @@ export const getOneUser = (userId) => async (dispatch) => {
 };
 export const postUser = (data) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers`, {
+    const dt = await fetch(`${db}/users`, {
       method: "POST",
       body: JSON.stringify(data),
       mode: "cors",
@@ -49,7 +49,7 @@ export const postUser = (data) => async (dispatch) => {
 };
 export const updateUser = (data, id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers/` + id, {
+    const dt = await fetch(`${db}/users/` + id, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
@@ -57,7 +57,7 @@ export const updateUser = (data, id) => async (dispatch) => {
       },
       mode: "cors",
     });
-    const updatedSelect = await fetch(`${db}/AllUsers`);
+    const updatedSelect = await fetch(`${db}/users`);
     const updateData = await updatedSelect.json();
     dispatch(creator(UPDATE_ONE_USER, updateData));
   } catch (e) {
@@ -69,7 +69,7 @@ export const updateUser = (data, id) => async (dispatch) => {
 
 export const deleteUser = (id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers/` + id, {
+    const dt = await fetch(`${db}/users/` + id, {
       method: "DELETE",
     });
     dispatch(creator(DELETE_USER, id));

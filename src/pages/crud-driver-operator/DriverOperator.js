@@ -91,7 +91,7 @@ function DriverOperator(props) {
               </thead>
               {isLoaded ? (
                 <tbody className="tbody">
-                  {isData.map((value, idx) => {
+                  {isData?.map((value, idx) => {
                     return (
                       <tr key={idx}>
                         <td key={idx} scope="row">

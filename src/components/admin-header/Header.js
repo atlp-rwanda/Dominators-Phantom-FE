@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import groupIcon from "../../assets/images/logos/phantomIcon.png";
 import * as FaIcons from "react-icons/fa";
@@ -6,10 +6,28 @@ import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import * as IoIcons from "react-icons/io";
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [noun] = useState("Anesphore");
+  const [noun, setNoun] = useState("");
   const [rightBar, setRightBar] = useState(false);
+
+  const userName = localStorage.getItem("userName");
+
+  useEffect(() => {
+    setNoun(userName);
+  });
+
+  const nav = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("userName");
+    return nav("/login");
+  };
 
   return (
     <div>
@@ -21,7 +39,7 @@ const Header = () => {
 
         <div className="rightNavBar" onClick={() => setRightBar(!rightBar)}>
           <p className="circleWord" onClick={() => setRightBar(!rightBar)}>
-            {noun.charAt(0)}
+            {noun?.charAt(0)}
           </p>
           <p id="noun"> {noun} </p>
           {rightBar ? (
@@ -34,22 +52,22 @@ const Header = () => {
       <div className="mainContent">
         {rightBar ? (
           <div className="rightBar">
-            <Link to="/update-profile" className="d-icons">
+            <Link to="/update-profile" className="d-icons" id="toUpdate">
               <FaIcons.FaUserCircle className="icons-sub" />
-              <p> My profile </p>
-            
+              <span> My profile </span>
             </Link>
+
             <div className="d-icons">
               <AiIcons.AiFillSetting className="icons-sub" />
-              <p> Settings </p>
+              <span> Settings </span>
             </div>
             <div className="d-icons">
               <BsIcons.BsBellFill className="icons-sub" />
-              <p> Notifications </p>
+              <span> Notifications</span>
             </div>
             <div className="d-icons" id="logout">
               <IoIcons.IoMdLogOut className="icons-sub" />
-              <p> Logout </p>
+              <span onClick={(e) => handleLogout(e)}> Logout </span>
             </div>
           </div>
         ) : null}
