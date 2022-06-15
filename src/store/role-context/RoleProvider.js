@@ -13,11 +13,11 @@ let updatedRoles;
 
 const roleReducer = (state, action) => {
   if (action.type === "ADD_ROLE") {
-    const existingRole = state.roles.filter(
+    const existingRoles = state.roles.some(
       (role) => role.name === action.role.name
     );
 
-    console.log(existingRole);
+    console.log(existingRoles);
 
     updatedRoles = state.roles.concat(action.role);
     return {

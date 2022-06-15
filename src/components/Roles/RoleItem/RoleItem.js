@@ -3,6 +3,7 @@ import Modal from "../../UI/Modal/Modal";
 import { FaEllipsisV, FaPlus, FaTrashAlt } from "react-icons/fa";
 import classes from "./RoleItem.module.css";
 import Button from "../../UI/Button/Button";
+import AssignPermission from "../../Permissions/AssignPermission/AssignPermission";
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -104,6 +105,8 @@ const handleDelete = (id) => {
 };
 
 const RoleItem = (props) => {
+  const [showAssignPermissions, setShowAssignPermissions] = useState(false);
+
   const [checkedState, setCheckedState] = useState(
     new Array(permissions.length).fill(false)
   );
@@ -130,13 +133,25 @@ const RoleItem = (props) => {
     setTotal(totalNumber);
   };
 
+  const showAssignPermissionHandler = () => {
+    setShowAssignPermissions(true);
+  };
+
+  const hideAssignPermissionHandler = () => {
+    setShowAssignPermissions(false);
+  };
+
   return (
     <Modal className={classes.modal} onClose={props.onClose}>
       <div>
         <div className={classes.header}>
           <div>
             <h4>{props.roleName}</h4>
-            <FaPlus className={classes["add-btn"]} />
+            <FaPlus
+              className={classes["add-btn"]}
+              onClick={() => showAssignPermissionHandler()}
+            />
+            {showAssignPermissions && <AssignPermission />}
           </div>
           {total ? (
             <Button className={classes.btn} onClick={handleDelete}>

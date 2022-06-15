@@ -57,11 +57,8 @@ const Roles = () => {
             )}
             <ul className={classes.roles}>
               {roles.map((role) => (
-                <div>
-                  <li
-                    key={role.id}
-                    onClick={() => showRoleItemHandler(role.name)}
-                  >
+                <div key={role.id}>
+                  <li onClick={() => showRoleItemHandler(role.name)}>
                     {role.name}
                   </li>
                   <span>
