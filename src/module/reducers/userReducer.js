@@ -18,14 +18,14 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        isLoaded: true,
+        isLoaded: false,
         data: payload,
       };
     case GET_ONE_USER:
       return {
         ...state,
         isLoading: false,
-        isLoaded: true,
+        isLoaded: false,
         values: payload,
       };
     case POST_USERS:

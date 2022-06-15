@@ -8,8 +8,7 @@ const SkeletonElement = ({ type, height, width }) => {
         height: `${height}px`,
         width: `${width}px`,
       }}
-    >
-    </div>
+    ></div>
   );
 };
 export default SkeletonElement;

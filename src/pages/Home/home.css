@@ -26,6 +26,7 @@
   cursor: pointer;
   box-shadow: 10px -1px 29px var(--green);
   border-radius: 16px;
+  align-items: center;
 }
 .home-content .row .col-3:hover {
   padding: 2rem 3rem;
@@ -69,7 +70,7 @@
 .home-content .row .col-3:hover > .home-circle {
   background-color: var(--white);
 }
-.home-content .row .col-3:hover > .home-circle span{
+.home-content .row .col-3:hover > .home-circle span {
   color: var(--green);
 }
 
@@ -89,6 +90,7 @@
   align-items: center;
   vertical-align: middle;
   display: flex;
+  justify-content: center;
 }
 .home-circle span {
   align-content: center;
@@ -99,7 +101,7 @@
   margin-bottom: 20px;
 }
 @media only screen and (max-width: 620px) {
-  .home-content{
+  .home-content {
     padding-bottom: 1px;
   }
   .home-content .row {
@@ -130,6 +132,7 @@
   display: flex;
   flex-direction: column;
   left: 0;
+  place-items: center;
   right: 0;
 }
 .row {

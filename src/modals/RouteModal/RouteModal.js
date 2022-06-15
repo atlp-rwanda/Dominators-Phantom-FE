@@ -9,6 +9,8 @@ function RouteComponent(props) {
   const [isFrom, setIsFrom] = useState("");
   const [isTo, setIsTo] = useState("");
   const [isCode, setIsCode] = useState("");
+  const [latitude, setIsLatitude] = useState("");
+  const [longitude, setIsLongitude] = useState("");
   const [isDistance, setIsDistance] = useState("");
   const [error, setError] = useState({});
   const FormValidation = () => {
@@ -29,6 +31,15 @@ function RouteComponent(props) {
       setError({ code: "Code is required" });
       return true;
     }
+    if (latitude == "") {
+      setError({ latitude: "Latitude is required" });
+      return true;
+    }
+    if (longitude == "") {
+      setError({ longitude: "Longitude is required" });
+      return true;
+    }
+
     if (isNaN(isCode)) {
       setError({ codeNumber: "Code of Route should be Number" });
       return true;
@@ -38,17 +49,19 @@ function RouteComponent(props) {
     e.preventDefault();
     if (!FormValidation()) {
       const data = {
-        id: 5,
-        from: isFrom,
-        to: isTo,
+        origin: isFrom,
+        destination: isTo,
         code: isCode,
         distance: isDistance,
+        longitude: longitude,
+        latitude: latitude,
       };
       props.postRoute(data);
       toast.success("Route Have been added Successfully");
       props.setIsOpen(false);
+      location.reload();
     } else {
-      toast.error("Some Filied are Empty");
+      toast.error("Some Fillied are Empty");
     }
   };
   return (
@@ -62,7 +75,7 @@ function RouteComponent(props) {
         />
         <div className="card">
           <h2>Add New Route</h2>
-          <form className="form" onSubmit={HandleSubmit}>
+          <form onSubmit={HandleSubmit}>
             <div className="row-card">
               <div className="col-md-10">
                 <div className="form-group row-card2">
@@ -141,6 +154,53 @@ function RouteComponent(props) {
                     ></input>
                   </div>
                 </div>
+                <div className="form-group row-card2">
+                  <label htmlFor="new route">Latitude:</label>
+                  <div className="col-sm-10">
+                    <span className="error">
+                      {error.latitude
+                        ? error.latitude
+                        : "" || error.latitude
+                        ? error.latitude
+                        : ""}
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Latitude"
+                      value={latitude}
+                      onChange={(e) => {
+                        setIsLatitude(e.target.value);
+                        setError({ latitude: "" });
+                        setError({ latitude: "" });
+                      }}
+                    ></input>
+                  </div>
+                </div>
+                <div className="form-group row-card2">
+                  <label htmlFor="new route">Longitude:</label>
+                  <div className="col-sm-10">
+                    <span className="error">
+                      {error.longitude
+                        ? error.longitude
+                        : "" || error.longitude
+                        ? error.longitude
+                        : ""}
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Longitude "
+                      value={longitude}
+                      onChange={(e) => {
+                        setIsLongitude(e.target.value);
+                        setError({ longitude: "" });
+                        setError({ longitude: "" });
+                      }}
+                    ></input>
+                  </div>
+                </div>
+
                 <div className="card-btn">
                   <CustomeButton classes="btn btn-green">ADD</CustomeButton>
                 </div>

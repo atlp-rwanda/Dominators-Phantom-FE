@@ -22,10 +22,13 @@ function CrudRoute(props) {
   const { isData, isLoaded } = props;
   const [routeData, setRouteData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
+  let NoRows = 1;
 
   useEffect(() => {
-    props.getAllRoute();
-  }, []);
+    props.getAllRoute(page, size);
+  }, [page, size]);
   const handleDelete = (routeId) => {
     swal({
       title: "Are you sure?",
@@ -35,18 +38,23 @@ function CrudRoute(props) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        props.deleteRoute(routeId);
         toast.success("Route Delete Successfully");
-      } else {
+        props.deleteRoute(routeId);
+        location.reload();
       }
     });
   };
-
+  const handleSearch = (e) => {};
+  const handleSelectData = (e) => {
+    setSize(e.target.value);
+  };
+  const handlePageClick = (e) => {
+    setPage(e.selected);
+  };
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
   let selectedRoutes = [];
-  console.log(selectedRoutes);
   useEffect(() => {
     Object.entries(isChecked).map((values) => {
       if (values[1])
@@ -75,6 +83,23 @@ function CrudRoute(props) {
             </CustomButton>{" "}
           </div>
           <div className="route-table">
+            <div className="beforetbl">
+              <div className="PageSize">
+                <label>Show :</label>
+                <select onChange={handleSelectData}>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="75">75</option>
+                  <option value="100">100</option>
+                </select>{" "}
+                <label>Entries</label>
+              </div>
+              <div className="search">
+                <label>Search:</label>{" "}
+                <input type="search" onChange={handleSearch}></input>
+              </div>
+            </div>
             <table>
               <thead className="thead">
                 <tr>
@@ -84,12 +109,13 @@ function CrudRoute(props) {
                   <th scope="col">Route</th>
                   <th scope="col">Code</th>
                   <th scope="col">Distance</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               {isLoaded ? (
                 <tbody className="tbody">
-                  {isData.map((value, idx) => {
+                  {isData.result.map((value, idx) => {
                     return (
                       <tr key={idx}>
                         <td key={value.id} scope="row">
@@ -100,11 +126,24 @@ function CrudRoute(props) {
                             name={value.id}
                             onChange={HandleIsChecked}
                           />
-                          {value.id}
+                          {NoRows++}.
                         </td>
-                        <td scope="row">{value.from + "-" + value.to}</td>
+                        <td scope="row">
+                          {value.origin + "-" + value.destination}
+                        </td>
                         <td scope="row">{value.code}</td>
-                        <td scope="row">{value.distance}</td>
+                        <td scope="row">{value.distance} Km</td>
+                        <td
+                          scoper="row"
+                          className={
+                            value.status === "pending"
+                              ? "pendingStatus tooltip"
+                              : ""
+                          }
+                        >
+                          {value.status}
+                          <span className="tooltiptext">Change Status</span>
+                        </td>
                         <td scope="row">
                           <Link
                             to="#"
@@ -112,11 +151,13 @@ function CrudRoute(props) {
                             onClick={() => {
                               setUpdateModal(true);
                               setRouteData({
-                                id: value.id,
+                                id: value.routeId,
                                 distance: value.distance,
-                                from: value.from,
-                                to: value.to,
+                                from: value.origin,
+                                to: value.destination,
                                 code: value.code,
+                                latitude: value.latitude,
+                                longitude: value.longitude,
                               });
                             }}
                           >
@@ -126,7 +167,7 @@ function CrudRoute(props) {
                           <Link
                             to="#"
                             className="delete-icon"
-                            onClick={(e) => handleDelete(value.id)}
+                            onClick={(e) => handleDelete(value.routeId)}
                           >
                             <HiTrash />
                           </Link>
@@ -141,14 +182,22 @@ function CrudRoute(props) {
               {isLoaded ? (
                 <tfoot>
                   <tr>
-                    <td colSpan={5}>
+                    <td colSpan={6}>
                       <div className="table-paginate">
+                        <div>
+                          Showing {isData.result.length} of {isData.totalItems}{" "}
+                          with in {isData.totalPages} Pages
+                        </div>
                         <ReactPaginate
+                          nextLabel="next"
                           renderOnZeroPageCount={null}
-                          pageRangeDisplayed={1}
-                          pageCount={2}
+                          onPageChange={handlePageClick}
+                          pageCount={isData.totalPages}
                           breakLabel="..."
+                          previousLabel="previous"
                           activeClassName="active"
+                          pageRangeDisplayed={1}
+                          marginPagesDisplayed={2}
                         />
                       </div>
                     </td>

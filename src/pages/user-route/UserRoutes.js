@@ -11,10 +11,17 @@ function UserRoute(props) {
   const { isData, isLoaded } = props;
   let NoRows = 1;
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
   useEffect(() => {
-    props.getAllRouteForUser(search);
-  }, [search]);
-
+    props.getAllRouteForUser(page, size, search);
+  }, [page, search, size]);
+  const handleSelectData = (e) => {
+    setSize(e.target.value);
+  };
+  const handlePageClick = (e) => {
+    setPage(e.selected);
+  };
   const HandleSearch = (e) => {
     setSearch(e.target.value.toLowerCase());
   };
@@ -25,15 +32,29 @@ function UserRoute(props) {
         <h2>List Of Routes</h2>
         <div className="content">
           <div className="route-table">
-            <div className="search-r">
-              <input
-                type="text"
-                className="search-route"
-                onChange={HandleSearch}
-                placeholder="Search Route"
-              ></input>
-              <FaSearch className="search-icon" />
+            <div className="beforetbl">
+              <div className="PageSize">
+                <label>Show :</label>
+                <select onChange={handleSelectData}>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="75">75</option>
+                  <option value="100">100</option>
+                </select>{" "}
+                <label>Entries</label>
+              </div>
+              <div className="search-r">
+                <input
+                  type="text"
+                  className="search-route"
+                  onChange={HandleSearch}
+                  placeholder="Search Route"
+                ></input>
+                <FaSearch className="search-icon" />
+              </div>
             </div>
+
             <table>
               <thead className="thead">
                 <tr>
@@ -47,14 +68,16 @@ function UserRoute(props) {
               </thead>
               {isLoaded ? (
                 <tbody className="tbody">
-                  {isData.length > 0 ? (
-                    isData.map((value, idx) => {
+                  {isData.searchData.length > 0 ? (
+                    isData.searchData.map((value, idx) => {
                       return (
                         <tr key={idx}>
                           <td scope="row">{NoRows++}.</td>
-                          <td scope="row">{value.from + "-" + value.to}</td>
+                          <td scope="row">
+                            {value.origin + "-" + value.destination}
+                          </td>
                           <td scope="row">{value.code}</td>
-                          <td scope="row">{value.distance}</td>
+                          <td scope="row">{value.distance} KM</td>
                         </tr>
                       );
                     })
@@ -75,11 +98,15 @@ function UserRoute(props) {
                     <td colSpan={5}>
                       <div className="table-paginate">
                         <ReactPaginate
+                          nextLabel="next"
                           renderOnZeroPageCount={null}
                           pageRangeDisplayed={1}
-                          pageCount={2}
+                          onPageChange={handlePageClick}
+                          pageCount={isData.datas.totalPages}
                           breakLabel="..."
+                          previousLabel="previous"
                           activeClassName="active"
+                          marginPagesDisplayed={2}
                         />
                       </div>
                     </td>

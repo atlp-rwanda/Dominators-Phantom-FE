@@ -75,8 +75,9 @@
     margin-top: 10px;
   }
   .header-content .bus-image {
-    display: flex;
     align-items: center;
+    display: flex;
+    padding-left: 4rem;
   }
 }
 /* SKeleton UI Design */
@@ -87,6 +88,8 @@
   margin-top: 70px;
   overflow: hidden;
   position: relative;
+  place-items: center;
+  margin-left: 5rem;
 }
 .skeleton-ui-text {
   display: block;

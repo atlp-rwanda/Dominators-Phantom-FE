@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <nav>
-        <NavLink to="dashboard">
+        <NavLink to="/dashboard">
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
         </NavLink>
@@ -41,17 +41,19 @@ const Sidebar = () => {
             </span>
           </Link>
         )}
-        <div className="subMenu">
-          <NavLink to="#">
-            <IoIcons.IoMdAdd /> <span> New role </span>
-          </NavLink>
-          <Link to="#">
-            <IoIcons.IoIosLock /> <span> Permissions </span>
-          </Link>
-          <Link to="#">
-            <IoIcons.IoMdAnalytics /> <span> Actions </span>
-          </Link>
-        </div>
+        {role === "admin" && (
+          <div className="subMenu">
+            <NavLink to="#">
+              <IoIcons.IoMdAdd /> <span> New role </span>
+            </NavLink>
+            <Link to="#">
+              <IoIcons.IoIosLock /> <span> Permissions </span>
+            </Link>
+            <NavLink to="#">
+              <IoIcons.IoMdAnalytics /> <span> Actions </span>
+            </NavLink>
+          </div>
+        )}
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
