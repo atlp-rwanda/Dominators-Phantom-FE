@@ -11,7 +11,7 @@ import { db } from "../../utils/db";
 
 export const getAllUser = () => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/users`);
+    const dt = await fetch(`${db}/AllUsers`);
     const datas = await dt.json();
     dispatch(creator(GET_ALL_USER, datas));
   } catch (e) {

@@ -13,12 +13,6 @@ let updatedRoles;
 
 const roleReducer = (state, action) => {
   if (action.type === "ADD_ROLE") {
-    const existingRole = state.roles.some(
-      (role) => role.name === action.role.name
-    );
-
-    console.log(existingRole);
-
     updatedRoles = state.roles.concat(action.role);
     return {
       roles: updatedRoles,

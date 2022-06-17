@@ -16,23 +16,20 @@ const NewRole = (props) => {
   const SubmitHandler = (e) => {
     e.preventDefault();
 
-    const enteredRole = roleInputRef.current.value;
+    const enteredRoleInput = roleInputRef.current.value;
+    const enteredRole =
+      enteredRoleInput.charAt(0).toUpperCase() + enteredRoleInput.slice(1);
     if (enteredRole.trim().length === 0) {
       return setRoleIsValid(false);
     }
 
-    const existingRole = roles.some((role) => {
-      console.log(enteredRole, role.name);
-      role.name === enteredRole;
-    });
-
-    console.log(existingRole);
+    const existingRole = roles.some((role) => role.name === enteredRole);
 
     if (existingRole) return setDuplicate(true);
 
     roleCtx.addRole({
       id: Math.random().toString(),
-      name: enteredRole.charAt(0).toUpperCase() + enteredRole.slice(1),
+      name: enteredRole,
     });
 
     props.onClose();

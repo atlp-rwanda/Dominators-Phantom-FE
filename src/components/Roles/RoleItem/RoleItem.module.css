@@ -70,3 +70,14 @@ h4 {
 .ellipsis-icon:active {
   color: red;
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 20rem;
+    font-size: 1.8vw;
+  }
+
+  .ellipsis-icon {
+    left: 93%;
+  }
+}

@@ -1,3 +1,7 @@
+.modal {
+  width: 40%;
+}
+
 .btn {
   padding: 0.5rem 1rem;
   border-radius: 9px;
@@ -23,3 +27,9 @@
   text-align: center;
   color: red;
 }
+/* 
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 40%;
+  }
+} */

@@ -7,6 +7,7 @@
 .roles-permissions {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  margin-bottom: 3rem;
 }
 
 .driver {
@@ -47,7 +48,7 @@
 
 .permissions {
   max-width: 40rem;
-  /* margin-left: 1rem; */
+  font-size: 1.3vw;
   padding: 1rem;
 }
 
@@ -58,4 +59,43 @@
 .add-role {
   margin-left: 5px;
   vertical-align: middle;
+}
+
+.trashIcon {
+  cursor: pointer;
+}
+
+.trashIcon:hover,
+.trashIcon:active {
+  color: red;
+}
+
+.editIcon {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.editIcon:hover,
+.editIcon:active {
+  color: var(--theme-green);
+}
+
+@media screen and (max-width: 768px) {
+  .roles-permissions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .driver {
+    max-width: 20rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .permissions {
+    max-width: 20rem;
+    padding: 1rem;
+    font-size: 2vw;
+  }
 }

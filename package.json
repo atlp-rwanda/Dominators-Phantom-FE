@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "start": "npm run build && serve ./dist",
     "dev": "webpack serve --open --config webpack.dev.js",
-    "user": "json-server --watch crude-driver-operator.json --port 4000"
+    "user": "json-server --watch crude-driver-operator.json --port 4000",
+    "route": "json-server --watch crude-route.json --port 4000"
   },
   "repository": {
     "type": "git",

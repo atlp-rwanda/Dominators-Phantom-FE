@@ -3,12 +3,15 @@ import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
 import NewRole from "../../components/Roles/NewRole/NewRole";
 import RoleItem from "../../components/Roles/RoleItem/RoleItem";
+import EditRole from "../../components/Roles/EditRole/EditRole";
 import Card from "../../components/UI/Card/Card";
 import Button from "../../components/UI/Button/Button";
 import { IconContext } from "react-icons";
 import { FaPlus, FaTrashAlt, FaEdit } from "react-icons/fa";
 import classes from "./Roles.module.css";
 import RoleContext from "../../store/role-context/role-context";
+import swal from "sweetalert";
+import { toast, ToastContainer } from "react-toastify";
 
 const Roles = () => {
   const roleCtx = useContext(RoleContext);
@@ -17,6 +20,7 @@ const Roles = () => {
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
   const [roleItemIsShown, setRoleItemIsShown] = useState(false);
   const [roleName, setRoleName] = useState("");
+  const [editRoleIsShown, setEditRoleIsShown] = useState(false);
 
   const showNewRoleHandler = () => {
     setNewRoleIsShown(true);
@@ -33,6 +37,34 @@ const Roles = () => {
 
   const hideRoleItemHandler = () => {
     setRoleItemIsShown(false);
+  };
+
+  const handleDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this ",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        console.log("clicked");
+        const arr = roles.filter((item) => item.id !== id);
+        console.log(arr);
+        toast.success("User Delete Successfully");
+      } else {
+      }
+    });
+    console.log(id);
+  };
+
+  const handleEdit = (role) => {
+    setEditRoleIsShown(true);
+    console.log(role.id);
+  };
+
+  const handleCloseEdit = () => {
+    setEditRoleIsShown(false);
   };
 
   return (
@@ -61,14 +93,20 @@ const Roles = () => {
                   </li>
                   <span>
                     <FaEdit
-                      style={{ cursor: "pointer", marginRight: "10px" }}
+                      className={classes.editIcon}
+                      onClick={() => handleEdit(role)}
                     />
-                    <FaTrashAlt style={{ cursor: "pointer" }} />
+
+                    <FaTrashAlt
+                      className={classes.trashIcon}
+                      onClick={() => handleDelete(role.id)}
+                    />
                   </span>
                 </div>
               ))}
             </ul>
           </Card>
+          {editRoleIsShown && <EditRole onClose={handleCloseEdit} />}
           <Card className={classes.permissions}>
             <h4 className={classes.title}>Available Permissions</h4>
             <ul className={classes.roles}>

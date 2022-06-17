@@ -1,15 +1,18 @@
 .main-add {
   position: absolute;
+  top: 20rem;
   z-index: 4;
-  margin-left: 17%;
-  width: 60%;
+  margin-left: 0%;
+  width: 30%;
   background-color: var(--white);
   border-radius: 9px;
   box-shadow: -1px 1px 17px var(--green);
+  text-align: center;
 }
 
 .close-icon {
   position: absolute;
+  top: 0;
   right: 0;
   margin: 9px 9px 0 0;
   cursor: pointer;
@@ -24,13 +27,10 @@
 
 /* A popup */
 .card {
-  margin-top: 1rem;
-  width: 100%;
-  padding-bottom: 2em;
+  padding-top: 2em;
 }
 .create-title {
   text-align: center;
-  padding: 25px 0;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -38,25 +38,29 @@
   color: rgba(73, 73, 73, 0.72);
 }
 
-.select-driver {
-  margin-left: 3.5em;
-  width: 80%;
-  padding: 10px;
-  border-radius: 12px;
-  outline: none;
-  border: 1px solid lightgray;
+.select-container input {
+  width: 20vw;
+}
+
+.select-container button {
+  width: 20vw;
 }
 
 .select-driver {
+  padding: 0.5rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid lightgray;
   margin-top: 1em;
 }
+
 .btn-save {
   border-radius: 5px;
   border-style: none;
   color: #ffffff;
   background-color: rgba(23, 121, 98, 0.64);
   padding: 8px 45px;
-  margin: 2rem 0 0 10rem;
+  margin: 2rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -75,16 +79,9 @@
   box-shadow: 1px 1px 1px lightgrey;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .main-add {
-    width: 80%;
-    margin-left: 8%;
+    width: 40%;
+    margin-left: 0%;
   }
-  .select-driver {
-    margin-left: 1.5em;
-  }
-
-  .btn-save {
-    margin-left: 3.5rem;
-  }
-}
+} */
