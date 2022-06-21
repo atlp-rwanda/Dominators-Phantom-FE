@@ -1,0 +1,100 @@
+.main {
+  margin-top: 6rem;
+  margin-left: 22%;
+  margin-right: 3%;
+  font-size: 14px;
+}
+
+.roles-permissions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.driver {
+  max-width: 20rem;
+  padding: 1rem;
+  background-color: var(--skel);
+  color: var(--skel);
+}
+
+.title {
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.roles {
+  margin-left: 2rem;
+}
+
+.roles div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.permissions {
+  max-width: 40rem;
+  min-height: 23rem;
+  padding: 1rem;
+  background-color: var(--skel);
+  color: var(--skel);
+}
+
+.btn {
+  margin-bottom: 3rem;
+  padding: 0.75rem 5vw;
+  border-radius: 9px;
+  background-color: var(--skel);
+  color: var(--skel);
+  cursor: auto;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--skel);
+  color: var(--skel);
+}
+
+.btn-role {
+  margin-right: 12.5vw;
+}
+
+.add-role {
+  margin-left: 1vw;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    margin: 6rem 11% 0 11%;
+  }
+  .roles-permissions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .driver {
+    max-width: 200vw;
+    min-height: 55vw;
+    padding: 1rem;
+    margin-bottom: 0;
+  }
+
+  .permissions {
+    max-width: 200vw;
+    min-height: 55vw;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .btn {
+    margin-bottom: 2rem;
+  }
+
+  .btn-permission {
+    display: none;
+  }
+}
