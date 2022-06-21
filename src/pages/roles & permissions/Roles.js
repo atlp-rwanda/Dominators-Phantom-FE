@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
 import NewRole from "../../components/Roles/NewRole/NewRole";
+import NewPermission from "../../components/Permissions/NewPermission/NewPermission";
 import RoleItem from "../../components/Roles/RoleItem/RoleItem";
 import EditRole from "../../components/Roles/EditRole/EditRole";
 import Card from "../../components/UI/Card/Card";
@@ -23,6 +24,7 @@ const Roles = () => {
   const permissions = permCtx.permissions;
 
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
+  const [newPermissionIsShown, setNewPermissionIsShown] = useState(false);
   const [roleItemIsShown, setRoleItemIsShown] = useState(false);
   const [roleName, setRoleName] = useState("");
   const [editRoleIsShown, setEditRoleIsShown] = useState(false);
@@ -33,6 +35,14 @@ const Roles = () => {
 
   const hideNewRoleHandler = () => {
     setNewRoleIsShown(false);
+  };
+
+  const showNewPermissionHandler = () => {
+    setNewPermissionIsShown(true);
+  };
+
+  const hideNewPermissionHandler = () => {
+    setNewPermissionIsShown(false);
   };
 
   const showRoleItemHandler = (role) => {
@@ -54,12 +64,22 @@ const Roles = () => {
     }).then((willDelete) => {
       if (willDelete) {
         roleCtx.removeRole(id);
-        toast.success("User Delete Successfully");
-      } else {
-        toast.error("User Delete Failed");
       }
     });
-    console.log(id);
+  };
+
+  const handleDeletePermission = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this ",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        permCtx.removePermission(id);
+      }
+    });
   };
 
   const handleEdit = (role) => {
@@ -74,15 +94,31 @@ const Roles = () => {
 
   return (
     <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+      <ToastContainer theme="colored" />
       <Header />
       <Sidebar />
       <div className={classes.main}>
         {newRoleIsShown && <NewRole onClose={hideNewRoleHandler} />}
-        <Button onClick={showNewRoleHandler} className={classes.btn}>
+        {newPermissionIsShown && (
+          <NewPermission onClose={hideNewPermissionHandler} />
+        )}
+        <Button
+          onClick={showNewRoleHandler}
+          className={`${classes.btn} ${classes["btn-role"]}`}
+        >
           <span>
             <FaPlus />
           </span>
           <span className={classes["add-role"]}>Add Role</span>
+        </Button>
+        <Button
+          onClick={showNewPermissionHandler}
+          className={`${classes.btn} ${classes["btn-permission"]}`}
+        >
+          <span>
+            <FaPlus />
+          </span>
+          <span className={classes["add-role"]}>Add Permission</span>
         </Button>
         <div className={classes["roles-permissions"]}>
           <Card className={classes.driver}>
@@ -118,7 +154,22 @@ const Roles = () => {
             <h4 className={classes.title}>Available Permissions</h4>
             <ul className={classes.roles}>
               {permissions.map((permission) => (
-                <li key={permission.permission_id}>{permission.name}</li>
+                <div key={permission.permission_id}>
+                  <li>{permission.name}</li>
+                  <span>
+                    <FaEdit
+                      className={classes.editIcon}
+                      onClick={() => handleEdit(permission)}
+                    />
+
+                    <FaTrashAlt
+                      className={classes.trashIcon}
+                      onClick={() =>
+                        handleDeletePermission(permission.permission_id)
+                      }
+                    />
+                  </span>
+                </div>
               ))}
             </ul>
           </Card>

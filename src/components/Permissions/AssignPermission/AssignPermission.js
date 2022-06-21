@@ -4,37 +4,38 @@ import { connect } from "react-redux";
 import { postUser } from "../../../module/actions/userAction";
 import { toast } from "react-toastify";
 import RoleContext from "../../../store/role-context/role-context";
+import RoleDetailsContext from "../../../store/role-details-context/role-details-context";
+import PermissionContext from "../../../store/permission-context/permission-context";
 import classes from "./AssignPermission.module.css";
 
 const AssignPermission = (props) => {
   const roleCtx = useContext(RoleContext);
   const roles = roleCtx.roles;
 
-  const [isRole, setIsRole] = useState("");
-  const [error, setError] = useState({});
+  const permCtx = useContext(PermissionContext);
+  const permissions = permCtx.permissions;
+
+  const roleDCtx = useContext(RoleDetailsContext);
+
+  const [isPermission, setIsPermission] = useState("");
+  const [error, setError] = useState("");
 
   const FormValidation = () => {
-    if (isRole == "") {
-      setError({ from: "Role is required" });
-      return true;
+    if (isPermission === "") {
+      return setError({ from: "Permission is required" });
     }
   };
-  const HandleSubmit = (e) => {
+  const HandleSubmit = (e, id) => {
     e.preventDefault();
-    if (!FormValidation()) {
-      const data = {
-        id: "",
-        firstName: isFirstName,
-        lastName: isLastName,
-        email: isEmail,
-        role: isRole,
-      };
-      props.postUser(data);
-      toast.success("User added Successfully");
-      props.setShowAssignPermissions(false);
-    } else {
-      toast.error("All fields are required");
+    if (isPermission === "") {
+      return setError("Permission is required");
     }
+    const data = {
+      permission_id: id,
+    };
+    console.log(data);
+    roleDCtx.addPermission(data);
+    props.hideAssignPermissionHandler();
   };
 
   return (
@@ -45,22 +46,25 @@ const AssignPermission = (props) => {
           onClick={props.hideAssignPermissionHandler}
         />
         <div className={classes.card}>
-          <form onSubmit={(e) => HandleSubmit(e)}>
+          <form onSubmit={(e) => HandleSubmit(e, isPermission)}>
             <h3 className="create-title">Add Permission</h3>
             <div>
               <select
                 className={classes["select-driver"]}
-                id="role"
-                name="role"
-                value={isRole}
-                onChange={(e) => setIsRole(e.target.value)}
+                id="permission"
+                name="permission"
+                value={isPermission}
+                onChange={(e) => setIsPermission(e.target.value)}
               >
                 <option name="" value="">
-                  Select
+                  Select Permission
                 </option>
-                {roles.map((role) => (
-                  <option value="Driver" key={role.id}>
-                    {role.name}
+                {permissions.map((permission) => (
+                  <option
+                    value={permission.permission_id}
+                    key={permission.permission_id}
+                  >
+                    {permission.name}
                   </option>
                 ))}
               </select>
@@ -68,6 +72,7 @@ const AssignPermission = (props) => {
                 <button className={classes["btn-save"]} type="submit">
                   Save
                 </button>
+                {error && <p style={{ color: "red" }}>{error}</p>}
               </div>
             </div>
           </form>
@@ -77,6 +82,4 @@ const AssignPermission = (props) => {
   );
 };
 
-export default connect(null, {
-  postUser: postUser,
-})(AssignPermission);
+export default AssignPermission;

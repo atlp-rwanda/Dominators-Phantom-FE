@@ -21,6 +21,15 @@ const RoleProvider = (props) => {
       body: JSON.stringify(role),
       headers,
     });
+    const data = await response.json();
+    console.log(data);
+    if (data.status === "fail") {
+      toast.error(data.record.message);
+    }
+
+    if (data.status === "success") {
+      toast.success("Role added successfully");
+    }
     setIsPosted((prevState) => !prevState);
   };
 
@@ -29,6 +38,15 @@ const RoleProvider = (props) => {
       method: "DELETE",
       headers,
     });
+
+    const data = await response.json();
+    if (data.status === "fail") {
+      toast.error(data.record.message);
+    }
+
+    if (data.status === "success") {
+      toast.success("Role deleted successfully");
+    }
     setIsDeleted((prevState) => !prevState);
   };
 

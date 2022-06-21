@@ -1,5 +1,6 @@
 import { useReducer, useCallback, useEffect, useState } from "react";
 import RoleDetailsContext from "./role-details-context";
+import { toast, ToastContainer } from "react-toastify";
 import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
@@ -22,7 +23,52 @@ const RoleDetailsProvider = (props) => {
       }
 
       const data = await response.json();
-      console.log(data.record);
+      setRole(data.record);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const addPermissionHandler = async (permission) => {
+    try {
+      const response = await fetch(`${db}/roles/${role.role_id}/permissions`, {
+        method: "POST",
+        body: JSON.stringify(permission),
+        headers,
+      });
+
+      const data = await response.json();
+      if (data.status === "fail") {
+        toast.error(data.record.message);
+      }
+
+      if (data.status === "success") {
+        toast.success(`permission added to ${role.name} successfully`);
+      }
+      setRole(data.record);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const deletePermissionHandler = async (id) => {
+    try {
+      const response = await fetch(
+        `${db}/roles/${role.role_id}/permissions/:${id}`,
+        {
+          method: "DELETE",
+          headers,
+        }
+      );
+
+      const data = await response.json();
+      if (data.status === "fail") {
+        toast.error(data.record.message);
+      }
+
+      if (data.status === "success") {
+        toast.success(`permission removed from ${role.name} successfully`);
+      }
       setRole(data.record);
     } catch (error) {
       console.log(error.message);
@@ -32,6 +78,8 @@ const RoleDetailsProvider = (props) => {
   const roleDetailsContext = {
     getRole: getRoleHandler,
     role: role,
+    addPermission: addPermissionHandler,
+    deletePermission: deletePermissionHandler,
   };
 
   // useEffect(() => {

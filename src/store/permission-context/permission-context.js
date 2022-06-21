@@ -1,7 +1,7 @@
 const PermissionContext = React.createContext({
   permissions: [],
-  // addRole: (role) => {},
-  // removeRole: (id) => {},
+  addPermission: (permission) => {},
+  removePermission: (id) => {},
 });
 
 export default PermissionContext;

@@ -59,6 +59,10 @@
   border-radius: 9px;
 }
 
+.btn-role {
+  margin-right: 12.5vw;
+}
+
 .add-role {
   margin-left: 1vw;
   vertical-align: middle;
@@ -96,11 +100,21 @@
   .driver {
     max-width: 20rem;
     padding: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
   }
 
   .permissions {
     max-width: 20rem;
     padding: 1rem;
+    margin-top: 2rem;
+  }
+  .btn {
+    margin-bottom: 0;
+  }
+
+  .btn-permission {
+    position: relative;
+    top: 19rem;
+    margin-bottom: 0;
   }
 }

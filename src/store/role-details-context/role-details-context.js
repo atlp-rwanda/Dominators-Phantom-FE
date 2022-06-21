@@ -1,8 +1,8 @@
 const RoleDetailsContext = React.createContext({
   role: [],
-  addRole: (role) => {},
-  removeRole: (id) => {},
   getRole: (id) => {},
+  addPermission: (permission) => {},
+  deletePermission: (id) => {},
 });
 
 export default RoleDetailsContext;
