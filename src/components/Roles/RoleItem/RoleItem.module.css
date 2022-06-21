@@ -74,7 +74,7 @@ h4 {
 @media (max-width: 768px) {
   .modal {
     width: 20rem;
-    font-size: 1.8vw;
+    font-size: 2.5vw;
   }
 
   .ellipsis-icon {

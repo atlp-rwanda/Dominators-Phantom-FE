@@ -12,13 +12,14 @@ const NewRole = (props) => {
   const [roleIsValid, setRoleIsValid] = useState(true);
   const [duplicate, setDuplicate] = useState(false);
   const roleInputRef = useRef();
+  const roleDescInputRef = useRef();
 
   const SubmitHandler = (e) => {
     e.preventDefault();
 
-    const enteredRoleInput = roleInputRef.current.value;
-    const enteredRole =
-      enteredRoleInput.charAt(0).toUpperCase() + enteredRoleInput.slice(1);
+    const enteredRole = roleInputRef.current.value;
+    const enteredRoleDescInput = roleDescInputRef.current.value;
+
     if (enteredRole.trim().length === 0) {
       return setRoleIsValid(false);
     }
@@ -28,8 +29,8 @@ const NewRole = (props) => {
     if (existingRole) return setDuplicate(true);
 
     roleCtx.addRole({
-      id: Math.random().toString(),
       name: enteredRole,
+      description: enteredRoleDescInput,
     });
 
     props.onClose();
@@ -51,7 +52,14 @@ const NewRole = (props) => {
             type: "text",
           }}
         />
-
+        <Input
+          ref={roleDescInputRef}
+          label="Role description"
+          input={{
+            id: "role",
+            type: "text-area",
+          }}
+        />
         <Button className={classes["btn-close"]} onClick={props.onClose}>
           Close
         </Button>

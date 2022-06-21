@@ -1,9 +1,8 @@
-const RoleContext = React.createContext({
-  roles: [],
+const RoleDetailsContext = React.createContext({
   role: [],
   addRole: (role) => {},
   removeRole: (id) => {},
   getRole: (id) => {},
 });
 
-export default RoleContext;
+export default RoleDetailsContext;

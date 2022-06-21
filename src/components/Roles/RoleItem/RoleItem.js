@@ -1,90 +1,14 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Modal from "../../UI/Modal/Modal";
 import { FaEllipsisV, FaPlus, FaTrashAlt } from "react-icons/fa";
 import classes from "./RoleItem.module.css";
 import Button from "../../UI/Button/Button";
 import AssignPermission from "../../Permissions/AssignPermission/AssignPermission";
+import PermissionContext from "../../../store/permission-context/permission-context";
+import RoleContext from "../../../store/role-context/role-context";
+import RoleDetailsContext from "../../../store/role-details-context/role-details-context";
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
-
-const permissions = [
-  {
-    id: "p1",
-    name: "Control the bus movement",
-  },
-  {
-    id: "p2",
-    name: "View the bus movement",
-  },
-  {
-    id: "p3",
-    name: "Create routes",
-  },
-  {
-    id: "p4",
-    name: "Update routes",
-  },
-  {
-    id: "p5",
-    name: "Delete routes",
-  },
-  {
-    id: "p6",
-    name: "Create buses",
-  },
-  {
-    id: "p7",
-    name: "Update buses",
-  },
-  {
-    id: "p8",
-    name: "Delete buses",
-  },
-  {
-    id: "p9",
-    name: "Create bus to route assignment",
-  },
-  {
-    id: "p10",
-    name: "Update bus to route assignment",
-  },
-  {
-    id: "p11",
-    name: "Delete bus to route assignment",
-  },
-  {
-    id: "p12",
-    name: "Create driver to bus assignment",
-  },
-  {
-    id: "p13",
-    name: "Update driver to bus assignment",
-  },
-  {
-    id: "p14",
-    name: "Delete driver to bus assignment",
-  },
-  {
-    id: "p15",
-    name: "Create roles",
-  },
-  {
-    id: "p16",
-    name: "Update roles",
-  },
-  {
-    id: "p17",
-    name: "Delete roles",
-  },
-  {
-    id: "p18",
-    name: "Set and Update role's permissions",
-  },
-  {
-    id: "p19",
-    name: "Register and remove both drivers & operators",
-  },
-];
 
 const handleDelete = (id) => {
   swal({
@@ -106,6 +30,26 @@ const handleDelete = (id) => {
 
 const RoleItem = (props) => {
   const [showAssignPermissions, setShowAssignPermissions] = useState(false);
+  const [rolePermissions, setRolePermissions] = useState([]);
+
+  const roleCtx = useContext(RoleContext);
+  const RoleDCtx = useContext(RoleDetailsContext);
+  const permCtx = useContext(PermissionContext);
+
+  const roleId = props.role;
+  const permissions = permCtx.permissions;
+
+  useEffect(() => {
+    RoleDCtx.getRole(roleId);
+  }, []);
+
+  const roleData = RoleDCtx.role;
+  console.log(roleData.permissions);
+
+  // if (roleData.permissions) {
+  //   setRolePermissions(roleData.permissions);
+  //   console.log(rolePermissions);
+  // }
 
   const [checkedState, setCheckedState] = useState(
     new Array(permissions.length).fill(false)
@@ -146,7 +90,7 @@ const RoleItem = (props) => {
       <div>
         <div className={classes.header}>
           <div>
-            <h4>{props.roleName}</h4>
+            <h4>role name</h4>
             <FaPlus
               className={classes["add-btn"]}
               onClick={() => showAssignPermissionHandler()}
@@ -166,13 +110,13 @@ const RoleItem = (props) => {
           )}
         </div>
         <ul className={classes.permissions}>
-          {permissions.map((permission, id) => (
+          {roleData.permissions.map((permission, id) => (
             <li key={permission.id}>
               <input
                 type="checkbox"
                 checked={checkedState[id]}
                 onChange={() => handleOnChange(id)}
-              ></input>
+              />
               {permission.name}
 
               <FaTrashAlt

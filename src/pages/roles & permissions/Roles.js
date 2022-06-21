@@ -10,12 +10,17 @@ import { IconContext } from "react-icons";
 import { FaPlus, FaTrashAlt, FaEdit } from "react-icons/fa";
 import classes from "./Roles.module.css";
 import RoleContext from "../../store/role-context/role-context";
+import PermissionContext from "../../store/permission-context/permission-context";
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
 
 const Roles = () => {
   const roleCtx = useContext(RoleContext);
   const roles = roleCtx.roles;
+  console.log(roles);
+
+  const permCtx = useContext(PermissionContext);
+  const permissions = permCtx.permissions;
 
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
   const [roleItemIsShown, setRoleItemIsShown] = useState(false);
@@ -48,17 +53,17 @@ const Roles = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        console.log("clicked");
-        const arr = roles.filter((item) => item.id !== id);
-        console.log(arr);
+        roleCtx.removeRole(id);
         toast.success("User Delete Successfully");
       } else {
+        toast.error("User Delete Failed");
       }
     });
     console.log(id);
   };
 
   const handleEdit = (role) => {
+    setRoleName(role);
     setEditRoleIsShown(true);
     console.log(role.id);
   };
@@ -83,12 +88,12 @@ const Roles = () => {
           <Card className={classes.driver}>
             <h4 className={classes.title}>Available Roles</h4>
             {roleItemIsShown && (
-              <RoleItem roleName={roleName} onClose={hideRoleItemHandler} />
+              <RoleItem role={roleName} onClose={hideRoleItemHandler} />
             )}
             <ul className={classes.roles}>
               {roles.map((role) => (
-                <div key={role.id}>
-                  <li onClick={() => showRoleItemHandler(role.name)}>
+                <div key={role.role_id}>
+                  <li onClick={() => showRoleItemHandler(role.role_id)}>
                     {role.name}
                   </li>
                   <span>
@@ -99,36 +104,22 @@ const Roles = () => {
 
                     <FaTrashAlt
                       className={classes.trashIcon}
-                      onClick={() => handleDelete(role.id)}
+                      onClick={() => handleDelete(role.role_id)}
                     />
                   </span>
                 </div>
               ))}
             </ul>
           </Card>
-          {editRoleIsShown && <EditRole onClose={handleCloseEdit} />}
+          {editRoleIsShown && (
+            <EditRole role={roleName} onClose={handleCloseEdit} />
+          )}
           <Card className={classes.permissions}>
             <h4 className={classes.title}>Available Permissions</h4>
             <ul className={classes.roles}>
-              <li>Control the bus movement</li>
-              <li>View the bus movement</li>
-              <li>Create routes</li>
-              <li>Update routes</li>
-              <li>Delete routes</li>
-              <li>Create buses</li>
-              <li>Update buses</li>
-              <li>Delete buses</li>
-              <li>Create bus to route assignment</li>
-              <li>Update bus to route assignment</li>
-              <li>Delete bus to route assignment</li>
-              <li>Create driver to bus assignment</li>
-              <li>Update driver to bus assignment</li>
-              <li>Delete driver to bus assignment</li>
-              <li>Create roles</li>
-              <li>Update roles</li>
-              <li>Delete roles</li>
-              <li>Set and Update role's permissions</li>
-              <li>Register and remove both drivers & operators</li>
+              {permissions.map((permission) => (
+                <li key={permission.permission_id}>{permission.name}</li>
+              ))}
             </ul>
           </Card>
         </div>

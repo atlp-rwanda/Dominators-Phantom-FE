@@ -1,12 +1,14 @@
 .main {
-  margin-top: 100px;
+  margin-top: 6rem;
   margin-left: 22%;
-  /* position: relative; */
+  margin-right: 3%;
+  font-size: 14px;
 }
 
 .roles-permissions {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1rem;
   margin-bottom: 3rem;
 }
 
@@ -48,16 +50,17 @@
 
 .permissions {
   max-width: 40rem;
-  font-size: 1.3vw;
   padding: 1rem;
 }
 
 .btn {
   margin-bottom: 3rem;
+  padding: 0.75rem 5vw;
+  border-radius: 9px;
 }
 
 .add-role {
-  margin-left: 5px;
+  margin-left: 1vw;
   vertical-align: middle;
 }
 
@@ -80,7 +83,10 @@
   color: var(--theme-green);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .main {
+    margin: 6rem 11% 0 11%;
+  }
   .roles-permissions {
     display: flex;
     flex-direction: column;
@@ -96,6 +102,5 @@
   .permissions {
     max-width: 20rem;
     padding: 1rem;
-    font-size: 2vw;
   }
 }

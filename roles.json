@@ -1,7 +1,113 @@
 {
   "roles": [
-    { "id": 1, "name": "Driver" },
-    { "id": 2, "name": "Operator" },
-    { "id": 3, "name": "Admin" }
+    {
+      "name": "Admin",
+      "id": 1
+    },
+    {
+      "name": "Operator",
+      "id": 2
+    },
+    {
+      "name": "Driver",
+      "id": 3
+    }
+  ],
+  "permissions": [
+    {
+      "id": "p1",
+      "name": "Control the bus movement",
+      "roleId": 1
+    },
+    {
+      "id": "p2",
+      "name": "View the bus movement",
+      "roleId": 1
+    },
+    {
+      "id": "p3",
+      "name": "Create routes",
+      "roleId": 1
+    },
+    {
+      "id": "p4",
+      "name": "Update routes",
+      "roleId": 1
+    },
+    {
+      "id": "p5",
+      "name": "Delete routes",
+      "roleId": 1
+    },
+    {
+      "id": "p6",
+      "name": "Create buses",
+      "roleId": 1
+    },
+    {
+      "id": "p7",
+      "name": "Update buses",
+      "roleId": 1
+    },
+    {
+      "id": "p8",
+      "name": "Delete buses",
+      "roleId": 1
+    },
+    {
+      "id": "p9",
+      "name": "Create bus to route assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p10",
+      "name": "Update bus to route assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p11",
+      "name": "Delete bus to route assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p12",
+      "name": "Create driver to bus assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p13",
+      "name": "Update driver to bus assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p14",
+      "name": "Delete driver to bus assignment",
+      "roleId": 1
+    },
+    {
+      "id": "p15",
+      "name": "Create roles",
+      "roleId": 1
+    },
+    {
+      "id": "p16",
+      "name": "Update roles",
+      "roleId": 1
+    },
+    {
+      "id": "p17",
+      "name": "Delete roles",
+      "roleId": 1
+    },
+    {
+      "id": "p18",
+      "name": "Set and Update role's permissions",
+      "roleId": 1
+    },
+    {
+      "id": "p19",
+      "name": "Register and remove both drivers & operators",
+      "roleId": 1
+    }
   ]
 }

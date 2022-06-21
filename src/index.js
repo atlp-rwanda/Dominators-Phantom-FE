@@ -6,15 +6,21 @@ import "./style.css";
 import { Provider } from "react-redux";
 import store from "./module/store/store";
 import RoleProvider from "./store/role-context/RoleProvider";
+import PermissionProvider from "./store/permission-context/PermissionProvider";
+import RoleDetailsProvider from "./store/role-details-context/RoleDetailsProvider";
 
 const root = reactDom.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
     <RoleProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>{" "}
+      <RoleDetailsProvider>
+        <PermissionProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </PermissionProvider>
+      </RoleDetailsProvider>
     </RoleProvider>
   </Provider>
 );

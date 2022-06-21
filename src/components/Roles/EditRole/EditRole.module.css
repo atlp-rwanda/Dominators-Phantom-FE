@@ -2,8 +2,8 @@
   position: absolute;
   top: 20rem;
   z-index: 4;
-  margin-left: 0%;
-  width: 30%;
+  margin-left: 0.3%;
+  width: 23%;
   background-color: var(--white);
   border-radius: 9px;
   box-shadow: -1px 1px 17px var(--green);
@@ -30,28 +30,13 @@
   padding-top: 2em;
 }
 .create-title {
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
   line-height: 24px;
   color: rgba(73, 73, 73, 0.72);
 }
 
-.select-container input {
-  width: 20vw;
-}
-
-.select-container button {
-  width: 20vw;
-}
-
 .select-driver {
-  padding: 0.5rem;
-  border-radius: 12px;
-  outline: none;
-  border: 1px solid lightgray;
-  margin-top: 1em;
+  margin-top: 1rem;
+  justify-content: center;
 }
 
 .btn-save {
@@ -59,29 +44,25 @@
   border-style: none;
   color: #ffffff;
   background-color: rgba(23, 121, 98, 0.64);
-  padding: 8px 45px;
-  margin: 2rem;
+  padding: 0.5vw 5vw;
+  margin: 1rem 0;
   font-weight: 500;
   cursor: pointer;
 }
 .btn-save:hover {
   background-color: rgba(23, 121, 98, 0.7);
 }
-.btn-update {
-  margin-top: 2em;
-  margin-left: 17em;
-  border-radius: 5px;
-  padding: 7px 20px;
-}
 
-.input-email:hover,
-.select-driver {
-  box-shadow: 1px 1px 1px lightgrey;
-}
-
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .main-add {
-    width: 40%;
+    width: 75%;
+    margin-left: 1.5%;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
+  .main-add {
+    width: 90%;
     margin-left: 0%;
   }
 } */
