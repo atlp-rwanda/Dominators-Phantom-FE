@@ -104,7 +104,9 @@ function UserComponent(props) {
                   Select
                 </option>
                 {roles.map((role) => (
-                  <option value="Driver">{role.name}</option>
+                  <option value="Driver" key={role.id}>
+                    {role.name}
+                  </option>
                 ))}
               </select>
               <div>

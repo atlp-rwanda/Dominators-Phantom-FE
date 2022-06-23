@@ -15,22 +15,18 @@
 .driver {
   max-width: 20rem;
   padding: 1rem;
+  background-color: var(--skel);
+  color: var(--skel);
 }
 
 .title {
   text-transform: uppercase;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #c5c2c2;
   margin-bottom: 1rem;
 }
 
 .roles {
   margin-left: 2rem;
-}
-
-.roles li::marker {
-  font-size: 1.5rem;
-  color: var(--theme-green);
 }
 
 .roles div {
@@ -39,24 +35,27 @@
   justify-content: space-between;
 }
 
-.roles li {
-  cursor: pointer;
-}
-
-.roles li:hover,
-.roles li:active {
-  color: var(--theme-green);
-}
-
 .permissions {
   max-width: 40rem;
+  min-height: 23rem;
   padding: 1rem;
+  background-color: var(--skel);
+  color: var(--skel);
 }
 
 .btn {
   margin-bottom: 3rem;
   padding: 0.75rem 5vw;
   border-radius: 9px;
+  background-color: var(--skel);
+  color: var(--skel);
+  cursor: auto;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--skel);
+  color: var(--skel);
 }
 
 .btn-role {
@@ -66,25 +65,6 @@
 .add-role {
   margin-left: 1vw;
   vertical-align: middle;
-}
-
-.trashIcon {
-  cursor: pointer;
-}
-
-.trashIcon:hover,
-.trashIcon:active {
-  color: red;
-}
-
-.editIcon {
-  cursor: pointer;
-  margin-right: 1rem;
-}
-
-.editIcon:hover,
-.editIcon:active {
-  color: var(--theme-green);
 }
 
 @media screen and (max-width: 767px) {
@@ -98,23 +78,23 @@
   }
 
   .driver {
-    max-width: 20rem;
+    max-width: 200vw;
+    min-height: 55vw;
     padding: 1rem;
-    margin-bottom: 6rem;
+    margin-bottom: 0;
   }
 
   .permissions {
-    max-width: 20rem;
+    max-width: 200vw;
+    min-height: 55vw;
     padding: 1rem;
     margin-top: 2rem;
   }
   .btn {
-    margin-bottom: 0;
+    margin-bottom: 2rem;
   }
 
   .btn-permission {
-    position: relative;
-    top: 19rem;
-    margin-bottom: 0;
+    display: none;
   }
 }

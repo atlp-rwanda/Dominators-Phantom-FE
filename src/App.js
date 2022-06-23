@@ -13,7 +13,7 @@ import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
 import Roles from "./pages/roles & permissions/Roles";
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -27,10 +27,9 @@ function App() {
       <Route path="/users" element={<DriverOperator />} />
       <Route path="/roles" element={<Roles />} />
       <Route path="/Login" element={<Login />} />
-      <Route path="/Reset-link" element={<ResetLink/>} />
-      <Route path="/Reset-pwd" element={<ResetPwd/>} />
-      <Route path="/Dashboard" element={<Dashboard/>} />
-      
+      <Route path="/Reset-link" element={<ResetLink />} />
+      <Route path="/Reset-pwd" element={<ResetPwd />} />
+      <Route path="/Dashboard" element={<Dashboard />} />
     </Routes>
   );
 }

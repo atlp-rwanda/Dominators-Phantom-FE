@@ -1,0 +1,68 @@
+.main-add {
+  position: absolute;
+  top: 20rem;
+  z-index: 4;
+  margin-left: 0.3%;
+  width: 23%;
+  background-color: var(--white);
+  border-radius: 9px;
+  box-shadow: -1px 1px 17px var(--green);
+  text-align: center;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 9px 9px 0 0;
+  cursor: pointer;
+  color: var(--green);
+}
+.close-icon:hover {
+  color: red;
+}
+.error {
+  color: red;
+}
+
+/* A popup */
+.card {
+  padding-top: 2em;
+}
+.create-title {
+  line-height: 24px;
+  color: rgba(73, 73, 73, 0.72);
+}
+
+.select-driver {
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.btn-save {
+  border-radius: 5px;
+  border-style: none;
+  color: #ffffff;
+  background-color: rgba(23, 121, 98, 0.64);
+  padding: 0.5vw 5vw;
+  margin: 1rem 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-save:hover {
+  background-color: rgba(23, 121, 98, 0.7);
+}
+
+@media screen and (max-width: 767px) {
+  .main-add {
+    width: 75%;
+    margin-left: 1.5%;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
+  .main-add {
+    width: 90%;
+    margin-left: 0%;
+  }
+} */

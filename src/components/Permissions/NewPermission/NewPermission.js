@@ -3,41 +3,43 @@ import Modal from "../../UI/Modal/Modal";
 import Button from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 import RoleContext from "../../../store/role-context/role-context";
-import classes from "./NewRole.module.css";
+import PermissionContext from "../../../store/permission-context/permission-context";
+import classes from "./NewPermission.module.css";
 
-const NewRole = (props) => {
-  const roleCtx = useContext(RoleContext);
-  const roles = roleCtx.roles;
+const NewPermission = (props) => {
+  const permissionCtx = useContext(PermissionContext);
+  const permissions = permissionCtx.permissions;
 
   const [roleIsValid, setRoleIsValid] = useState(true);
   const [duplicate, setDuplicate] = useState(false);
-  const roleInputRef = useRef();
-  const roleDescInputRef = useRef();
+
+  const permissionInputRef = useRef();
+  const permissionDescInputRef = useRef();
 
   const SubmitHandler = (e) => {
     e.preventDefault();
 
-    const enteredRole = roleInputRef.current.value;
-    const enteredRoleDescInput = roleDescInputRef.current.value;
+    const enteredPermission = permissionInputRef.current.value;
+    const enteredPermissionDescInput = permissionDescInputRef.current.value;
 
-    if (enteredRole.trim().length === 0) {
+    if (enteredPermission.trim().length === 0) {
       return setRoleIsValid(false);
     }
 
-    const existingRole = roles.some((role) => role.name === enteredRole);
+    // const existingRole = roles.some((role) => role.name === enteredRole);
 
-    if (existingRole) return setDuplicate(true);
+    // if (existingRole) return setDuplicate(true);
 
-    roleCtx.addRole({
-      name: enteredRole,
-      description: enteredRoleDescInput,
+    permissionCtx.addPermission({
+      name: enteredPermission,
+      description: enteredPermissionDescInput,
     });
 
     props.onClose();
   };
 
   const message = () => {
-    if (!roleIsValid) return "Please add a role!";
+    if (!roleIsValid) return "Please add a Permission!";
     if (duplicate) return "Role already exists";
   };
 
@@ -45,18 +47,18 @@ const NewRole = (props) => {
     <Modal onClose={props.onClose}>
       <form onSubmit={SubmitHandler}>
         <Input
-          ref={roleInputRef}
-          label="New Role"
+          ref={permissionInputRef}
+          label="New Permission"
           input={{
-            id: "role",
+            id: "permission",
             type: "text",
           }}
         />
         <Input
-          ref={roleDescInputRef}
-          label="Role description"
+          ref={permissionDescInputRef}
+          label="Permission description"
           input={{
-            id: "role",
+            id: "permission",
             type: "text-area",
           }}
         />
@@ -72,4 +74,4 @@ const NewRole = (props) => {
   );
 };
 
-export default NewRole;
+export default NewPermission;

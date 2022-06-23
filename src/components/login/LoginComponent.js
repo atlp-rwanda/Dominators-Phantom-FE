@@ -8,7 +8,7 @@ import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { db } from "../../utils/db";
-import LoginSkeleton from "./LoginSkeleton";
+import LoginSkeleton from "../Login/LoginSkeleton";
 
 const LoginComponent = () => {
   const [skeleton, setSkeleton] = useState(false);
@@ -75,11 +75,11 @@ const LoginComponent = () => {
       });
   };
 
-    const handleShowPassword = (e) => {
-      e.preventDefault();
+  const handleShowPassword = (e) => {
+    e.preventDefault();
 
-      setShowPassword((value) => !value);
-    };
+    setShowPassword((value) => !value);
+  };
 
   return (
     <Formik
