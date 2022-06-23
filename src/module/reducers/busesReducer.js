@@ -1,4 +1,5 @@
 import { GET_ALL_BUSES, GET_ALL_ERROR } from "..";
+
 const initialState = {
   isLoaded: false,
   isLoading: false,
@@ -10,6 +11,7 @@ export default (state = initialState, { type, payload }) => {
 
     case GET_ALL_ERROR:
       return { ...state, isLoaded: false };
+
     case GET_ALL_BUSES:
       return {
         ...state,

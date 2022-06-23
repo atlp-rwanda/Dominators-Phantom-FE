@@ -11,11 +11,13 @@ export const getAllBuses = () => async (dispatch) => {
         Authorization,
       },
     });
+
     const data = await dt.json();
     console.log(data);
     if (dt.ok === false)
       dispatch(creator(GET_ALL_ERROR)), toast.error(data.message);
     else dispatch(creator(GET_ALL_BUSES, data.results));
+
   } catch (error) {
     toast.error(error.message);
   }

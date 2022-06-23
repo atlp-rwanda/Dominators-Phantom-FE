@@ -1,5 +1,4 @@
 import "./assignModal.css";
-
 import { ImCross } from "react-icons/im";
 import Select from "react-select";
 import { getAllUsers } from "../../module/actions/usersAction";
@@ -62,6 +61,7 @@ function AssignModal(props) {
      else {
       toast.error("Some Fillied are Empty");
 
+
     }
   };
   return (
@@ -76,8 +76,8 @@ function AssignModal(props) {
         <h2>Assign Driver To Bus </h2>
         <div className="line"></div>
         <div className="card">
-
           <form onSubmit={handleSubmit}>
+
 
             <div className="row-card">
               <div className="col-md-10">

@@ -20,6 +20,7 @@ function UpdateAssign(props) {
   const [selectedOptionBuses, setSelectionOptionBuses] = useState({
     label: AssignData.busePlateNumber,
 
+
     value: AssignData.buseId,
     value: AssignData.busePlateNumber,
 
@@ -33,6 +34,7 @@ function UpdateAssign(props) {
   const optionBuses = buses.map((value) => ({
     value: value.id,
     label: value.prateNumber,
+
 
   }));
   useEffect(() => {

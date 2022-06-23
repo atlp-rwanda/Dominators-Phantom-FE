@@ -3,6 +3,7 @@ import {
   POST_DRIVER_ASSIGN_TO_BUSES,
   DELETE_DRIVER_ASSIGN_TO_BUSES,
   UPDATE_DRIVER_ASSIGN_TO_BUSES,
+
   GET_ALL_ERROR,
 } from "..";
 import { db, Authorization } from "../../utils/db";
@@ -27,6 +28,7 @@ export const getAllDriverAssignToBuses = (page, size) => async (dispatch) => {
     toast.error(error.message);
   }
 };
+
 export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/assign/bus/${buseId}/driver/${userId}`, {
@@ -52,7 +54,6 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
       dispatch(creator(POST_DRIVER_ASSIGN_TO_BUSES, data));
     }
 
-
   } catch (error) {
     toast.error(error.message);
   }
@@ -60,10 +61,12 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
 export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/assign/${id}`, {
+
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
+
         Authorization,
       },
     });
@@ -88,18 +91,21 @@ export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
 };
 export const deleteDriverAssignToBuses = (id) => async (dispatch) => {
   try {
+
     const dt = await fetch(`${db}/assign/${id}`, {
       method: "DELETE",
       headers: {
         Authorization,
       },
     });
+
     const data = await fetch(`${db}/assign?page=${0}&size=${10}`, {
       headers: {
         Authorization,
       },
     });
     dispatch(creator(DELETE_DRIVER_ASSIGN_TO_BUSES, data));
+
   } catch (error) {
     toast.error(error.message);
   }

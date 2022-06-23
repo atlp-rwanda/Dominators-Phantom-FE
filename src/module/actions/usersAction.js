@@ -11,10 +11,12 @@ export const getAllUsers = () => async (dispatch) => {
         Authorization,
       },
     });
+
     const data = await dt.json();
     if (dt.ok === false)
       dispatch(creator(GET_ALL_ERROR)), toast.error(data.message);
     else dispatch(creator(GET_ALL_USERS, data));
+
   } catch (error) {
     toast.error(error.message);
   }
