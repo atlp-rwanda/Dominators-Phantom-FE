@@ -13,7 +13,7 @@
 }
 .main .content .btn-add-route {
   margin-left: 10%;
-  width: inherit;
+  width: 90px;
   position: absolute;
 }
 .main .content .route-table {
@@ -27,7 +27,7 @@
   width: 100%;
   background-color: var(--white);
   border-collapse: collapse;
-  border-radius: 1rem;
+  border-radius:1rem;
   overflow: hidden;
   margin-bottom: 3rem;
 }
@@ -35,10 +35,10 @@
   background-color: var(--green);
   text-align: left;
   color: var(--white);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 .route-table table .thead tr {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border-style: none;
 }
 .route-table table .thead tr th {
@@ -68,6 +68,17 @@ a.delete-icon {
   color: red;
   margin-left: 4px;
   font-size: 22px;
+}
+table .tbody tr:nth-child(even) {
+  background: #c4c2c273;
+
+}
+table .tbody tr:nth-child(odd) {
+  background: var(--white);
+  border-bottom:1px solid #c4c2c273; 
+}
+table .tbody tr:hover{
+  background-color: #0b624e2f;
 }
 @media screen and (max-width: 800px) {
   .main {
