@@ -54,7 +54,7 @@ const RoleDetailsProvider = (props) => {
   const deletePermissionHandler = async (id) => {
     try {
       const response = await fetch(
-        `${db}/roles/${role.role_id}/permissions/:${id}`,
+        `${db}/roles/${role.role_id}/permissions/${id}`,
         {
           method: "DELETE",
           headers,

@@ -20,12 +20,10 @@ const RoleItem = (props) => {
     RoleDCtx.getRole(roleId);
     if (roleData.permissions) {
       setRolePermissions(roleData.permissions);
-      console.log(rolePermissions);
     }
   }, [rolePermissions, showAssignPermissions]);
 
   const roleData = RoleDCtx.role;
-  console.log(roleData.permissions);
 
   const [checkedState, setCheckedState] = useState(
     new Array(rolePermissions.length).fill(false)

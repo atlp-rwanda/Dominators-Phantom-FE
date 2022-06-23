@@ -16,6 +16,7 @@ const EditRole = (props) => {
 
   const SubmitHandler = (e) => {
     e.preventDefault();
+    console.log(props.role.role_id);
 
     const enteredRoleInput = roleInputRef.current.value;
     const enteredRole =
@@ -28,7 +29,7 @@ const EditRole = (props) => {
 
     if (existingRole) return setDuplicate(true);
 
-    roleCtx.addRole({
+    roleCtx.updateRole(props.role.role_id, {
       name: enteredRole,
     });
 

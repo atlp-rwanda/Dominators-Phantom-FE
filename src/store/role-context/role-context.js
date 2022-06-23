@@ -4,6 +4,7 @@ const RoleContext = React.createContext({
   addRole: (role) => {},
   removeRole: (id) => {},
   getRole: (id) => {},
+  updateRole: (role) => {},
 });
 
 export default RoleContext;

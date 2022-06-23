@@ -16,9 +16,18 @@ const AssignPermission = (props) => {
   const permissions = permCtx.permissions;
 
   const roleDCtx = useContext(RoleDetailsContext);
+  const roleData = roleDCtx.role;
+
+  const rolePermissionsId = roleData?.permissions?.map(
+    (permission) => permission.permission_id
+  );
 
   const [isPermission, setIsPermission] = useState("");
   const [error, setError] = useState("");
+
+  const filteredPermissions = permissions.filter(
+    (permission) => !rolePermissionsId.includes(permission.permission_id)
+  );
 
   const FormValidation = () => {
     if (isPermission === "") {
@@ -57,9 +66,11 @@ const AssignPermission = (props) => {
                 onChange={(e) => setIsPermission(e.target.value)}
               >
                 <option name="" value="">
-                  Select Permission
+                  {filteredPermissions.length == 0
+                    ? "No new permission to add"
+                    : "Select Permission"}
                 </option>
-                {permissions.map((permission) => (
+                {filteredPermissions.map((permission) => (
                   <option
                     value={permission.permission_id}
                     key={permission.permission_id}

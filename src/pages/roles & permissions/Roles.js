@@ -19,7 +19,6 @@ import { toast, ToastContainer } from "react-toastify";
 const Roles = () => {
   const roleCtx = useContext(RoleContext);
   const roles = roleCtx.roles;
-  console.log(roles);
 
   const permCtx = useContext(PermissionContext);
   const permissions = permCtx.permissions;
@@ -29,6 +28,7 @@ const Roles = () => {
   const [newPermissionIsShown, setNewPermissionIsShown] = useState(false);
   const [roleItemIsShown, setRoleItemIsShown] = useState(false);
   const [roleName, setRoleName] = useState("");
+  const [roleId, setRoleId] = useState("");
   const [editRoleIsShown, setEditRoleIsShown] = useState(false);
 
   useEffect(() => {
@@ -90,10 +90,10 @@ const Roles = () => {
     });
   };
 
-  const handleEdit = (role) => {
+  const handleEdit = (id, role) => {
     setRoleName(role);
+    setRoleId(id);
     setEditRoleIsShown(true);
-    console.log(role.id);
   };
 
   const handleCloseEdit = () => {
@@ -146,7 +146,7 @@ const Roles = () => {
                     <span>
                       <FaEdit
                         className={classes.editIcon}
-                        onClick={() => handleEdit(role)}
+                        onClick={() => handleEdit(role.role_id, role)}
                       />
 
                       <FaTrashAlt
@@ -159,7 +159,11 @@ const Roles = () => {
               </ul>
             </Card>
             {editRoleIsShown && (
-              <EditRole role={roleName} onClose={handleCloseEdit} />
+              <EditRole
+                role={roleName}
+                roleId={roleId}
+                onClose={handleCloseEdit}
+              />
             )}
             <Card className={classes.permissions}>
               <h4 className={classes.title}>Available Permissions</h4>

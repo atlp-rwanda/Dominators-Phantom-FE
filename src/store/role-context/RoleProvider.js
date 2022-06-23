@@ -10,7 +10,6 @@ const headers = {
 };
 
 const RoleProvider = (props) => {
-  const [role, setRole] = useState([]);
   const [roles, setRoles] = useState([]);
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
@@ -18,6 +17,24 @@ const RoleProvider = (props) => {
   const postRoleHandler = async (role) => {
     const response = await fetch(`${db}/roles`, {
       method: "POST",
+      body: JSON.stringify(role),
+      headers,
+    });
+    const data = await response.json();
+    console.log(data);
+    if (data.status === "fail") {
+      toast.error(data.record.message);
+    }
+
+    if (data.status === "success") {
+      toast.success("Role added successfully");
+    }
+    setIsPosted((prevState) => !prevState);
+  };
+
+  const updateRoleHandler = async (id, role) => {
+    const response = await fetch(`${db}/roles/${id}`, {
+      method: "PATCH",
       body: JSON.stringify(role),
       headers,
     });
@@ -55,21 +72,22 @@ const RoleProvider = (props) => {
       const response = await fetch(`${db}/roles`, {
         headers,
       });
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-        // toast.error("Unauthorized access");
-      }
 
       const data = await response.json();
+
+      if (data.status === "fail") {
+        toast.error(data.record.message);
+      }
       setRoles(data.record.allRoles);
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
     }
   }, []);
 
   const roleContext = {
     roles: roles,
     addRole: postRoleHandler,
+    updateRole: updateRoleHandler,
     removeRole: deleteRoleHandler,
   };
 

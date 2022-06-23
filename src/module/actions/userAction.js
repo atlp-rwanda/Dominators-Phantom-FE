@@ -9,17 +9,26 @@ import creator from "./creator";
 import { toast } from "react-toastify";
 import { db } from "../../utils/db";
 
+const token = localStorage.getItem("token");
+const headers = {
+  Authorization: "Bearer " + token,
+  "Content-Type": "application/json",
+};
+
 export const getAllUser = () => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/AllUsers`);
+    const dt = await fetch(`${db}/users`, {
+      headers,
+    });
     const datas = await dt.json();
-    dispatch(creator(GET_ALL_USER, datas));
+    dispatch(creator(GET_ALL_USER, datas.data));
   } catch (e) {
     if (e.message) {
       return toast.error(e.message);
     }
   }
 };
+
 export const getOneUser = (userId) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/users/` + userId);
@@ -33,13 +42,11 @@ export const getOneUser = (userId) => async (dispatch) => {
 };
 export const postUser = (data) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/users`, {
+    const dt = await fetch(`${db}/users/register`, {
       method: "POST",
       body: JSON.stringify(data),
       mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
     const response = await dt.json();
     dispatch(creator(POST_USERS, response));

@@ -1,5 +1,8 @@
 .modal {
   width: 45rem;
+  padding-top: 0;
+  height: 75%;
+  overflow: scroll;
 }
 
 .header {
@@ -9,6 +12,11 @@
   border-bottom: 1px solid #c5c2c2;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  padding-top: 1rem;
 }
 
 h4 {
