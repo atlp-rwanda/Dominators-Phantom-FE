@@ -241,7 +241,7 @@ const Roles = () => {
                 nextLinkClassName={"page-link"}
                 breakClassName={"page-item"}
                 breakLinkClassName={"page-link"}
-                activeClassName={"active bg-warning"}
+                activeClassName={"active"}
               />
             </Card>
           </div>

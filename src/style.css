@@ -58,12 +58,6 @@
   background: var(--green);
   box-shadow: inset 0 0 5px var(--white);
 }
-.pagenotfound {
-  margin-top: 70px;
-  height: 50vh;
-  display: flex;
-  color: var(--green);
-}
 
 :root {
   --theme-sidebar-white: rgb(255, 255, 255);
@@ -100,4 +94,10 @@
   background-color: var(--green);
   color: var(--white);
   border-bottom: 3px solid gray;
+}
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--theme-green);
+  border-color: #d7d8d4;
 }
