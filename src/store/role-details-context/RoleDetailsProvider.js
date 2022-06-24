@@ -1,4 +1,4 @@
-import { useReducer, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import RoleDetailsContext from "./role-details-context";
 import { toast, ToastContainer } from "react-toastify";
 import { backendUrl } from "../../utils/db";
@@ -11,6 +11,8 @@ const headers = {
 
 const RoleDetailsProvider = (props) => {
   const [role, setRole] = useState([]);
+  const [isPosted, setIsPosted] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const getRoleHandler = async (id) => {
     try {
@@ -18,34 +20,32 @@ const RoleDetailsProvider = (props) => {
         headers,
       });
 
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-
       const data = await response.json();
       setRole(data.record);
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
     }
   };
-
   const addPermissionHandler = async (permission) => {
     try {
-      const response = await fetch(`${backendUrl}/roles/${role.role_id}/permissions`, {
-        method: "POST",
-        body: JSON.stringify(permission),
-        headers,
-      });
+      const response = await fetch(
+        `${backendUrl}/roles/${role.role_id}/permissions`,
+        {
+          method: "POST",
+          body: JSON.stringify(permission),
+          headers,
+        }
+      );
 
       const data = await response.json();
       if (data.status === "fail") {
         toast.error(data.record.message);
       }
 
-      if (data.status === "success") {
+      if (data.status == "success") {
         toast.success(`permission added to ${role.name} successfully`);
       }
-      setRole(data.record);
+      setIsPosted((prevState) => !prevState);
     } catch (error) {
       console.log(error.message);
     }
@@ -69,7 +69,7 @@ const RoleDetailsProvider = (props) => {
       if (data.status === "success") {
         toast.success(`permission removed from ${role.name} successfully`);
       }
-      setRole(data.record);
+      setIsDeleted((prevState) => !prevState);
     } catch (error) {
       console.log(error.message);
     }
@@ -82,9 +82,9 @@ const RoleDetailsProvider = (props) => {
     deletePermission: deletePermissionHandler,
   };
 
-  // useEffect(() => {
-  //   getRoleHandler();
-  // }, [role]);
+  useEffect(() => {
+    getRoleHandler();
+  }, [isDeleted, isPosted]);
 
   return (
     <RoleDetailsContext.Provider value={roleDetailsContext}>

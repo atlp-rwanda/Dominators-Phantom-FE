@@ -66,6 +66,8 @@ const PermissionProvider = (props) => {
         }
 
         const data = await response.json();
+        const total = response.headers.get("x-total-count");
+        console.log(total);
         setPermissions(data.record.allPermissions);
       }
     } catch (error) {

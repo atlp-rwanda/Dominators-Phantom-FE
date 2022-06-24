@@ -60,6 +60,10 @@
   }
 }
 
+.error {
+  text-align: center;
+  color: red;
+}
 /* @media screen and (max-width: 320px) {
   .main-add {
     width: 90%;

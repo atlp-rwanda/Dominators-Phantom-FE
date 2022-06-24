@@ -6,9 +6,11 @@ import { toast } from "react-toastify";
 import RoleContext from "../../../store/role-context/role-context";
 import classes from "./EditRole.module.css";
 import Input from "../../UI/Input/Input";
+import { FaBullseye } from "react-icons/fa";
 
 const EditRole = (props) => {
   const [roleIsValid, setRoleIsValid] = useState(true);
+  const [duplicate, setDuplicate] = useState(false);
   const roleCtx = useContext(RoleContext);
   const roles = roleCtx.roles;
 
@@ -18,9 +20,7 @@ const EditRole = (props) => {
     e.preventDefault();
     console.log(props.role.role_id);
 
-    const enteredRoleInput = roleInputRef.current.value;
-    const enteredRole =
-      enteredRoleInput.charAt(0).toUpperCase() + enteredRoleInput.slice(1);
+    const enteredRole = roleInputRef.current.value;
     if (enteredRole.trim().length === 0) {
       return setRoleIsValid(false);
     }
@@ -34,6 +34,11 @@ const EditRole = (props) => {
     });
 
     props.onClose();
+  };
+
+  const message = () => {
+    if (!roleIsValid) return "Please add a new role name!";
+    if (duplicate) return "Role name already exists";
   };
 
   return (
@@ -57,6 +62,7 @@ const EditRole = (props) => {
               <button className={classes["btn-save"]} type="submit">
                 Update
               </button>
+              {<p className={classes.error}>{message()}</p>}
             </div>
           </div>
         </form>

@@ -14,6 +14,7 @@ import classes from "./Roles.module.css";
 import RoleContext from "../../store/role-context/role-context";
 import PermissionContext from "../../store/permission-context/permission-context";
 import swal from "sweetalert";
+import ReactPaginate from "react-paginate";
 import { toast, ToastContainer } from "react-toastify";
 import { headers, backendUrl } from "../../utils/db";
 
@@ -129,6 +130,11 @@ const Roles = () => {
     setEditRoleIsShown(false);
   };
 
+  const pageChangeHandler = (data) => {
+    console.log(data.selected);
+    let currentPage = data.selected + 1;
+  };
+
   return (
     <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
       <ToastContainer theme="colored" />
@@ -216,6 +222,27 @@ const Roles = () => {
                   </div>
                 ))}
               </ul>
+              <ReactPaginate
+                previousLabel={"prev"}
+                nextLabel={"next"}
+                breakLabel={"..."}
+                pageCount={10}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={3}
+                onPageChange={pageChangeHandler}
+                containerClassName={
+                  "pagination pagination-sm justify-content-center"
+                }
+                pageClassName={"page-item"}
+                pageLinkClassName={"page-link"}
+                previousClassName={"page-item"}
+                previousLinkClassName={"page-link"}
+                nextClassName={"page-item"}
+                nextLinkClassName={"page-link"}
+                breakClassName={"page-item"}
+                breakLinkClassName={"page-link"}
+                activeClassName={"active bg-warning"}
+              />
             </Card>
           </div>
         </div>

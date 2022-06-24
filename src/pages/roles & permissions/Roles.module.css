@@ -87,6 +87,11 @@
   color: var(--theme-green);
 }
 
+.page-item.active .page-link {
+  color: #fff !important;
+  background: #f00 !important;
+}
+
 @media screen and (max-width: 767px) {
   .main {
     margin: 6rem 11% 0 11%;

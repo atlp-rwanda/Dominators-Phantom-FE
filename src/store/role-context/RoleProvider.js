@@ -1,4 +1,4 @@
-import { useReducer, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import RoleContext from "./role-context";
 import { toast, ToastContainer } from "react-toastify";
 import { backendUrl, Authorization, headers } from "../../utils/db";
@@ -7,6 +7,7 @@ const RoleProvider = (props) => {
   const [roles, setRoles] = useState([]);
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+  const [isUpdated, setIsUpdated] = useState(false);
 
   const postRoleHandler = async (role) => {
     const response = await fetch(`${backendUrl}/roles`, {
@@ -39,7 +40,7 @@ const RoleProvider = (props) => {
     if (data.status === "success") {
       toast.success("Role added successfully");
     }
-    setIsPosted((prevState) => !prevState);
+    setIsUpdated((prevState) => !prevState);
   };
 
   const deleteRoleHandler = async (id) => {
@@ -87,10 +88,11 @@ const RoleProvider = (props) => {
 
   useEffect(() => {
     fetchRolesHandler();
-  }, [fetchRolesHandler, isPosted, isDeleted]);
+  }, [fetchRolesHandler, isPosted, isDeleted, isUpdated]);
 
   return (
     <RoleContext.Provider value={roleContext}>
+      <ToastContainer theme="colored" />
       {props.children}
     </RoleContext.Provider>
   );
