@@ -2,28 +2,90 @@ import "./ResetPassword.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import react, { useState, useEffect } from "react";
+import react, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../utils/db";
+import * as AiIcons from "react-icons/ai";
+
+const headersList = {
+  Accept: "*/*",
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "http://localhost:3030",
+};
+
+const location = window.location.href.split("=");
+
+const token = location[location.length - 1];
+console.log(token);
 
 const ResetPassword = () => {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
+
+  const password = useRef("");
+  const confirmPassword = useRef("");
 
   const redirect = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validatePassword()) {
-      if (password === confirmPassword) {
-        toast.info("password reset successfull!");
-        redirect("/login");
-      } else {
-        toast.error("password mismatches!");
-      }
+    if (password.current.value === confirmPassword.current.value) {
+      // console.log(password);
+      fetch(`${db}/users/reset/${token}`, {
+        method: "POST",
+        body: JSON.stringify({
+          password: password.current.value,
+          confirm: confirmPassword.current.value,
+        }),
+
+        headers: headersList,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === "success") {
+            toast.success(data.record);
+            setTimeout(() => {
+              redirect("/login");
+            }, 2000);
+          } else if (data.status === "fail") {
+            toast.error(data.record);
+          } else {
+            toast.error("failure");
+          }
+
+          // if (
+          //   password.current.value !== "" &&
+          //   password.current.value === confirmPassword.current.value
+          // ) {
+          //   if (data.status === "success") {
+          //     console.log(`THIS IS DATA`, data);
+          //     toast.success(`updated password successfully`);
+          //     alert("success");
+          //     redirect("/login");
+          //   } else {
+          //     alert("failure");
+          //     toast.error("failure");
+          //   }
+          // } else if (password.current.value !== confirmPassword.current.value) {
+          //   alert("mismatches");
+          //   console.log("Something");
+          // } else if (
+          //   (password.current.value && confirmPassword.current.value) == ""
+          // ) {
+          //   alert("missing params");
+          //   toast.info("missing params");
+          //   console.log("MATCH", password.current.value == "");
+          //   console.log(
+          //     "MISMATCH",
+          //     password.current.value !== confirmPassword.current.value
+          //   );
+          // }
+        });
     }
+    // }
   };
   const validatePassword = () => {
-    if (password == "" || confirmPassword == "") {
+    if (password.current.value == "" || confirmPassword.current.value == "") {
       toast.error("input fields can not be empty!");
       return false;
     }
@@ -31,75 +93,70 @@ const ResetPassword = () => {
     return true;
   };
 
+  useEffect(() => {});
 
+  const handleShowPassword = (e) => {
+    e.preventDefault();
 
-  const handleReset = (values) => {
-    let headersList = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-    };
-
-    let bodyContent = JSON.stringify({
-      email: values.email,
-    });
-
-    fetch(`${db}/users/reset`, {
-      method: "POST",
-      body: bodyContent,
-      headers: headersList,
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((result) => {
-        if (result.status == "success") {
-          toast.success(result.record);
-          console.log("THIS IS A RESULT", result);
-        } else if (result.status == "fail") {
-          if (result.code == 400) {
-            toast.error(result.record, { theme: "colored" });
-            console.log("THIS IS A RESULT", result);
-          } else if (result.code == 401) {
-            toast.error(result.record, { theme: "colored" });
-            console.log("THIS IS A RESULT", result);
-          }
-        }
-      })
-      .catch((error) => {
-        console.log(values);
-        toast.error("Internal sever error!", { theme: "colored" });
-      });
+    setShowPassword((value) => !value);
   };
-
-
-
 
   return (
     <div className="reset-password">
       <div>
         <h2 className="reset-your-pwd">Reset your password?</h2>
       </div>
-      <div>
-        <form onSubmit={handleSubmit} className="reset-pwd-form">
+      <div className="container">
+        <form className="form-reset-pwd">
           <input
+            ref={password}
             className="pwd-reset-fields"
-            type="password"
+            type={showPassword ? "password" : "text"}
             name="password"
             placeholder="Enter new password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) =>
+            //   setPassword((password) => password + e.target.value)
+            // }
           />
           <br />
+          {showPassword ? (
+            <div className="icon">
+              <AiIcons.AiOutlineEyeInvisible
+                id="eyeOne"
+                onClick={handleShowPassword}
+              />
+            </div>
+          ) : (
+            <div className="icon">
+              <AiIcons.AiOutlineEye id="eyeTwo" onClick={handleShowPassword} />
+            </div>
+          )}
           <input
+            ref={confirmPassword}
             className="pwd-reset-fields"
-            type="password"
+            type={showPassword ? "password" : "text"}
             name="password"
             placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            // value={confirmPassword}
+            // onChange={(e) =>
+            //   setConfirmPasswordError(
+            //     (e) =>
+            //       e.target.value !=
+            //       password.current.ref.slice(0, e.target.value.length)
+            //   )
+            // }
           />
+          {confirmPasswordError ? (
+            <div className="input-feedback">passwords don't match</div>
+          ) : null}
           <br />
-          <button type="submit" className="rest-pwd">
+          <button
+            type="submit"
+            className="login-button"
+            id="btn"
+            onClick={handleSubmit}
+          >
             Change password
           </button>
         </form>

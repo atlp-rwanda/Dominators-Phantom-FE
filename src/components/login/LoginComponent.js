@@ -176,7 +176,7 @@ const LoginComponent = () => {
                     </button>
                     <h2 className="forgot-password">
                       {" "}
-                      <Link to="/Reset-link">Forgot Password?</Link>
+                      <Link to="/Reset">Forgot Password?</Link>
                     </h2>
                   </form>
                 </div>

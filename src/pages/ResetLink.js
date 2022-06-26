@@ -1,6 +1,8 @@
 import ResetLinkComponent from "../components/ResetPassword/ResetLinkComponent";
 import UserNavbar from "../components/Navbars/UserNavbar";
 import Footer from "../components/Footer/Footer";
+import ResetPassword from "../components/ResetPassword/ResetPwdComponent";
+
 const ResetLink = () => {
   return (
     <div>
@@ -8,8 +10,15 @@ const ResetLink = () => {
         <UserNavbar />
       </div>
       <div>
-        {" "}
-        <ResetLinkComponent />
+        {!location.href.includes("?") ? (
+          <>
+            <ResetLinkComponent />
+          </>
+        ) : (
+          <>
+            <ResetPassword />
+          </>
+        )}
       </div>
       <div>
         {" "}

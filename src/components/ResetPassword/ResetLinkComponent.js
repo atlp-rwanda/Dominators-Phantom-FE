@@ -57,7 +57,7 @@ const ResetPasswordLink = () => {
           const { values, handleChange, handleSubmit } = props;
 
           return (
-            <div className="reset-link">
+            <div className="container">
               <div>
                 <h2>Forgot your password?</h2>
                 <p>

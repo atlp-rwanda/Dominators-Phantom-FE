@@ -27,8 +27,7 @@ function App() {
       <Route path="/users" element={<DriverOperator />} />
       <Route path="/roles" element={<Roles />} />
       <Route path="/Login" element={<Login />} />
-      <Route path="/Reset-link" element={<ResetLink />} />
-      <Route path="/Reset-pwd" element={<ResetPwd />} />
+      <Route path={"/Reset"} element={<ResetLink />} />
       <Route path="/Dashboard" element={<Dashboard />} />
     </Routes>
   );

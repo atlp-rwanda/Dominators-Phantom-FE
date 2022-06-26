@@ -30,7 +30,7 @@ const validateEmail = ()=>{
   return true
 }
     return ( 
-        <div className="reset-link">  
+        <div className="resetLink">  
         <div>
             <h2>Forgot your password?</h2>
             <p>Enter your email address and we will send you <br/>alink to reset your password</p>
