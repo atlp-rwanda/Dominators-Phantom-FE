@@ -4,14 +4,20 @@ import {
   GET_ONE_ROUTE,
   UPDATE_ONE_ROUTE,
   DELETE_ROUTE,
+  UPDATE_ONE_ROUTE_ERROR,
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
-import { db } from "../../utils/db";
+import { db, token } from "../../utils/db";
 
-export const getAllRoute = () => async (dispatch) => {
+export const getAllRoute = (page, size) => async (dispatch) => {
+  console.log(token);
   try {
-    const dt = await fetch(`${db}/routes`);
+    const dt = await fetch(`${db}/routes?page=${page}&size=${size}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     const datas = await dt.json();
     dispatch(creator(GET_ALL_ROUTE, datas));
   } catch (e) {
@@ -20,24 +26,31 @@ export const getAllRoute = () => async (dispatch) => {
     }
   }
 };
-export const getAllRouteForUser = (searchfilter) => async (dispatch) => {
-  try {
-    const dt = await fetch(`${db}/routes`);
-    const datas = await dt.json();
-    const searchData = datas.filter((value) => {
-      return (
-        value.from.toLowerCase().includes(searchfilter) ||
-        value.to.toLowerCase().includes(searchfilter) ||
-        value.code.includes(searchfilter)
-      );
-    });
-    dispatch(creator(GET_ALL_ROUTE, searchData));
-  } catch (e) {
-    if (e.message) {
-      return toast.error(e.message);
+export const getAllRouteForUser =
+  (page, size, searchfilter) => async (dispatch) => {
+    try {
+      const dt = await fetch(`${db}/routes?page=${page}&size=${size}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      const datas = await dt.json();
+
+      const searchData = datas.result.filter((value) => {
+        return (
+          value.origin.toLowerCase().includes(searchfilter) ||
+          value.destination.toLowerCase().includes(searchfilter) ||
+          value.code.includes(searchfilter)
+        );
+      });
+      const data = { searchData, datas };
+      dispatch(creator(GET_ALL_ROUTE, data));
+    } catch (e) {
+      if (e.message) {
+        return toast.error(e.message);
+      }
     }
-  }
-};
+  };
 export const getOneRoute = (routeId) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/routes/` + routeId);
@@ -51,12 +64,13 @@ export const getOneRoute = (routeId) => async (dispatch) => {
 };
 export const postRoute = (data) => async (dispatch) => {
   try {
+    console.log(data);
     const dt = await fetch(`${db}/routes`, {
       method: "POST",
       body: JSON.stringify(data),
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
     });
     const response = await dt.json();
@@ -68,29 +82,40 @@ export const postRoute = (data) => async (dispatch) => {
 export const updateRoute = (data, id) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/routes/` + id, {
-      method: "PATCH",
+      method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
-      mode: "cors",
     });
-    const updatedSelect = await fetch(`${db}/routes`);
+    const updatedSelect = await fetch(`${db}/routes`, {
+      headers: {
+        authorization: token,
+      },
+    });
     const updateData = await updatedSelect.json();
     dispatch(creator(UPDATE_ONE_ROUTE, updateData));
   } catch (e) {
     if (e.response && e.response.data) {
-      return toast.error(e.response.data.error);
+      dispatch(
+        creator(UPDATE_ONE_ROUTE_ERROR, toast.error(e.response.data.error))
+      );
     }
   }
 };
 
-export const deleteRoute = (id) => async (dispatch) => {
+export const deleteRoute = (routeId) => async (dispatch) => {
+  console.log(routeId);
   try {
-    const dt = await fetch(`${db}/routes/` + id, {
+    const dt = await fetch(`${db}/routes/` + routeId, {
       method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
     });
-    dispatch(creator(DELETE_ROUTE, id));
+    dispatch(creator(DELETE_ROUTE, routeId));
+    return toast.success("Route Delete Successfully");
   } catch (error) {
     if (error.message) return toast.error(error.message);
   }

@@ -104,7 +104,6 @@ const UpdateProfile = () => {
     }
     return true;
   }
-
   const nav = useNavigate();
 
   useEffect(() => {

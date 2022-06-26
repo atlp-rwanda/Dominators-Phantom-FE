@@ -1,6 +1,6 @@
 .routeData {
   margin-top: 70px;
-  width: 80%;
+  margin-left: 3rem;
 }
 .routeData h2 {
   padding: 1rem;
@@ -12,13 +12,14 @@
   display: flex;
   padding: 1rem;
   margin-top: 1rem;
+  justify-content: space-around;
 }
 .routeData .content .btn-add-route {
   width: inherit;
 }
 .routeData .content .route-table {
   top: 0.5rem;
-  width: 100%;
+  width: 80%;
 }
 .routeData .content .route-table table {
   width: 100%;
@@ -90,52 +91,60 @@ a.delete-icon {
 .table-paginate ul li {
   list-style: none;
   cursor: pointer;
-  color:var(--green);
-    width: 30px;
+  color: var(--green);
+  width: 30px;
   height: 30px;
   background-color: var(--white);
   text-align: center;
- border-radius: 50%;
- display: flex;
- }
- .table-paginate ul li.active{
-   background-color: var(--green2);
-   color: var(--white);
- }
- .table-paginate ul li:hover{
-   background-color: var(--green);
-   color: var(--white);
-   border: 1px solid var(--gray);
- }
+  border-radius: 50%;
+  display: flex;
+}
+.table-paginate ul li.active {
+  background-color: var(--green2);
+  color: var(--white);
+}
+.table-paginate ul li:hover {
+  background-color: var(--green);
+  color: var(--white);
+  border: 1px solid var(--gray);
+}
 
-.table-paginate ul li a{
-margin-top: auto;
+.table-paginate ul li a {
+  margin-top: auto;
 }
 .table-paginate ul li.previous {
- display: none;
+  border-radius: 0%;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--white);
+  border: 0px solid var(--gray);
+  color: var(--green);
 }
 .table-paginate ul li.next {
- display: none;
+  border-radius: 0%;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--white);
+  border: 0px solid var(--gray);
+  color: var(--green);
 }
-.search-r{
+.search-r {
   float: right;
   margin-bottom: 1rem;
-
-  
 }
-.search-r .search-icon{
-position:absolute;
- z-index: 2;
-    display: block;
-    width: 1.375rem;
-    height: 1.375rem;
-    line-height: 1.375rem;
-    text-align: center;
-    pointer-events: none;
-    color:var(--green);
-    margin-top: 8px;
-    margin-left: 9px;
-    cursor: pointer;
+.search-r .search-icon {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+  line-height: 1.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: var(--green);
+  margin-top: 8px;
+  margin-left: 9px;
+  cursor: pointer;
 }
 .search-route {
   display: block;
@@ -161,7 +170,7 @@ position:absolute;
     width: 100%;
   }
 }
-.search-no-found{
+.search-no-found {
   color: var(--green);
   text-align: center;
   font-weight: 700;

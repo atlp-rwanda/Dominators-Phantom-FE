@@ -10,7 +10,6 @@
   color: var(--white);
   font-weight: 800;
 }
-
 .btn-danger {
   background-color: red;
   color: var(--white);
@@ -22,7 +21,6 @@
   color: red;
   font-weight: 800;
 }
-
 .btn-green:hover {
   font-weight: 800;
   color: var(--green);

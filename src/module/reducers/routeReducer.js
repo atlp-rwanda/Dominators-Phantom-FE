@@ -4,6 +4,7 @@ import {
   GET_ONE_ROUTE,
   POST_ROUTES,
   UPDATE_ONE_ROUTE,
+  UPDATE_ONE_ROUTE_ERROR,
 } from "../index";
 const initialState = {
   isLoading: false,
@@ -33,20 +34,26 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         isLoaded: true,
-        data: [...state.data, payload],
       };
     case UPDATE_ONE_ROUTE:
       return {
-        isLoaded: false,
-        isLoading: true,
+        isLoaded: true,
+        isLoading: false,
         data: payload,
       };
     case DELETE_ROUTE:
-      const remain = state.data.filter(({ id }) => id !== payload);
+      const remain = state.data.result.filter(
+        ({ routeId }) => routeId !== payload
+      );
       return {
         isLoaded: false,
         isLoading: true,
-        data: remain,
+        data: data,
+      };
+    case UPDATE_ONE_ROUTE_ERROR:
+      return {
+        isLoaded: false,
+        data: payload,
       };
     default:
       return state;

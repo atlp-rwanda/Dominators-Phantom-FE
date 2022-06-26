@@ -36,7 +36,6 @@ const Header = () => {
           <FaIcons.FaBars id="menuBars" />
           <img src={groupIcon} alt="" id="busIcon" />
         </div>
-
         <div className="rightNavBar" onClick={() => setRightBar(!rightBar)}>
           <p className="circleWord" onClick={() => setRightBar(!rightBar)}>
             {noun?.charAt(0)}

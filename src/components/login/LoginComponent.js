@@ -51,7 +51,7 @@ const LoginComponent = () => {
         if (result.status == "success") {
           toast.info("User logged in successfully ");
 
-          localStorage.setItem("token", result.token);
+          localStorage.setItem("token", `Bearer ${result.token}`);
           localStorage.setItem("role", result.data.user.role);
           localStorage.setItem("userName", result.data.user.firstName);
           localStorage.setItem("userEmail", result.data.user.email);
@@ -70,7 +70,7 @@ const LoginComponent = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        toast.error("Internal sever erroe!", { theme: "colored" });
+        toast.error("Internal sever error!", { theme: "colored" });
         setIsLoading(false);
       });
   };

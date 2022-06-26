@@ -10,6 +10,8 @@ function UpdateRoute(props) {
   const [isDistance, setIsDistance] = useState(route ? route.distance : "");
   const [isFrom, setIsFrom] = useState(route ? route.from : "");
   const [isTo, setIsTo] = useState(route ? route.to : "");
+  const [latitude, setIsLatitude] = useState(route ? route.latitude : "");
+  const [longitude, setIsLongitude] = useState(route ? route.longitude : "");
   const [isCode, setIsCode] = useState(route ? route.code : "");
 
   const FormValidation = () => {
@@ -23,10 +25,12 @@ function UpdateRoute(props) {
     FormValidation();
     if (!FormValidation()) {
       const Data = {
-        from: isFrom,
-        to: isTo,
+        origin: isFrom,
+        destination: isTo,
         code: isCode,
         distance: isDistance,
+        longitude: longitude,
+        latitude: latitude,
       };
       props.updateRoute(Data, route.id);
       toast.info("You Have updated Successfully");
@@ -46,7 +50,7 @@ function UpdateRoute(props) {
         />
         <div className="card">
           <h2>Update Route</h2>
-          <form className="form" onSubmit={HandleSubmit}>
+          <form onSubmit={HandleSubmit}>
             <div className="row-card">
               <div className="col-md-10">
                 <div className="form-group row-card2">
@@ -95,13 +99,42 @@ function UpdateRoute(props) {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder=""
+                      placeholder="code"
                       required
                       value={isCode}
                       onChange={(e) => setIsCode(e.target.value)}
                     ></input>
                   </div>
                 </div>
+                <div className="form-group row-card2">
+                  <label htmlFor="new route">Latitude:</label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="longitude"
+                      value={latitude}
+                      onChange={(e) => {
+                        setIsLatitude(e.target.value);
+                      }}
+                    ></input>
+                  </div>
+                </div>
+                <div className="form-group row-card2">
+                  <label htmlFor="new route">Longitude:</label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="longitude"
+                      value={longitude}
+                      onChange={(e) => {
+                        setIsLongitude(e.target.value);
+                      }}
+                    ></input>
+                  </div>
+                </div>
+
                 <div className="card-btn">
                   <CustomeButton classes="btn btn-green">UPDATE</CustomeButton>
                 </div>
