@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
 * {
+
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -37,24 +38,26 @@
   color: var(--green);
 }
 ::-webkit-scrollbar {
-  width: 11px;
+    width: 11px;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--white);
-  box-shadow: inset 0 0 5px var(--green);
+    background-color: var(--white);
+    box-shadow: inset 0 0 5px var(--green);
+    border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--green);
+    background: var(--green);
+    border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--green);
   box-shadow: inset 0 0 5px var(--white);
 }
-.pagenotfound {
+.pagenotfound{
   margin-top: 70px;
   height: 50vh;
   display: flex;
-  color: var(--green);
+color: var(--green);
 }
 :root {
   --theme-sidebar-white: rgb(255, 255, 255);
