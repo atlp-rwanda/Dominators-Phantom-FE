@@ -8,15 +8,9 @@ lerna-debug.log*
 package-lock.json
 
 
-<<<<<<< HEAD
 yarn.lock
 
 
-=======
-
-yarn.lock
-
->>>>>>> aad9e3c (parent ed4c9a73e467cb5d9c91ded695439d1df7d4dc11)
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
