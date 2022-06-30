@@ -5,16 +5,16 @@ import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
-import "react-toastify/dist/ReactToastify.css";
 import CrudRoute from "./pages/crud-routes/CrudRoute";
 import UserRoute from "./pages/user-route/UserRoutes";
-import "react-toastify/dist/ReactToastify.css";
 import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
 import Roles from "./pages/roles & permissions/Roles";
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
 import Dashboard from "./pages/dashboard";
 
+import Assigned from "./pages/AssignDriver/Assigned";
+import UnAssigned from "./pages/AssignDriver/UnAssigned";
 function App() {
   return (
     <Routes>
@@ -29,6 +29,8 @@ function App() {
       <Route path="/Login" element={<Login />} />
       <Route path={"/Reset"} element={<ResetLink />} />
       <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/assigned" element={<Assigned />} exact />
+      <Route path="/unassigned" element={<UnAssigned />} exact />
     </Routes>
   );
 }

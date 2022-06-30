@@ -25,17 +25,17 @@
   width: 100%;
   background-color: var(--white);
   border-collapse: collapse;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 .routeData .content .route-table table .thead {
   background-color: var(--green);
   text-align: left;
   color: var(--white);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 .route-table table .thead tr {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border-style: none;
 }
 .route-table table .thead tr th {
@@ -86,7 +86,7 @@ a.delete-icon {
 }
 .table-paginate ul {
   display: flex;
-  width: 30%;
+  width: 20%;
 }
 .table-paginate ul li {
   list-style: none;

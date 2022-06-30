@@ -44,7 +44,7 @@
 }
 
 .sidebar nav .subMenu {
-  display: none;
+  display: block;
   margin-left: 15px;
 }
 
