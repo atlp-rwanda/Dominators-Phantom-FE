@@ -69,6 +69,7 @@
   --theme-sidebar-white: rgb(255, 255, 255);
   --theme-sidebar-grey: #9c8b8b;
   --theme-green: hsl(166deg 100% 16% / 66%);
+  --red: rgb(172, 12, 12);
 }
 
 .navItem ul li a.login {

@@ -1,5 +1,4 @@
 import { GET_ALL_ERROR, GET_ALL_USERS } from "..";
-
 const initialState = {
   isLoaded: false,
   isLoading: false,
@@ -9,7 +8,6 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-
     case GET_ALL_ERROR:
       return {
         ...state,
@@ -21,8 +19,8 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoaded: true,
-        data: payload,
-      }
+        data: userDrivers,
+      };
     default:
       return state;
   }

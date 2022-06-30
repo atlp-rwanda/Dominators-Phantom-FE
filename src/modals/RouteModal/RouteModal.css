@@ -9,14 +9,14 @@
   box-shadow: -1px 1px 17px var(--green);
 }
 
-.close-icon {
+/* .close-icon {
   margin-top: 9px;
   right: 0;
   position: absolute;
   margin-right: 9px;
   cursor: pointer;
   color: var(--green);
-}
+} */
 .close-icon:hover {
   color: red;
 }
@@ -141,5 +141,76 @@ input:hover {
 @media only screen and (max-width: 620px) {
 }
 .error {
+  color: var(--red) !important;
+}
+
+.error-input {
+  border: 1px solid red !important;
+}
+
+.bottom-left-icon {
+  left: 1rem;
+  bottom: 1ch;
+  cursor: pointer;
+  float: left;
+  position: absolute;
+}
+
+.bottom-right-icon {
+  right: 1rem;
+  bottom: 1ch;
+  cursor: pointer;
+  float: right;
+  position: absolute;
+}
+
+.top-left-icon {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  float: left;
+}
+
+.top-right-icon {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  float: right;
+}
+
+.success {
+  color: var(--green);
+}
+
+.success:hover {
+  color: green;
+}
+
+.error:hover {
   color: red;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+.compass-icon {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  position: absolute;
+  margin-right: 9px;
+  cursor: pointer;
+  color: var(--green);
+  flex: 0 0 83.3333333333%;
+}
+.compass-icon:hover {
+  color: var(--green);
+  background-color: var(--white);
+}
+.leaflet-right {
+  right: 0;
+  display: none;
 }

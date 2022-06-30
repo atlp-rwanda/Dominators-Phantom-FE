@@ -8,7 +8,7 @@ import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { backendUrl } from "../../utils/db";
-import LoginSkeleton from "../Login/LoginSkeleton";
+import LoginSkeleton from "./LoginSkeleton";
 
 const LoginComponent = () => {
   const [skeleton, setSkeleton] = useState(false);
@@ -55,6 +55,7 @@ const LoginComponent = () => {
           localStorage.setItem("role", result.data.user.role);
           localStorage.setItem("userName", result.data.user.firstName);
           localStorage.setItem("userEmail", result.data.user.email);
+          localStorage.setItem("userId", result.data.user.id);
 
           if (
             result.data.user.role == "admin" ||

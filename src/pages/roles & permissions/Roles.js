@@ -47,9 +47,12 @@ const Roles = () => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      const response = await fetch(`${backendUrl}/permissions?page=0&size=10`, {
-        headers,
-      });
+      const response = await fetch(
+        `${backendUrl}/permissions/?page=0&size=100`,
+        {
+          headers,
+        }
+      );
       const data = await response.json();
       setPermissions(data.record.allPermissions);
       setIsLoading(false);
@@ -194,7 +197,7 @@ const Roles = () => {
             <Card className={classes.permissions}>
               <h4 className={classes.title}>Available Permissions</h4>
               <ul className={classes.roles}>
-                {permissions.result.map((permission) => (
+                {permissions?.result.map((permission) => (
                   <div key={permission.permission_id}>
                     <li>{permission.name}</li>
                     <span>

@@ -11,10 +11,10 @@ import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
 import Roles from "./pages/roles & permissions/Roles";
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
-import Dashboard from "./pages/dashboard";
-
 import Assigned from "./pages/AssignDriver/Assigned";
 import UnAssigned from "./pages/AssignDriver/UnAssigned";
+import Dashboard from "./pages/Dashboard";
+import Notification from "./pages/notification/";
 function App() {
   return (
     <Routes>
@@ -31,6 +31,9 @@ function App() {
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/assigned" element={<Assigned />} exact />
       <Route path="/unassigned" element={<UnAssigned />} exact />
+      <Route path="/Reset-link" element={<ResetLink />} />
+      <Route path="/Reset-pwd" element={<ResetPwd />} />
+      <Route path="/notification" element={<Notification />} />
     </Routes>
   );
 }

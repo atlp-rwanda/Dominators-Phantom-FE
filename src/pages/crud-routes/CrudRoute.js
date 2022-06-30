@@ -26,9 +26,19 @@ function CrudRoute(props) {
   const [size, setSize] = useState(10);
   let NoRows = 1;
 
+  let selectedRoutes = [];
+
   useEffect(() => {
     props.getAllRoute(page, size);
-  }, [page, size]);
+    Object.entries(isChecked).map((values) => {
+      if (values[1])
+        return selectedRoutes.push({
+          value: values[0],
+          label: values[0],
+        });
+    });
+  }, [page, size, isChecked]);
+
   const handleDelete = (routeId) => {
     swal({
       title: "Are you sure?",
@@ -45,25 +55,27 @@ function CrudRoute(props) {
     });
   };
   const handleSearch = (e) => {};
+
   const handleSelectData = (e) => {
     setSize(e.target.value);
   };
+
   const handlePageClick = (e) => {
     setPage(e.selected);
   };
+
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-  let selectedRoutes = [];
-  useEffect(() => {
-    Object.entries(isChecked).map((values) => {
-      if (values[1])
-        return selectedRoutes.push({
-          value: values[0],
-          label: values[0],
-        });
-    });
-  }, [isChecked]);
+  // useEffect(() => {
+  //   Object.entries(isChecked).map((values) => {
+  //     if (values[1])
+  //       return selectedRoutes.push({
+  //         value: values[0],
+  //         label: values[0],
+  //       });
+  //   });
+  // }, [isChecked]);
   return (
     <>
       <ToastContainer theme="colored" />
@@ -85,7 +97,7 @@ function CrudRoute(props) {
           <div className="route-table">
             <div className="beforetbl">
               <div className="PageSize">
-                <label>Show :</label>
+                <label>Show:</label>
                 <select onChange={handleSelectData}>
                   <option value="10">10</option>
                   <option value="25">25</option>
@@ -115,66 +127,66 @@ function CrudRoute(props) {
               </thead>
               {isLoaded ? (
                 <tbody className="tbody">
-                  {isData.result.map((value, idx) => {
-                    return (
-                      <tr key={idx}>
-                        <td key={value.id} scope="row">
-                          <input
-                            type="checkbox"
-                            className="checkbox"
-                            id={idx}
-                            name={value.id}
-                            onChange={HandleIsChecked}
-                          />
-                          {NoRows++}.
-                        </td>
-                        <td scope="row">
-                          {value.origin + "-" + value.destination}
-                        </td>
-                        <td scope="row">{value.code}</td>
-                        <td scope="row">{value.distance} Km</td>
-                        <td
-                          scoper="row"
-                          className={
-                            value.status === "pending"
-                              ? "pendingStatus tooltip"
-                              : ""
-                          }
+                  {isData.result?.map((value, idx) => (
+                    <tr key={idx}>
+                      <td scope="row">
+                        <input
+                          type="checkbox"
+                          className="checkbox"
+                          id={idx}
+                          name={value.id}
+                          onChange={HandleIsChecked}
+                        />
+                        {NoRows++}.
+                      </td>
+                      <td scope="row">
+                        {value.origin + "-" + value.destination}
+                      </td>
+                      <td scope="row">{value.code}</td>
+                      <td scope="row">{value.distance} Km</td>
+                      <td
+                        scoper="row"
+                        className={
+                          value.status === "pending"
+                            ? "pendingStatus tooltip"
+                            : ""
+                        }
+                      >
+                        {value.status}
+                        <span className="tooltiptext">Change Status</span>
+                      </td>
+                      <td scope="row">
+                        <Link
+                          to="#"
+                          className="edit-icon"
+                          onClick={() => {
+                            setUpdateModal(true);
+                            setRouteData({
+                              id: value.routeId,
+                              distance: value.distance,
+                              from: value.origin,
+                              to: value.destination,
+                              code: value.code,
+                              fromLatitude: value.fromCoordinates[0],
+                              fromLongitude: value.fromCoordinates[1],
+                              toLatitude: value.toCoordinates[0],
+                              toLongitude: value.toCoordinates[1],
+                            });
+                          }}
                         >
-                          {value.status}
-                          <span className="tooltiptext">Change Status</span>
-                        </td>
-                        <td scope="row">
-                          <Link
-                            to="#"
-                            className="edit-icon"
-                            onClick={() => {
-                              setUpdateModal(true);
-                              setRouteData({
-                                id: value.routeId,
-                                distance: value.distance,
-                                from: value.origin,
-                                to: value.destination,
-                                code: value.code,
-                                latitude: value.latitude,
-                                longitude: value.longitude,
-                              });
-                            }}
-                          >
-                            <HiPencil />
-                          </Link>
+                          <HiPencil />
+                        </Link>
 
-                          <Link
-                            to="#"
-                            className="delete-icon"
-                            onClick={(e) => handleDelete(value.routeId)}
-                          >
-                            <HiTrash />
-                          </Link>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                        <Link
+                          to="#"
+                          className="delete-icon"
+                          onClick={(e) => handleDelete(value.routeId)}
+                        >
+                          <HiTrash />
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               ) : (
                 <RouteSkeleton />
@@ -185,8 +197,8 @@ function CrudRoute(props) {
                     <td colSpan={6}>
                       <div className="table-paginate">
                         <div>
-                          Showing {isData.result.length} of {isData.totalItems}{" "}
-                          with in {isData.totalPages} Pages
+                          Showing {isData?.result?.length} of{" "}
+                          {isData.totalItems} with in {isData.totalPages} Pages
                         </div>
                         <ReactPaginate
                           nextLabel="next"

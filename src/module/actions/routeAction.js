@@ -8,14 +8,13 @@ import {
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
-import { backendUrl, token } from "../../utils/db";
+import { backendUrl, token, Authorization } from "../../utils/db";
 
 export const getAllRoute = (page, size) => async (dispatch) => {
-  console.log(token);
   try {
-    const dt = await fetch(`${backendUrl}/routes?page=${page}&size=${size}`, {
+    const dt = await fetch(`${backendUrl}/routes/?page=${page}&size=${size}`, {
       headers: {
-        authorization: token,
+        Authorization,
       },
     });
     const datas = await dt.json();
@@ -29,11 +28,14 @@ export const getAllRoute = (page, size) => async (dispatch) => {
 export const getAllRouteForUser =
   (page, size, searchfilter) => async (dispatch) => {
     try {
-      const dt = await fetch(`${backendUrl}/routes?page=${page}&size=${size}`, {
-        headers: {
-          authorization: token,
-        },
-      });
+      const dt = await fetch(
+        `${backendUrl}/routes/?page=${page}&size=${size}`,
+        {
+          headers: {
+            Authorization,
+          },
+        }
+      );
       const datas = await dt.json();
 
       const searchData = datas.result.filter((value) => {
@@ -70,7 +72,7 @@ export const postRoute = (data) => async (dispatch) => {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        Authorization,
       },
     });
     const response = await dt.json();
@@ -86,7 +88,7 @@ export const updateRoute = (data, id) => async (dispatch) => {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        Authorization,
       },
     });
     const updatedSelect = await fetch(`${backendUrl}/routes`, {
@@ -111,7 +113,7 @@ export const deleteRoute = (routeId) => async (dispatch) => {
     const dt = await fetch(`${backendUrl}/routes/` + routeId, {
       method: "DELETE",
       headers: {
-        Authorization: token,
+        Authorization,
       },
     });
     dispatch(creator(DELETE_ROUTE, routeId));

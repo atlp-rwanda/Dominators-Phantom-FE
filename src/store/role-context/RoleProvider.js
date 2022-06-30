@@ -18,7 +18,7 @@ const RoleProvider = (props) => {
     const response = await fetch(`${backendUrl}/roles`, {
       method: "POST",
       body: JSON.stringify(role),
-      headers,
+      headers: { Authorization },
     });
     const data = await response.json();
     if (data.status === "fail") {
@@ -35,7 +35,7 @@ const RoleProvider = (props) => {
     const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "PATCH",
       body: JSON.stringify(role),
-      headers,
+      headers: { Authorization },
     });
     const data = await response.json();
     if (data.status === "fail") {
@@ -51,7 +51,7 @@ const RoleProvider = (props) => {
   const deleteRoleHandler = async (id) => {
     const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "DELETE",
-      headers,
+      headers: { Authorization },
     });
 
     const data = await response.json();
