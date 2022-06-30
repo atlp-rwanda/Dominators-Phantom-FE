@@ -5,7 +5,7 @@ import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: token,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 
@@ -69,7 +69,6 @@ const RoleProvider = (props) => {
 
   const fetchRolesHandler = useCallback(async () => {
     try {
-      console.log(location.pathname);
       if (location.pathname != "/") {
         const response = await fetch(`${db}/roles`, {
           headers,

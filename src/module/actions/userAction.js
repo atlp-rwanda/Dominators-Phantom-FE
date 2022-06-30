@@ -1,5 +1,6 @@
 import {
   POST_USERS,
+  POST_ONE_USER_ERROR,
   GET_ALL_USER,
   GET_ONE_USER,
   UPDATE_ONE_USER,
@@ -11,7 +12,7 @@ import { db } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: token,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 
@@ -21,7 +22,6 @@ export const getAllUser = () => async (dispatch) => {
       headers,
     });
     const datas = await dt.json();
-    console.log(datas);
     dispatch(creator(GET_ALL_USER, datas.data));
   } catch (e) {
     if (e.message) {
@@ -32,7 +32,9 @@ export const getAllUser = () => async (dispatch) => {
 
 export const getOneUser = (userId) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/users/` + userId);
+    const dt = await fetch(`${db}/users/` + userId, {
+      headers,
+    });
     const data = await dt.json();
     dispatch(creator(GET_ONE_USER, data));
   } catch (e) {
@@ -50,7 +52,14 @@ export const postUser = (data) => async (dispatch) => {
       headers,
     });
     const response = await dt.json();
-    dispatch(creator(POST_USERS, response));
+    const message = response.error || response.message;
+    if (dt.status == 201) {
+      dispatch(creator(POST_USERS, response.data));
+      toast.success(message);
+    } else {
+      dispatch(creator(POST_ONE_USER_ERROR, message));
+      toast.error(message);
+    }
   } catch (error) {
     if (error.message) return toast.error(error.message);
   }
@@ -60,10 +69,7 @@ export const updateUser = (data, id) => async (dispatch) => {
     const dt = await fetch(`${db}/users/` + id, {
       method: "PATCH",
       body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
+      headers,
     });
     const updatedSelect = await fetch(`${db}/users`);
     const updateData = await updatedSelect.json();
@@ -79,6 +85,7 @@ export const deleteUser = (id) => async (dispatch) => {
   try {
     const dt = await fetch(`${db}/users/` + id, {
       method: "DELETE",
+      headers,
     });
     dispatch(creator(DELETE_USER, id));
   } catch (error) {

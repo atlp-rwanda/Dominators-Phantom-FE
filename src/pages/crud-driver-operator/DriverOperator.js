@@ -94,7 +94,7 @@ function DriverOperator(props) {
                   {isData?.map((value, idx) => {
                     return (
                       <tr key={idx}>
-                        <td key={idx} scope="row">
+                        <td scope="row">
                           <input
                             type="checkbox"
                             className="checkbox"

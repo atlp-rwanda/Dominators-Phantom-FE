@@ -5,12 +5,12 @@ import { toast, ToastContainer } from "react-toastify";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: token,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 
 const PermissionProvider = (props) => {
-  const [permissions, setPermissions] = useState([]);
+  const [permissions, setPermissions] = useState({ result: [] });
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
@@ -64,7 +64,7 @@ const PermissionProvider = (props) => {
         }
 
         const data = await response.json();
-        console.log(data);
+        console.log({ data });
         setPermissions(data.record.allPermissions);
       }
     } catch (error) {

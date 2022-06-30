@@ -1,4 +1,4 @@
-import SkeletonElement from "../../skeletons/skeletonElement";
+import SkeletonElement from "../../skeletons/SkeletonElement";
 function RouteSkeleton() {
   const rows = [1, 2, 3, 4, 5, 6, 7];
   return (
