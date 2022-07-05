@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 import LoginSkeleton from "../Login/LoginSkeleton";
 
 const LoginComponent = () => {
@@ -17,13 +17,13 @@ const LoginComponent = () => {
   const [showPassword, setShowPassword] = useState(true);
 
   const redirect = useNavigate();
-
-  useEffect(() => {});
+  const search = location.search.slice(1).split('&');
+  const [email, password] = search.map(e=>e.split('=')[1]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setSkeleton(true);
-    }, 5000);
+    }, 500);
     return () => clearTimeout(timer);
   });
 
@@ -39,7 +39,7 @@ const LoginComponent = () => {
       password: values.password,
     });
 
-    fetch(`${db}/users/login`, {
+    fetch(`${backendUrl}/users/login`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -51,7 +51,7 @@ const LoginComponent = () => {
         if (result.status == "success") {
           toast.info("User logged in successfully ");
 
-          localStorage.setItem("token", `Bearer ${result.token}`);
+          localStorage.setItem("token", result.token);
           localStorage.setItem("role", result.data.user.role);
           localStorage.setItem("userName", result.data.user.firstName);
           localStorage.setItem("userEmail", result.data.user.email);
@@ -83,7 +83,7 @@ const LoginComponent = () => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ email, password }}
       onSubmit={(values) => handleLogin(values)}
       validate={(values) => {
         let errors = {};
@@ -114,7 +114,7 @@ const LoginComponent = () => {
           handleBlur,
           handleSubmit,
         } = props;
-
+        // if(search) Object.assign(values, {email, password})
         return (
           <div>
             {skeleton ? (

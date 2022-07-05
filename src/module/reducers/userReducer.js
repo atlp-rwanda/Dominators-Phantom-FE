@@ -3,8 +3,11 @@ import {
   GET_ALL_USER,
   GET_ONE_USER,
   POST_USERS,
+  POST_ONE_USER_ERROR,
   UPDATE_ONE_USER,
+  GET_ALL_ERROR,
 } from "../index";
+
 const initialState = {
   isLoading: false,
   isLoaded: false,
@@ -12,20 +15,26 @@ const initialState = {
   data: [],
   values: [],
 };
+
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_ALL_ERROR:
+      return {
+        ...state,
+        isLoaded: false,
+      };
     case GET_ALL_USER:
       return {
         ...state,
         isLoading: false,
-        isLoaded: false,
+        isLoaded: true,
         data: payload,
       };
     case GET_ONE_USER:
       return {
         ...state,
         isLoading: false,
-        isLoaded: false,
+        isLoaded: true,
         values: payload,
       };
     case POST_USERS:
@@ -34,6 +43,13 @@ export default (state = initialState, { type, payload }) => {
         isLoading: false,
         isLoaded: true,
         data: [...state.data, payload],
+      };
+    case POST_ONE_USER_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        isLoaded: true,
+        error: payload,
       };
     case UPDATE_ONE_USER:
       return {
@@ -44,8 +60,8 @@ export default (state = initialState, { type, payload }) => {
     case DELETE_USER:
       const remain = state.data.filter(({ id }) => id !== payload);
       return {
-        isLoaded: false,
-        isLoading: true,
+        isLoaded: true,
+        isLoading: false,
         data: remain,
       };
     default:

@@ -28,42 +28,16 @@ const Sidebar = () => {
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
         </NavLink>
-        {(role === "admin" && (
-          <NavLink to="/users">
-            <IoIcons.IoIosBus /> <span> Users </span>
-          </NavLink>
-        )) && (
-          <NavLink to="/roles">
-            <IoIcons.IoIosPeople />
-            <span>Roles & Permissions</span>
-          </NavLink>
-        )}
-        {role==='admin'&&(
-        <Link to="#">
-          <IoIcons.IoIosBus /> <span> Driver & Operator </span>
-        </Link>
-        )}
-
         {role === "admin" && (
-          <Link to="#" onClick={showSubMenu}>
-            <IoIcons.IoIosPeople />
-            <span>
-              User Roles <IoIcons.IoMdArrowDropdown className="icon-dropDown" />
-            </span>
-          </Link>
-        )}
-        {role === "admin" && (
-          <div className="subMenu">
-            <NavLink to="#">
-              <IoIcons.IoMdAdd /> <span> New role </span>
+          <>
+            <NavLink to="/users">
+              <IoIcons.IoIosBus /> <span> Users </span>
             </NavLink>
-            <Link to="#">
-              <IoIcons.IoIosLock /> <span> Permissions </span>
-            </Link>
-            <NavLink to="#">
-              <IoIcons.IoMdAnalytics /> <span> Actions </span>
+            <NavLink to="/roles">
+              <IoIcons.IoIosPeople />
+              <span>Roles & Permissions</span>
             </NavLink>
-          </div>
+          </>
         )}
         {role === "operator" && (
           <DropDown

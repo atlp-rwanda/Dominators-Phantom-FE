@@ -8,7 +8,7 @@ function UserHeader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSkeleton(true);
-    }, 5000);
+    }, 500);
     return () => clearTimeout(timer);
   });
   return (

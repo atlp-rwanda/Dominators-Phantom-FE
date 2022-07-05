@@ -7,6 +7,7 @@ export const POST_USERS = "POST_USER";
 export const GET_ALL_USER = "GET_ALL_USER";
 export const GET_ONE_USER = "GET_ONE_USER";
 export const UPDATE_ONE_USER = "UPDATE_ONE_USER";
+export const POST_ONE_USER_ERROR = "POST_ONE_USER_ERROR";
 export const DELETE_USER = "DELETE_USER";
 export const UPDATE_ONE_ROUTE_ERROR = "UPDATE_ONE_ROUTE_ERROR";
 export const GET_ALL_ERROR="GET_ALL_ERROR";

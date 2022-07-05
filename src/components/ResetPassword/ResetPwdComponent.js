@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import react, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 import * as AiIcons from "react-icons/ai";
 
 const headersList = {
@@ -31,7 +31,7 @@ const ResetPassword = () => {
     e.preventDefault();
     if (password.current.value === confirmPassword.current.value) {
       // console.log(password);
-      fetch(`${db}/users/reset/${token}`, {
+      fetch(`${backendUrl}/users/reset/${token}`, {
         method: "POST",
         body: JSON.stringify({
           password: password.current.value,

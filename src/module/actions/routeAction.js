@@ -8,12 +8,12 @@ import {
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
-import { db, token } from "../../utils/db";
+import { backendUrl, token } from "../../utils/db";
 
 export const getAllRoute = (page, size) => async (dispatch) => {
   console.log(token);
   try {
-    const dt = await fetch(`${db}/routes?page=${page}&size=${size}`, {
+    const dt = await fetch(`${backendUrl}/routes?page=${page}&size=${size}`, {
       headers: {
         authorization: token,
       },
@@ -29,7 +29,7 @@ export const getAllRoute = (page, size) => async (dispatch) => {
 export const getAllRouteForUser =
   (page, size, searchfilter) => async (dispatch) => {
     try {
-      const dt = await fetch(`${db}/routes?page=${page}&size=${size}`, {
+      const dt = await fetch(`${backendUrl}/routes?page=${page}&size=${size}`, {
         headers: {
           authorization: token,
         },
@@ -53,7 +53,7 @@ export const getAllRouteForUser =
   };
 export const getOneRoute = (routeId) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes/` + routeId);
+    const dt = await fetch(`${backendUrl}/routes/` + routeId);
     const data = await dt.json();
     dispatch(creator(GET_ONE_ROUTE, data));
   } catch (e) {
@@ -65,7 +65,7 @@ export const getOneRoute = (routeId) => async (dispatch) => {
 export const postRoute = (data) => async (dispatch) => {
   try {
     console.log(data);
-    const dt = await fetch(`${db}/routes`, {
+    const dt = await fetch(`${backendUrl}/routes`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -81,7 +81,7 @@ export const postRoute = (data) => async (dispatch) => {
 };
 export const updateRoute = (data, id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/routes/` + id, {
+    const dt = await fetch(`${backendUrl}/routes/` + id, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -89,7 +89,7 @@ export const updateRoute = (data, id) => async (dispatch) => {
         Authorization: token,
       },
     });
-    const updatedSelect = await fetch(`${db}/routes`, {
+    const updatedSelect = await fetch(`${backendUrl}/routes`, {
       headers: {
         authorization: token,
       },
@@ -108,7 +108,7 @@ export const updateRoute = (data, id) => async (dispatch) => {
 export const deleteRoute = (routeId) => async (dispatch) => {
   console.log(routeId);
   try {
-    const dt = await fetch(`${db}/routes/` + routeId, {
+    const dt = await fetch(`${backendUrl}/routes/` + routeId, {
       method: "DELETE",
       headers: {
         Authorization: token,

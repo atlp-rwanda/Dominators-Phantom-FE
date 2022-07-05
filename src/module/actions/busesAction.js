@@ -1,12 +1,12 @@
 import { GET_ALL_BUSES, GET_ALL_ERROR } from "..";
 import creator from "./creator";
-import { db, Authorization } from "../../utils/db";
+import { backendUrl, Authorization } from "../../utils/db";
 import { toast } from "react-toastify";
 
 export const getAllBuses = () => async (dispatch) => {
   try {
 
-    const dt = await fetch(`${db}/buses`, {
+    const dt = await fetch(`${backendUrl}/buses`, {
       headers: {
         Authorization,
       },

@@ -1,27 +1,26 @@
 import { useCallback, useEffect, useState } from "react";
 import PermissionContext from "../permission-context/permission-context";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 import { toast, ToastContainer } from "react-toastify";
 
 const token = localStorage.getItem("token");
 const headers = {
-  Authorization: "Bearer " + token,
+  Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
 };
 
 const PermissionProvider = (props) => {
-  const [permissions, setPermissions] = useState([]);
+  const [permissions, setPermissions] = useState({ result: [] });
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
   const postPermisionandler = async (permission) => {
-    const response = await fetch(`${db}/permissions`, {
+    const response = await fetch(`${backendUrl}/permissions`, {
       method: "POST",
       body: JSON.stringify(permission),
       headers,
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
@@ -35,7 +34,7 @@ const PermissionProvider = (props) => {
 
   const deletePermissionHandler = async (id) => {
     try {
-      const response = await fetch(`${db}/permissions/${id}`, {
+      const response = await fetch(`${backendUrl}/permissions/${id}`, {
         method: "DELETE",
         headers,
       });
@@ -55,15 +54,20 @@ const PermissionProvider = (props) => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      const response = await fetch(`${db}/permissions`, {
-        headers,
-      });
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+      if (!["/", "/login"].includes(location.pathname)) {
+        const response = await fetch(
+          `${backendUrl}/permissions?page=0&size=1000`,
+          {
+            headers,
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Something went wrong!");
+        }
 
-      const data = await response.json();
-      setPermissions(data.record.allPermissions);
+        const data = await response.json();
+        setPermissions(data.record.allPermissions);
+      }
     } catch (error) {
       console.log(error.message);
     }

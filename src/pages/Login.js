@@ -3,7 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as EmailValidator from "email-validator";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import LoginComponent from "../components/login/LoginComponent";
+import LoginComponent from "../components/Login/LoginComponent";
 import UserNavbar from "../components/Navbars/UserNavbar";
 import Footer from "../components/Footer/Footer";
 

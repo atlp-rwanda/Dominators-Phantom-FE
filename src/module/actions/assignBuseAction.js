@@ -6,12 +6,12 @@ import {
 
   GET_ALL_ERROR,
 } from "..";
-import { db, Authorization } from "../../utils/db";
+import { backendUrl, Authorization } from "../../utils/db";
 import creator from "./creator";
 import { toast } from "react-toastify";
 export const getAllDriverAssignToBuses = (page, size) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/assign?page=${page}&size=${size}`, {
+    const dt = await fetch(`${backendUrl}/assign?page=${page}&size=${size}`, {
       headers: {
         Authorization,
       },
@@ -31,7 +31,7 @@ export const getAllDriverAssignToBuses = (page, size) => async (dispatch) => {
 
 export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/assign/bus/${buseId}/driver/${userId}`, {
+    const dt = await fetch(`${backendUrl}/assign/bus/${buseId}/driver/${userId}`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -45,7 +45,7 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
       toast.error(response.record.message);
       dispatch(creator(GET_ALL_ERROR));
     } else {
-      const newDriver = await fetch(`${db}/assign?page=${0}&size=${10}`, {
+      const newDriver = await fetch(`${backendUrl}/assign?page=${0}&size=${10}`, {
         headers: {
           Authorization,
         },
@@ -60,7 +60,7 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
 };
 export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
   try {
-    const dt = await fetch(`${db}/assign/${id}`, {
+    const dt = await fetch(`${backendUrl}/assign/${id}`, {
 
       method: "PATCH",
       body: JSON.stringify(data),
@@ -75,7 +75,7 @@ export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
       dispatch(creator(GET_ALL_ERROR));
       toast.error(data.message);
     } else {
-      const updatedSelect = await fetch(`${db}/assign?page=${0}&size=${10}`, {
+      const updatedSelect = await fetch(`${backendUrl}/assign?page=${0}&size=${10}`, {
         headers: {
           Authorization,
         },
@@ -92,14 +92,14 @@ export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
 export const deleteDriverAssignToBuses = (id) => async (dispatch) => {
   try {
 
-    const dt = await fetch(`${db}/assign/${id}`, {
+    const dt = await fetch(`${backendUrl}/assign/${id}`, {
       method: "DELETE",
       headers: {
         Authorization,
       },
     });
 
-    const data = await fetch(`${db}/assign?page=${0}&size=${10}`, {
+    const data = await fetch(`${backendUrl}/assign?page=${0}&size=${10}`, {
       headers: {
         Authorization,
       },

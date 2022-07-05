@@ -1,4 +1,7 @@
-export const db = process.env.BACKEND_URL;
-// export const db = "http://localhost:4000";
+export const backendUrl = process.env.BACKEND_URL;
 export const token = localStorage.getItem("token");
 export const Authorization = `Bearer ${localStorage.getItem("token")}`;
+export const headers = {
+  Authorization,
+  "Content-type": "Application/json"
+}

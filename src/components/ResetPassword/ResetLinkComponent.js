@@ -4,7 +4,7 @@ import "./ResetPasswordLink.css";
 import * as FaIcons from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 import { Formik } from "formik";
 import * as EmailValidator from "email-validator";
 
@@ -19,7 +19,7 @@ const ResetPasswordLink = () => {
       email: values.email,
     });
 
-    fetch(`${db}/users/reset`, {
+    fetch(`${backendUrl}/users/reset`, {
       method: "POST",
       body: bodyContent,
       headers: headersList,
