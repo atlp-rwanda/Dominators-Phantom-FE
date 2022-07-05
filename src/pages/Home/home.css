@@ -1,4 +1,5 @@
 /* Home Content style */
+
 .home-content {
   margin-top: 15px;
   display: flex;
@@ -152,6 +153,27 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    left: 0;
+    right: 0;
+  }
+
+  .row {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
     margin-bottom: 3rem;
+  }
+
+  @media only screen and (max-width: 620px) {
+    .home-skeleton {
+      height: 985px;
+    }
+    .row {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
   }
 }

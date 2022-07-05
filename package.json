@@ -4,7 +4,7 @@
   "description": "dream phantom project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --config webpack.prod.js",
     "start": "npm run build && serve ./dist",
     "dev": "webpack serve --open --config webpack.dev.js",
@@ -26,6 +26,7 @@
     "dotenv": "^16.0.0",
     "email-validator": "^2.0.4",
     "formik": "^2.2.9",
+    "jest": "^28.1.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",

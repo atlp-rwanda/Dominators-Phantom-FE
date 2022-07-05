@@ -37,6 +37,10 @@
   margin-left: -20px;
 }
 
+.sidebar nav button {
+  margin-left: -20px;
+}
+
 .sidebar nav a span,
 .sidebar nav button span {
   margin-left: 10px;

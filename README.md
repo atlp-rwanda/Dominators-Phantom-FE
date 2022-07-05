@@ -1,3 +1,5 @@
+![build](https://github.com/atlp-rwanda/Dominators-Phantom-FE/actions/workflows/phantom-ci.yml/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/c8de31dd23cfd4e2e654/maintainability)](https://codeclimate.com/github/atlp-rwanda/Dominators-Phantom-FE/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c8de31dd23cfd4e2e654/test_coverage)](https://codeclimate.com/github/atlp-rwanda/Dominators-Phantom-FE/test_coverage)
+
 # Dominators-Phantom-FE
 
 #### Installation

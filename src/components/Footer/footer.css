@@ -2,8 +2,6 @@
   height: 360px;
   background-color: var(--green);
   color: var(--white);
-  
-  
 }
 .footer .footer-limit {
   flex-wrap: wrap;
