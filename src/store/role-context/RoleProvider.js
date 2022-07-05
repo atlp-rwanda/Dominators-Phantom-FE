@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useEffect, useState } from "react";
 import RoleContext from "./role-context";
 import { toast, ToastContainer } from "react-toastify";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
@@ -15,13 +15,12 @@ const RoleProvider = (props) => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const postRoleHandler = async (role) => {
-    const response = await fetch(`${db}/roles`, {
+    const response = await fetch(`${backendUrl}/roles`, {
       method: "POST",
       body: JSON.stringify(role),
       headers,
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
@@ -33,13 +32,12 @@ const RoleProvider = (props) => {
   };
 
   const updateRoleHandler = async (id, role) => {
-    const response = await fetch(`${db}/roles/${id}`, {
+    const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "PATCH",
       body: JSON.stringify(role),
       headers,
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
@@ -51,7 +49,7 @@ const RoleProvider = (props) => {
   };
 
   const deleteRoleHandler = async (id) => {
-    const response = await fetch(`${db}/roles/${id}`, {
+    const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "DELETE",
       headers,
     });
@@ -69,8 +67,8 @@ const RoleProvider = (props) => {
 
   const fetchRolesHandler = useCallback(async () => {
     try {
-      if (location.pathname != "/") {
-        const response = await fetch(`${db}/roles`, {
+      if (!["/", "/login"].includes(location.pathname)) {
+        const response = await fetch(`${backendUrl}/roles`, {
           headers,
         });
 

@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useCallback } from "react";
 import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
 import NewRole from "../../components/Roles/NewRole/NewRole";
@@ -15,13 +15,15 @@ import RoleContext from "../../store/role-context/role-context";
 import PermissionContext from "../../store/permission-context/permission-context";
 import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
+import { headers, backendUrl } from "../../utils/db";
 
 const Roles = () => {
   const roleCtx = useContext(RoleContext);
-  const roles = roleCtx.roles;
-
+  // const roles = roleCtx.roles;
+  const [roles, setRoles] = useState([]);
+  const [permissions, setPermissions] = useState([]);
   const permCtx = useContext(PermissionContext);
-  const permissions = permCtx.permissions;
+  // const permissions = permCtx.permissions;
 
   const [isLoading, setIsLoading] = useState(true);
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
@@ -31,11 +33,35 @@ const Roles = () => {
   const [roleId, setRoleId] = useState("");
   const [editRoleIsShown, setEditRoleIsShown] = useState(false);
 
-  useEffect(() => {
-    if (roles?.length >= 0 && permissions?.result.length >= 0) {
-      setIsLoading(false);
+  const fetchRolesHandler = useCallback(async () => {
+    try {
+      const response = await fetch(`${backendUrl}/roles`, {
+        headers,
+      });
+      const data = await response.json();
+      setRoles(data.record.allRoles);
+    } catch (error) {
+      toast.error(error.message);
     }
-  }, [roles]);
+  }, []);
+
+  const fetchPermissionsHandler = useCallback(async () => {
+    try {
+      const response = await fetch(`${backendUrl}/permissions/0/10`, {
+        headers,
+      });
+      const data = await response.json();
+      setPermissions(data.record.allPermissions);
+      setIsLoading(false);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchRolesHandler();
+    fetchPermissionsHandler();
+  }, []);
 
   const showNewRoleHandler = () => {
     setNewRoleIsShown(true);

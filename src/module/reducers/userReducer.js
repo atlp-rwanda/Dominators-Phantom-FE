@@ -5,6 +5,7 @@ import {
   POST_USERS,
   POST_ONE_USER_ERROR,
   UPDATE_ONE_USER,
+  GET_ALL_ERROR,
 } from "../index";
 
 const initialState = {
@@ -17,6 +18,11 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_ALL_ERROR:
+      return {
+        ...state,
+        isLoaded: false,
+      };
     case GET_ALL_USER:
       return {
         ...state,

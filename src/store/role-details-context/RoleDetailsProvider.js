@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useEffect, useState } from "react";
 import RoleDetailsContext from "./role-details-context";
 import { toast, ToastContainer } from "react-toastify";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 
 const token = localStorage.getItem("token");
 const headers = {
@@ -14,7 +14,7 @@ const RoleDetailsProvider = (props) => {
 
   const getRoleHandler = async (id) => {
     try {
-      const response = await fetch(`${db}/roles/${id}`, {
+      const response = await fetch(`${backendUrl}/roles/${id}`, {
         headers,
       });
 
@@ -31,7 +31,7 @@ const RoleDetailsProvider = (props) => {
 
   const addPermissionHandler = async (permission) => {
     try {
-      const response = await fetch(`${db}/roles/${role.role_id}/permissions`, {
+      const response = await fetch(`${backendUrl}/roles/${role.role_id}/permissions`, {
         method: "POST",
         body: JSON.stringify(permission),
         headers,
@@ -54,7 +54,7 @@ const RoleDetailsProvider = (props) => {
   const deletePermissionHandler = async (id) => {
     try {
       const response = await fetch(
-        `${db}/roles/${role.role_id}/permissions/${id}`,
+        `${backendUrl}/roles/${role.role_id}/permissions/${id}`,
         {
           method: "DELETE",
           headers,

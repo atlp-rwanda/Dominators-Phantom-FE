@@ -23,10 +23,6 @@ function DriverOperator(props) {
   const [userData, setUserData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
 
-  useEffect(() => {
-    props.getAllUser();
-  }, []);
-
   const handleDelete = (userId) => {
     swal({
       title: "Are you sure?",
@@ -56,6 +52,8 @@ function DriverOperator(props) {
           label: values[0],
         });
     });
+    props.getAllUser();
+    console.log(isLoaded);
   }, [isChecked]);
 
   return (

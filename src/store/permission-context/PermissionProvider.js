@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import PermissionContext from "../permission-context/permission-context";
-import { db } from "../../utils/db";
+import { backendUrl } from "../../utils/db";
 import { toast, ToastContainer } from "react-toastify";
 
 const token = localStorage.getItem("token");
@@ -10,12 +10,12 @@ const headers = {
 };
 
 const PermissionProvider = (props) => {
-  const [permissions, setPermissions] = useState({ result: [] });
+  const [permissions, setPermissions] = useState({result: []});
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
   const postPermisionandler = async (permission) => {
-    const response = await fetch(`${db}/permissions`, {
+    const response = await fetch(`${backendUrl}/permissions/0/10`, {
       method: "POST",
       body: JSON.stringify(permission),
       headers,
@@ -35,7 +35,7 @@ const PermissionProvider = (props) => {
 
   const deletePermissionHandler = async (id) => {
     try {
-      const response = await fetch(`${db}/permissions/${id}`, {
+      const response = await fetch(`${backendUrl}/permissions/${id}`, {
         method: "DELETE",
         headers,
       });
@@ -55,16 +55,16 @@ const PermissionProvider = (props) => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      if (location.pathname != "/") {
-        const response = await fetch(`${db}/permissions/0/10`, {
+      if(!['/', '/login'].includes(location.pathname)) {
+        const response = await fetch(`${backendUrl}/permissions/0/10`, {
           headers,
         });
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }
-
+  
         const data = await response.json();
-        console.log({ data });
+        console.log({data});
         setPermissions(data.record.allPermissions);
       }
     } catch (error) {
