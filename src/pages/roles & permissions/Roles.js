@@ -47,7 +47,7 @@ const Roles = () => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      const response = await fetch(`${backendUrl}/permissions/0/10`, {
+      const response = await fetch(`${backendUrl}/permissions?page=0&size=10`, {
         headers,
       });
       const data = await response.json();

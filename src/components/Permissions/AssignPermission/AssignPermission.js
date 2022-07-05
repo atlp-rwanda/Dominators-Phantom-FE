@@ -1,8 +1,5 @@
 import { useState, useContext } from "react";
 import { ImCross } from "react-icons/im";
-import { connect } from "react-redux";
-import { postUser } from "../../../module/actions/userAction";
-import { toast } from "react-toastify";
 import RoleContext from "../../../store/role-context/role-context";
 import RoleDetailsContext from "../../../store/role-details-context/role-details-context";
 import PermissionContext from "../../../store/permission-context/permission-context";
@@ -25,7 +22,7 @@ const AssignPermission = (props) => {
   const [isPermission, setIsPermission] = useState("");
   const [error, setError] = useState("");
 
-  const filteredPermissions = permissions.filter(
+  const filteredPermissions = permissions.result?.filter(
     (permission) => !rolePermissionsId.includes(permission.permission_id)
   );
 

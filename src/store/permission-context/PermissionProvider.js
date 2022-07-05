@@ -10,18 +10,17 @@ const headers = {
 };
 
 const PermissionProvider = (props) => {
-  const [permissions, setPermissions] = useState({result: []});
+  const [permissions, setPermissions] = useState({ result: [] });
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
   const postPermisionandler = async (permission) => {
-    const response = await fetch(`${backendUrl}/permissions/0/10`, {
+    const response = await fetch(`${backendUrl}/permissions`, {
       method: "POST",
       body: JSON.stringify(permission),
       headers,
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
@@ -55,16 +54,18 @@ const PermissionProvider = (props) => {
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
-      if(!['/', '/login'].includes(location.pathname)) {
-        const response = await fetch(`${backendUrl}/permissions/0/10`, {
-          headers,
-        });
+      if (!["/", "/login"].includes(location.pathname)) {
+        const response = await fetch(
+          `${backendUrl}/permissions?page=0&size=1000`,
+          {
+            headers,
+          }
+        );
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }
-  
+
         const data = await response.json();
-        console.log({data});
         setPermissions(data.record.allPermissions);
       }
     } catch (error) {
