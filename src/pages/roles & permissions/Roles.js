@@ -16,15 +16,16 @@ import PermissionContext from "../../store/permission-context/permission-context
 import swal from "sweetalert";
 import ReactPaginate from "react-paginate";
 import { toast, ToastContainer } from "react-toastify";
-import { headers, backendUrl } from "../../utils/db";
+import { backendUrl, headers } from "../../utils/db";
 
 const Roles = () => {
   const roleCtx = useContext(RoleContext);
-  // const roles = roleCtx.roles;
+  const rolesCtx = roleCtx.roles;
+
   const [roles, setRoles] = useState([]);
   const [permissions, setPermissions] = useState([]);
   const permCtx = useContext(PermissionContext);
-  // const permissions = permCtx.permissions;
+  const permissionsCtx = permCtx.permissions;
 
   const [isLoading, setIsLoading] = useState(true);
   const [newRoleIsShown, setNewRoleIsShown] = useState(false);
@@ -34,17 +35,17 @@ const Roles = () => {
   const [roleId, setRoleId] = useState("");
   const [editRoleIsShown, setEditRoleIsShown] = useState(false);
 
-  const fetchRolesHandler = useCallback(async () => {
-    try {
-      const response = await fetch(`${backendUrl}/roles`, {
-        headers,
-      });
-      const data = await response.json();
-      setRoles(data.record.allRoles);
-    } catch (error) {
-      toast.error(error.message);
-    }
-  }, []);
+  // const fetchRolesHandler = useCallback(async () => {
+  //   try {
+  //     const response = await fetch(`${backendUrl}/roles`, {
+  //       headers,
+  //     });
+  //     const data = await response.json();
+  //     setRoles(data.record.allRoles);
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // }, []);
 
   const fetchPermissionsHandler = useCallback(async () => {
     try {
@@ -63,9 +64,9 @@ const Roles = () => {
   }, []);
 
   useEffect(() => {
-    fetchRolesHandler();
+    setRoles(rolesCtx);
     fetchPermissionsHandler();
-  }, []);
+  }, [rolesCtx, permissionsCtx]);
 
   const showNewRoleHandler = () => {
     setNewRoleIsShown(true);

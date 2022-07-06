@@ -5,6 +5,7 @@ import { backendUrl, Authorization, headers } from "../../utils/db";
 
 const RoleProvider = (props) => {
   const [roles, setRoles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isPosted, setIsPosted] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
@@ -12,8 +13,8 @@ const RoleProvider = (props) => {
   const postRoleHandler = async (role) => {
     const response = await fetch(`${backendUrl}/roles`, {
       method: "POST",
-      body: JSON.stringify(role),
       headers,
+      body: JSON.stringify(role),
     });
     const data = await response.json();
     if (data.status === "fail") {
@@ -73,6 +74,7 @@ const RoleProvider = (props) => {
           toast.error(data.record.message);
         }
         setRoles(data.record.allRoles);
+        setIsLoading(false);
       }
     } catch (error) {
       toast.error(error.message);
@@ -84,11 +86,12 @@ const RoleProvider = (props) => {
     addRole: postRoleHandler,
     updateRole: updateRoleHandler,
     removeRole: deleteRoleHandler,
+    isLoading,
   };
 
   useEffect(() => {
     fetchRolesHandler();
-  }, [fetchRolesHandler, isPosted, isDeleted, isUpdated]);
+  }, [fetchRolesHandler, isPosted, isDeleted, isUpdated, isLoading]);
 
   return (
     <RoleContext.Provider value={roleContext}>

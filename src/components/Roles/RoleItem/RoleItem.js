@@ -22,7 +22,7 @@ const RoleItem = (props) => {
     if (roleData.permissions) {
       setRolePermissions(roleData.permissions);
     }
-  }, [rolePermissions, showAssignPermissions]);
+  }, [rolePermissions, showAssignPermissions, roleData]);
 
   const [checkedState, setCheckedState] = useState(
     new Array(rolePermissions.length).fill(false)

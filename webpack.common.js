@@ -19,7 +19,7 @@ module.exports = {
       directory: path.resolve(__dirname, "dist"),
     },
     port: port || 5000,
-    open: true,
+    open: false,
     hot: true,
     compress: true,
     hot: true,

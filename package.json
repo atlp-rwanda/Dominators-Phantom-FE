@@ -7,10 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "start": "NODE_OPTIONS=--max_old_space_size=8198 npm run build && serve ./dist",
-    "dev": "webpack serve --open --config webpack.dev.js",
-    "user": "json-server --watch crude-driver-operator.json --port 4000",
-    "route": "json-server --watch crude-route.json --port 4000",
-    "roles": "json-server --watch roles.json --port 4000"
+    "dev": "webpack serve --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
