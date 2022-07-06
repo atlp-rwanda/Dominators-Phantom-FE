@@ -1,7 +1,7 @@
 /* Header Css that  */
 
 .intro_header {
-  background: url("../../assets//images/background.svg");
+  background: url("https://res.cloudinary.com/nexin-kigali/image/upload/v1657191248/background_pciabx.svg");
   background-size: 94%;
   height: 450px;
   width: 100%;
@@ -47,7 +47,7 @@
 }
 @media only screen and (max-width: 620px) {
   .intro_header {
-    background: url("../../assets//images/background.svg");
+    background: url("https://res.cloudinary.com/nexin-kigali/image/upload/v1657191248/background_pciabx.svg");
     background-position: inherit;
     background-size: cover;
     height: max-content;

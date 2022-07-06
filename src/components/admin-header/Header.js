@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import assests from "../../assets/assets";
 import { Link } from "react-router-dom";
-import groupIcon from "../../assets/images/logos/phantomIcon.png";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
@@ -34,7 +34,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="leftNavBar">
           <FaIcons.FaBars id="menuBars" />
-          <img src={groupIcon} alt="" id="busIcon" />
+          <img src={assests.phantomIcon} alt="" id="busIcon" />
         </div>
         <div className="rightNavBar" onClick={() => setRightBar(!rightBar)}>
           <p className="circleWord" onClick={() => setRightBar(!rightBar)}>

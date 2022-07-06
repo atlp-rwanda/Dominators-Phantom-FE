@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSkeleton(true);
-    }, 500);
+    }, 100);
     return () => clearTimeout(timer);
   });
   return (

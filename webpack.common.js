@@ -19,7 +19,7 @@ module.exports = {
       directory: path.resolve(__dirname, "dist"),
     },
     port: port || 5000,
-    open: true,
+    open: false,
     hot: true,
     compress: true,
     hot: true,
@@ -47,6 +47,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx|js?$/,
+        include: path.resolve(__dirname, "src"),
         exclude: /node_modules/,
         loader: require.resolve("babel-loader"),
       },

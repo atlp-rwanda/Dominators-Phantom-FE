@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import bus from "../../assets/images/bus.svg";
+import assests from "../../assets/assets";
 import HomeButton from "../Buttons/HomeButton";
 import "./header.css";
 import UserHeaderSkeleton from "./UserHeaderSkeleton";
@@ -29,7 +29,7 @@ function UserHeader() {
                 </div>
               </div>
               <div className="bus-image">
-                <img src={bus} alt="" width="70%" />
+                <img src={assests.bus} alt="" width="70%" />
               </div>
             </div>
           </div>
