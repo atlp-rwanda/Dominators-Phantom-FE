@@ -50,7 +50,7 @@ const Sidebar = () => {
             <AssignDriver />
           </DropDown>
         )}
-        <NavLink to="/crud-route">
+        <NavLink to="/route">
           <AiIcons.AiOutlineReload />
           <span> Routes</span>
         </NavLink>

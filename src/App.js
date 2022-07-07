@@ -22,7 +22,7 @@ function App() {
       <Route path="/update-profile" element={<UpdateProfile />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
-      <Route path="/crud-route" element={<CrudRoute itemsPerPage={2} />} />
+      <Route path="/route" element={<CrudRoute itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
       <Route path="/users" element={<DriverOperator />} />
       <Route path="/roles" element={<Roles />} />
