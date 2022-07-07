@@ -34,8 +34,8 @@ const UnAssigned = lazy(() => import("./pages/AssignDriver/UnAssigned"));
 
 function App() {
   return (
-    <Routes>
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
         <Route path="/" element={<Home />} exact={true} />
         <Route path="/update-profile" element={<UpdateProfile />} />
         <Route path="/*" element={<PageNotFound />} />
@@ -49,8 +49,8 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/assigned" element={<Assigned />} exact />
         <Route path="/unassigned" element={<UnAssigned />} exact />
-      </Suspense>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 }
 export default App;
