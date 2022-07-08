@@ -2,7 +2,7 @@ import "./notification.css";
 import { useState, useEffect } from "react";
 import { ImCross } from "react-icons/im";
 import moment from "moment";
-import { updateViewNotification } from "../../module/actions/NotificationAction";
+import { updateViewNotification } from "../../module/actions/notificationAction";
 import { connect } from "react-redux";
 function NotificationComponent(props) {
   const { notificationMessage } = props;

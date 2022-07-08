@@ -7,7 +7,7 @@ import * as BsIcons from "react-icons/bs";
 import * as IoIcons from "react-icons/io";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
-import { getAllNotifications } from "../../module/actions/NotificationAction";
+import { getAllNotifications } from "../../module/actions/notificationAction";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 const Header = (props) => {

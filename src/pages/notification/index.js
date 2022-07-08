@@ -5,7 +5,7 @@ import Sidebar from "../../components/admin-sidebar/SideBar";
 import { FaBell } from "react-icons/fa";
 import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import { connect } from "react-redux";
-import NotificationComponent from "../../components/notification/notificationComponent";
+import NotificationComponent from "../../components/notification/NotificationComponent";
 function Notification(props) {
   const { notification } = props;
   const [openModal, setOpenModal] = useState(false);

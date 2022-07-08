@@ -13,7 +13,7 @@ import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
 import Assigned from "./pages/AssignDriver/Assigned";
 import UnAssigned from "./pages/AssignDriver/UnAssigned";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard";
 import Notification from "./pages/notification/";
 function App() {
   return (
