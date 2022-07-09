@@ -13,14 +13,14 @@ const root = reactDom.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <RoleProvider>
-      <RoleDetailsProvider>
-        <PermissionProvider>
+    {/* <RoleProvider> */}
+      {/* <RoleDetailsProvider> */}
+        {/* <PermissionProvider> */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </PermissionProvider>
-      </RoleDetailsProvider>
-    </RoleProvider>
+        {/* </PermissionProvider> */}
+      {/* </RoleDetailsProvider> */}
+    {/* </RoleProvider> */}
   </Provider>
 );

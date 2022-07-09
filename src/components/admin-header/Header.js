@@ -42,7 +42,7 @@ const Header = (props) => {
     <div>
       <nav className="navbar">
         <div className="leftNavBar">
-          <FaIcons.FaBars id="menuBars" />
+          <FaIcons.FaBars id="menuBars" onClick={() => props.callFunction()} />
           <img src={groupIcon} alt="" id="busIcon" />
         </div>
         <div className="rightNavBar" onClick={() => setRightBar(!rightBar)}>

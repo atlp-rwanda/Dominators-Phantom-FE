@@ -28,21 +28,17 @@ const ResetPasswordLink = () => {
         return res.json();
       })
       .then((result) => {
-        if (result.status == "success") {
+        if (result.Message == "success") {
           toast.success(result.record);
-          console.log("THIS IS A RESULT", result);
-        } else if (result.status == "fail") {
+        } else if (result.Message == "fail") {
           if (result.code == 400) {
             toast.error(result.record, { theme: "colored" });
-            console.log("THIS IS A RESULT", result);
           } else if (result.code == 401) {
             toast.error(result.record, { theme: "colored" });
-            console.log("THIS IS A RESULT", result);
           }
         }
       })
       .catch((error) => {
-        console.log(values);
         toast.error("Internal sever error!", { theme: "colored" });
       });
   };
