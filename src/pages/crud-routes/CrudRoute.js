@@ -15,6 +15,7 @@ import { HiPencil, HiTrash } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import UpdateRoute from "../../modals/RouteModal/UpdateRoute";
 import swal from "sweetalert";
+import RouteDetail from "../../modals/RouteModal/RouteDetail";
 
 function CrudRoute(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,7 @@ function CrudRoute(props) {
   const [isChecked, setIsChecked] = useState({ "089": false });
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
+  const [detail, setDetail] = useState(false);
   let NoRows = 1;
 
   let selectedRoutes = [];
@@ -53,6 +55,10 @@ function CrudRoute(props) {
         location.reload();
       }
     });
+  };
+  const handleShowDetails = () => {
+    setDetail(!detail);
+    console.log(">>>>>>>> double click");
   };
   const handleSearch = (e) => {};
 
@@ -128,7 +134,11 @@ function CrudRoute(props) {
               {isLoaded ? (
                 <tbody className="tbody">
                   {isData.result?.map((value, idx) => (
-                    <tr key={idx}>
+                    <tr
+                      key={idx}
+                      className="tr"
+                      onDoubleClick={handleShowDetails}
+                    >
                       <td scope="row">
                         <input
                           type="checkbox"
@@ -227,6 +237,7 @@ function CrudRoute(props) {
               routeData={routeData}
             />
           )}
+          {detail && <RouteDetail setDetail={setDetail} />}
         </div>
       </div>
     </>

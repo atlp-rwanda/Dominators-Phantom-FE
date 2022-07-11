@@ -1,13 +1,7 @@
 import { useReducer, useCallback, useEffect, useState } from "react";
 import RoleContext from "./role-context";
 import { toast, ToastContainer } from "react-toastify";
-import { backendUrl } from "../../utils/db";
-
-const token = localStorage.getItem("token");
-const headers = {
-  Authorization: `Bearer ${token}`,
-  "Content-Type": "application/json",
-};
+import { backendUrl, Authorization, headers } from "../../utils/db";
 
 const RoleProvider = (props) => {
   const [roles, setRoles] = useState([]);
@@ -18,7 +12,7 @@ const RoleProvider = (props) => {
     const response = await fetch(`${backendUrl}/roles`, {
       method: "POST",
       body: JSON.stringify(role),
-      headers: { Authorization },
+      headers,
     });
     const data = await response.json();
     if (data.status === "fail") {
@@ -35,7 +29,7 @@ const RoleProvider = (props) => {
     const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "PATCH",
       body: JSON.stringify(role),
-      headers: { Authorization },
+      headers,
     });
     const data = await response.json();
     if (data.status === "fail") {
@@ -51,7 +45,7 @@ const RoleProvider = (props) => {
   const deleteRoleHandler = async (id) => {
     const response = await fetch(`${backendUrl}/roles/${id}`, {
       method: "DELETE",
-      headers: { Authorization },
+      headers,
     });
 
     const data = await response.json();

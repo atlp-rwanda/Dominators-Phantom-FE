@@ -10,4 +10,7 @@ export const SOCKET_BACKEND_URL =
   process.env.SOCKET_BACKEND_URL || "http://localhost:5000";
 export const client = io(SOCKET_BACKEND_URL);
 export const BACKEND_URL = process.env.BACKEND_URL;
-export const headers = { Authorization };
+export const headers = {
+  Authorization,
+  "Content-Type": "application/json",
+};

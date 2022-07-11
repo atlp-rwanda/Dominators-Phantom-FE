@@ -11,13 +11,13 @@
 
 .rightNavBar {
   display: flex;
-  position: absolute;
   right: 0;
   top: 5px;
+  height: 100%;
+  cursor: pointer;
 }
 
 .leftNavBar {
-  position: absolute;
   top: 10px;
 }
 
@@ -32,9 +32,7 @@
   text-align: center;
   cursor: pointer;
   padding-top: 7.7px;
-  padding-left: 13.5px;
   margin: auto;
-  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
@@ -42,7 +40,6 @@
   margin: auto;
   margin-left: 5px;
   cursor: pointer;
-  padding-bottom: 30px;
   text-transform: capitalize;
 }
 
@@ -52,6 +49,7 @@
   margin-right: 30px;
   margin-left: 0px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 #menuBars {
@@ -61,10 +59,9 @@
 }
 
 #busIcon {
-  width: 70px;
+  width: 83px;
   height: auto;
   margin-left: 20px;
-  margin-top: 10px;
 }
 
 .sideBar {
