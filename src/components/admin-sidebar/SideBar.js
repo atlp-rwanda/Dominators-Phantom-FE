@@ -37,19 +37,21 @@ const Sidebar = () => {
             </NavLink>
           </>
         )}
-        {["admin", "operator"].includes(role) && (
-          <NavLink to="/routes">
-            <AiIcons.AiOutlineReload />
-            <span> Routes</span>
-          </NavLink>
+        <NavLink to="/route">
+          <AiIcons.AiOutlineReload />
+          <span> Routes</span>
+        </NavLink>
+        {role === "operator" && (
+          <DropDown
+            setUseDropdown={setUseDropDown}
+            useDropDown={useDropDown}
+            name="Assigned Driver "
+            driver="driver"
+            icon={<GiSteeringWheel />}
+          >
+            <AssignDriver />
+          </DropDown>
         )}
-        <DropDown
-          setUseDropdown={setUseDropDown}
-          useDropDown={useDropDown}
-          name="Assigned Driver "
-          driver="driver"
-          icon={<GiSteeringWheel />}
-        ></DropDown>
         <Link to="#">
           <IoIcons.IoMdBus />
           <span> Buses </span>

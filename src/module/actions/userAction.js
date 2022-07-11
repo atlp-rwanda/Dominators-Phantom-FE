@@ -6,6 +6,7 @@ import {
   UPDATE_ONE_USER,
   DELETE_USER,
   GET_ALL_ERROR,
+  GET_ALL_USERS_DRIVERS,
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
@@ -23,7 +24,7 @@ export const getAllUser = () => async (dispatch) => {
       headers,
     });
     const datas = await dt.json();
-    console.log(datas);
+    console.log(datas.data);
     if (dt.ok === false)
       dispatch(creator(GET_ALL_ERROR)), toast.error(datas.message);
     else dispatch(creator(GET_ALL_USER, datas.data));
@@ -33,11 +34,28 @@ export const getAllUser = () => async (dispatch) => {
     }
   }
 };
-
+export const getAllUserDriver = () => async (dispatch) => {
+  try {
+    const dt = await fetch(`${backendUrl}/users`, {
+      headers,
+    });
+    const datas = await dt.json();
+    if (dt.ok === false)
+      dispatch(creator(GET_ALL_ERROR)), toast.error(datas.message);
+    else {
+      const userDrivers = datas.data.filter(({ role }) => role === "driver");
+      dispatch(creator(GET_ALL_USERS_DRIVERS, userDrivers));
+    }
+  } catch (e) {
+    if (e.message) {
+      return toast.error(e.message);
+    }
+  }
+};
 export const getOneUser = (userId) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/users/` + userId, {
-      headers
+      headers,
     });
     const data = await dt.json();
     dispatch(creator(GET_ONE_USER, data));
@@ -56,13 +74,13 @@ export const postUser = (data) => async (dispatch) => {
       headers,
     });
     const response = await dt.json();
-    const message = response.error || response.message
-    if (dt.status==201) {
+    const message = response.error || response.message;
+    if (dt.status == 201) {
       dispatch(creator(POST_USERS, response.data));
       toast.success(message);
     } else {
       dispatch(creator(POST_ONE_USER_ERROR, message));
-      toast.error(message)
+      toast.error(message);
     }
   } catch (error) {
     if (error.message) return toast.error(error.message);
@@ -89,7 +107,7 @@ export const deleteUser = (id) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/users/` + id, {
       method: "DELETE",
-      headers
+      headers,
     });
     dispatch(creator(DELETE_USER, id));
   } catch (error) {

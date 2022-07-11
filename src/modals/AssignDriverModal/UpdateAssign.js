@@ -1,7 +1,7 @@
 import "./assignModal.css";
 import { ImCross } from "react-icons/im";
 import Select from "react-select";
-import { getAllUser } from "../../module/actions/userAction";
+import { getAllUserDriver } from "../../module/actions/userAction";
 import { getAllBuses } from "../../module/actions/busesAction";
 import { UpdateDriverAssignToBuses } from "../../module/actions/assignBuseAction";
 import { useEffect, useState } from "react";
@@ -32,11 +32,9 @@ function UpdateAssign(props) {
   const optionBuses = buses.map((value) => ({
     value: value.id,
     label: value.prateNumber,
-
-
   }));
   useEffect(() => {
-    props.getAllUser();
+    props.getAllUserDriver();
     props.getAllBuses();
     setFirstName(AssignData.name);
   }, []);
@@ -145,12 +143,12 @@ function UpdateAssign(props) {
     </>
   );
 }
-const mapState = ({ users, buses }) => ({
-  users: users.data,
+const mapState = ({ user, buses }) => ({
+  users: user.drivers,
   buses: buses.data,
 });
 export default connect(mapState, {
-  getAllUser: getAllUser,
+  getAllUserDriver: getAllUserDriver,
   getAllBuses: getAllBuses,
   UpdateDriverAssignToBuses: UpdateDriverAssignToBuses,
 })(UpdateAssign);

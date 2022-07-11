@@ -55,6 +55,9 @@ function Assigned(props) {
       }
     });
   };
+  const handlePageClick = (e) => {
+    setPage(e.selected);
+  };
   const handleSingleCheck = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
@@ -75,17 +78,6 @@ function Assigned(props) {
               Assign Driver
             </CustomButton>
           </div>
-
-          {isChecked.length > 0 ? (
-            <div className="btn-delete">
-              <CustomButton classes="btn btn-danger btn-radius">
-                Delete All
-              </CustomButton>
-            </div>
-          ) : (
-            ""
-          )}
-
           <div className="route-table">
             <table>
               <thead className="thead">
@@ -101,8 +93,6 @@ function Assigned(props) {
                 <tbody className="tbody">
                   {data
                     ? data.result?.map((value, idx) => {
-
-
                         return (
                           <tr key={idx}>
                             <td key={value.id} scope="row">
@@ -162,12 +152,20 @@ function Assigned(props) {
                   <tr>
                     <td colSpan={5}>
                       <div className="table-paginate">
+                        <div>
+                          Showing {data?.result?.length} of {data?.totalItems}{" "}
+                          with in {data?.totalPages} Pages
+                        </div>
                         <ReactPaginate
+                          nextLabel="next"
                           renderOnZeroPageCount={null}
                           pageRangeDisplayed={1}
-                          pageCount={2}
+                          onPageChange={handlePageClick}
+                          pageCount={data.totalPages}
                           breakLabel="..."
+                          previousLabel="previous"
                           activeClassName="active"
+                          marginPagesDisplayed={2}
                         />
                       </div>
                     </td>

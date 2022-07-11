@@ -15,12 +15,13 @@ const PermissionProvider = (props) => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const postPermisionandler = async (permission) => {
-    const response = await fetch(`${backendUrl}/permissions`, {
+    const response = await fetch(`${backendUrl}/permissions/?page=0`, {
       method: "POST",
       body: JSON.stringify(permission),
       headers,
     });
     const data = await response.json();
+    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
@@ -56,7 +57,7 @@ const PermissionProvider = (props) => {
     try {
       if (!["/", "/login"].includes(location.pathname)) {
         const response = await fetch(
-          `${backendUrl}/permissions?page=0&size=1000`,
+          `${backendUrl}/permissions/?page=0&size=100`,
           {
             headers,
           }
@@ -66,6 +67,7 @@ const PermissionProvider = (props) => {
         }
 
         const data = await response.json();
+        console.log({ data });
         setPermissions(data.record.allPermissions);
       }
     } catch (error) {
