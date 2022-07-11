@@ -11,13 +11,13 @@
 
 .rightNavBar {
   display: flex;
-  position: absolute;
   right: 0;
   top: 5px;
+  height: 100%;
+  cursor: pointer;
 }
 
 .leftNavBar {
-  position: absolute;
   top: 10px;
 }
 
@@ -32,9 +32,7 @@
   text-align: center;
   cursor: pointer;
   padding-top: 7.7px;
-  padding-left: 13.5px;
   margin: auto;
-  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
@@ -42,7 +40,6 @@
   margin: auto;
   margin-left: 5px;
   cursor: pointer;
-  padding-bottom: 30px;
   text-transform: capitalize;
 }
 
@@ -52,6 +49,7 @@
   margin-right: 30px;
   margin-left: 0px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 #menuBars {
@@ -61,10 +59,9 @@
 }
 
 #busIcon {
-  width: 70px;
+  width: 83px;
   height: auto;
   margin-left: 20px;
-  margin-top: 10px;
 }
 
 .sideBar {
@@ -77,13 +74,18 @@
 
 .rightBar {
   position: fixed;
-  right: 2px;
+  right: 20px;
   top: 73px;
   background-color: rgb(255, 255, 255);
   color: hsl(166deg 100% 16% / 66%);
   width: fit-content;
   display: block;
   align-items: left;
+  cursor: pointer;
+  z-index: 19;
+  border-end-start-radius: 9px;
+  border-end-end-radius: 9px;
+  box-shadow: -1px 1px 17px var(--green);
 }
 .d-icons {
   text-align: left;
@@ -94,7 +96,6 @@
   /* align-items: center; */
   width: 100%;
   font-size: medium;
-  
 }
 
 /* .d-icons p {
@@ -123,6 +124,41 @@
 .d-icons:hover {
   background-color: hsl(166deg 100% 16% / 66%);
   color: white;
+}
+.bell {
+  position: absolute;
+  animation-name: bell;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  top: 0.8rem;
+  left: 2.5rem;
+  color: red;
+  cursor: pointer;
+}
+.bell-notify {
+  animation-name: bell;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  margin-top: 1.3rem;
+}
+@keyframes bell {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  5%,
+  15% {
+    transform: translate(-50%, -50%) rotate(25deg);
+  }
+  10%,
+  20% {
+    transform: translate(-50%, -50%) rotate(-25deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
 }
 /* 
 #logout {

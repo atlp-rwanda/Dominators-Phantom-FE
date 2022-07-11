@@ -7,16 +7,23 @@ import * as BsIcons from "react-icons/bs";
 import * as IoIcons from "react-icons/io";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
-
-const Header = () => {
+import { getAllNotifications } from "../../module/actions/notificationAction";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+const Header = (props) => {
   const [noun, setNoun] = useState("");
   const [rightBar, setRightBar] = useState(false);
-
+  const user = localStorage.getItem("user");
   const userName = localStorage.getItem("userName");
-
+  const DriverId = localStorage.getItem("userId");
+  const { notification } = props;
+  const coutnNotification = notification.length;
   useEffect(() => {
     setNoun(userName);
-  });
+    if (localStorage.getItem("role") === "driver") {
+      props.getAllNotifications(DriverId);
+    }
+  }, [notification]);
 
   const nav = useNavigate();
 
@@ -26,9 +33,11 @@ const Header = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userEmail");
     return nav("/login");
   };
-
   return (
     <div>
       <nav className="navbar">
@@ -37,6 +46,11 @@ const Header = () => {
           <img src={groupIcon} alt="" id="busIcon" />
         </div>
         <div className="rightNavBar" onClick={() => setRightBar(!rightBar)}>
+          {notification.length > 0 ? (
+            <FaIcons.FaBell id="" className="bell" />
+          ) : (
+            ""
+          )}
           <p className="circleWord" onClick={() => setRightBar(!rightBar)}>
             {noun?.charAt(0)}
           </p>
@@ -57,13 +71,25 @@ const Header = () => {
             </Link>
 
             <div className="d-icons">
-              <AiIcons.AiFillSetting className="icons-sub" />
+              <AiIcons.AiFillSetting className="icons-sub " />
               <span> Settings </span>
             </div>
-            <div className="d-icons">
-              <BsIcons.BsBellFill className="icons-sub" />
-              <span> Notifications</span>
-            </div>
+            <NavLink to="/notification" style={{ color: "var(--green)" }}>
+              <div className="d-icons">
+                <BsIcons.BsBellFill
+                  className={
+                    coutnNotification > 0
+                      ? "icons-sub bell-notify"
+                      : "icons-sub"
+                  }
+                />
+                <span>
+                  {" "}
+                  Notification{notification.length > 1 ? "s" : ""} (
+                  {notification.length > 0 ? notification.length : ""})
+                </span>
+              </div>
+            </NavLink>
             <div className="d-icons" id="logout">
               <IoIcons.IoMdLogOut className="icons-sub" />
               <span onClick={(e) => handleLogout(e)}> Logout </span>
@@ -74,5 +100,9 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;
+const mapToState = ({ notification }) => ({
+  notification: notification.notification,
+});
+export default connect(mapToState, {
+  getAllNotifications: getAllNotifications,
+})(Header);

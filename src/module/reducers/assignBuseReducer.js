@@ -1,5 +1,4 @@
 import {
-
   DELETE_DRIVER_ASSIGN_TO_BUSES,
   GET_ALL_DRIVER_ASSIGN_TO_BUSES,
   GET_ALL_ERROR,
@@ -39,11 +38,9 @@ export default (state = initialState, { type, payload }) => {
         data: payload,
       };
     case DELETE_DRIVER_ASSIGN_TO_BUSES:
-      console.log(state.data.data.result.filter(({ id }) => id !== payload));
-      const data = state.data.data.result.filter(({ id }) => id !== payload);
       return {
         isLoaded: true,
-        data: data,
+        data: payload,
       };
     default:
       return state;

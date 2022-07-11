@@ -50,14 +50,23 @@ const Sidebar = () => {
             <AssignDriver />
           </DropDown>
         )}
-        <NavLink to="/crud-route">
+        <NavLink to="/route">
           <AiIcons.AiOutlineReload />
-          <span> Routes </span>
+          <span> Routes</span>
         </NavLink>
-        <NavLink to="/buses">
+        <DropDown
+          setUseDropdown={setUseDropDown}
+          useDropDown={useDropDown}
+          name="Assigned Driver "
+          driver="driver"
+          icon={<GiSteeringWheel />}
+        >
+          <AssignDriver />
+        </DropDown>
+        <Link to="#">
           <IoIcons.IoMdBus />
           <span> Buses </span>
-        </NavLink>
+        </Link>
       </nav>
     </div>
   );

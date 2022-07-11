@@ -21,18 +21,15 @@ import swal from "sweetalert";
 function Assigned(props) {
   const { assigned, isLoaded } = props;
   const { data } = assigned;
-
   const [isOpen, setIsOpen] = useState(false);
   const [isUpdateModal, setIsUpdateModel] = useState(false);
   const [AssignData, setAssignData] = useState([]);
   const [isChecked, setIsChecked] = useState({ 90: false });
-
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
   let NoRows = 1;
   useEffect(() => {
     props.getAllDriverAssignToBuses(page, size);
-
   }, []);
   useEffect(() => {
     if (assigned.lenght > 0) {
@@ -41,8 +38,6 @@ function Assigned(props) {
       });
     }
   }, [assigned]);
-
-  console.log(isChecked);
 
   const handleDelete = (id) => {
     swal({
@@ -56,7 +51,6 @@ function Assigned(props) {
         props.deleteDriverAssignToBuses(id);
         toast.success("Assigned Delete Successfully");
         location.reload();
-
       } else {
       }
     });
@@ -72,13 +66,11 @@ function Assigned(props) {
       <div className="main">
         <BreadCrumb icon={<MdAssignmentReturned />} title="LIST OF ASSIGNED" />
         <div className="content">
-
           <div
             className="btn-add-route"
             style={{}}
             onClick={(e) => setIsOpen(true)}
           >
-
             <CustomButton classes="btn btn-green btn-radius">
               Assign Driver
             </CustomButton>
@@ -122,13 +114,11 @@ function Assigned(props) {
                               />
                               {NoRows++}
                             </td>
-
                             <td scope="row">{value.Users.email}</td>
                             <td scope="row">
                               {value.Users.firstName + value.Users.lastName}
                             </td>
                             <td scope="row">{value.Buses.prateNumber}</td>
-
                             <td scope="row">
                               <Link
                                 to="#"
@@ -137,7 +127,6 @@ function Assigned(props) {
                                   e.preventDefault;
                                   setIsUpdateModel(true);
                                   setAssignData({
-
                                     userEmail: value.Users.email,
                                     name:
                                       value.Users.firstName +
@@ -146,7 +135,6 @@ function Assigned(props) {
                                     id: value.id,
                                     buseId: value.BusId,
                                     userId: value.UserId,
-
                                   });
                                 }}
                               >

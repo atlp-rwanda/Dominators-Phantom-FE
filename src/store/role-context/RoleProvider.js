@@ -1,13 +1,7 @@
 import { useReducer, useCallback, useEffect, useState } from "react";
 import RoleContext from "./role-context";
 import { toast, ToastContainer } from "react-toastify";
-import { backendUrl } from "../../utils/db";
-
-const token = localStorage.getItem("token");
-const headers = {
-  Authorization: `Bearer ${token}`,
-  "Content-Type": "application/json",
-};
+import { backendUrl, Authorization, headers } from "../../utils/db";
 
 const RoleProvider = (props) => {
   const [roles, setRoles] = useState([]);

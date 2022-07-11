@@ -14,16 +14,14 @@ function AssignModal(props) {
   const [selectedOptionUsers, setSelectionOptionUsers] = useState(null);
   const [selectedOptionBuses, setSelectionOptionBuses] = useState(null);
   const [error, setError] = useState({});
-
-  const optionUsers = users.map((value) => ({
+  const optionUsers = users?.map((value) => ({
     value: value.id,
     label: value.email,
     name: value.firstName + " " + value.lastName,
   }));
-  const optionBuses = buses.map((value) => ({
+  const optionBuses = buses?.map((value) => ({
     value: value.id,
     label: value.prateNumber,
-
   }));
   useEffect(() => {
     props.getAllUser();
@@ -51,17 +49,13 @@ function AssignModal(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!FormValidation()) {
-
       props.postDriverAssignToBuses(
         selectedOptionBuses.value,
         selectedOptionUsers.value
       );
       props.setIsOpen(false);
-    } 
-     else {
+    } else {
       toast.error("Some Fillied are Empty");
-
-
     }
   };
   return (
@@ -77,8 +71,6 @@ function AssignModal(props) {
         <div className="line"></div>
         <div className="card">
           <form onSubmit={handleSubmit}>
-
-
             <div className="row-card">
               <div className="col-md-10">
                 <div className="form-group row-card2">

@@ -1,0 +1,18 @@
+.date {
+  padding: 1rem;
+}
+.bunner {
+  padding: 1rem;
+  text-align: left !important;
+  font-size: 1.3em !important;
+}
+.close-icon {
+  margin-top: 21px !important;
+  margin-right: 9px !important;
+}
+.message {
+  padding: 1rem;
+}
+.m-t-2 {
+  margin-top: 9rem;
+}

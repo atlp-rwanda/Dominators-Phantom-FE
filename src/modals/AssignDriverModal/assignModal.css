@@ -24,7 +24,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
-
   /* margin-left: -15px; */
   flex-direction: row-reverse;
   justify-content: space-evenly;
@@ -33,7 +32,6 @@
   width: 100%;
 
   margin-left: -15px;
-
 }
 .form {
   margin-top: 1rem;

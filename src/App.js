@@ -11,10 +11,10 @@ import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
 import Roles from "./pages/roles & permissions/Roles";
 import ResetLink from "./pages/ResetLink";
 import ResetPwd from "./pages/ResetPwd";
-import Dashboard from "./pages/dashboard";
-
 import Assigned from "./pages/AssignDriver/Assigned";
 import UnAssigned from "./pages/AssignDriver/UnAssigned";
+import Dashboard from "./pages/dashboard";
+import Notification from "./pages/notification/";
 function App() {
   return (
     <Routes>
@@ -22,7 +22,7 @@ function App() {
       <Route path="/update-profile" element={<UpdateProfile />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/home" element={<Landing />} />
-      <Route path="/crud-route" element={<CrudRoute itemsPerPage={2} />} />
+      <Route path="/route" element={<CrudRoute itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
       <Route path="/users" element={<DriverOperator />} />
       <Route path="/roles" element={<Roles />} />
@@ -31,6 +31,9 @@ function App() {
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/assigned" element={<Assigned />} exact />
       <Route path="/unassigned" element={<UnAssigned />} exact />
+      <Route path="/Reset-link" element={<ResetLink />} />
+      <Route path="/Reset-pwd" element={<ResetPwd />} />
+      <Route path="/notification" element={<Notification />} />
     </Routes>
   );
 }

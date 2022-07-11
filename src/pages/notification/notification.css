@@ -1,0 +1,38 @@
+.main-notification {
+  border: 1px solid var(--green);
+  height: max-content;
+  border-radius: 4px;
+  background-color: var(--white);
+  width: 80% !important;
+  place-items: center;
+
+  margin-left: 13rem !important;
+}
+.title-notification {
+  font-size: large;
+  font-weight: bolder;
+  margin-top: 1rem;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 0.2px solid var(--green);
+}
+._notification {
+  padding-top: 0.5rem;
+  border-top: none;
+  justify-content: center;
+  place-content: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+  background-color: whitesmoke;
+  text-align: center;
+}
+._notification p {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+._notification:hover {
+  background-color: var(--white);
+}

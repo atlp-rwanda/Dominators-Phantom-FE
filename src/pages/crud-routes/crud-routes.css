@@ -27,7 +27,7 @@
   width: 100%;
   background-color: var(--white);
   border-collapse: collapse;
-  border-radius:1rem;
+  border-radius: 1rem;
   overflow: hidden;
   margin-bottom: 3rem;
 }
@@ -71,13 +71,12 @@ a.delete-icon {
 }
 table .tbody tr:nth-child(even) {
   background: #c4c2c273;
-
 }
 table .tbody tr:nth-child(odd) {
   background: var(--white);
-  border-bottom:1px solid #c4c2c273; 
+  border-bottom: 1px solid #c4c2c273;
 }
-table .tbody tr:hover{
+table .tbody tr:hover {
   background-color: #0b624e2f;
 }
 @media screen and (max-width: 800px) {
@@ -157,6 +156,8 @@ table .tbody tr:hover{
   left: 0;
   margin-left: 0;
   display: flex;
+  align-items: center;
+  width: 400px;
 }
 .PageSize select {
   display: block;
@@ -234,4 +235,15 @@ input:hover {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.PageSize > * {
+  margin: 1%;
+}
+
+:focus {
+  outline: none;
+}
+.tr {
+  cursor: pointer;
 }

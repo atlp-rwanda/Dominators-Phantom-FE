@@ -38,7 +38,7 @@ export default (state = initialState, { type, payload }) => {
     case UPDATE_ONE_ROUTE:
       return {
         isLoaded: true,
-        isLoading: false,
+        isLoading:false,
         data: payload,
       };
     case DELETE_ROUTE:

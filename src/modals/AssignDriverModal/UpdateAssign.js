@@ -20,10 +20,8 @@ function UpdateAssign(props) {
   const [selectedOptionBuses, setSelectionOptionBuses] = useState({
     label: AssignData.busePlateNumber,
 
-
     value: AssignData.buseId,
     value: AssignData.busePlateNumber,
-
   });
   const [error, setError] = useState({});
   const optionUsers = users.map((value) => ({
@@ -67,7 +65,6 @@ function UpdateAssign(props) {
       const data = {
         userId: selectedOptionUsers.value,
         buseId: selectedOptionBuses.value,
-
       };
       props.UpdateDriverAssignToBuses(data, AssignData.id);
       toast.info("Driver has been Updated successfully!");
@@ -88,9 +85,7 @@ function UpdateAssign(props) {
         <h2>Update Assigned Driver To Bus </h2>
         <div className="line"></div>
         <div className="card">
-
           <form onSubmit={handleSubmit}>
-
             <div className="row-card">
               <div className="col-md-10">
                 <div className="form-group row-card2">
