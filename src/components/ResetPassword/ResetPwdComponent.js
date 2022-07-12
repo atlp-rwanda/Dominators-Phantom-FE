@@ -78,7 +78,7 @@ const ResetPassword = () => {
         <h2 className="reset-your-pwd">Reset your password?</h2>
       </div>
       <div className="container">
-        <form className="form-reset-pwd">
+        <form className="reset-form">
           <input
             ref={password}
             className="pwd-reset-fields"
