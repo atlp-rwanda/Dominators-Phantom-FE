@@ -28,15 +28,9 @@ function App() {
       <Route path="/users" element={<DriverOperator />} />
       <Route path="/roles" element={<Roles />} />
       <Route path="/Login" element={<Login />} />
-      <Route path={"/Reset"} element={<ResetLink />} />
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/assigned" element={<Assigned />} exact />
       <Route path="/unassigned" element={<UnAssigned />} exact />
-      <Route path="/Reset-link" element={<ResetLink />} />
-      <Route path="/Reset-pwd" element={<ResetPwd />} />
-      <Route path="/notification" element={<Notification />} />
-      <Route path="/logout" element={<LogoutFunction />} />
-      <Route path="/*" element={<PageNotFound />} />
       <Route path="/Reset-link" element={<ResetLink />} />
       <Route path="/Reset-pwd" element={<ResetPwd />} />
       <Route path="/notification" element={<Notification />} />
