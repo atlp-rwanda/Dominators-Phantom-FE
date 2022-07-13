@@ -16,7 +16,6 @@ const headersList = {
 const location = window.location.href.split("=");
 
 const token = location[location.length - 1];
-console.log(token);
 
 const ResetPassword = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
@@ -30,7 +29,6 @@ const ResetPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.current.value === confirmPassword.current.value) {
-      // console.log(password);
       fetch(`${backendUrl}/users/reset/${token}`, {
         method: "POST",
         body: JSON.stringify({
@@ -40,49 +38,22 @@ const ResetPassword = () => {
 
         headers: headersList,
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "success") {
-            toast.success(data.record);
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          if (result.Message === "success") {
+            toast.success(result.record);
             setTimeout(() => {
               redirect("/login");
             }, 2000);
-          } else if (data.status === "fail") {
-            toast.error(data.record);
+          } else if (result.Message === "fail") {
+            toast.error(result.record);
           } else {
             toast.error("failure");
           }
-
-          // if (
-          //   password.current.value !== "" &&
-          //   password.current.value === confirmPassword.current.value
-          // ) {
-          //   if (data.status === "success") {
-          //     console.log(`THIS IS DATA`, data);
-          //     toast.success(`updated password successfully`);
-          //     alert("success");
-          //     redirect("/login");
-          //   } else {
-          //     alert("failure");
-          //     toast.error("failure");
-          //   }
-          // } else if (password.current.value !== confirmPassword.current.value) {
-          //   alert("mismatches");
-          //   console.log("Something");
-          // } else if (
-          //   (password.current.value && confirmPassword.current.value) == ""
-          // ) {
-          //   alert("missing params");
-          //   toast.info("missing params");
-          //   console.log("MATCH", password.current.value == "");
-          //   console.log(
-          //     "MISMATCH",
-          //     password.current.value !== confirmPassword.current.value
-          //   );
-          // }
         });
     }
-    // }
   };
   const validatePassword = () => {
     if (password.current.value == "" || confirmPassword.current.value == "") {
@@ -107,7 +78,7 @@ const ResetPassword = () => {
         <h2 className="reset-your-pwd">Reset your password?</h2>
       </div>
       <div className="container">
-        <form className="form-reset-pwd">
+        <form className="reset-form">
           <input
             ref={password}
             className="pwd-reset-fields"

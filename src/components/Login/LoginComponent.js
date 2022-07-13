@@ -5,40 +5,41 @@ import * as EmailValidator from "email-validator";
 import { Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import "../ResetPassword/ResetPassword.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { backendUrl } from "../../utils/db";
-import LoginSkeleton from "./LoginSkeleton";
-
+import LoginSkeleton from "../Login/LoginSkeleton";
 const LoginComponent = () => {
   const [skeleton, setSkeleton] = useState(false);
   const [users, setUsers] = useState(null);
   const [loading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const redirect = useNavigate();
-  const search = location.search.slice(1).split('&');
-  const [email, password] = search.map(e=>e.split('=')[1]);
-
+  const queryString = location.search;
   useEffect(() => {
+    if (queryString) {
+      const encoded = queryString.slice(1);
+      const decoded = decodeURIComponent(encoded).split("&");
+      [setEmail, setPassword].forEach((v, i) => v(decoded[i].split("=")[1]));
+    }
     const timer = setTimeout(() => {
       setSkeleton(true);
     }, 500);
     return () => clearTimeout(timer);
   });
-
   const handleLogin = (values) => {
     setIsLoading(true);
     let headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
     };
-
     let bodyContent = JSON.stringify({
       email: values.email,
       password: values.password,
     });
-
     fetch(`${backendUrl}/users/login`, {
       method: "POST",
       body: bodyContent,
@@ -50,13 +51,10 @@ const LoginComponent = () => {
       .then((result) => {
         if (result.status == "success") {
           toast.info("User logged in successfully ");
-
           localStorage.setItem("token", result.token);
           localStorage.setItem("role", result.data.user.role);
           localStorage.setItem("userName", result.data.user.firstName);
           localStorage.setItem("userEmail", result.data.user.email);
-          localStorage.setItem("userId", result.data.user.id);
-
           if (
             result.data.user.role == "admin" ||
             result.data.user.role == "operator" ||
@@ -75,13 +73,10 @@ const LoginComponent = () => {
         setIsLoading(false);
       });
   };
-
   const handleShowPassword = (e) => {
     e.preventDefault();
-
     setShowPassword((value) => !value);
   };
-
   return (
     <Formik
       initialValues={{ email, password }}
@@ -93,7 +88,6 @@ const LoginComponent = () => {
         } else if (!EmailValidator.validate(values.email)) {
           errors.email = "Invalid email address format.";
         }
-
         const passwordRegex = /(?=.*[0-9])/;
         if (!values.password) {
           errors.password = "Password is required";
@@ -115,13 +109,13 @@ const LoginComponent = () => {
           handleBlur,
           handleSubmit,
         } = props;
-        // if(search) Object.assign(values, {email, password})
+        if (queryString) Object.assign(values, { email, password });
         return (
           <div>
             {skeleton ? (
               <div className="container">
                 <div>
-                  <form onSubmit={handleSubmit} className="form">
+                  <form onSubmit={handleSubmit} className="reset-form">
                     <div className="icon">
                       <FaIcons.FaUserCircle id="userIcon" />
                     </div>
@@ -135,6 +129,7 @@ const LoginComponent = () => {
                       onBlur={handleBlur}
                       className={errors.email && touched.email && "error"}
                     />{" "}
+                    <br></br>
                     {errors.email && touched.email && (
                       <div className="input-feedback">{errors.email}</div>
                     )}
@@ -179,6 +174,7 @@ const LoginComponent = () => {
                       {" "}
                       <Link to="/Reset">Forgot Password?</Link>
                     </h2>
+                    {/* <br></br> */}
                   </form>
                 </div>
                 <ToastContainer />
@@ -192,5 +188,4 @@ const LoginComponent = () => {
     </Formik>
   );
 };
-
 export default LoginComponent;

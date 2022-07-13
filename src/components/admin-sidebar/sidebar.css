@@ -23,7 +23,7 @@
   color: var(--theme-sidebar-grey);
   text-decoration: none;
   display: block;
-  font-size: 1.5vw;
+  font-size: 18px;
   padding: 12px;
   border: none;
   border-bottom: 0.1px solid lightgrey;
@@ -76,7 +76,7 @@
 
 @media screen and (max-width: 767px) {
   .sidebar {
-    display: none;
-    width: 60%;
+    /* display: none; */
+    width: 250px;
   }
 }
