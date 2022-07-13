@@ -161,7 +161,7 @@ function Assigned(props) {
                           renderOnZeroPageCount={null}
                           pageRangeDisplayed={1}
                           onPageChange={handlePageClick}
-                          pageCount={data.totalPages}
+                          pageCount={data?.totalPages}
                           breakLabel="..."
                           previousLabel="previous"
                           activeClassName="active"
