@@ -5,11 +5,9 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import DropDown from "./DropDown";
 import { GiSteeringWheel } from "react-icons/gi";
-import { UserRole, AssignDriver } from "./DropDownData";
 
 const Sidebar = () => {
   const [useDropDown, setUseDropDown] = useState(false);
-  const [isActive, setIsActive] = useState(false);
   const showSubMenu = () => {
     const subMenuRoles = document.querySelector(".subMenu");
     if (subMenuRoles.style.display === "block") {
@@ -24,7 +22,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <nav>
-        <NavLink to="/dashboard">
+        <NavLink to="dashboard">
           <AiIcons.AiFillDashboard />
           <span> Dashboard </span>
         </NavLink>
@@ -39,34 +37,26 @@ const Sidebar = () => {
             </NavLink>
           </>
         )}
-        {role === "operator" && (
-          <DropDown
-            setUseDropdown={setUseDropDown}
-            useDropDown={useDropDown}
-            name="Assigned Driver "
-            driver="driver"
-            icon={<GiSteeringWheel />}
-          >
-            <AssignDriver />
-          </DropDown>
+        {["admin", "operator"].includes(role) && (
+          <NavLink to="/routes">
+            <AiIcons.AiOutlineReload />
+            <span> Routes</span>
+          </NavLink>
         )}
-        <NavLink to="/route">
-          <AiIcons.AiOutlineReload />
-          <span> Routes</span>
-        </NavLink>
         <DropDown
           setUseDropdown={setUseDropDown}
           useDropDown={useDropDown}
           name="Assigned Driver "
           driver="driver"
           icon={<GiSteeringWheel />}
-        >
-          <AssignDriver />
-        </DropDown>
+        ></DropDown>
         <Link to="#">
           <IoIcons.IoMdBus />
           <span> Buses </span>
         </Link>
+        <NavLink to="/update-profile">
+          <IoIcons.IoIosThunderstorm /> <span> Profile </span>
+        </NavLink>
       </nav>
     </div>
   );

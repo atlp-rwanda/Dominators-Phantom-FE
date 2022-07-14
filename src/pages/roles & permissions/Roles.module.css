@@ -15,6 +15,7 @@
 .driver {
   max-width: 20rem;
   padding: 1rem;
+  height: fit-content;
 }
 
 .title {
