@@ -2,14 +2,7 @@
     position: absolute;
     z-index: 4;
     margin-left: 30%;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-top: 30%;
-=======
->>>>>>> 3632898... CRUD for routes (#31)
-=======
-    margin-top: 30%;
->>>>>>> f0f0e3e... intergrate
     width: 60%;
     height: max-content;
     background-color: var(--white);
