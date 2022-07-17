@@ -1,6 +1,7 @@
 import counterReducer from "./counterreducer";
 import routeReducer from "./routeReducer";
 import userReducer from "./userReducer";
+import busReducer from "./busReducer";
 import { combineReducers } from "redux";
 import busesReducer from "./busesReducer";
 import assignBuseReducer from "./assignBuseReducer";
@@ -9,7 +10,7 @@ const allReducers = combineReducers({
   counter: counterReducer,
   route: routeReducer,
   user: userReducer,
-  buses: busesReducer,
+  bus: busReducer,
   assigned: assignBuseReducer,
   notification: notificationReducer,
 });

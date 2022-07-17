@@ -1,4 +1,4 @@
-import { GET_ALL_BUSES, GET_ALL_ERROR } from "..";
+import { GET_ALL_BUSES, GET_ALL_ERROR } from "../index";
 const initialState = {
   isLoaded: false,
   isLoading: false,

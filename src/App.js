@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 import CrudRoute from "./pages/crud-routes/CrudRoute";
+import CrudBus from "./pages/crudBuses/CrudBus";
 import UserRoute from "./pages/user-route/UserRoutes";
 import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
 import Roles from "./pages/roles & permissions/Roles";
@@ -36,6 +37,7 @@ function App() {
       <Route path="/notification" element={<Notification />} />
       <Route path="/logout" element={<LogoutFunction />} />
       <Route path="/*" element={<PageNotFound />} />
+      <Route path="/crud-buses" element={<CrudBus itemsPerPage={2} />} />
     </Routes>
   );
 }

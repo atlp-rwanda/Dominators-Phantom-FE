@@ -4,6 +4,7 @@ import { backendUrl } from "../../utils/db";
 import { toast, ToastContainer } from "react-toastify";
 
 const token = localStorage.getItem("token");
+console.log({token})
 const headers = {
   Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",

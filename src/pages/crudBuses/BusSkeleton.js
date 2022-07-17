@@ -1,6 +1,6 @@
 import SkeletonElement from "../../skeletons/SkeletonElement";
-function DriverOperatorSkeleton() {
-  const rows = [1, 2, 3, 4, 5];
+function BusSkeleton() {
+  const rows = [1, 2, 3, 4, 5, 6, 7];
   return (
     <tbody className="">
       {rows.map((value, idx) => {
@@ -27,4 +27,4 @@ function DriverOperatorSkeleton() {
     </tbody>
   );
 }
-export default DriverOperatorSkeleton;
+export default BusSkeleton;

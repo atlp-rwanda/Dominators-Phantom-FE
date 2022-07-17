@@ -18,6 +18,7 @@ export const getAllRoute = (page, size) => async (dispatch) => {
       },
     });
     const datas = await dt.json();
+    console.log("datas", datas);
     dispatch(creator(GET_ALL_ROUTE, datas));
   } catch (e) {
     if (e.message) {

@@ -1,29 +1,34 @@
 import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
-import AdminPageTitle from "../../components/admin-page-title/AdminPageTitle";
+import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import CustomButton from "../../components/Buttons/CustomeButton";
-import UserComponent from "../../modals/UserModal/UserModal";
-import DriverOperatorSkeleton from "./DriverOperatorSkeleton";
-import { getAllUser, deleteUser } from "../../module/actions/userAction";
+import BusComponent from "../../modals/BusModal/BusModel";
+import BusSkeleton from "./BusSkeleton";
+import { getAllBuses, deleteBus } from "../../module/actions/busActions";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { connect } from "react-redux";
-import "./DriverOperator.css";
-import icon from "./icon.svg";
+import "./crud-routes.css";
+import { FaRoute } from "react-icons/fa";
 import { HiPencil, HiTrash } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import UpdateUser from "../../modals/UserModal/UpdateUser";
+import UpdateBus from "../../modals/BusModal/UpdateBus";
 import swal from "sweetalert";
 
-function DriverOperator(props) {
+function CrudBus(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isUpdateUser, setUpdateUser] = useState(false);
-  const { isData, isLoaded } = props;
-  const [userData, setUserData] = useState([]);
+  const [isUpdateModal, setUpdateModal] = useState(false);
+  const { bus, isLoaded } = props;
+  const [busData, setBusData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
 
-  const handleDelete = (userId) => {
+  // const [busFullData, setBusFullData] = useState([]);
+  useEffect(() => {
+    props.getAllBuses();
+  }, []);
+  const { result } = props.bus;
+  const handleDelete = (busId) => {
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this ",
@@ -32,9 +37,9 @@ function DriverOperator(props) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        props.deleteUser(userId);
-        toast.success("User Delete Successfully");
-      } else {
+        props.deleteBus(busId);
+        toast.success("Bus Delete Successfully");
+        location.reload();
       }
     });
   };
@@ -42,54 +47,51 @@ function DriverOperator(props) {
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-  let selectedUsers = [];
-  // console.log(selectedUsers);
+  let selectedBuses = [];
+  // console.log(selectedBuses);
   useEffect(() => {
     Object.entries(isChecked).map((values) => {
       if (values[1])
-        return selectedUsers.push({
+        return selectedBuses.push({
           value: values[0],
           label: values[0],
         });
     });
-    props.getAllUser();
-    console.log(isLoaded);
   }, [isChecked]);
-
   return (
-    <div>
+    <>
       <ToastContainer theme="colored" />
       <Header />
       <Sidebar />
       <div className="main">
-        <AdminPageTitle icon={icon} title="Users" />
+        <BreadCrumb icon={<FaRoute />} title="LIST OF BUSES" />
         <div className="content">
           <div
-            className="btn-add-user"
+            className="btn-add-route"
             onClick={() => {
               setIsOpen(true);
             }}
           >
-            <CustomButton classes="btn btn-green btn-radius new-user-btn">
-              Add New User
-            </CustomButton>
+            <CustomButton classes="btn btn-green btn-radius">
+              Add Bus
+            </CustomButton>{" "}
           </div>
-          <div className="user-table">
+          <div className="route-table">
             <table>
               <thead className="thead">
                 <tr>
                   <th width="10%" scope="col">
                     No
                   </th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Role</th>
+                  <th scope="col">Route</th>
+                  <th scope="col">Bus</th>
+                  <th scope="col">Bus TYpe</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              {isLoaded ? (
+              {props.isLoaded ? (
                 <tbody className="tbody">
-                  {isData?.map((value, idx) => {
+                  {result?.map((value, idx) => {
                     return (
                       <tr key={idx}>
                         <td scope="row">
@@ -100,25 +102,26 @@ function DriverOperator(props) {
                             name={idx + 1}
                             onChange={HandleIsChecked}
                           />
-                          {idx + 1}.
+                          {idx + 1}
                         </td>
-                        <td scope="row" className="email-col">
-                          {value.firstName} {value.lastName}
+                        <td className="route-col" scope="row">
+                          {/* {" "} */}
+                          {value.routes.origin + "-" + value.routes.destination}
                         </td>
-                        <td scope="row">{value.email}</td>
-                        <td scope="row">{value.role}</td>
+                        <td scope="row">{value.prateNumber}</td>
+                        <td scope="row">{value.busType}</td>
                         <td scope="row">
                           <Link
                             to="#"
                             className="edit-icon"
                             onClick={() => {
-                              setUpdateUser(true);
-                              setUserData({
+                              setUpdateModal(true);
+                              setBusData({
                                 id: value.id,
-                                firstName: value.firstName,
-                                lastName: value.lastName,
-                                email: value.email,
-                                role: value.role,
+                                plateNumber: value.prateNumber,
+                                from: value.from,
+                                to: value.to,
+                                busType: value.busType,
                               });
                             }}
                           >
@@ -138,14 +141,12 @@ function DriverOperator(props) {
                   })}
                 </tbody>
               ) : (
-                <DriverOperatorSkeleton />
+                <BusSkeleton />
               )}
               {isLoaded ? (
                 <tfoot>
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td colSpan={1}>
+                    <td colSpan={4}>
                       <div className="table-paginate">
                         <ReactPaginate
                           renderOnZeroPageCount={null}
@@ -157,7 +158,6 @@ function DriverOperator(props) {
                       </div>
                     </td>
                     <td></td>
-                    <td></td>
                   </tr>
                 </tfoot>
               ) : (
@@ -165,22 +165,21 @@ function DriverOperator(props) {
               )}
             </table>
           </div>
-          {isOpen && <UserComponent setIsOpen={setIsOpen} />}
-          {isUpdateUser && (
-            <UpdateUser setUpdateUser={setUpdateUser} userData={userData} />
+          {isOpen && <BusComponent setIsOpen={setIsOpen} />}
+          {isUpdateModal && (
+            <UpdateBus setUpdateModal={setUpdateModal} busData={busData} />
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
-
-const mapState = ({ user }) => ({
-  isData: user.data,
-  isLoaded: user.isLoaded,
+const mapState = ({ bus }) => ({
+  bus: bus.data,
+  isLoaded: bus.isLoaded,
 });
 
 export default connect(mapState, {
-  getAllUser: getAllUser,
-  deleteUser: deleteUser,
-})(DriverOperator);
+  getAllBuses: getAllBuses,
+  deleteBus: deleteBus,
+})(CrudBus);
