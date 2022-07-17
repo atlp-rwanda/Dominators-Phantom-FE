@@ -139,10 +139,12 @@
   animation-duration: 2s;
   animation-iteration-count: infinite;
   top: 0.8rem;
-  left: 2.5rem;
-  color: red;
+  color: var(--red);
   cursor: pointer;
+  cursor: pointer;
+  margin-left: 41px;
 }
+
 .bell-notify {
   animation-name: bell;
   animation-duration: 2s;

@@ -204,7 +204,7 @@ function CrudRoute(props) {
                           nextLabel="next"
                           renderOnZeroPageCount={null}
                           onPageChange={handlePageClick}
-                          pageCount={isData.totalPages}
+                          pageCount={isData?.totalPages}
                           breakLabel="..."
                           previousLabel="previous"
                           activeClassName="active"

@@ -31,11 +31,14 @@ const RoleDetailsProvider = (props) => {
 
   const addPermissionHandler = async (permission) => {
     try {
-      const response = await fetch(`${backendUrl}/roles/${role.role_id}/permissions`, {
-        method: "POST",
-        body: JSON.stringify(permission),
-        headers,
-      });
+      const response = await fetch(
+        `${backendUrl}/roles/${role.role_id}/permissions`,
+        {
+          method: "POST",
+          body: JSON.stringify(permission),
+          headers,
+        }
+      );
 
       const data = await response.json();
       if (data.status === "fail") {

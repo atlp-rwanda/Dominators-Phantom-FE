@@ -47,20 +47,20 @@ function RouteComponent(props) {
 
   const FormValidation = () => {
     if (isDistance == "") {
-      setError({ distance: "Distance is required" });
+      setError({ message: "Distance is required" });
       return true;
     }
     if (isFrom == "") {
-      setError({ from: "Origin is required" });
+      setError({ message: "Origin is required" });
       return true;
     }
     if (isTo == "") {
-      setError({ to: "Destination is required" });
+      setError({ message: "Destination is required" });
       return true;
     }
 
     if (isCode == "") {
-      setError({ code: "Code is required" });
+      setError({ message: "Code is required" });
       return true;
     }
     if (fromLatitude == "") {

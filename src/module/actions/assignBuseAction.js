@@ -5,15 +5,13 @@ import {
   UPDATE_DRIVER_ASSIGN_TO_BUSES,
   GET_ALL_ERROR,
 } from "..";
-import { backendUrl, Authorization } from "../../utils/db";
+import { backendUrl, headers } from "../../utils/db";
 import creator from "./creator";
 import { toast } from "react-toastify";
 export const getAllDriverAssignToBuses = (page, size) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/assign/?page=${page}&size=${size}`, {
-      headers: {
-        Authorization,
-      },
+      headers,
     });
     const data = await dt.json();
     if (dt.ok === false) {
@@ -31,10 +29,7 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
       {
         method: "POST",
         mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization,
-        },
+        headers,
       }
     );
     const response = await dt.json();
@@ -46,12 +41,11 @@ export const postDriverAssignToBuses = (buseId, userId) => async (dispatch) => {
       const newDriver = await fetch(
         `${backendUrl}/assign?page=${0}&size=${10}`,
         {
-          headers: {
-            Authorization,
-          },
+          headers,
         }
       );
       const data = await newDriver.json();
+      toast.success(response.record.message);
       dispatch(creator(POST_DRIVER_ASSIGN_TO_BUSES, data));
     }
   } catch (error) {
@@ -63,10 +57,7 @@ export const UpdateDriverAssignToBuses = (data, id) => async (dispatch) => {
     const dt = await fetch(`${backendUrl}/assign/${id}`, {
       method: "PATCH",
       body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization,
-      },
+      headers,
     });
     console.log(await dt.json());
     if (dt.ok === false) {
@@ -92,9 +83,7 @@ export const deleteDriverAssignToBuses = (id) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/assign/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization,
-      },
+      headers,
     });
 
     const data = await fetch(`${backendUrl}/assign?page=${0}&size=${10}`, {

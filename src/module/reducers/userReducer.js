@@ -6,6 +6,7 @@ import {
   POST_ONE_USER_ERROR,
   UPDATE_ONE_USER,
   GET_ALL_ERROR,
+  GET_ALL_USERS_DRIVERS,
 } from "../index";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   error: null,
   data: [],
   values: [],
+  drivers: [],
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -22,6 +24,13 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoaded: false,
+      };
+    case GET_ALL_USERS_DRIVERS:
+      return {
+        ...state,
+        isLoaded: true,
+        drivers: payload,
+        isLoading: false,
       };
     case GET_ALL_USER:
       return {

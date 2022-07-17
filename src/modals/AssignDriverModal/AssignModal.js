@@ -1,7 +1,7 @@
 import "./assignModal.css";
 import { ImCross } from "react-icons/im";
 import Select from "react-select";
-import { getAllUser} from "../../module/actions/userAction";
+import { getAllUserDriver } from "../../module/actions/userAction";
 import { getAllBuses } from "../../module/actions/busesAction";
 import { postDriverAssignToBuses } from "../../module/actions/assignBuseAction";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ function AssignModal(props) {
     label: value.prateNumber,
   }));
   useEffect(() => {
-    props.getAllUser();
+    props.getAllUserDriver();
     props.getAllBuses();
   }, []);
   const FormValidation = () => {
@@ -132,12 +132,12 @@ function AssignModal(props) {
     </>
   );
 }
-const mapState = ({ users, buses }) => ({
-  users: users.data,
-  buses: buses.data,
+const mapState = ({ user, buses }) => ({
+  users: user.drivers,
+  buses: buses?.data,
 });
 export default connect(mapState, {
-  getAllUser: getAllUser,
+  getAllUserDriver: getAllUserDriver,
   getAllBuses: getAllBuses,
   postDriverAssignToBuses: postDriverAssignToBuses,
 })(AssignModal);
