@@ -13,23 +13,21 @@ import "./crud-routes.css";
 import { FaRoute } from "react-icons/fa";
 import { HiPencil, HiTrash } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { db } from "../../utils/db";
 import UpdateBus from "../../modals/BusModal/UpdateBus";
 import swal from "sweetalert";
 
 function CrudBus(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [path, setPath] = useState({});
   const [isUpdateModal, setUpdateModal] = useState(false);
-  const { isData, isLoaded } = props;
+  const { bus, isLoaded } = props;
   const [busData, setBusData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
+
   // const [busFullData, setBusFullData] = useState([]);
   useEffect(() => {
     props.getAllBuses();
-
   }, []);
-
+  const { result } = props.bus;
   const handleDelete = (busId) => {
     swal({
       title: "Are you sure?",
@@ -41,7 +39,7 @@ function CrudBus(props) {
       if (willDelete) {
         props.deleteBus(busId);
         toast.success("Bus Delete Successfully");
-      } else {
+        location.reload();
       }
     });
   };
@@ -91,9 +89,9 @@ function CrudBus(props) {
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              {isLoaded ? (
+              {props.isLoaded ? (
                 <tbody className="tbody">
-                  {isData.results?.map((value, idx) => {
+                  {result?.map((value, idx) => {
                     return (
                       <tr key={idx}>
                         <td scope="row">
@@ -107,9 +105,8 @@ function CrudBus(props) {
                           {idx + 1}
                         </td>
                         <td className="route-col" scope="row">
-                        {/* {" "} */}
-                        {value.origin + "-" + value.destination}
-
+                          {/* {" "} */}
+                          {value.routes.origin + "-" + value.routes.destination}
                         </td>
                         <td scope="row">{value.prateNumber}</td>
                         <td scope="row">{value.busType}</td>
@@ -177,11 +174,10 @@ function CrudBus(props) {
     </>
   );
 }
-const mapState = ({ buses }) => ({
-  isData: buses.data,
-  isLoaded: buses.isLoaded,
+const mapState = ({ bus }) => ({
+  bus: bus.data,
+  isLoaded: bus.isLoaded,
 });
-
 
 export default connect(mapState, {
   getAllBuses: getAllBuses,

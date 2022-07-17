@@ -7,7 +7,7 @@ import {
 } from "../index";
 import creator from "./creator";
 import { toast } from "react-toastify";
-import { backendUrl } from "../../utils/db";
+import { backendUrl, Authorization } from "../../utils/db";
 
 const authorization = localStorage.getItem("token");
 const headers = {
@@ -16,12 +16,10 @@ const headers = {
 };
 export const getAllBuses = ( ) => async (dispatch) => {
   try {
-    const dt = await fetch(`${backendUrl}/buses`, { headers });
-    const datas = await dt.json();
-    console.log("datas", datas);
-    localStorage.setItem("value",JSON.stringify(datas))
+    const dt = await fetch(`${backendUrl}/buses/?page=0&size=10`, { headers });
+    const {data} = await dt.json();
 
-    dispatch(creator(GET_ALL_BUSES, datas));
+    dispatch(creator(GET_ALL_BUSES, data));
   } catch (e) {
     if (e.message) {
       return toast.error(e.message);
@@ -81,6 +79,7 @@ export const updateBus = (data, id) => async (dispatch) => {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
+        authorization,
       },
       mode: "cors",
     });
@@ -94,12 +93,28 @@ export const updateBus = (data, id) => async (dispatch) => {
   }
 };
 
+// export const deleteBus = (id) => async (dispatch) => {
+//   try {
+//     const dt = await fetch(`${backendUrl}/buses/` + id, {
+//       method: "DELETE",
+//     });
+//     dispatch(creator(DELETE_BUS, id));
+//   } catch (error) {
+//     if (error.message) return toast.error(error.message);
+//   }
+// };
+
 export const deleteBus = (id) => async (dispatch) => {
+  console.log(id);
   try {
     const dt = await fetch(`${backendUrl}/buses/` + id, {
       method: "DELETE",
+      headers: {
+        Authorization,
+      },
     });
     dispatch(creator(DELETE_BUS, id));
+    return toast.success("Bus Deleted Successfully");
   } catch (error) {
     if (error.message) return toast.error(error.message);
   }

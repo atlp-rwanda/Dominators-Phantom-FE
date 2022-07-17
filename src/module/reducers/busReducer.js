@@ -4,6 +4,7 @@ import {
   GET_ONE_BUS,
   POST_BUSES,
   UPDATE_ONE_BUS,
+  GET_ALL_ERROR,
 } from "../index";
 const initialState = {
   isLoading: false,
@@ -21,6 +22,8 @@ export default (state = initialState, { type, payload }) => {
         isLoaded: true,
         data: payload,
       };
+      case GET_ALL_ERROR:
+        return { ...state, isLoaded: false };
     case GET_ONE_BUS:
       return {
         ...state,
