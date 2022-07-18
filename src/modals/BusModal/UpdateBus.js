@@ -9,7 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 function UpdateBus(props) {
   const bus = props.busData;
-
+  const [route, setRoute] = useState(bus ? bus.routes : "");
   const [isBus, setIsBus] = useState(bus ? bus.plateNumber : "");
   const [isBusType, setIsBusType] = useState(bus ? bus.busType : "");
 
@@ -47,6 +47,19 @@ function UpdateBus(props) {
           <form className="form" onSubmit={HandleSubmit}>
             <div className="row-card">
               <div className="col-md-10">
+              <div className="form-group row-card2">
+                  <label htmlFor="new bus">Route:</label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={route}
+                      onChange={(e) => setRoute(e.target.value)}
+
+                    ></input>
+                    <span className="error"></span>
+                  </div>
+                </div>
                 <div className="form-group row-card2">
                   <label htmlFor="new bus">Bus:</label>
                   <div className="col-sm-10">

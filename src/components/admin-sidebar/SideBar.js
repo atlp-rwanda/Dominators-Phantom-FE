@@ -69,11 +69,6 @@ const Sidebar = () => {
             <AssignDriver />
           </DropDown>
         )}
-
-        <NavLink to="/crud-route">
-          <AiIcons.AiOutlineReload />
-          <span> Routes </span>
-        </NavLink>
         <NavLink to="/crud-buses">
           <IoIcons.IoMdBus />
           <span> Buses </span>

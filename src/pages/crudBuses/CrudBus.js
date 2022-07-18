@@ -2,7 +2,7 @@ import Header from "../../components/admin-header/Header";
 import Sidebar from "../../components/admin-sidebar/SideBar";
 import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import CustomButton from "../../components/Buttons/CustomeButton";
-import BusComponent from "../../modals/BusModal/BusModel";
+import BusCumponent from "../../modals/BusModal/BusModel";
 import BusSkeleton from "./BusSkeleton";
 import { getAllBuses, deleteBus } from "../../module/actions/busActions";
 import ReactPaginate from "react-paginate";
@@ -22,12 +22,23 @@ function CrudBus(props) {
   const { bus, isLoaded } = props;
   const [busData, setBusData] = useState([]);
   const [isChecked, setIsChecked] = useState({ "089": false });
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
 
-  // const [busFullData, setBusFullData] = useState([]);
+  let selectedBuses = [];
+
   useEffect(() => {
-    props.getAllBuses();
-  }, []);
+    props.getAllBuses(page, size);
+    Object.entries(isChecked).map((values) => {
+      if (values[1])
+        return selectedBuses.push({
+          value: values[0],
+          label: values[0],
+        });
+    });
+  }, [page, size, isChecked]);
   const { result } = props.bus;
+
   const handleDelete = (busId) => {
     swal({
       title: "Are you sure?",
@@ -44,20 +55,19 @@ function CrudBus(props) {
     });
   };
 
+  const handleSearch = (e) => {};
+
+  const handleSelectData = (e) => {
+    setSize(e.target.value);
+  };
+
+  const handlePageClick = (e) => {
+    setPage(e.selected);
+  };
+
   const HandleIsChecked = (e) => {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
-  let selectedBuses = [];
-  // console.log(selectedBuses);
-  useEffect(() => {
-    Object.entries(isChecked).map((values) => {
-      if (values[1])
-        return selectedBuses.push({
-          value: values[0],
-          label: values[0],
-        });
-    });
-  }, [isChecked]);
   return (
     <>
       <ToastContainer theme="colored" />
@@ -77,6 +87,23 @@ function CrudBus(props) {
             </CustomButton>{" "}
           </div>
           <div className="route-table">
+            <div className="beforetbl">
+              <div className="PageSize">
+                <label>Show:</label>
+                <select onChange={handleSelectData}>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="75">75</option>
+                  <option value="100">100</option>
+                </select>{" "}
+                <label>Entries</label>
+              </div>
+              <div className="search">
+                <label>Search:</label>{" "}
+                <input type="search" onChange={handleSearch}></input>
+              </div>
+            </div>
             <table>
               <thead className="thead">
                 <tr>
@@ -89,7 +116,7 @@ function CrudBus(props) {
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              {props.isLoaded ? (
+              {isLoaded ? (
                 <tbody className="tbody">
                   {result?.map((value, idx) => {
                     return (
@@ -105,7 +132,6 @@ function CrudBus(props) {
                           {idx + 1}
                         </td>
                         <td className="route-col" scope="row">
-                          {/* {" "} */}
                           {value.routes.origin + "-" + value.routes.destination}
                         </td>
                         <td scope="row">{value.prateNumber}</td>
@@ -119,8 +145,7 @@ function CrudBus(props) {
                               setBusData({
                                 id: value.id,
                                 plateNumber: value.prateNumber,
-                                from: value.from,
-                                to: value.to,
+                                routes:value.routes.origin + "-" + value.routes.destination,
                                 busType: value.busType,
                               });
                             }}
@@ -146,18 +171,25 @@ function CrudBus(props) {
               {isLoaded ? (
                 <tfoot>
                   <tr>
-                    <td colSpan={4}>
+                    <td colSpan={6}>
                       <div className="table-paginate">
+                        <div>
+                          Showing {bus?.result?.length} of {bus.totalItems} with
+                          in {bus.totalPages} Pages
+                        </div>
                         <ReactPaginate
+                          nextLabel="next"
                           renderOnZeroPageCount={null}
-                          pageRangeDisplayed={1}
-                          pageCount={3}
+                          onPageChange={handlePageClick}
+                          pageCount={bus?.totalPages}
                           breakLabel="..."
+                          previousLabel="previous"
                           activeClassName="active"
+                          pageRangeDisplayed={1}
+                          marginPagesDisplayed={2}
                         />
                       </div>
                     </td>
-                    <td></td>
                   </tr>
                 </tfoot>
               ) : (
@@ -165,10 +197,11 @@ function CrudBus(props) {
               )}
             </table>
           </div>
-          {isOpen && <BusComponent setIsOpen={setIsOpen} />}
+          {isOpen && <BusCumponent setIsOpen={setIsOpen} />}
           {isUpdateModal && (
             <UpdateBus setUpdateModal={setUpdateModal} busData={busData} />
           )}
+          {/* {detail && <RouteDetail setDetail={setDetail} />} */}
         </div>
       </div>
     </>
@@ -178,7 +211,6 @@ const mapState = ({ bus }) => ({
   bus: bus.data,
   isLoaded: bus.isLoaded,
 });
-
 export default connect(mapState, {
   getAllBuses: getAllBuses,
   deleteBus: deleteBus,

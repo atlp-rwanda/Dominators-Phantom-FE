@@ -18,7 +18,6 @@ export const getAllBuses = ( ) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/buses/?page=0&size=10`, { headers });
     const {data} = await dt.json();
-
     dispatch(creator(GET_ALL_BUSES, data));
   } catch (e) {
     if (e.message) {
