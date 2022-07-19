@@ -15,12 +15,7 @@ import UnAssigned from "./pages/AssignDriver/UnAssigned";
 import Dashboard from "./pages/dashboard";
 import Notification from "./pages/notification/";
 import LogoutFunction from "./components/Logout/LogoutFunction";
-<<<<<<< HEAD
 import Simulation from "./pages/simulation";
-=======
-
-// import TrackingPage from "./components/simulate-bus-motion/TrackingPage";
->>>>>>> 67512d0 (Locating buses on the map)
 import UserSimulation from "./components/simulate-bus-motion/UserSimulation";
 function App() {
   return (
@@ -41,10 +36,7 @@ function App() {
       <Route path="/logout" element={<LogoutFunction />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/tracking" element={<UserSimulation />} />
-<<<<<<< HEAD
       <Route path="/simulation" element={<Simulation />} />
-=======
->>>>>>> 67512d0 (Locating buses on the map)
     </Routes>
   );
 }
