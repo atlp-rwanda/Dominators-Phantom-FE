@@ -48,7 +48,6 @@ const LoginComponent = () => {
         return res.json();
       })
       .then((result) => {
-        console.log(result);
         if (result.status == "success") {
           toast.info("User logged in successfully ");
           localStorage.setItem("token", result.token);
@@ -75,7 +74,6 @@ const LoginComponent = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         toast.error("Internal sever error!", { theme: "colored" });
         setIsLoading(false);
       });

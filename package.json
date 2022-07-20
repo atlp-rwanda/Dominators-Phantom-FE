@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
-    "start": "NODE_OPTIONS=--max_old_space_size=8198 npm run build && serve ./dist",
+    "start": "NODE_OPTIONS=--max_old_space_size=51200 npm run build && serve ./dist",
     "dev": "webpack serve --open --config webpack.dev.js"
   },
   "repository": {
