@@ -1,7 +1,7 @@
-import { useReducer, useCallback, useEffect, useState } from "react";
+import {  useCallback, useEffect, useState } from "react";
 import RoleContext from "./role-context";
-import { toast, ToastContainer } from "react-toastify";
-import { backendUrl, Authorization, headers } from "../../utils/db";
+import { toast,  } from "react-toastify";
+import { backendUrl, headers } from "../../utils/db";
 
 const RoleProvider = (props) => {
   const [roles, setRoles] = useState([]);

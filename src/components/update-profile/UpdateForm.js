@@ -53,10 +53,6 @@ const UpdateProfileForm = ({ userInfo, handleUpdate }) => {
   const [errorCell, setErrorCell] = useState();
   const [errorVillage, setErrorVillage] = useState();
 
-  //declaring variable object hook state which will keep updated userInfo info.
-  const [updatedInfo, setUpdateInfo] = useState(null);
-  //photo to be sent on the backend
-  const [profilePic, setProfilePic] = useState(null);
   const formData = new FormData();
   //handling submit form event
   const handleSubmit = (e) => {

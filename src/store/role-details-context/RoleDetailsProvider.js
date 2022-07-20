@@ -85,10 +85,6 @@ const RoleDetailsProvider = (props) => {
     deletePermission: deletePermissionHandler,
   };
 
-  // useEffect(() => {
-  //   getRoleHandler();
-  // }, [role]);
-
   return (
     <RoleDetailsContext.Provider value={roleDetailsContext}>
       {props.children}

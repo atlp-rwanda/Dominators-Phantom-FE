@@ -11,11 +11,6 @@ import RoleDetailsProvider from "./store/role-details-context/RoleDetailsProvide
 
 const root = reactDom.createRoot(document.getElementById("root"));
 
-// const store = createStore(
-//   allReducers,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// ); //
-
 root.render(
   <Provider store={store}>
     <RoleProvider>

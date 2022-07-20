@@ -1,4 +1,4 @@
-import react, { useRef, useState, useEffect } from "react";
+import react, { useState, useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as EmailValidator from "email-validator";
@@ -12,7 +12,6 @@ import { backendUrl } from "../../utils/db";
 import LoginSkeleton from "../Login/LoginSkeleton";
 const LoginComponent = () => {
   const [skeleton, setSkeleton] = useState(false);
-  const [users, setUsers] = useState(null);
   const [loading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   const [email, setEmail] = useState("");
@@ -49,6 +48,7 @@ const LoginComponent = () => {
         return res.json();
       })
       .then((result) => {
+        console.log(result);
         if (result.status == "success") {
           toast.info("User logged in successfully ");
           localStorage.setItem("token", result.token);
@@ -75,6 +75,7 @@ const LoginComponent = () => {
         setIsLoading(false);
       })
       .catch((error) => {
+        console.log(error);
         toast.error("Internal sever error!", { theme: "colored" });
         setIsLoading(false);
       });

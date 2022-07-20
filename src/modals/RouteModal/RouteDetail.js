@@ -1,5 +1,5 @@
 import "./RouteModal.css";
-import { ImCross, ImCompass2 } from "react-icons/im";
+import { ImCross} from "react-icons/im";
 
 function RouteDetail(props) {
   return (

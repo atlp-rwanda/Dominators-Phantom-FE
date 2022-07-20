@@ -12,12 +12,6 @@ import creator from "./creator";
 import { toast } from "react-toastify";
 import { backendUrl, headers } from "../../utils/db";
 
-const token = localStorage.getItem("token");
-// const headers = {
-//   Authorization: `Bearer ${token}`,
-//   "Content-Type": "application/json",
-// };
-
 export const getAllUser = () => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/users`, {

@@ -21,7 +21,6 @@ const PermissionProvider = (props) => {
       headers,
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "fail") {
       toast.error(data.record.message);
     }
