@@ -18,7 +18,6 @@ export const getAllBuses = ( ) => async (dispatch) => {
   try {
     const dt = await fetch(`${backendUrl}/buses/?page=0&size=10`, { headers });
     const {data} = await dt.json();
-
     dispatch(creator(GET_ALL_BUSES, data));
   } catch (e) {
     if (e.message) {
@@ -83,7 +82,11 @@ export const updateBus = (data, id) => async (dispatch) => {
       },
       mode: "cors",
     });
-    const updatedSelect = await fetch(`${backendUrl}/buses`);
+    const updatedSelect = await fetch(`${backendUrl}/buses`, {
+      headers: {
+        authorization,
+      }
+    });
     const updateData = await updatedSelect.json();
     dispatch(creator(UPDATE_ONE_BUS, updateData));
   } catch (e) {
@@ -93,16 +96,6 @@ export const updateBus = (data, id) => async (dispatch) => {
   }
 };
 
-// export const deleteBus = (id) => async (dispatch) => {
-//   try {
-//     const dt = await fetch(`${backendUrl}/buses/` + id, {
-//       method: "DELETE",
-//     });
-//     dispatch(creator(DELETE_BUS, id));
-//   } catch (error) {
-//     if (error.message) return toast.error(error.message);
-//   }
-// };
 
 export const deleteBus = (id) => async (dispatch) => {
   console.log(id);

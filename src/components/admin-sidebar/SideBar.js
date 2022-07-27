@@ -3,9 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
-import DropDown from "./DropDown";
-import {AssignDriver} from "./DropDownData"
-import { GiSteeringWheel } from "react-icons/gi";
 
 const Sidebar = () => {
   const showSubMenu = () => {
@@ -61,6 +58,17 @@ const Sidebar = () => {
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
         </NavLink>
+        {role === "operator" && (
+          <DropDown
+            setUseDropdown={setUseDropDown}
+            useDropDown={useDropDown}
+            name="Assigned Driver "
+            driver="driver"
+            icon={<GiSteeringWheel />}
+          >
+            <AssignDriver />
+          </DropDown>
+        )}
         <NavLink to="/crud-buses">
           <IoIcons.IoMdBus />
           <span> Buses </span>

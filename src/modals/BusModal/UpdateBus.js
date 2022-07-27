@@ -2,6 +2,7 @@ import "./BusModel.css";
 import { ImCross } from "react-icons/im";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { getAllRoute } from "../../module/actions/routeAction";
 import { updateBus } from "../../module/actions/busActions";
 import CustomeButton from "../../components/Buttons/CustomeButton";
@@ -31,21 +32,44 @@ function UpdateBus(props) {
     // if (isFrom == "") return true;
     if (isBus == "") return true;
     // if (isRoute == "") return true;
+=======
+// import { getAllRoute } from "../../module/actions/routeAction";
+import { updateBus } from "../../module/actions/busActions";
+import CustomeButton from "../../components/Buttons/CustomeButton";
+import { toast, ToastContainer } from "react-toastify";
+
+function UpdateBus(props) {
+  const bus = props.busData;
+  const [route, setRoute] = useState(bus ? bus.routes : "");
+  const [isBus, setIsBus] = useState(bus ? bus.plateNumber : "");
+  const [isBusType, setIsBusType] = useState(bus ? bus.busType : "");
+
+  const FormValidation = () => {
+    if (isBusType == "") return true;
+    if (isBus == "") return true;
+>>>>>>> 15e96d449414318efe7145993b85106ac9030c33
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
     FormValidation();
     if (!FormValidation()) {
       const Data = {
+<<<<<<< HEAD
         // route: isRoute,
         // to: isTo,
         // to: isFrom,
 
+=======
+>>>>>>> 15e96d449414318efe7145993b85106ac9030c33
         busType: isBusType,
         bus: isBus,
       };
       props.updateBus(Data, bus.id);
       toast.info("You Have updated Successfully");
+<<<<<<< HEAD
+=======
+      location.reload()
+>>>>>>> 15e96d449414318efe7145993b85106ac9030c33
       props.setUpdateModal(false);
     } else {
       toast.error("Fill missing record");
@@ -65,6 +89,7 @@ function UpdateBus(props) {
           <form className="form" onSubmit={HandleSubmit}>
             <div className="row-card">
               <div className="col-md-10">
+<<<<<<< HEAD
                 <div className="form-group row-card2">
                   <label htmlFor="new bus">Routes:</label>
                   <div className="col-sm-10">
@@ -79,6 +104,21 @@ function UpdateBus(props) {
               
            
 
+=======
+              <div className="form-group row-card2">
+                  <label htmlFor="new bus">Route:</label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={route}
+                      onChange={(e) => setRoute(e.target.value)}
+
+                    ></input>
+                    <span className="error"></span>
+                  </div>
+                </div>
+>>>>>>> 15e96d449414318efe7145993b85106ac9030c33
                 <div className="form-group row-card2">
                   <label htmlFor="new bus">Bus:</label>
                   <div className="col-sm-10">
@@ -119,5 +159,9 @@ function UpdateBus(props) {
 }
 export default connect(null, {
   updateBus: updateBus,
+<<<<<<< HEAD
   getAllRoute: getAllRoute,
+=======
+  // getAllRoute: getAllRoute,
+>>>>>>> 15e96d449414318efe7145993b85106ac9030c33
 })(UpdateBus);
