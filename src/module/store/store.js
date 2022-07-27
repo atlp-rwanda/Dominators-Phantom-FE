@@ -11,6 +11,6 @@ const middleware = [thunk, createStateSyncMiddleware(config)];
 const store = createStore(
   allReducers,
   composeWithDevTools(compose(applyMiddleware(...middleware)))
-);
+); 
 initStateWithPrevTab(store);
 export default store;
