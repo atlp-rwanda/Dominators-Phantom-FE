@@ -57,30 +57,11 @@ const Sidebar = () => {
             </NavLink>
           </div>
         )}
-<<<<<<< HEAD
-        <NavLink to="/route">
-          <AiIcons.AiOutlineReload />
-          <span> Routes</span>
-        </NavLink>
-        {role === "operator" && (
-          <DropDown
-            setUseDropdown={setUseDropDown}
-            useDropDown={useDropDown}
-            name="Assigned Driver "
-            driver="driver"
-            icon={<GiSteeringWheel />}
-          >
-            <AssignDriver />
-          </DropDown>
-        )}
-        <Link to="#">
-=======
         <NavLink to="/crud-route">
           <AiIcons.AiOutlineReload />
           <span> Routes </span>
         </NavLink>
         <NavLink to="/crud-buses">
->>>>>>> CRUD for routes (#31)
           <IoIcons.IoMdBus />
           <span> Buses </span>
         </NavLink>
