@@ -15,7 +15,12 @@ import UnAssigned from "./pages/AssignDriver/UnAssigned";
 import Dashboard from "./pages/dashboard";
 import Notification from "./pages/notification/";
 import LogoutFunction from "./components/Logout/LogoutFunction";
+<<<<<<< Updated upstream
 
+=======
+import Simulation from "./pages/simulation";
+import UserSimulation from "./components/simulate-bus-motion/UserSimulation";
+>>>>>>> Stashed changes
 function App() {
   return (
     <Routes>
@@ -34,6 +39,11 @@ function App() {
       <Route path="/notification" element={<Notification />} />
       <Route path="/logout" element={<LogoutFunction />} />
       <Route path="/*" element={<PageNotFound />} />
+<<<<<<< Updated upstream
+=======
+      <Route path="/tracking" element={<UserSimulation />} />
+      <Route path="/simulation" element={<Simulation />} />
+>>>>>>> Stashed changes
     </Routes>
   );
 }

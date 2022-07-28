@@ -1,0 +1,10 @@
+.bus-controller {
+  width: 100% !important;
+}
+.mapView {
+  position: absolute;
+  top: 2rem;
+  margin-top: 2rem;
+  margin-left: 10%;
+  width: 100%;
+}

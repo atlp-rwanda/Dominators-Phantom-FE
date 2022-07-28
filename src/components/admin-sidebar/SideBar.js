@@ -4,7 +4,7 @@ import "./sidebar.css";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import DropDown from "./DropDown";
-import {AssignDriver} from "./DropDownData"
+import { AssignDriver } from "./DropDownData";
 import { GiSteeringWheel } from "react-icons/gi";
 
 const Sidebar = () => {
@@ -53,13 +53,20 @@ const Sidebar = () => {
             <AssignDriver />
           </DropDown>
         )}
-        <Link to="#">
-          <IoIcons.IoMdBus />
-          <span> Buses </span>
-        </Link>
+        {role === "operator" && (
+          <Link to="#">
+            <IoIcons.IoMdBus />
+            <span> Buses </span>
+          </Link>
+        )}
         <NavLink to="/update-profile">
           <IoIcons.IoIosThunderstorm /> <span> Profile </span>
         </NavLink>
+        {role === "driver" && (
+          <NavLink to="/simulation">
+            <IoIcons.IoIosSpeedometer /> <span> Simulation </span>
+          </NavLink>
+        )}
       </nav>
     </div>
   );
