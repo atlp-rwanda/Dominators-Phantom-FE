@@ -1,8 +1,5 @@
 import { useRef, useContext, useState } from "react";
 import { ImCross } from "react-icons/im";
-import { connect } from "react-redux";
-import { postUser } from "../../../module/actions/userAction";
-import { toast } from "react-toastify";
 import RoleContext from "../../../store/role-context/role-context";
 import classes from "./EditRole.module.css";
 import Input from "../../UI/Input/Input";

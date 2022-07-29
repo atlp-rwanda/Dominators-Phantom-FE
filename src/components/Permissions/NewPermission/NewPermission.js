@@ -26,10 +26,6 @@ const NewPermission = (props) => {
       return setRoleIsValid(false);
     }
 
-    // const existingRole = roles.some((role) => role.name === enteredRole);
-
-    // if (existingRole) return setDuplicate(true);
-
     permissionCtx.addPermission({
       name: enteredPermission,
       description: enteredPermissionDescInput,

@@ -43,7 +43,6 @@ function DriverOperator(props) {
     setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
   };
   let selectedUsers = [];
-  // console.log(selectedUsers);
   useEffect(() => {
     Object.entries(isChecked).map((values) => {
       if (values[1])

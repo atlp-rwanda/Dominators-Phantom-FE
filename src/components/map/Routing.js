@@ -29,16 +29,6 @@ const Routing = (props) => {
       var routes = e.routes;
       var summary = routes[0].summary;
       setIsDistance(summary.totalDistance / 1000);
-      console.log(routes);
-
-      // alert time and distance in km and minutes
-      //   alert(
-      //     "Total distance is " +
-      //       summary.totalDistance / 1000 +
-      //       " km and total time is " +
-      //       Math.round((summary.totalTime % 3600) / 60) +
-      //       " minutes"
-      //   );
     });
     return () => map.removeControl(routingControl);
   });

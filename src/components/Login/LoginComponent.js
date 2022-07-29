@@ -1,4 +1,4 @@
-import react, { useRef, useState, useEffect } from "react";
+import react, { useState, useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as EmailValidator from "email-validator";
@@ -12,7 +12,6 @@ import { backendUrl } from "../../utils/db";
 import LoginSkeleton from "../Login/LoginSkeleton";
 const LoginComponent = () => {
   const [skeleton, setSkeleton] = useState(false);
-  const [users, setUsers] = useState(null);
   const [loading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   const [email, setEmail] = useState("");
@@ -99,9 +98,10 @@ const LoginComponent = () => {
           errors.password = "Password is required";
         } else if (values.password.length < 8) {
           errors.password = "Password must be 8 characters long!";
-        } else if (!passwordRegex.test(values.password)) {
-          errors.password = "Password must contain atleast 1 number!";
         }
+        // else if (passwordRegex.test(values.password)) {
+        //   errors.password = "Password must contain atleast 1 number!";
+        // }
         return errors;
       }}
     >

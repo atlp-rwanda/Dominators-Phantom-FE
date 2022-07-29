@@ -85,10 +85,6 @@ const ResetPassword = () => {
             type={showPassword ? "password" : "text"}
             name="password"
             placeholder="Enter new password"
-            // value={password}
-            // onChange={(e) =>
-            //   setPassword((password) => password + e.target.value)
-            // }
           />
           <br />
           {showPassword ? (
@@ -109,14 +105,6 @@ const ResetPassword = () => {
             type={showPassword ? "password" : "text"}
             name="password"
             placeholder="Confirm your password"
-            // value={confirmPassword}
-            // onChange={(e) =>
-            //   setConfirmPasswordError(
-            //     (e) =>
-            //       e.target.value !=
-            //       password.current.ref.slice(0, e.target.value.length)
-            //   )
-            // }
           />
           {confirmPasswordError ? (
             <div className="input-feedback">passwords don't match</div>

@@ -4,7 +4,6 @@ import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/PageNotFound";
 import "react-toastify/dist/ReactToastify.css";
-import Landing from "./pages/Landing";
 import CrudRoute from "./pages/crud-routes/CrudRoute";
 import UserRoute from "./pages/user-route/UserRoutes";
 import DriverOperator from "./pages/crud-driver-operator/DriverOperator";
@@ -16,13 +15,13 @@ import UnAssigned from "./pages/AssignDriver/UnAssigned";
 import Dashboard from "./pages/dashboard";
 import Notification from "./pages/notification/";
 import LogoutFunction from "./components/Logout/LogoutFunction";
-
+import Simulation from "./pages/simulation";
+import UserSimulation from "./components/simulate-bus-motion/UserSimulation";
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} exact={true} />
       <Route path="/update-profile" element={<UpdateProfile />} />
-      <Route path="/home" element={<Landing />} />
       <Route path="/route" element={<CrudRoute itemsPerPage={2} />} />
       <Route path="/routes" element={<UserRoute />} />
       <Route path="/users" element={<DriverOperator />} />
@@ -36,6 +35,8 @@ function App() {
       <Route path="/notification" element={<Notification />} />
       <Route path="/logout" element={<LogoutFunction />} />
       <Route path="/*" element={<PageNotFound />} />
+      <Route path="/tracking" element={<UserSimulation />} />
+      <Route path="/simulation" element={<Simulation />} />
     </Routes>
   );
 }
