@@ -139,3 +139,7 @@
   border: 1px solid lightgray;
   border-radius: 0.25rem;
 }
+.leaflet-container {
+  width: 100vw;
+  height: 85vh;
+}

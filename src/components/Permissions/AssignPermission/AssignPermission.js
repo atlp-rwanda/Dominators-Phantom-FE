@@ -4,7 +4,7 @@ import RoleContext from "../../../store/role-context/role-context";
 import RoleDetailsContext from "../../../store/role-details-context/role-details-context";
 import PermissionContext from "../../../store/permission-context/permission-context";
 import classes from "./AssignPermission.module.css";
-
+import Select from "react-select";
 const AssignPermission = (props) => {
   const roleCtx = useContext(RoleContext);
   const roles = roleCtx.roles;
@@ -43,7 +43,14 @@ const AssignPermission = (props) => {
     roleDCtx.addPermission(data);
     props.hideAssignPermissionHandler();
   };
-
+  const options = filteredPermissions?.map((value) => ({
+    value: value.permission_id,
+    label: value.name,
+  }));
+  const handleChangePermission = (selectedOptionPermission) => {
+    setIsPermission(selectedOptionPermission);
+  };
+  console.log(isPermission);
   return (
     <>
       <div className={classes["main-add"]}>
@@ -52,15 +59,25 @@ const AssignPermission = (props) => {
           onClick={props.hideAssignPermissionHandler}
         />
         <div className={classes.card}>
-          <form onSubmit={(e) => HandleSubmit(e, isPermission)}>
+          <form onSubmit={(e) => HandleSubmit(e, isPermission.value)}>
             <h3 className="create-title">Add Permission</h3>
             <div>
-              <select
-                className={classes["select-driver"]}
-                id="permission"
-                name="permission"
+              <Select
+                options={options}
                 value={isPermission}
-                onChange={(e) => setIsPermission(e.target.value)}
+                className={classes["select-driver"]}
+                onChange={handleChangePermission}
+                id="permission"
+                isSearchable={true}
+                isClearable={true}
+                blurInputOnSelect={true}
+              />
+              {/* <select
+                className={classes["select-driver"]}
+                
+                name="permission"
+                // value={isPermission}
+                // onChange={(e) => setIsPermission(e.target.value)}
               >
                 <option name="" value="">
                   {filteredPermissions.length == 0
@@ -75,7 +92,7 @@ const AssignPermission = (props) => {
                     {permission.name}
                   </option>
                 ))}
-              </select>
+              </select> */}
               <div>
                 <button className={classes["btn-save"]} type="submit">
                   Save

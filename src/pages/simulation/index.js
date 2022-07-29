@@ -12,6 +12,7 @@ import SimulationController from "./simulationController";
 import "./style.css";
 import { IoIosSpeedometer } from "react-icons/io";
 import UseMap from "./Map";
+import { BusState } from "./BusState";
 const busIcon = L.icon({
   iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
   shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png",
@@ -19,7 +20,8 @@ const busIcon = L.icon({
   popupAnchor: [2, -20],
 });
 
-function Simulation(props) {
+function Simulation() {
+  const props = BusState();
   return (
     <>
       <Header />
@@ -27,10 +29,10 @@ function Simulation(props) {
       <div className="main">
         <BreadCrumb icon={<IoIosSpeedometer />} title="LIST OF ROUTE" />
         <div className="content">
-          <SimulationController />
+          <SimulationController props={{ ...props }} />
           <div>
             <div className="mapView">
-              <UseMap />
+              <UseMap props={{ ...props }} />
             </div>
           </div>
         </div>

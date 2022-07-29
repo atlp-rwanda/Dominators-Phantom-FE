@@ -224,6 +224,7 @@
 .mapView {
   text-align: center;
   height: 450px;
+  position: relative !important;
 }
 
 .ly {

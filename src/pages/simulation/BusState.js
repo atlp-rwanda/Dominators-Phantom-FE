@@ -7,17 +7,16 @@ export const BusState = () => {
   const [summary, setSummary] = useState();
   const [isSpeed, setIsSpeed] = useState(false);
   const [isSlowing, setIsSlowing] = useState(false);
-  const [speed, setSpeed] = useState(200);
+  const [speed, setSpeed] = useState(1000);
   const [pause, setPause] = useState(false);
   const [resume, setResume] = useState(false);
   const [passengers, setPassengers] = useState(0);
   const [currentCoords, setCurrentCoords] = useState(0);
   const [currentPosition, setCurrentPosition] = useState(0);
   const [freeSeats, setFreeSeats] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState({});
   // const [origin, setOrigin] = useState({lat: -1.978106, lng: 30.044125});
   // const [destination, setDestination] = useState({lat: -1.939662908, lng: 30.055666});
-
-  
   return {
     currentPosition,
     currentCoords,
@@ -38,6 +37,8 @@ export const BusState = () => {
     setFreeSeats,
     setIsSlowing,
     setIsSpeed,
+    setCurrentTrack,
+    currentTrack,
     // setOrigin,
     setPassengers,
     setPause,
@@ -49,5 +50,5 @@ export const BusState = () => {
     speed,
     start,
     summary,
-  }
-}
+  };
+};

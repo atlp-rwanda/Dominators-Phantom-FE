@@ -98,9 +98,10 @@ const LoginComponent = () => {
           errors.password = "Password is required";
         } else if (values.password.length < 8) {
           errors.password = "Password must be 8 characters long!";
-        } else if (!passwordRegex.test(values.password)) {
-          errors.password = "Password must contain atleast 1 number!";
         }
+        // else if (passwordRegex.test(values.password)) {
+        //   errors.password = "Password must contain atleast 1 number!";
+        // }
         return errors;
       }}
     >
